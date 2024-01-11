@@ -1,10 +1,9 @@
 /*global*/
 
 :root {
-
     /*App Colors*/
-    --color-primary:var(--color-block);
-    --color-primary-variant:var(--color-accent-gray);
+    --color-primary:var(--color-black);
+    --color-primary-variant:var(--color-gray);
     --color-accent:var(--color-blue);
     --color-accent-variant:var(--color-orange);
     --color-text:var(--color-white);
@@ -24,6 +23,7 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
+    margin: 0;
 }
 
 h1,h2,h3,p,ul {
@@ -48,4 +48,49 @@ button {
 
 button:focus {
     outline: 1px solid var(--color-accent);
+}
+
+/* header */
+.header {
+    background-color: var(--color-primary);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header__logo__img {
+    width: 40px;
+    height: 40px;
+}
+
+.header__logo__title {
+    font-size: 1.2rem;
+}
+
+.header__menu {
+    display: flex;
+    gap: 4px;
+}
+
+.header__menu__item {
+    padding: 8px 16px;
+}
+
+.header__menu__item:hover {
+    border-bottom: 1px solid var(--color-accent);
+}
+
+.header__menu__item.active {
+    border: 1px solid var(--color-accent);
+    border-radius: 5px;
 }
