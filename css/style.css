@@ -94,3 +94,51 @@ button:focus {
     border: 1px solid var(--color-accent);
     border-radius: 5px;
 }
+
+/* home */
+
+#home {
+    background-color: var(--color-primary);
+    color:var(--color-text);
+    padding: 5rem 1rem;
+    padding-top: 7rem;
+    text-align: center;
+}
+
+.home__avatar {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;  /*찌그러진 이미지 원래 비율로 유지*/
+    border: 3px solid var(--color-accent);
+    border-radius: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.home__title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.home__title--strong {
+    color: var(--color-accent);
+}
+
+.home_description {
+    font-size: 1.3rem;
+}
+
+.home_contact {
+    display: inline-block;
+    background-color: var(--color-accent);
+    margin: 2rem;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    color: var(--color-black);
+    border-radius: 5px;
+}
+
+.home_contact:hover {
+    background-color: transparent;
+    color: var(--color-text);
+    outline: 2px solid var(--color-accent);
+}
