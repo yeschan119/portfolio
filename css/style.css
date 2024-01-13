@@ -119,7 +119,6 @@ button:focus {
 }
 
 /* home */
-
 #home {
     background-color: var(--color-primary);
     color:var(--color-text);
@@ -222,7 +221,6 @@ button:focus {
 }
 
 /* skills */
-
 #skills {
     background-color: var(--color-primary-variant);
     color: var(--color-text);
@@ -249,7 +247,7 @@ button:focus {
 }
 
 .skills__tools {
-    padding: 1rem;
+    padding: 2rem;
 }
 
 .skills__etc {
@@ -282,7 +280,6 @@ button:focus {
 }
 
 /* work */
-
 #work {
     background-color: var(--color-primary);
     color: var(--color-text);
@@ -383,7 +380,6 @@ button:focus {
 }
 
 /* study */
-
 .study__category {
     color: var(--color-black);
     position: relative;
@@ -393,4 +389,45 @@ button:focus {
     border: 1px solid var(--color-accent);
     cursor: pointer;
     white-space: nowrap;  /*화면을 줄이면 줄바꿈이 일어나지 않도록..*/
+}
+
+/* footer */
+#contact {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+}
+
+.contact__links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+    font-size: 2rem;
+}
+
+.contact__link {
+    transition: all 250ms ease-in;
+}
+
+.contact__link:hover {
+    color: var(--color-accent);
+}
+
+.contact__description {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+/* arrow up */
+.arrow-up {
+    background-color: var(--color-primary);
+    position: fixed;
+    bottom: 3rem;
+    right: 2.7rem;
+    font-size: 2.5rem;
+    width: 3.7rem;
+    height: 3.7rem;
+    border-radius: 100%;
+    text-align: center;
+    box-shadow: 5px 5px 0px 0px var(--color-accent);
 }
