@@ -389,6 +389,7 @@ button:focus {
     border: 1px solid var(--color-accent);
     cursor: pointer;
     white-space: nowrap;  /*화면을 줄이면 줄바꿈이 일어나지 않도록..*/
+    filter: brightness(90%);
 }
 
 /* footer */
@@ -430,4 +431,86 @@ button:focus {
     border-radius: 100%;
     text-align: center;
     box-shadow: 5px 5px 0px 0px var(--color-accent);
+}
+
+/* responsive styling */
+@media screen and (max-width: 768px){
+    body {
+        .section {
+            padding: 3rem 2rem;
+        }
+        .title {
+            font-size: 2rem;
+        }
+
+        .description {
+            font-size: 1rem;
+        }
+
+        .header {
+            flex-direction: column;
+            align-items: start;
+        }
+
+        .header__menu {
+            flex-direction: column;
+            text-align: center;
+            padding: 1rem 4rem;
+            gap: 1rem;
+        }
+
+        .header_nav {
+            width: 100%;
+        }
+
+        #home {
+            padding-bottom: 3rem;
+        }
+
+        .home__title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .about__majors {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .major {
+            max-width: 25rem;
+        }
+
+        .job {
+            justify-content: center;
+        }
+
+        .skills__container {
+            grid-template-columns: 1fr;
+        }
+
+        .categories {
+            flex-direction: column;
+        }
+
+        .work__category {
+            width: 100%;
+        }
+
+        .study__category {
+            width: 100%;
+        }
+
+        .projects {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .arrow-up {
+            font-size: 1.8rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            bottom: 1.5rem;
+            right: 1.5rem;
+        }
+    }
 }
