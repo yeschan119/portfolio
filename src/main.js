@@ -28,3 +28,17 @@ document.addEventListener('scroll', () => {
         arrowUp.style.opacity = 1;
     }
 })
+
+// navbar toggle 버튼 클릭 처리
+const navbarMenu = document.querySelector('.header__menu');
+const navbarToggle = document.querySelector('.header__toggle');
+
+navbarToggle.addEventListener('click', ()=> {
+    navbarMenu.classList.toggle('open__menu');
+})
+
+// navbar menu click시 메뉴 자동 close
+
+navbarMenu.addEventListener('click', ()=> {
+    navbarMenu.classList.remove('open__menu');
+})

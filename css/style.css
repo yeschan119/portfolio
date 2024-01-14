@@ -112,7 +112,18 @@ button:focus {
 }
 
 .header__menu__item {
+    display: block;
     padding: 8px 16px;
+    border-bottom: 1px solid transparent;
+}
+
+.header__toggle {
+    display: none;
+    color: var(--color-white);
+    font-size: 1.5rem;
+    position: absolute;
+    top: 1.2rem;
+    right: 1rem;
 }
 
 .header__menu__item:hover {
@@ -450,7 +461,7 @@ button:focus {
 @media screen and (max-width: 768px){
     body {
         .section {
-            padding: 3rem 2rem;
+            padding: 4rem 2rem;
         }
         .title {
             font-size: 2rem;
@@ -463,13 +474,23 @@ button:focus {
         .header {
             flex-direction: column;
             align-items: start;
+            background-color: var(--color-primary);
         }
 
         .header__menu {
+            display: none;
             flex-direction: column;
             text-align: center;
             padding: 1rem 4rem;
             gap: 1rem;
+        }
+
+        .header__menu.open__menu {
+            display: flex;
+        }
+
+        .header__toggle {
+            display: block;
         }
 
         .header_nav {
