@@ -41,11 +41,11 @@ function filter_selected_project (filter, projects, categories) {
     }
 
     projects.forEach((project) => {
-    if (filter === 'all' || filter === project.dataset.type) {
-        project.style.display = 'block';
-    }
-    else {
-        project.style.display = 'none';
-    }
-});
+        if (filter === 'all' || filter === project.dataset.type) {
+            project.style.display = 'block';
+        }
+        else {
+            project.style.display = 'none';
+        }
+    });
 }
