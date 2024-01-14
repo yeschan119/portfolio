@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <!--internet explore browser option X-UA : IE9 주소바에 호환성 버튼 안보이게, IE=edge Edge 렌더링 엔진 사용-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <!--사용자의 device(viewport) 크기에 맞게 컨텐츠 표기-->
+        <meta name="viewport" content="width=device-width", initial-scale="1.0"/>
+        <!--SEO-->
+        <title>Eungchan&#39;s Portfolio</title>
+        <meta name="description" content="Portfolio for full-stack developer Eungchan from Korea"/>
+        <meta name="author" content="Eungchan(Kane)" />
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+        <!-- OG (Open Graph Data) -->
+        <meta property="og:title" content="응찬의 포트폴리오"/>
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="empty url" />
+        <meta property="og:image" content="empty url" />
+
+        <!-- font Awesome -->
+        <script src="https://kit.fontawesome.com/7afe644fe9.js" crossorigin="anonymous"></script>
+        
+        <!-- css -->
+        <link rel="stylesheet" href="css/style.css">
+        <!-- javascript -->
+        <!-- defer는 html parsing 후에 script파일을 읽게 하여 성능 보장 -->
+        <script src="src/main.js" defer></script>
+    </head>
+    <body>
+        <!-- header -->
+        <header class="header">
+            <div class="header__logo">
+                <img class="header__logo__img" src="images/favicon.ico" alt="logo">
+                <h1 class="header__logo__title"><a href="#">Eungchan</a></h1>
+            </div>
+            <nav class="header_nav">
+                <ul class="header__menu">
+                    <li><a class="header__menu__item active" href="#home">Home</a></li>
+                    <li><a class="header__menu__item" href="#about">About</a></li>
+                    <li><a class="header__menu__item" href="#skills">Skills</a></li>
+                    <li><a class="header__menu__item" href="#work">My Work</a></li>
+                    <li><a class="header__menu__item" href="#study">Education</a></li>
+                    <li><a class="header__menu__item" href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- main -->
+        <main>
+            <!-- home -->
+            <section id="home">
+                <div class="home__container">
+                    <img class="home__avatar" src="images/profile.png" alt="Eungchan's Portfolio" width="200" height="200">
+                    <h2 class="home__title">Hello <br />I&#39;m 
+                        <strong class="home__title--strong">Eungchan</strong></h2>
+                    <p class="home_description">full-stack developer, from Korea, currently living in Seoul, South Korea.</p>
+                    <a class="home_contact" href="#contact">Contact Me</a>
+                </div>
+            </section>
+            <!-- about -->
+            <section id="about" class="section max-container">
+                <h2 class="title">About Me</h2>
+                <p class="description">
+                    Developer with experiences in Data modeling, SQL Tuning, and Back-end development.
+                    <br />
+                    <p>Research and development as an AI vision researcher &
+                        <br />
+                        Research and development as a backend development and RDBMS researcher &
+                        <br />
+                        Developing Business Mail Management System, RPA System as an intern.
+                    </p>
+                </p>
+                <ul class="about__majors">
+                    <li class="major">
+                        <i class="fa-brands fa-html5 major__icon"></i>
+                        <p class="major__title">Front-end</p>
+                        <p>HTML, CSS, javascript, Typescript</p>
+                    </li>
+                    <li class="major">
+                        <i class="fa-solid fa-server major__icon"></i>
+                        <p class="major__title">Back-end</p>
+                        <p>C, C++, C#, Python, Dart</p>
+                    </li>
+                    <li class="major">
+                        <i class="fa-solid fa-database major__icon"></i>
+                        <p class="major__title">Database</p>
+                        <p>Oracle, Mysql, Tibero</p>
+                    </li>
+                </ul>
+                <ul class="jobs">
+                    <li class="job"><img src="images/jobs/daewoong.png" alt="daewoong logo" width="100" height="50">
+                        <div>
+                            <p class="job__name">Daewoong as Software Developer</p>
+                            <p class="job__period">2021 June - 2021 Aug</p>
+                        </div>
+                    </li>
+                    <li class="job"><img src="images/jobs/testworks.png" alt="testworks logo" width="100" height="40">
+                        <div>
+                            <p class="job__name">Testworks as AI Researcher</p>
+                            <p class="job__period">2021 Aug - 2021 Dec</p>
+                        </div>
+                    </li>
+                    <li class="job"><img src="images/jobs/tmax.png" alt="tmax logo" width="100" height="55">
+                        <div>
+                            <p class="job__name">TmaxGroup as DB Researcher</p>
+                            <p class="job__period">2022 Jan - 2024 Feb</p>
+                        </div>
+                    </li>
+                    <li class="job"><img src="images/jobs/kokomo.png" alt="tmax logo" width="100" height="35">
+                        <div>
+                            <p class="job__name">kokomo247 as Full-stack developer</p>
+                            <p class="job__period">2024 Feb - Until now</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            <!-- skills -->
+            <section id="skills" class="section">
+                <div class="max-container">
+                    <h2 class="title">My Skills</h2>
+                        <p class="description">Skills & Attribute</p>
+                            <p>
+                                languages for Front-end, Back-end, Data-modeling, Database etc skills
+                            </p> 
+                    <div class="skills__container">
+                        <section class="skills__coding">
+                            <h3 class="skills__title">Coding Skills</h3>
+                            <ul>
+                                <li class="bar">
+                                    <div class="bar__metadata">
+                                        <span>HTML/CSS</span>
+                                        <span>70%</span>
+                                    </div>
+                                    <div class="bar__bg">
+                                        <div class="bar__value" style="width: 70%"></div>
+                                    </div>
+                                </li>
+                                <li class="bar">
+                                    <div class="bar__metadata">
+                                        <span>Javascript</span>
+                                        <span>80%</span>
+                                    </div>
+                                    <div class="bar__bg">
+                                        <div class="bar__value" style="width: 80%"></div>
+                                    </div>
+                                </li>
+                                <li class="bar">
+                                    <div class="bar__metadata">
+                                        <span>C/C++</span>
+                                        <span>90%</span>
+                                    </div>
+                                    <div class="bar__bg">
+                                        <div class="bar__value" style="width: 90%"></div>
+                                    </div>
+                                </li>
+                                <li class="bar">
+                                    <div class="bar__metadata">
+                                        <span>C#</span>
+                                        <span>85%</span>
+                                    </div>
+                                    <div class="bar__bg">
+                                        <div class="bar__value" style="width: 85%"></div>
+                                    </div>
+                                </li>
+                                <li class="bar">
+                                    <div class="bar__metadata">
+                                        <span>Python</span>
+                                        <span>90%</span>
+                                    </div>
+                                    <div class="bar__bg">
+                                        <div class="bar__value" style="width: 90%"></div>
+                                    </div>
+                                </li>
+                                <li class="bar">
+                                    <div class="bar__metadata">
+                                        <span>SQL</span>
+                                        <span>95%</span>
+                                    </div>
+                                    <div class="bar__bg">
+                                        <div class="bar__value" style="width: 95%"></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </section>
+                        <section class="skills__tools">
+                            <h3 class="skills__title">Framework & Platform</h3>
+                            <ul class="skills__content">
+                                <li>Git</li>
+                                <li>Docker</li>
+                                <li>AWS</li>
+                                <li>Flutter</li>
+                            </ul>
+                        </section>
+                        <section class="skills__etc">
+                            <h3 class="skills__title">Et cetera</h3>
+                            <ul class="skills__content">
+                                <li>Vim</li>
+                                <li>Linux</li>
+                                <li>Sharepoint</li>
+                                <li>Powerapps</li>
+                            </ul>
+                            
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <!-- work -->
+            <section id="work" class="section">
+                <div class="max-container">
+                    <h2 class="title">My Work</h2>
+                    <p class="description">Projects</p>
+                    <ul class="categories">
+                        <li><button class="work__category category--selected">All <span class="category__count">8</span></button></li>
+                        <li><button class="work__category">Front-end <span class="category__count">2</span></button></li>
+                        <li><button class="work__category">Back-end <span class="category__count">3</span></button></li>
+                        <li><button class="work__category">Database <span class="category__count">3</span></button></li>
+                    </ul>
+                    <!-- projects -->
+                    <ul class="projects">
+                        <li class="project"><a href="https://github.com/yeschan119/Edge-AI-with-YOLO" target="_blank">
+                            <img src="images/projects/project1.webp" alt="project1" class="project__img">
+                            <div class="project__metadata">
+                                <h3 class="project__metadata__title">Project #1</h3>
+                                <p>Project #1 explain</p>
+                            </div>
+                        </a></li>
+                        <li class="project"><a href="https://github.com/yeschan119/SNU-data-voucher" target="_blank">
+                            <img src="images/projects/project2.webp" alt="project2" class="project__img">
+                            <div class="project__metadata">
+                                <h3 class="project__metadata__title">Project #2</h3>
+                                <p>Project #2 explain</p>
+                            </div>
+                        </a></li>
+                        <li class="project"><a href="https://github.com/yeschan119/literature_search_tool" target="_blank">
+                            <img src="images/projects/project3.webp" alt="project3" class="project__img">
+                            <div class="project__metadata">
+                                <h3 class="project__metadata__title">Project #3</h3>
+                                <p>Project #3 explain</p>
+                            </div>
+                        </a></li>
+                        <li class="project"><a href="https://github.com/yeschan119/primitive_data_tool" target="_blank">
+                            <img src="images/projects/project4.webp" alt="project4" class="project__img">
+                            <div class="project__metadata">
+                                <h3 class="project__metadata__title">Project #4</h3>
+                                <p>Project #4 explain</p>
+                            </div>
+                        </a></li>
+                        <li class="project"><a href="https://github.com/yeschan119/SQL_Tuning_Advisor" target="_blank">
+                            <img src="images/projects/project5.webp" alt="project5" class="project__img">
+                            <div class="project__metadata">
+                                <h3 class="project__metadata__title">Project #5</h3>
+                                <p>Project #5 explain</p>
+                            </div>
+                        </a></li>
+                        <li class="project"><a href="#" target="_blank">
+                                <img src="images/projects/project6.webp" alt="project6" class="project__img">
+                                <div class="project__metadata">
+                                    <h3 class="project__metadata__title">Project #6</h3>
+                                    <p>Project #6 explain</p>
+                                </div>
+                        </a></li>
+                        <li class="project"><a href="#" target="_blank">
+                            <img src="images/projects/project7.webp" alt="project7" class="project__img">
+                            <div class="project__metadata">
+                                <h3 class="project__metadata__title">Project #7</h3>
+                                <p>Project #7 explain</p>
+                            </div>
+                        </a></li>
+                        <li class="project"><a href="#" target="_blank">
+                            <img src="images/projects/project8.webp" alt="project8" class="project__img">
+                            <div class="project__metadata">
+                                <h3 class="project__metadata__title">Project #8</h3>
+                                <p>Project #8 explain</p>
+                            </div>
+                        </a></li> 
+                    </ul>
+                </div>
+            </section>
+            <!-- study -->
+            <section id="study" class="section">
+                <div class="max-container">
+                    <h2 class="title">My Study</h2>
+                    <p class="description">Mini Projects</p>
+                    <ul class="categories">
+                        <li><button class="study__category category--selected">All <span class="category__count">8</span></button></li>
+                        <li><button class="study__category">Front-end <span class="category__count">2</span></button></li>
+                        <li><button class="study__category">Back-end <span class="category__count">3</span></button></li>
+                        <li><button class="study__category">Database <span class="category__count">3</span></button></li>
+                    </ul>
+                    <!-- mini projects -->
+                    <ul class="projects">
+                        <li class="project"><a href="https://github.com/yeschan119/Database_Build_Project/blob/main/README.md" target="_blank">
+                            <img src="images/projects/project1.webp" alt="project1" class="project__img">
+                            <div class="project__metadata">
+                                <h3 class="project__metadata__title">Project #1</h3>
+                                <p>DB engine design project</p>
+                            </div>
+                        </a></li>
+                        <li class="project"><a href="https://github.com/yeschan119/Associative-Classification-Project" target="_blank">
+                            <img src="images/projects/project2.webp" alt="project2" class="project__img">
+                            <div class="project__metadata">
+                                <h3 class="project__metadata__title">Project #2</h3>
+                                <p>빅데이터 분석을 통한 기업신용평가 프로젝트</p>
+                            </div>
+                        </a></li>
+                        <li class="project"><a href="https://github.com/yeschan119/Banking-System-Build" target="_blank">
+                            <img src="images/projects/project3.webp" alt="project3" class="project__img">
+                            <div class="project__metadata">
+                                <h3 class="project__metadata__title">Project #3</h3>
+                                <p>은행 DB설계 및 구현</p>
+                            </div>
+                        </a></li>
+                        <li class="project"><a href="https://github.com/yeschan119/webtoon_app" target="_blank">
+                            <img src="images/projects/project7.webp" alt="project7" class="project__img">
+                            <div class="project__metadata">
+                                <h3 class="project__metadata__title">Project #7</h3>
+                                <p>Webtoon App Project</p>
+                            </div>
+                        </a></li>
+                        <li class="project"><a href="https://www.notion.so/data-modeling-project-lists-b2e323b04a904ca790669501373bb98e" target="_blank">
+                            <img src="images/projects/project5.webp" alt="project5" class="project__img">
+                            <div class="project__metadata">
+                                <h3 class="project__metadata__title">Project #5</h3>
+                                <p>data modeling project lists</p>
+                            </div>
+                        </a></li>
+                        <li class="project"><a href="https://www.notion.so/mini-projects-15c937bc359a40339c86e0b9eddf169a" target="_blank">
+                            <img src="images/projects/project4.webp" alt="project4" class="project__img">
+                            <div class="project__metadata">
+                                <h3 class="project__metadata__title">Project #4</h3>
+                                <p>기타 mini projects 모음</p>
+                            </div>
+                        </a></li>
+                        <li class="project"><a href="https://www.notion.so/Next-Kernel-Inc-2021-04-2021-06-bb0ea427bab142e8a19cadc918d0be5f" target="_blank">
+                                <img src="images/projects/project6.webp" alt="project6" class="project__img">
+                                <div class="project__metadata">
+                                    <h3 class="project__metadata__title">Project #6</h3>
+                                    <p>Sharepoint, Powerapps project</p>
+                                </div>
+                        </a></li>
+                        <li class="project"><a href="https://github.com/yeschan119/SKT-AI-Project" target="_blank">
+                            <img src="images/projects/project8.webp" alt="project8" class="project__img">
+                            <div class="project__metadata">
+                                <h3 class="project__metadata__title">Project #8</h3>
+                                <p>AI Speaker Project</p>
+                            </div>
+                        </a></li> 
+                    </ul>
+                </div>
+            </section>
+            <!-- arrow up -->
+            <aside>
+                <a class="arrow-up" href="#home" title="back to top">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </a>
+            </aside>
+        </main>
+        <!-- footer -->
+        <footer id="contact" class="section">
+            <div class="max-container">
+                <h2 class="title">Let&#39;s talk</h2>
+                <p class="contact__description">yeschan119@gmail.com</p>
+                <p class="contact__description">yeschan119@naver.com</p>
+                <ul class="contact__links">
+                    <li><a class="contact__link" href="https://github.com/yeschan119" target="_blank" title="my github link">
+                            <i class="fa-brands fa-github"></i></a></li>
+                    <li>
+                        <a class="contact__link" href="https://www.linkedin.com/in/eungchan-kang-6397a2213/" target="_blank" title="my linked in link">
+                            <i class="fa-brands fa-linkedin"></i></a> 
+                    </li>
+                </ul>
+                <p>©yeschan119 - All rights reserved</p>
+            </div>
+        </footer>
+    </body>
+</html>
