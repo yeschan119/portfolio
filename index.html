@@ -24,7 +24,9 @@
         <link rel="stylesheet" href="css/style.css">
         <!-- javascript -->
         <!-- defer는 html parsing 후에 script파일을 읽게 하여 성능 보장 -->
-        <script src="src/main.js" defer></script>
+        <!-- type=module로 하면 각 파일마다 생성되는 변수가 파일 범위를 벗어나지 못함 -->
+        <script type="module" src="src/main.js" defer></script>
+        <script type="module" src="src/projects.js" defer></script>
     </head>
     <body>
         <!-- header -->
@@ -211,64 +213,64 @@
                 <div class="max-container">
                     <h2 class="title">My Work</h2>
                     <p class="description">Projects</p>
-                    <ul class="categories">
-                        <li><button class="work__category category--selected">All <span class="category__count">8</span></button></li>
-                        <li><button class="work__category">Front-end <span class="category__count">2</span></button></li>
-                        <li><button class="work__category">Back-end <span class="category__count">3</span></button></li>
-                        <li><button class="work__category">Database <span class="category__count">3</span></button></li>
+                    <ul class="work__categories">
+                        <li><button class="work__category category--selected" data-category="all">All <span class="category__count">8</span></button></li>
+                        <li><button class="work__category" data-category="front-end">Front-end <span class="category__count">3</span></button></li>
+                        <li><button class="work__category" data-category="back-end">Back-end <span class="category__count">4</span></button></li>
+                        <li><button class="work__category" data-category="database">Database <span class="category__count">1</span></button></li>
                     </ul>
                     <!-- projects -->
                     <ul class="projects">
-                        <li class="project"><a href="https://github.com/yeschan119/Edge-AI-with-YOLO" target="_blank">
+                        <li class="work__project" data-type="back-end"><a href="https://github.com/yeschan119/Edge-AI-with-YOLO" target="_blank">
                             <img src="images/projects/project1.webp" alt="project1" class="project__img">
                             <div class="project__metadata">
                                 <h3 class="project__metadata__title">Project #1</h3>
                                 <p>Project #1 explain</p>
                             </div>
                         </a></li>
-                        <li class="project"><a href="https://github.com/yeschan119/SNU-data-voucher" target="_blank">
+                        <li class="work__project" data-type="back-end"><a href="https://github.com/yeschan119/SNU-data-voucher" target="_blank">
                             <img src="images/projects/project2.webp" alt="project2" class="project__img">
                             <div class="project__metadata">
                                 <h3 class="project__metadata__title">Project #2</h3>
                                 <p>Project #2 explain</p>
                             </div>
                         </a></li>
-                        <li class="project"><a href="https://github.com/yeschan119/literature_search_tool" target="_blank">
+                        <li class="work__project" data-type="back-end"><a href="https://github.com/yeschan119/literature_search_tool" target="_blank">
                             <img src="images/projects/project3.webp" alt="project3" class="project__img">
                             <div class="project__metadata">
                                 <h3 class="project__metadata__title">Project #3</h3>
                                 <p>Project #3 explain</p>
                             </div>
                         </a></li>
-                        <li class="project"><a href="https://github.com/yeschan119/primitive_data_tool" target="_blank">
+                        <li class="work__project" data-type="back-end"><a href="https://github.com/yeschan119/primitive_data_tool" target="_blank">
                             <img src="images/projects/project4.webp" alt="project4" class="project__img">
                             <div class="project__metadata">
                                 <h3 class="project__metadata__title">Project #4</h3>
                                 <p>Project #4 explain</p>
                             </div>
                         </a></li>
-                        <li class="project"><a href="https://github.com/yeschan119/SQL_Tuning_Advisor" target="_blank">
+                        <li class="work__project" data-type="database"><a href="https://github.com/yeschan119/SQL_Tuning_Advisor" target="_blank">
                             <img src="images/projects/project5.webp" alt="project5" class="project__img">
                             <div class="project__metadata">
                                 <h3 class="project__metadata__title">Project #5</h3>
                                 <p>Project #5 explain</p>
                             </div>
                         </a></li>
-                        <li class="project"><a href="#" target="_blank">
+                        <li class="work__project" data-type="front-end"><a href="#" target="_blank">
                                 <img src="images/projects/project6.webp" alt="project6" class="project__img">
                                 <div class="project__metadata">
                                     <h3 class="project__metadata__title">Project #6</h3>
                                     <p>Project #6 explain</p>
                                 </div>
                         </a></li>
-                        <li class="project"><a href="#" target="_blank">
+                        <li class="work__project" data-type="front-end"><a href="#" target="_blank">
                             <img src="images/projects/project7.webp" alt="project7" class="project__img">
                             <div class="project__metadata">
                                 <h3 class="project__metadata__title">Project #7</h3>
                                 <p>Project #7 explain</p>
                             </div>
                         </a></li>
-                        <li class="project"><a href="#" target="_blank">
+                        <li class="work__project" data-type="front-end"><a href="#" target="_blank">
                             <img src="images/projects/project8.webp" alt="project8" class="project__img">
                             <div class="project__metadata">
                                 <h3 class="project__metadata__title">Project #8</h3>
@@ -283,64 +285,64 @@
                 <div class="max-container">
                     <h2 class="title">My Study</h2>
                     <p class="description">Mini Projects</p>
-                    <ul class="categories">
-                        <li><button class="study__category category--selected">All <span class="category__count">8</span></button></li>
-                        <li><button class="study__category">Front-end <span class="category__count">2</span></button></li>
-                        <li><button class="study__category">Back-end <span class="category__count">3</span></button></li>
-                        <li><button class="study__category">Database <span class="category__count">3</span></button></li>
+                    <ul class="study__categories">
+                        <li><button class="study__category category--selected" data-category="all">All <span class="category__count">8</span></button></li>
+                        <li><button class="study__category" data-category="front-end">Front-end <span class="category__count">2</span></button></li>
+                        <li><button class="study__category" data-category="back-end">Back-end <span class="category__count">5</span></button></li>
+                        <li><button class="study__category" data-category="database">Database <span class="category__count">1</span></button></li>
                     </ul>
                     <!-- mini projects -->
                     <ul class="projects">
-                        <li class="project"><a href="https://github.com/yeschan119/Database_Build_Project/blob/main/README.md" target="_blank">
+                        <li class="study__project" data-type="database"><a href="https://github.com/yeschan119/Database_Build_Project/blob/main/README.md" target="_blank">
                             <img src="images/projects/project1.webp" alt="project1" class="project__img">
                             <div class="project__metadata">
                                 <h3 class="project__metadata__title">Project #1</h3>
                                 <p>DB engine design project</p>
                             </div>
                         </a></li>
-                        <li class="project"><a href="https://github.com/yeschan119/Associative-Classification-Project" target="_blank">
+                        <li class="study__project" data-type="back-end"><a href="https://github.com/yeschan119/Associative-Classification-Project" target="_blank">
                             <img src="images/projects/project2.webp" alt="project2" class="project__img">
                             <div class="project__metadata">
                                 <h3 class="project__metadata__title">Project #2</h3>
                                 <p>빅데이터 분석을 통한 기업신용평가 프로젝트</p>
                             </div>
                         </a></li>
-                        <li class="project"><a href="https://github.com/yeschan119/Banking-System-Build" target="_blank">
+                        <li class="study__project" data-type="back-end"><a href="https://github.com/yeschan119/Banking-System-Build" target="_blank">
                             <img src="images/projects/project3.webp" alt="project3" class="project__img">
                             <div class="project__metadata">
                                 <h3 class="project__metadata__title">Project #3</h3>
                                 <p>은행 DB설계 및 구현</p>
                             </div>
                         </a></li>
-                        <li class="project"><a href="https://github.com/yeschan119/webtoon_app" target="_blank">
+                        <li class="study__project" data-type="front-end"><a href="https://github.com/yeschan119/webtoon_app" target="_blank">
                             <img src="images/projects/project7.webp" alt="project7" class="project__img">
                             <div class="project__metadata">
                                 <h3 class="project__metadata__title">Project #7</h3>
                                 <p>Webtoon App Project</p>
                             </div>
                         </a></li>
-                        <li class="project"><a href="https://www.notion.so/data-modeling-project-lists-b2e323b04a904ca790669501373bb98e" target="_blank">
+                        <li class="study__project" data-type="back-end"><a href="https://www.notion.so/data-modeling-project-lists-b2e323b04a904ca790669501373bb98e" target="_blank">
                             <img src="images/projects/project5.webp" alt="project5" class="project__img">
                             <div class="project__metadata">
                                 <h3 class="project__metadata__title">Project #5</h3>
                                 <p>data modeling project lists</p>
                             </div>
                         </a></li>
-                        <li class="project"><a href="https://www.notion.so/mini-projects-15c937bc359a40339c86e0b9eddf169a" target="_blank">
+                        <li class="study__project" data-type="back-end"><a href="https://www.notion.so/mini-projects-15c937bc359a40339c86e0b9eddf169a" target="_blank">
                             <img src="images/projects/project4.webp" alt="project4" class="project__img">
                             <div class="project__metadata">
                                 <h3 class="project__metadata__title">Project #4</h3>
                                 <p>기타 mini projects 모음</p>
                             </div>
                         </a></li>
-                        <li class="project"><a href="https://www.notion.so/Next-Kernel-Inc-2021-04-2021-06-bb0ea427bab142e8a19cadc918d0be5f" target="_blank">
+                        <li class="study__project" data-type="front-end"><a href="https://www.notion.so/Next-Kernel-Inc-2021-04-2021-06-bb0ea427bab142e8a19cadc918d0be5f" target="_blank">
                                 <img src="images/projects/project6.webp" alt="project6" class="project__img">
                                 <div class="project__metadata">
                                     <h3 class="project__metadata__title">Project #6</h3>
                                     <p>Sharepoint, Powerapps project</p>
                                 </div>
                         </a></li>
-                        <li class="project"><a href="https://github.com/yeschan119/SKT-AI-Project" target="_blank">
+                        <li class="study__project" data-type="back-end"><a href="https://github.com/yeschan119/SKT-AI-Project" target="_blank">
                             <img src="images/projects/project8.webp" alt="project8" class="project__img">
                             <div class="project__metadata">
                                 <h3 class="project__metadata__title">Project #8</h3>

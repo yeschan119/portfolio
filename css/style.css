@@ -114,7 +114,7 @@ button:focus {
 .header__menu__item {
     display: block;
     padding: 8px 16px;
-    border-bottom: 1px solid transparent;
+    border-bottom: 1px solid transparent);
 }
 
 .header__toggle {
@@ -308,7 +308,7 @@ button:focus {
     color: var(--color-text);
 }
 
-.categories {
+.work__categories {
     display: flex;
     justify-content: center;
     margin: 2.5rem;
@@ -357,13 +357,20 @@ button:focus {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 1rem;
+    transition: all 250ms ease-out;
 }
 
-.project {
+.projects.animation-out {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+}
+
+.work__project {
     position: relative;
     border-radius: 8%;
     overflow: hidden;
 }
+
 .project__img {
     width: 100%;
 }
@@ -413,6 +420,19 @@ button:focus {
     cursor: pointer;
     white-space: nowrap;  /*화면을 줄이면 줄바꿈이 일어나지 않도록..*/
     filter: brightness(90%);
+}
+
+.study__categories {
+    display: flex;
+    justify-content: center;
+    margin: 2.5rem;
+    gap: 1rem;
+}
+
+.study__project {
+    position: relative;
+    border-radius: 8%;
+    overflow: hidden;
 }
 
 /* footer */
@@ -523,7 +543,11 @@ button:focus {
             grid-template-columns: 1fr;
         }
 
-        .categories {
+        .work__categories {
+            flex-direction: column;
+        }
+
+        .study__categories {
             flex-direction: column;
         }
 

@@ -1,4 +1,5 @@
-//comments
+'use strict';
+
 //투명상태에 있던 header bar를 header heigtht만큼 아래로 내리면 보여주기
 const header = document.querySelector('.header');
 const headerHeight = header.getBoundingClientRect().height;
