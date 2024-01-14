@@ -74,7 +74,7 @@ button:focus {
 }
 /* header */
 .header {
-    background-color: var(--color-primary);
+    background-color: transparent;
     position: fixed;
     top: 0;
     width: 100%;
@@ -83,6 +83,12 @@ button:focus {
     justify-content: space-between;
     align-items: center;
     z-index: 1;  /*header가 가장 맨앞으로*/
+    transition: all 300ms ease;    
+}
+
+.header--dark {
+    background-color: var(--color-primary);
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .header__logo {
@@ -247,7 +253,13 @@ button:focus {
 }
 
 .skills__tools {
-    padding: 2rem;
+    padding: 1rem;
+}
+
+.skills__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .skills__etc {
