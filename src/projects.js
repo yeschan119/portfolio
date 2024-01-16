@@ -16,7 +16,6 @@ work__categories.addEventListener('click', (event)=>{
     filter_selected_project(filter, work__projects, work__categories);   
 });
 
-
 study__categories.addEventListener('click', (event)=>{
     const filter = event.target.dataset.category;
     if (filter == null) {
