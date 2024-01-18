@@ -163,11 +163,11 @@ button:focus {
     position: absolute;
     bottom: 0;
     left: 0;
+    width: calc(100% + 1.3px);
+    height: 60px;
     overflow: hidden;
     line-height: 0;
     transform: rotate(180deg);
-    width: calc(102% + 1.3px);
-    height: 55px;
     background-color: var(--color-white);
     mask: var(--divider-single-wave);
     -webkit-mask: var(--divider-single-wave);
@@ -184,11 +184,15 @@ button:focus {
 
 .home__title {
     font-size: 2rem;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
+    
 }
 
-.home__title--strong {
+.home__title--name {
+    display: inline-block;
     color: var(--color-accent);
+    font-size: 1.5rem;
+    margin: 0.7rem;
 }
 
 .home_description {
