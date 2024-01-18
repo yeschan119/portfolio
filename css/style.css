@@ -9,6 +9,9 @@
     --color-text:var(--color-white);
 
 
+    /* background */
+    --home-bg-gradient: linear-gradient(180deg, rgba(8,26,60,1) 0%, rgba(5,10,19,1) 100%);
+
     /*Colors*/
     --color-white: #ffffff;
     --color-black: #050a13;
@@ -18,6 +21,10 @@
 
     /* size */
     --size-max-width: 1200px;
+
+    /* Divider (svg tag data(wav styling))를 가리키는 url을 담은 변수*/
+    --divider-single-wave: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"> <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path> </svg>');
+    --divider-arrow: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"> <path d="M649.97 0L550.03 0 599.91 54.12 649.97 0z"></path> </svg>');
 }
 
 * {
@@ -141,11 +148,29 @@ button:focus {
 
 /* home */
 #home {
+    position: relative;
     background-color: var(--color-primary);
+    background: var(--home-bg-gradient);
     color:var(--color-text);
     padding: 5rem 1rem;
     padding-top: 7rem;
     text-align: center;
+}
+
+/* home wave */
+#home::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+    width: calc(102% + 1.3px);
+    height: 55px;
+    background-color: var(--color-white);
+    mask: var(--divider-single-wave);
+    -webkit-mask: var(--divider-single-wave);
 }
 
 .home__avatar {
@@ -402,7 +427,7 @@ button:focus {
 }
 
 /*가상의 요소를 만들어 꾸미기(실제 html에 존재하지 않는 요소 만들어서 꾸미기)*/
-.project__metadata__title:after {
+.project__metadata__title::after {
     content: '';
     display: block;
     position: relative;
@@ -443,8 +468,23 @@ button:focus {
 
 /* footer */
 #contact {
+    position: relative;
     background-color: var(--color-primary);
     color: var(--color-text);
+}
+
+#contact::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    line-height: 0;
+    width: calc(100% + 1.3px);
+    height: 63px;
+    background-color: var(--color-white);
+    mask: var(--divider-arrow);
+    -webkit-mask: var(--divider-arrow);
 }
 
 .contact__links {
