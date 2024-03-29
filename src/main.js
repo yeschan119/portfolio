@@ -43,3 +43,19 @@ navbarToggle.addEventListener('click', ()=> {
 navbarMenu.addEventListener('click', ()=> {
     navbarMenu.classList.remove('open__menu');
 })
+
+document.getElementById("gmailcopyButton").addEventListener("click", function() {
+    var copyText = document.getElementById("gmailToCopy");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    //alert("Copied the mail: " + copyText.value);
+})
+
+document.getElementById("navercopyButton").addEventListener("click", function() {
+    var copyText = document.getElementById("naverToCopy");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    //alert("Copied the mail: " + copyText.value);
+})

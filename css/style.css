@@ -498,9 +498,26 @@ button:focus {
 }
 
 .contact__description {
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin: 0.5rem 0;
 }
+
+.contact__description input {
+    border: none;
+    font-size: 15px;
+    outline: none;
+    text-align: center;
+    width: 170px;
+}
+
+.contact__description button{
+    border:none;
+    width:60px;
+    max-width: 100px;
+    vertical-align: bottom;
+};
+
+
 
 /* arrow up */
 .arrow-up {
