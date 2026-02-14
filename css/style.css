@@ -32,6 +32,50 @@
     box-sizing: border-box;
 }
 
+.about-intro {
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.about-line {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.highlight {
+    font-weight: 600;
+    position: relative;
+}
+
+.highlight::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 6px;
+    background-color: rgba(0, 123, 255, 0.2);
+    z-index: -1;
+}
+
+.home_description {
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+.highlight-strong {
+    font-weight: 700;
+    font-size: 1.6rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.highlight {
+    font-weight: 600;
+    color: #007bff;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -82,7 +126,7 @@ button:focus {
     margin: 1rem 0;
 }
 .description {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin: 0.5rem 0;
 }
 /* header */
