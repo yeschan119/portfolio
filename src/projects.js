@@ -1,50 +1,88 @@
 'use strict';
 
-// project filtering 관련 로직
-const work__categories = document.querySelector('.work__categories');
-const work__projects = document.querySelectorAll('.work__project');
+// =============================
+// DOM SELECTORS
+// =============================
+
+const workCategories = document.querySelector('.work__categories');
+const workProjects = document.querySelectorAll('.work__project');
 const projectsContainer = document.querySelector('.projects');
-const study__categories = document.querySelector('.study__categories');
-const study__projects = document.querySelectorAll('.study__project');
 
-work__categories.addEventListener('click', (event)=>{
-    const filter = event.target.dataset.category;
-    if (filter == null) {
-        return;
+const studyCategories = document.querySelector('.study__categories');
+const studyProjects = document.querySelectorAll('.study__project');
+
+// =============================
+// WORK FILTER
+// =============================
+
+if (workCategories) {
+    workCategories.addEventListener('click', (event) => {
+
+        const button = event.target.closest('.work__category');
+        if (!button) return;
+
+        const filter = button.dataset.category;
+        if (!filter) return;
+
+        moveCategorySelection(button, '.work__category.category--selected');
+        filterProjects(filter, workProjects, projectsContainer);
+    });
+}
+
+// =============================
+// STUDY FILTER
+// =============================
+
+if (studyCategories) {
+    studyCategories.addEventListener('click', (event) => {
+
+        const button = event.target.closest('.study__category');
+        if (!button) return;
+
+        const filter = button.dataset.category;
+        if (!filter) return;
+
+        moveCategorySelection(button, '.study__category.category--selected');
+        filterProjects(filter, studyProjects, null);
+    });
+}
+
+// =============================
+// MOVE ACTIVE BUTTON
+// =============================
+
+function moveCategorySelection(target, activeSelector) {
+    const active = document.querySelector(activeSelector);
+    if (active) {
+        active.classList.remove('category--selected');
     }
-    move_category_selection(event.target, '.work__category.category--selected');
-    filter_selected_project(filter, work__projects, work__categories);   
-});
-
-study__categories.addEventListener('click', (event)=>{
-    const filter = event.target.dataset.category;
-    if (filter == null) {
-        return;
-    }
-    move_category_selection(event.target, '.study__category.category--selected');
-    filter_selected_project(filter, study__projects, study__categories);
-});
-
-function move_category_selection(target, category) {
-    const active = document.querySelector(category);
-    active.classList.remove('category--selected');
     target.classList.add('category--selected');
 }
 
-function filter_selected_project (filter, projects, categories) {
-    if (categories.className === 'work__categories') {
-        projectsContainer.classList.add('animation-out');
-        setTimeout(()=> {
-            projectsContainer.classList.remove('animation-out');
+// =============================
+// FILTER LOGIC (멀티 태그 지원)
+// =============================
+
+function filterProjects(filter, projects, container) {
+
+    // Work 영역만 애니메이션 적용
+    if (container) {
+        container.classList.add('animation-out');
+        setTimeout(() => {
+            container.classList.remove('animation-out');
         }, 250);
     }
 
-    projects.forEach((project) => {
-        if (filter === 'all' || filter === project.dataset.type) {
+    projects.forEach(project => {
+
+        // data-type 예: "cloud analytics"
+        const types = project.dataset.type.split(' ');
+
+        if (filter === 'all' || types.includes(filter)) {
             project.style.display = 'block';
-        }
-        else {
+        } else {
             project.style.display = 'none';
         }
+
     });
 }
