@@ -1,61 +1,199 @@
-'use strict';
+/* =========================================================
+   DOM Ready Wrapper
+========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
 
-//투명상태에 있던 header bar를 header heigtht만큼 아래로 내리면 보여주기
-const header = document.querySelector('.header');
-const headerHeight = header.getBoundingClientRect().height;
-document.addEventListener('scroll', () => {
-    if (window.scrollY > headerHeight - 10) {
-        header.classList.add('header--dark');
-    }
-    else {
-        header.classList.remove('header--dark');
-    }
+/* =========================================================
+   Mobile Menu
+========================================================= */
+const mobileBtn = document.getElementById("mobileMenuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+
+mobileBtn?.addEventListener("click", () => {
+  mobileMenu.classList.toggle("hidden");
 });
 
-//스크롤을 아래로 내리면 home 부분이 점점 사라지기
-const home = document.querySelector('.home__container');
-const homeHeight = home.offsetHeight;
-document.addEventListener('scroll', () => {
-    home.style.opacity = 1 - window.scrollY / homeHeight;
-})
+mobileMenu?.querySelectorAll("a").forEach(a =>
+  a.addEventListener("click", () => mobileMenu.classList.add("hidden"))
+);
 
-//home에서는 home으로 올라가는 화살표가 보이지 않기
-const arrowUp = document.querySelector('.arrow-up');
-document.addEventListener('scroll', () => {
-    if (window.scrollY <= homeHeight/2) {
-        arrowUp.style.opacity = 0;
+
+/* =========================================================
+   Scroll Fade-in
+========================================================= */
+const fadeElements = document.querySelectorAll(".fade-in");
+
+const fadeObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
     }
-    else {
-        arrowUp.style.opacity = 1;
+  });
+}, { threshold: 0.15 });
+
+fadeElements.forEach(el => fadeObserver.observe(el));
+
+
+/* =========================================================
+   Counter Animation
+========================================================= */
+let countersRan = false;
+
+const heroSection = document.querySelector(".hero-bg");
+
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting || countersRan) return;
+
+    countersRan = true;
+
+    document.querySelectorAll(".counter").forEach(counter => {
+      const target = Number(counter.dataset.target || 0);
+      let current = 0;
+      const step = Math.max(1, Math.floor(target / 80));
+
+      const tick = () => {
+        current += step;
+        if (current >= target) {
+          counter.innerText = target;
+          return;
+        }
+        counter.innerText = current;
+        requestAnimationFrame(tick);
+      };
+
+      tick();
+    });
+  });
+}, { threshold: 0.35 });
+
+heroSection && counterObserver.observe(heroSection);
+
+
+/* =========================================================
+   Architecture Flow Animation
+========================================================= */
+const down = document.getElementById("flowDown");
+const up = document.getElementById("flowUp");
+const dotDown = document.getElementById("dotDown");
+const dotUp = document.getElementById("dotUp");
+
+if (down && up && dotDown && dotUp) {
+
+  const len1 = down.getTotalLength();
+  const len2 = up.getTotalLength();
+
+  function animateFlow(time) {
+    const p1 = (time % 4000) / 4000;
+    const p2 = (time % 5000) / 5000;
+
+    const pt1 = down.getPointAtLength(len1 * p1);
+    const pt2 = up.getPointAtLength(len2 * p2);
+
+    dotDown.setAttribute("cx", pt1.x);
+    dotDown.setAttribute("cy", pt1.y);
+    dotUp.setAttribute("cx", pt2.x);
+    dotUp.setAttribute("cy", pt2.y);
+
+    requestAnimationFrame(animateFlow);
+  }
+
+  requestAnimationFrame(animateFlow);
+}
+
+
+/* =========================================================
+   Project Filtering
+========================================================= */
+const filterButtons = document.querySelectorAll(".filter-btn");
+const projectCards = document.querySelectorAll(".project-card");
+const emptyState = document.getElementById("emptyState");
+
+function applyFilter(filter) {
+
+  filterButtons.forEach(btn => {
+    btn.setAttribute("aria-pressed", btn.dataset.filter === filter);
+  });
+
+  let visible = 0;
+
+  projectCards.forEach(card => {
+    const tags = (card.dataset.tags || "").split(" ");
+    const show = filter === "all" || tags.includes(filter);
+
+    if (show) {
+      card.style.display = "";
+      card.classList.remove("hidden");
+      visible++;
+    } else {
+      card.style.display = "none";
     }
-})
+  });
 
-// navbar toggle 버튼 클릭 처리
-const navbarMenu = document.querySelector('.header__menu');
-const navbarToggle = document.querySelector('.header__toggle');
+  if (emptyState) {
+    emptyState.classList.toggle("hidden", visible !== 0);
+  }
+}
 
-navbarToggle.addEventListener('click', ()=> {
-    navbarMenu.classList.toggle('open__menu');
-})
+filterButtons.forEach(btn =>
+  btn.addEventListener("click", () =>
+    applyFilter(btn.dataset.filter)
+  )
+);
 
-// navbar menu click시 메뉴 자동 close
+applyFilter("all");
 
-navbarMenu.addEventListener('click', ()=> {
-    navbarMenu.classList.remove('open__menu');
-})
 
-document.getElementById("gmailcopyButton").addEventListener("click", function() {
-    var copyText = document.getElementById("gmailToCopy");
-    copyText.select();
-    copyText.setSelectionRange(0, 99999);
-    document.execCommand("copy");
-    //alert("Copied the mail: " + copyText.value);
-})
+/* =========================================================
+   Timeline Scroll Progress
+========================================================= */
+const timeline = document.querySelector(".timeline");
+const progress = document.getElementById("timelineProgress");
 
-document.getElementById("navercopyButton").addEventListener("click", function() {
-    var copyText = document.getElementById("naverToCopy");
-    copyText.select();
-    copyText.setSelectionRange(0, 99999);
-    document.execCommand("copy");
-    //alert("Copied the mail: " + copyText.value);
-})
+function updateTimeline() {
+  if (!timeline || !progress) return;
+
+  const rect = timeline.getBoundingClientRect();
+  const vh = window.innerHeight;
+
+  const total = rect.height;
+  const visible = Math.min(total, Math.max(0, vh - rect.top));
+
+  const ratio = Math.min(1, visible / total);
+
+  progress.style.height = `${ratio * 100}%`;
+}
+
+window.addEventListener("scroll", updateTimeline);
+window.addEventListener("resize", updateTimeline);
+updateTimeline();
+
+
+/* =========================================================
+   Reference Slider
+========================================================= */
+const track = document.getElementById("referenceTrack");
+const prevBtn = document.getElementById("prevRef");
+const nextBtn = document.getElementById("nextRef");
+
+if (track && prevBtn && nextBtn) {
+
+  let index = 0;
+  const total = track.children.length;
+
+  function updateSlide() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    index = (index + 1) % total;
+    updateSlide();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    index = (index - 1 + total) % total;
+    updateSlide();
+  });
+}
+
+});
