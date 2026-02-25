@@ -573,92 +573,129 @@ svg .pulse.p3 { animation-duration: 3.4s; animation-delay: .7s; }
     </div>
   </div>
 
-  <!-- PEER REFERENCES SLIDER (FIXED LAYOUT) -->
-<div class="mt-24 max-w-6xl mx-auto px-6">
-
   <!-- PEER REFERENCES SLIDER (WITH COMPANY LOGO) -->
-<div class="mt-24 max-w-6xl mx-auto px-6">
+  <div class="mt-24 max-w-6xl mx-auto px-6">
 
-  <h4 class="text-2xl font-semibold mb-10 text-center">
-    Peer References
-  </h4>
+    <h4 class="text-2xl font-semibold mb-8 text-center">
+      Peer References
+    </h4>
 
-  <div class="relative flex items-center">
+    <!-- Wrapper -->
+    <div class="relative">
 
-    <!-- Left Button -->
-    <button id="prevRef"
-            class="mr-6 w-10 h-10 flex items-center justify-center
-                   rounded-full border border-slate-600
-                   text-slate-300 hover:border-accent hover:text-accent transition">
-      ‹
-    </button>
+      <!-- Slider Container -->
+      <div class="overflow-hidden rounded-2xl border border-slate-700 bg-secondary/40 backdrop-blur-md">
 
-    <!-- Slider -->
-    <div class="flex-1 overflow-hidden rounded-2xl border border-slate-700 bg-secondary/40 backdrop-blur-md">
+        <div id="referenceTrack"
+            class="flex transition-transform duration-500 ease-in-out">
 
-      <div id="referenceTrack"
-           class="flex transition-transform duration-500 ease-in-out">
+          <!-- Slide 1 -->
+          <div class="min-w-full p-6 md:p-12">
+            <div class="flex items-center gap-3 mb-6">
+              <!-- LinkedIn Icon -->
+              <a href="https://www.linkedin.com/in/cy-lee-link/"
+                target="_blank"
+                class="text-slate-400 hover:text-accent transition"
+                aria-label="LinkedIn Profile">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    class="w-5 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 24 24">
+                  <path d="M19 0h-14C2.2 0 0 2.2 0 5v14c0
+                          2.8 2.2 5 5 5h14c2.8 0 5-2.2
+                          5-5V5c0-2.8-2.2-5-5-5zM7.1
+                          20.5H3.6V9h3.5v11.5zM5.3
+                          7.6c-1.1 0-2-.9-2-2s.9-2
+                          2-2 2 .9 2 2-.9 2-2
+                          2zm15.2 12.9h-3.5v-5.6c0-1.3
+                          0-3-1.8-3s-2.1 1.4-2.1
+                          2.9v5.7H9.6V9h3.4v1.6h.1c.5-.9
+                          1.7-1.8 3.4-1.8 3.6 0 4.3 2.4
+                          4.3 5.5v6.2z"/>
+                </svg>
+              </a>
 
-        <!-- Slide 1 -->
-        <div class="min-w-full p-12">
-          <div class="flex items-center gap-4 mb-6">
-            <img src="images/jobs/kokomo.png"
-                 class="w-14 h-14 object-contain rounded-lg bg-white/5 p-2"
-                 alt="Kokomo Logo">
-            <div>
-              <div class="font-semibold text-slate-200">
-                Cy Lee - Senior Backend Engineer
-              </div>
-              <div class="text-sm text-slate-400">
-                Kokomo Solutions Inc
-              </div>
-            </div>
-          </div>
-
-          <p class="text-xl text-slate-200 leading-relaxed">
-            “Kane(Eungchan) consistently delivered scalable systems with strong architectural thinking.
-            His ability to optimize complex SQL workloads significantly improved production performance.”
-          </p>
-        </div>
-
-        <!-- Slide 2 -->
-        <div class="min-w-full p-12">
-          <div class="flex items-center gap-4 mb-6">
-            <img src="images/jobs/tmax.png"
-                 class="w-14 h-14 object-contain rounded-lg bg-white/5 p-2"
-                 alt="TestWorks Logo">
-            <div>
-              <div class="font-semibold text-slate-200">
-                Jae Hun - Senior Database Engineer
-              </div>
-              <div class="text-sm text-slate-400">
-                Tmax Group
+              <!-- Name + Company -->
+              <div>
+                <div class="font-semibold text-slate-200 text-sm md:text-base">
+                  Cy Lee - Senior Backend Engineer
+                </div>
+                <div class="text-xs md:text-sm text-slate-400">
+                  Kokomo Solutions Inc
+                </div>
               </div>
             </div>
+            <p class="text-base md:text-xl text-slate-200 leading-relaxed">
+              “Kane(Eungchan) consistently delivered scalable systems with strong architectural thinking.
+              His ability to optimize complex SQL workloads significantly improved production performance.”
+            </p>
           </div>
 
-          <p class="text-xl text-slate-200 leading-relaxed">
-            “He approaches database engineering with deep understanding of execution plans
-            and statistics engineering, and has consistently led resolution of critical
-            client-side DB issues — from performance bottlenecks to unstable query plans
-            and production-level incidents.”
-          </p>
-        </div>
+          <!-- Slide 2 -->
+          <div class="min-w-full p-6 md:p-12">
+            <div class="flex items-center gap-3 mb-6">
 
+              <!-- LinkedIn Icon -->
+              <a href="https://www.linkedin.com/in/%EC%9E%AC%ED%9B%88-%EC%95%88-57705b232/"
+                target="_blank"
+                class="text-slate-400 hover:text-accent transition"
+                aria-label="LinkedIn Profile">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    class="w-5 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 24 24">
+                  <path d="M19 0h-14C2.2 0 0 2.2 0 5v14c0
+                          2.8 2.2 5 5 5h14c2.8 0 5-2.2
+                          5-5V5c0-2.8-2.2-5-5-5zM7.1
+                          20.5H3.6V9h3.5v11.5zM5.3
+                          7.6c-1.1 0-2-.9-2-2s.9-2
+                          2-2 2 .9 2 2-.9 2-2
+                          2zm15.2 12.9h-3.5v-5.6c0-1.3
+                          0-3-1.8-3s-2.1 1.4-2.1
+                          2.9v5.7H9.6V9h3.4v1.6h.1c.5-.9
+                          1.7-1.8 3.4-1.8 3.6 0 4.3 2.4
+                          4.3 5.5v6.2z"/>
+                </svg>
+              </a>
+              <!-- Name + Company -->
+              <div>
+                <div class="font-semibold text-slate-200 text-sm md:text-base">
+                  Jaehun An - Senior Database Engineer
+                </div>
+                <div class="text-xs md:text-sm text-slate-400">
+                  TmaxData(Tibero)
+                </div>
+              </div>
+            </div>
+
+            <p class="text-base md:text-xl text-slate-200 leading-relaxed">
+              “Eungchan approaches database engineering with deep understanding of execution plans
+              and statistics engineering, and has consistently led resolution of critical
+              client-side DB issues — from performance bottlenecks to unstable query plans
+              and production-level incidents.”
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="flex justify-center gap-6 mt-6">
+        <button id="prevRef"
+                class="w-10 h-10 flex items-center justify-center
+                      rounded-full border border-slate-600
+                      text-slate-300 hover:border-accent hover:text-accent transition">
+          ‹
+        </button>
+
+        <button id="nextRef"
+                class="w-10 h-10 flex items-center justify-center
+                      rounded-full border border-slate-600
+                      text-slate-300 hover:border-accent hover:text-accent transition">
+          ›
+        </button>
       </div>
     </div>
-
-    <!-- Right Button -->
-    <button id="nextRef"
-            class="ml-6 w-10 h-10 flex items-center justify-center
-                   rounded-full border border-slate-600
-                   text-slate-300 hover:border-accent hover:text-accent transition">
-      ›
-    </button>
-
   </div>
-
-</div>
 </section>
 
 <!-- SKILLS -->
