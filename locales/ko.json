@@ -1,0 +1,32 @@
+{
+    "menu":"메뉴",
+
+    "nav_about":"소개",
+    "nav_architecture":"아키텍처",
+    "nav_experience":"경력",
+    "nav_skills":"기술",
+    "nav_projects":"프로젝트",
+    "nav_contact":"연락처",
+
+    "hero_tag":"풀스택 • 클라우드 • 데이터 플랫폼 • DB 성능",
+    "hero_title":"데이터베이스부터 대시보드까지 확장 가능한 시스템 구축",
+    "hero_desc":"멀티테넌트 SaaS 시스템과 분산 클라우드 아키텍처 및 분석 플랫폼을 설계합니다.",
+
+    "about_title":"소개",
+    "about_desc": "5년 이상의 경험을 가진 Full-Stack & Data Platform Engineer로서<br class='hidden md:block' />클라우드 기반 백엔드 시스템, RDBMS 내부 구조, SQL 최적화, 그리고 분석 대시보드 개발을 수행해왔습니다.<br class='hidden md:block' />데이터베이스 설계부터 ASP.NET Core API, Angular 기반 인터랙티브 대시보드까지 end-to-end 시스템을 구축합니다.",
+    "contact_title":"연락처",
+
+    "arc_title": "시스템 아키텍처 설계",
+    "arc_desc": "애플리케이션, 데이터, 성능, 클라우드, 관측성 계층을 아우르는 End to End 데이터 분석 플랫폼",
+
+    "work1_desc1": "• Built YOLO-based edge detection pipelines.",
+    "work1_desc2": "• Implemented segmentation & annotation systems for vision workflows.",
+
+    "work2_desc1": "• DB 통계 수집 기능 모듈을 담당하여 관리 및 기능 추가",
+    "work2_desc2": "• SQL Tuning Advisor 모듈을 구현 및 SPM(실행 계획 관리 기능)을 개발",
+    "work2_desc3": "• 기업 및 금융권 고객을 대상으로 SQL 튜닝 및 DBA 기술 지원",
+
+    "work3_desc1": "• 공공기관을 위한 멀티테넌트 SaaS 아키텍처를 설계",
+    "work3_desc2": "• 데이터베이스 설계 → API → Angular 대시보드로 이어지는 분석 플랫폼을 end-to-end로 구축 및 운영",
+    "work3_desc3": "• MySQL/MSSQL 쿼리 최적화를 통해 약 30%의 성능 개선 달성"
+}

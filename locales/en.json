@@ -1,0 +1,31 @@
+{
+    "nav_about": "About",
+    "nav_architecture": "Architecture",
+    "nav_experience": "Experience",
+    "nav_skills": "Skills",
+    "nav_projects": "Projects",
+    "nav_contact": "Contact",
+
+    "hero_tag": "Full-Stack • Cloud • Data Platform • DB Performance",
+    "hero_title": "Building Scalable Systems from Database to Dashboard",
+    "hero_desc": "I design multi-tenant SaaS systems, distributed cloud architectures,<br class='hidden md:block' /> and production-grade analytics platforms.",
+    "hero_btn_projects": "View Projects",
+    "hero_btn_arch": "Architecture Diagram",
+
+    "about_title": "About",
+    "about_desc": "Full-Stack & Data Platform Engineer with 5+ years of experience across cloud-native backend systems,<br class='hidden md:block' />RDBMS internals, SQL optimization, and analytics dashboard ownership.<br class='hidden md:block' />I deliver end-to-end systems — database design, ASP.NET Core APIs, and interactive Angular dashboards.",
+    
+    "arc_title": "System Architecture Blueprint",
+    "arc_desc": "End-to-end data analytics platform across application,<br class='hidden md:block' />data, performance, cloud, and observability layers.",
+
+    "work1_desc1": "• Built YOLO-based edge detection pipelines.",
+    "work1_desc2": "• Implemented segmentation & annotation systems for vision workflows.",
+
+    "work2_desc1": "• Maintained and enhanced the database statistics collection module.",
+    "work2_desc2": "• Implemented the SQL Tuning Advisor module and developed SQL Plan Management (SPM) features.",
+    "work2_desc3": "• Delivered SQL tuning and DBA support for enterprise and financial industry clients.",
+
+    "work3_desc1": "• Designed multi-tenant SaaS architecture for public institutions.",
+    "work3_desc2": "• Owned analytics platform end-to-end (DB design → API → Angular dashboards).",
+    "work3_desc3": "• Optimized MySQL/MSSQL queries, improving performance by ~30%."
+}

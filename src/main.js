@@ -1,10 +1,10 @@
 /* =========================================================
-   DOM Ready Wrapper
+  DOM Ready Wrapper
 ========================================================= */
 document.addEventListener("DOMContentLoaded", () => {
 
 /* =========================================================
-   Mobile Menu
+  Mobile Menu
 ========================================================= */
 const mobileBtn = document.getElementById("mobileMenuBtn");
 const mobileMenu = document.getElementById("mobileMenu");
@@ -17,9 +17,68 @@ mobileMenu?.querySelectorAll("a").forEach(a =>
   a.addEventListener("click", () => mobileMenu.classList.add("hidden"))
 );
 
+/* =========================================================
+  Language Toggle
+========================================================= */
+
+let currentLang = "en";
+let translations = {};
+
+async function loadLanguage(lang) {
+    try {
+        const response = await fetch("./locales/" + lang + ".json");
+        translations = await response.json();
+        applyTranslations();
+        localStorage.setItem("preferredLang", lang);
+        currentLang = lang;
+        setActiveLang(lang);
+    } catch (error) {
+        console.error("Language load error:", error);
+    }
+}
+
+function applyTranslations() {
+    document.querySelectorAll("[data-i18n]").forEach(element => {
+        const key = element.getAttribute("data-i18n");
+        if (translations[key]) {
+            element.innerHTML = translations[key];
+        }
+    });
+}
+
+const btnEn = document.getElementById("langEn");
+const btnKo = document.getElementById("langKo");
+const btnEnMobile = document.getElementById("langEnMobile");
+const btnKoMobile = document.getElementById("langKoMobile");
+
+btnEn?.addEventListener("click", () => loadLanguage("en"));
+btnKo?.addEventListener("click", () => loadLanguage("ko"));
+btnEnMobile?.addEventListener("click", () => loadLanguage("en"));
+btnKoMobile?.addEventListener("click", () => loadLanguage("ko"));
+
+/* 최초 실행 */
+const savedLang = localStorage.getItem("preferredLang") || "en";
+loadLanguage(savedLang);
+
+function setActiveLang(lang) {
+
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+        btn.classList.remove("bg-accent","text-white","border-accent");
+    });
+
+    if (lang === "en") {
+        document.getElementById("langEn")?.classList.add("bg-accent","text-white","border-accent");
+        document.getElementById("langEnMobile")?.classList.add("bg-accent","text-white","border-accent");
+    }
+
+    if (lang === "ko") {
+        document.getElementById("langKo")?.classList.add("bg-accent","text-white","border-accent");
+        document.getElementById("langKoMobile")?.classList.add("bg-accent","text-white","border-accent");
+    }
+}
 
 /* =========================================================
-   Scroll Fade-in
+  Scroll Fade-in
 ========================================================= */
 const fadeElements = document.querySelectorAll(".fade-in");
 
@@ -35,7 +94,7 @@ fadeElements.forEach(el => fadeObserver.observe(el));
 
 
 /* =========================================================
-   Counter Animation
+  Counter Animation
 ========================================================= */
 let countersRan = false;
 
@@ -71,7 +130,7 @@ heroSection && counterObserver.observe(heroSection);
 
 
 /* =========================================================
-   Architecture Flow Animation
+  Architecture Flow Animation
 ========================================================= */
 const down = document.getElementById("flowDown");
 const up = document.getElementById("flowUp");
@@ -103,7 +162,7 @@ if (down && up && dotDown && dotUp) {
 
 
 /* =========================================================
-   Project Filtering
+  Project Filtering
 ========================================================= */
 const filterButtons = document.querySelectorAll(".filter-btn");
 const projectCards = document.querySelectorAll(".project-card");
@@ -145,7 +204,7 @@ applyFilter("all");
 
 
 /* =========================================================
-   Timeline Scroll Progress
+  Timeline Scroll Progress
 ========================================================= */
 const timeline = document.querySelector(".timeline");
 const progress = document.getElementById("timelineProgress");
@@ -170,7 +229,7 @@ updateTimeline();
 
 
 /* =========================================================
-   Reference Slider
+  Reference Slider
 ========================================================= */
 const track = document.getElementById("referenceTrack");
 const prevBtn = document.getElementById("prevRef");

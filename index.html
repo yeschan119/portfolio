@@ -27,30 +27,75 @@
 <body class="bg-primary text-slate-200 font-sans">
   <!-- NAVBAR -->
   <header class="fixed w-full backdrop-blur-md bg-primary/70 border-b border-slate-800 z-50">
-      <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          <h1 class="text-lg font-semibold tracking-wide">Eungchan Kang</h1>
-          <nav class="space-x-6 text-sm hidden md:block">
-              <a href="#about" class="hover:text-accent transition">About</a>
-              <a href="#architecture" class="hover:text-accent transition">Architecture</a>
-              <a href="#experience" class="hover:text-accent transition">Experience</a>
-              <a href="#skills" class="hover:text-accent transition">Skills</a>
-              <a href="#projects" class="hover:text-accent transition">Projects</a>
-              <a href="#contact" class="hover:text-accent transition">Contact</a>
-          </nav>
-          <button id="mobileMenuBtn" class="md:hidden text-slate-200 border border-slate-700 rounded-lg px-3 py-2 text-xs">
-            Menu
-          </button>
-      </div>
-      <div id="mobileMenu" class="md:hidden hidden border-t border-slate-800 bg-primary/85 backdrop-blur-md">
-          <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-3 text-sm">
-              <a href="#about" class="hover:text-accent transition">About</a>
-              <a href="#architecture" class="hover:text-accent transition">Architecture</a>
-              <a href="#experience" class="hover:text-accent transition">Experience</a>
-              <a href="#skills" class="hover:text-accent transition">Skills</a>
-              <a href="#projects" class="hover:text-accent transition">Projects</a>
-              <a href="#contact" class="hover:text-accent transition">Contact</a>
-          </div>
-      </div>
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center">
+
+        <!-- LEFT -->
+        <h1 class="text-lg font-semibold tracking-wide">
+            Eungchan Kang
+        </h1>
+
+        <!-- RIGHT GROUP -->
+        <div class="ml-auto flex items-center gap-8">
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex space-x-6 text-sm">
+                <a href="#about" class="hover:text-accent transition">About</a>
+                <a href="#architecture" class="hover:text-accent transition">Architecture</a>
+                <a href="#experience" class="hover:text-accent transition">Experience</a>
+                <a href="#skills" class="hover:text-accent transition">Skills</a>
+                <a href="#projects" class="hover:text-accent transition">Projects</a>
+                <a href="#contact" class="hover:text-accent transition">Contact</a>
+            </nav>
+
+            <!-- Language Toggle -->
+            <div class="hidden md:flex items-center gap-2">
+              <button id="langEn"
+                  class="lang-btn text-xs px-3 py-1 rounded-lg border border-slate-700 transition
+                  hover:border-accent">
+                  EN
+              </button>
+              <button id="langKo"
+                  class="lang-btn text-xs px-3 py-1 rounded-lg border border-slate-700 transition
+                  hover:border-accent">
+                  KO
+              </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn"
+                class="md:hidden text-slate-200 border border-slate-700 rounded-lg px-3 py-2 text-xs">
+                Menu
+            </button>
+
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu"
+        class="md:hidden hidden border-t border-slate-800 bg-primary/85 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-3 text-sm">
+
+            <a href="#about" class="hover:text-accent transition">About</a>
+            <a href="#architecture" class="hover:text-accent transition">Architecture</a>
+            <a href="#experience" class="hover:text-accent transition">Experience</a>
+            <a href="#skills" class="hover:text-accent transition">Skills</a>
+            <a href="#projects" class="hover:text-accent transition">Projects</a>
+            <a href="#contact" class="hover:text-accent transition">Contact</a>
+
+            <div class="flex gap-2 pt-4 border-t border-slate-700">
+                <button id="langEnMobile"
+                    class="lang-btn text-xs border border-slate-700 px-3 py-1 rounded-lg transition">
+                    EN
+                </button>
+
+                <button id="langKoMobile"
+                    class="lang-btn text-xs border border-slate-700 px-3 py-1 rounded-lg transition">
+                    KO
+                </button>
+            </div>
+
+        </div>
+    </div>
   </header>
 
   <!-- HERO -->
@@ -65,16 +110,8 @@
               <span class="w-2 h-2 rounded-full bg-accent"></span>
                   Full-Stack • Cloud • Data Platform • DB Performance
           </div>
-
-          <h2 class="text-5xl md:text-6xl font-bold leading-tight mb-6">
-              Building Scalable Systems<br class="hidden md:block" />
-              from Database to Dashboard
-          </h2>
-
-          <p class="text-lg text-slate-300/70 leading-relaxed mb-10">
-              I design multi-tenant SaaS systems, distributed cloud architectures, and production-grade analytics platforms.
-              Strong across backend APIs, database engineering, and Front-end dashboards.
-          </p>
+          <h2 data-i18n="hero_title" class="text-5xl md:text-5xl font-bold leading-tight mb-6"></h2>
+          <p data-i18n="hero_desc" class="text-lg text-slate-300/70 leading-relaxed mb-10"></p>
 
           <div class="flex justify-center flex-wrap gap-10 text-center">
               <div class="min-w-[140px]">
@@ -106,11 +143,7 @@
   <section id="about" class="section-glow py-24 border-t border-slate-800">
       <div class="max-w-5xl mx-auto px-6 fade-in">
           <h3 class="text-3xl font-semibold mb-8">About</h3>
-          <p class="text-slate-400 text-lg leading-relaxed">
-              Full-Stack & Data Platform Engineer with 5+ years of experience across cloud-native backend systems,
-              RDBMS internals, SQL optimization, and analytics dashboard ownership.
-              I deliver end-to-end systems — database aggregation views, ASP.NET Core APIs, and interactive Angular dashboards.
-          </p>
+          <p data-i18n="about_desc" class="text-slate-400 text-lg leading-relaxed"></p>
       </div>
   </section>
 
@@ -118,13 +151,8 @@
   <section id="architecture" class="section-glow py-20 border-t border-slate-800">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-10">
-        <h3 class="text-3xl font-semibold mb-3">
-            System Architecture Blueprint
-        </h3>
-        <p class="text-slate-400 text-lg max-w-3xl mx-auto">
-            End-to-end data analytics platform across application,
-            data, performance, cloud, and observability layers.
-        </p>
+        <h3 data-i18n="arc_title" class="text-3xl font-semibold mb-3"></h3>
+        <p data-i18n="arc_desc" class="text-slate-400 text-lg max-w-3xl mx-auto"></p>
       </div>
 
       <div class="section-glow rounded-2xl bg-secondary/30 border border-slate-700 p-6">
@@ -317,9 +345,9 @@
                 </div>
                 <div class="text-accent text-sm mt-1 mb-4">Kokomo Solutions Inc</div>
                 <ul class="text-slate-400 text-sm space-y-2">
-                  <li>• Designed multi-tenant SaaS architecture for public institutions.</li>
-                  <li>• Owned analytics platform end-to-end (DB aggregation views → API → Angular dashboards).</li>
-                  <li>• Optimized MySQL/MSSQL queries, improving performance by ~30%.</li>
+                  <li data-i18n="work3_desc1"></li>
+                  <li data-i18n="work3_desc2"></li>
+                  <li data-i18n="work3_desc3"></li>
                 </ul>
               </div>
             </div>
@@ -332,11 +360,11 @@
                   <h4 class="text-xl font-semibold">Database Engineer</h4>
                   <span class="text-sm text-slate-400">2022 – 2024</span>
                 </div>
-                <div class="text-accent text-sm mt-1 mb-4">Tmax Data</div>
+                <div class="text-accent text-sm mt-1 mb-4">TmaxData</div>
                 <ul class="text-slate-400 text-sm space-y-2">
-                  <li>• Implemented statistics collection (accuracy 90%+).</li>
-                  <li>• Built SQL Tuning Advisor & plan management features.</li>
-                  <li>• Delivered SQL tuning & DBA support across enterprises and banks.</li>
+                  <li data-i18n="work2_desc1"></li>
+                  <li data-i18n="work2_desc2"></li>
+                  <li data-i18n="work2_desc3"></li>
                 </ul>
               </div>
             </div>
@@ -349,10 +377,10 @@
                   <h4 class="text-xl font-semibold">AI Engineer</h4>
                   <span class="text-sm text-slate-400">2021</span>
                 </div>
-                <div class="text-accent text-sm mt-1 mb-4">AIWorkx</div>
+                <div class="text-accent text-sm mt-1 mb-4">AIWORKX</div>
                 <ul class="text-slate-400 text-sm space-y-2">
-                  <li>• Built YOLO-based edge detection pipelines.</li>
-                  <li>• Implemented segmentation & annotation systems for vision workflows.</li>
+                  <li data-i18n="work1_desc1"></li>
+                  <li data-i18n="work1_desc2"></li>
                 </ul>
               </div>
             </div>
@@ -540,15 +568,14 @@
 
             <!-- Card 2 -->
             <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 hover:border-slate-500 transition">
-              <div class="text-sm text-slate-400 mb-2">DBMS & Data Preprocessing</div>
+              <div class="text-sm text-slate-400 mb-2">DBMS</div>
               <div class="flex flex-wrap gap-2 text-s">
                 <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Oracle</span>
                 <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">MySQL</span>
                 <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">MsSQL</span>
                 <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Tibero</span>
                 <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">DynamoDB</span>
-                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">DataBricks</span>
-                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">DataFactory</span>
+                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Firebase Database</span>
               </div>
             </div>
           </div>
@@ -558,7 +585,7 @@
         <div class="grid sm:grid-cols-2 gap-6">
           <div class="section-glow bg-secondary/35 border border-slate-700/70 rounded-2xl p-6 md:p-7 hover:border-slate-500 transition">
             <h4 class="text-lg font-semibold mb-4">Cloud & DevOps</h4>
-            <div class="flex flex-wrap gap-2 text-s">
+            <div class="flex flex-wrap gap-2 text-xs">
               <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">AWS</span>
               <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Azure</span>
               <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Docker</span>
@@ -568,7 +595,7 @@
 
           <div class="bg-secondary/35 border border-slate-700/70 rounded-2xl p-6 md:p-7 hover:border-slate-500 transition">
             <h4 class="text-lg font-semibold mb-4">Frontend & Mobile</h4>
-            <div class="flex flex-wrap gap-2 text-s">
+            <div class="flex flex-wrap gap-2 text-xs">
               <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Angular</span>
               <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">TypeScript</span>
               <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Flutter</span>
@@ -577,15 +604,17 @@
 
           <div class="section-glow bg-secondary/35 border border-slate-700/70 rounded-2xl p-6 md:p-7 hover:border-slate-500 transition">
             <h4 class="text-lg font-semibold mb-4">Data & BI</h4>
-            <div class="flex flex-wrap gap-2 text-s">
+            <div class="flex flex-wrap gap-2 text-xs">
               <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">QuickSight</span>
               <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Power BI</span>
+              <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">DataBricks</span>
+              <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">DataFactory</span>
             </div>
           </div>
 
           <div class="section-glow bg-secondary/35 border border-slate-700/70 rounded-2xl p-6 md:p-7 hover:border-slate-500 transition">
             <h4 class="text-lg font-semibold mb-4">Development Tools</h4>
-            <div class="flex flex-wrap gap-2 text-s">
+            <div class="flex flex-wrap gap-2 text-xs">
               <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">VS Code</span>
               <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Vim</span>
             </div>

@@ -62,6 +62,12 @@ html {
     mask-image: radial-gradient(circle at 50% 60%, rgba(0,0,0,1) 0 55%, rgba(0,0,0,0) 80%);
 }
 
+.lang-active {
+    background-color: #3b82f6;
+    border-color: #3b82f6;
+    color: white;
+}
+
 .hero-grid::after {
     content: "";
     position: absolute;
