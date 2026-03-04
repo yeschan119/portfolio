@@ -9,8 +9,8 @@
     "nav_contact":"연락처",
 
     "hero_tag":"풀스택 • 클라우드 • 데이터 플랫폼 • DB 성능",
-    "hero_title":"데이터베이스부터 대시보드까지 확장 가능한 시스템 구축",
-    "hero_desc":"멀티테넌트 SaaS 시스템과 분산 클라우드 아키텍처 및 분석 플랫폼을 설계합니다.",
+    "hero_title":"DB 설계부터 Dashboard 구현까지 확장 가능한 시스템 구축 경험 보유",
+    "hero_desc":"multi-tenant SaaS 시스템과 클라우드 아키텍처 및 분석 플랫폼 설계 경험",
 
     "about_title":"소개",
     "about_desc": "5년 이상의 경험을 가진 Full-Stack & Data Platform Engineer로서<br class='hidden md:block' />클라우드 기반 백엔드 시스템, RDBMS 내부 구조, SQL 최적화, 그리고 분석 대시보드 개발을 수행해왔습니다.<br class='hidden md:block' />데이터베이스 설계부터 ASP.NET Core API, Angular 기반 인터랙티브 대시보드까지 end-to-end 시스템을 구축합니다.",
