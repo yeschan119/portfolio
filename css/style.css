@@ -33,6 +33,16 @@ html {
     100% { background-position: 50% 50%, 0% 50%; }
 }
 
+.home__title--name{
+  background: linear-gradient(90deg,#3b82f6,#abcbf1);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.ti-cursor{
+  color:#3b82f6;
+}
+
 .hero-grid-wrap {
     position: absolute;
     inset: 0;

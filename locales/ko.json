@@ -10,7 +10,7 @@
 
     "hero_tag":"풀스택 • 클라우드 • 데이터 플랫폼 • DB 성능",
     "hero_title":"DB 설계부터 Dashboard 구현까지<br class='hidden md:block' />확장 가능한 시스템 구축 경험",
-    "hero_desc":"multi-tenant SaaS 시스템과 클라우드 아키텍처 및 분석 플랫폼 설계",
+    "hero_desc":"DB & Cloud Architecture 설계부터 Dashboard 구현까지<br class='hidden md:block' />확장 가능한 시스템 구축 경험을 가지고 있습니다.",
 
     "about_title":"소개",
     "about_desc": "5년 이상의 경험을 가진 Full-Stack & Data Platform Engineer로서<br class='hidden md:block' />클라우드 기반 백엔드 시스템, RDBMS 내부 구조, SQL 최적화, 그리고 분석 대시보드 개발을 수행해왔습니다.<br class='hidden md:block' />데이터베이스 설계부터 ASP.NET Core API, Angular 기반 인터랙티브 대시보드까지 end-to-end 시스템을 구축합니다.",
@@ -19,14 +19,17 @@
     "arc_title": "시스템 아키텍처 설계",
     "arc_desc": "애플리케이션, 데이터, 성능, 클라우드, 관측성 계층을 아우르는 End to End 데이터 분석 플랫폼",
 
-    "work1_desc1": "• Built YOLO-based edge detection pipelines.",
-    "work1_desc2": "• Implemented segmentation & annotation systems for vision workflows.",
+    "work1_desc1": "• GPU가 없는 edge 장치에서 Object dection을 수행할 수 있는 모델 개발",
+    "work1_desc2": "• Image annotation & segmentation model 개발 및 제품화(님penCV)",
 
     "work2_desc1": "• DB 통계 수집 기능 모듈을 담당하여 관리 및 기능 추가",
     "work2_desc2": "• SQL Tuning Advisor 모듈을 구현 및 SPM(실행 계획 관리 기능)을 개발",
     "work2_desc3": "• 기업 및 금융권 고객을 대상으로 SQL 튜닝 및 DBA 기술 지원",
 
     "work3_desc1": "• 공공기관을 위한 멀티테넌트 SaaS 아키텍처를 설계",
-    "work3_desc2": "• 데이터베이스 설계 → API → Angular 대시보드로 이어지는 분석 플랫폼을 end-to-end로 구축 및 운영",
-    "work3_desc3": "• MySQL/MSSQL 쿼리 최적화를 통해 약 30%의 성능 개선 달성"
+    "work3_님desc2": "• 데이터베이스 설계 → API → Angular 대시보드로 이어지는 분석 플랫폼을 end-to-end로 구축 및 운영",
+    "work3_desc3": "• MySQL/MSSQL 쿼리 최적화를 통해 약 30%의 성능 개선 달성",
+
+    "peer1": "응찬님은 뛰어난 아키텍처적 사고를 바탕으로 확장 가능한 시스템을 지속적으로 구축해 왔습니다. 특히 복잡한 SQL 워크로드를 최적화하는 능력을 통해 실제 운영 환경의 성능을 크게 개선했습니다.",
+    "peer2": "응찬님은 실행 계획과 통계 관리에 대한 깊은 이해를 바탕으로 데이터베이스 엔지니어링에 접근하며, 성능 병목, 불안정한 쿼리 플랜, 운영 환경의 장애 등 다양한 고객 측 데이터베이스 문제를 적극적으로 해결하였습니다."
 }
