@@ -40,8 +40,16 @@ async function loadLanguage(lang) {
 function applyTranslations() {
     document.querySelectorAll("[data-i18n]").forEach(element => {
         const key = element.getAttribute("data-i18n");
-        if (translations[key]) {
-            element.innerHTML = translations[key];
+
+        const keys = key.split(".");
+        let value = translations;
+
+        keys.forEach(k => {
+            value = value?.[k];
+        });
+
+        if (value) {
+            element.innerHTML = value;
         }
     });
 }

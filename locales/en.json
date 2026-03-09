@@ -27,5 +27,23 @@
 
     "work3_desc1": "• Designed multi-tenant SaaS architecture for public institutions.",
     "work3_desc2": "• Owned analytics platform end-to-end (DB design → API → Angular dashboards).",
-    "work3_desc3": "• Optimized MySQL/MSSQL queries, improving performance by ~30%."
+    "work3_desc3": "• Optimized MySQL/MSSQL queries, improving performance by ~30%.",
+
+    "peer-kokomo": "Eungchan is an engineer capable of delivering end-to-end systems, from cloud architecture design to full-stack web development. His deep expertise in databases enables him to make strong contributions to system performance and scalability.",
+    "peer-tmax": "While working on the DB Optimizer team, Eungchan was responsible for the database statistics module and consistently resolved complex issues related to statistics collection and execution plans. He also collaborated closely with the team and proactively addressed database management and SQL tuning issues encountered by enterprise clients.",
+
+    "project": {
+        "report": "Embedded QuickSight analytics with snapshot automation and distributed scaling.",
+        "ims": "Multi-Organization real-time reporting platform with OLTP + Analytics separation.",
+        "chat": "SignalR + SQS + DynamoDB architecture for real-time delivery.",
+        "migration": "Azure → AWS distributed analytics architecture migration.",
+        "apm": "Application performance monitoring dashboard and operational insights.",
+        "db-stat": "Database statistics module & query optimizer improvement implementation.",
+        "db-tuning": "Automated query optimization and tuning recommendations.",
+        "db-total": "DB engine internals and system-level design experiments.",
+        "ai1": "Edge-based object detection pipeline with real-time inference.",
+        "ai2": "AI-based annotation & segmentation workflow.",
+        "metric": "Flutter-based unit conversion app deployed across iOS, Web, and Desktop platforms.",
+        "memo": "Cross-platform memo management app using Flutter, Firebase Auth, and Firestore with hierarchical note structure."
+    }
 }
