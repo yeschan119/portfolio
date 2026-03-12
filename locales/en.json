@@ -18,16 +18,16 @@
     "arc_title": "System Architecture Blueprint",
     "arc_desc": "End-to-end data analytics platform across application,<br class='hidden md:block' />data, performance, cloud, and observability layers.",
 
-    "work1_desc1": "• Built YOLO-based edge detection pipelines.",
-    "work1_desc2": "• Implemented segmentation & annotation systems for vision workflows.",
-
-    "work2_desc1": "• Maintained and enhanced the database statistics collection module.",
-    "work2_desc2": "• Implemented the SQL Tuning Advisor module and developed SQL Plan Management (SPM) features.",
-    "work2_desc3": "• Delivered SQL tuning and DBA support for enterprise and financial industry clients.",
-
-    "work3_desc1": "• Designed multi-tenant SaaS architecture for public institutions.",
-    "work3_desc2": "• Owned analytics platform end-to-end (DB design → API → Angular dashboards).",
-    "work3_desc3": "• Optimized MySQL/MSSQL queries, improving performance by ~30%.",
+    "work": {
+        "aiworkx1": "• Developed object detection models optimized for edge devices without GPUs",
+        "aiworkx2": "• Built and productized image annotation and segmentation models using OpenCV",
+        "tmax1": "• Owned and enhanced the database statistics collection module",
+        "tmax2": "• Implemented the SQL Tuning Advisor module and developed SPM (SQL Plan Management)",
+        "tmax3": "• Provided SQL tuning and DBA technical support for enterprise and financial sector clients",
+        "kokomo1": "• Designed and implemented large-scale SaaS architectures for multiple clients",
+        "kokomo2": "• Built and operated end-to-end systems from Front-end (Dashboard) → Back-end (API) → Cloud (AWS) → Database",
+        "kokomo3": "• Achieved ~30% performance improvement through system (DB/Backend) optimization"
+    },
 
     "peer-kokomo": "Eungchan is an engineer capable of delivering end-to-end systems, from cloud architecture design to full-stack web development. His deep expertise in databases enables him to make strong contributions to system performance and scalability.",
     "peer-tmax": "While working on the DB Optimizer team, Eungchan was responsible for the database statistics module and consistently resolved complex issues related to statistics collection and execution plans. He also collaborated closely with the team and proactively addressed database management and SQL tuning issues encountered by enterprise clients.",

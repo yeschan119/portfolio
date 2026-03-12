@@ -19,16 +19,27 @@
     "arc_title": "시스템 아키텍처 설계",
     "arc_desc": "애플리케이션, 데이터, 성능, 클라우드, 관측성 계층을 아우르는 End to End 데이터 분석 플랫폼",
 
+    "work": {
+        "aiworkx1": "• GPU가 없는 edge 장치에서 Object dection을 수행할 수 있는 모델 개발",
+        "aiworkx2": "• Image annotation & segmentation model 개발 및 제품화(OpenCV)",
+        "tmax1": "• DB 통계 수집 기능 모듈을 담당하여 관리 및 기능 추가",
+        "tmax2": "• SQL Tuning Advisor 모듈을 구현 및 SPM(실행 계획 관리 기능)을 개발",
+        "tmax3": "• 기업 및 금융권 고객을 대상으로 SQL 튜닝 및 DBA 기술 지원",
+        "kokomo1": "• 다양한 client들을 위한 Large-scale SaaS 아키텍처 설계 및 구현",
+        "kokomo2": "• Front-end(Dashboard) → Back-end(API) → Cloud(AWS) → DB까지 end-to-end로 구축 및 운영",
+        "kokomo3": "• System(DB/Backend) 성능 최적화를 통해 약 30%의 성능 개선 달성"
+    },
+
     "work1_desc1": "• GPU가 없는 edge 장치에서 Object dection을 수행할 수 있는 모델 개발",
-    "work1_desc2": "• Image annotation & segmentation model 개발 및 제품화(님penCV)",
+    "work1_desc2": "• Image annotation & segmentation model 개발 및 제품화(OpenCV)",
 
     "work2_desc1": "• DB 통계 수집 기능 모듈을 담당하여 관리 및 기능 추가",
     "work2_desc2": "• SQL Tuning Advisor 모듈을 구현 및 SPM(실행 계획 관리 기능)을 개발",
     "work2_desc3": "• 기업 및 금융권 고객을 대상으로 SQL 튜닝 및 DBA 기술 지원",
 
-    "work3_desc1": "• 공공기관을 위한 멀티테넌트 SaaS 아키텍처를 설계",
-    "work3_님desc2": "• 데이터베이스 설계 → API → Angular 대시보드로 이어지는 분석 플랫폼을 end-to-end로 구축 및 운영",
-    "work3_desc3": "• MySQL/MSSQL 쿼리 최적화를 통해 약 30%의 성능 개선 달성",
+    "work3_desc1": "• 다양한 client들을 위한 Large-scale SaaS 아키텍처 설계 및 구현",
+    "work3_desc2": "• Front-end(Dashboard) → Back-end(API) → Cloud(AWS) → DB까지 end-to-end로 구축 및 운영",
+    "work3_desc3": "• System(DB/Backend) 성능 최적화를 통해 약 30%의 성능 개선 달성",
 
     "peer-kokomo": "응찬님은 Cloud Architecture 설계부터 Web 개발까지 End to End로 서비스를 구현할 수 있는 동료입니다. 특히 DB관련 깊은 지식과 경험을 가지고 System Performance 부분에서 상당한 기여를 하고 있습니다.",
     "peer-tmax": "응찬님은 DB Optimizer team에서 DB 통계 모듈을 담당하여, 통계수집과 실행계획 관련 이슈를 항상 성공적으로 해결했습니다. 또한 항상 팀원들과 소통하면서, 고객사들에서 발생하는 DB 관리 이슈 및 SQL Tuning 문제를 적극적으로 해결하였습니다.",
