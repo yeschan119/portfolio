@@ -26,7 +26,7 @@ let translations = {};
 
 async function loadLanguage(lang) {
     try {
-        const response = await fetch("./locales/" + lang + ".json");
+        const response = await fetch("/locales/" + lang + ".json");
         translations = await response.json();
         applyTranslations();
         localStorage.setItem("preferredLang", lang);

@@ -1,0 +1,595 @@
+<!-- AWS BI REPORTING SYSTEM -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>AWS BI Reporting System</title>
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+
+        <!-- Tailwind CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: "#0b1120",
+                            secondary: "#111827",
+                            accent: "#3b82f6"
+                        }
+                    }
+                }
+            }
+        </script>
+
+        <link rel="stylesheet" href="../css/style.css">
+
+        <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+    </head>
+    <body class="bg-primary text-white">
+        <section id="aws-bi-reporting-system" class="section-glow py-24 border-t border-slate-800">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="mb-10">
+                    <button
+                        onclick="history.back()"
+                        class="flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-700 
+                            bg-secondary/40 text-sm text-slate-300 hover:bg-secondary/60 hover:text-white transition">
+                        <span class="text-sm">←</span>
+                        Back to Main
+                    </button>
+                </div>
+
+                <!-- Header -->
+                <div class="mb-14">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20 text-xs text-slate-300 mb-6">
+                        <span class="w-2 h-2 rounded-full bg-accent"></span>
+                        Case Study • Embedded BI • AWS Native Analytics
+                    </div>
+
+                    <h3 class="text-4xl font-semibold mb-4">
+                        AWS BI Reporting System
+                    </h3>
+
+                    <a href="https://github.com/yeschan119/aws-bi-reporting-system"
+                        target="_blank"
+                        class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-secondary/40 text-sm text-slate-300 hover:text-white hover:border-accent hover:bg-secondary/60 transition"
+                        aria-label="View project on GitHub">
+
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="w-6 h-6"
+                            fill="currentColor"
+                            viewBox="0 0 24 24">
+
+                            <path d="M12 .5C5.7.5.8 5.4.8 11.7c0 5 3.2
+                                    9.2 7.6 10.7.6.1.8-.3.8-.6v-2.2c-3.1.7-3.8-1.3-3.8-1.3-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7
+                                    1.1.1 1.7 1.1 1.7 1.1 1 .1 2.1-.7 2.6-1.3.1-.7.4-1.2.7-1.5-2.5-.3-5.2-1.2-5.2-5.4
+                                    0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.4.1-2.9
+                                    0 0 .9-.3 3 .9.9-.2 1.8-.3 2.7-.3
+                                    .9 0 1.8.1 2.7.3 2.1-1.2 3-.9 3-.9
+                                    .6 1.5.2 2.6.1 2.9.7.8 1.1 1.7 1.1
+                                    2.9 0 4.2-2.7 5.1-5.3 5.4.4.3.8
+                                    1 .8 2.1v3.1c0 .3.2.7.8.6
+                                    4.4-1.5 7.6-5.7 7.6-10.7C23.2
+                                    5.4 18.3.5 12 .5z"/>
+                        </svg>
+
+                        View on GitHub
+
+                    </a>
+
+                    <p data-i18n="projects.bi-report.main" class="text-slate-400 mt-2 text-lg max-w-4xl leading-relaxed"></p>
+                </div>
+
+                <!-- Executive Summary -->
+                <div class="grid lg:grid-cols-[1.35fr,0.9fr] gap-6 mb-16">
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                        <h4 class="text-xl font-semibold mb-5">Executive Summary</h4>
+                        <div class="grid sm:grid-cols-2 gap-4 text-sm text-slate-300 leading-relaxed">
+                            <div data-i18n="projects.summary.a" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                            <div data-i18n="projects.summary.b" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                            <div data-i18n="projects.summary.c" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                            <div data-i18n="projects.summary.d" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                        </div>
+                    </div>
+
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                        <h4 class="text-xl font-semibold mb-5">Key Metrics</h4>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
+                                <div class="text-3xl font-bold text-accent mb-2">30+</div>
+                                <div class="text-sm text-slate-400">Interactive Reports</div>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
+                                <div class="text-3xl font-bold text-accent mb-2">~3s</div>
+                                <div class="text-sm text-slate-400">Avg Response Time</div>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
+                                <div class="text-3xl font-bold text-accent mb-2">2,000+</div>
+                                <div class="text-sm text-slate-400">Schools Supported</div>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
+                                <div class="text-3xl font-bold text-accent mb-2">~90%</div>
+                                <div class="text-sm text-slate-400">Session Cost Reduction</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Architecture -->
+                <div class="mb-16">
+
+                    <div class="flex items-center justify-between flex-wrap gap-4 mb-6">
+                        <div>
+                        <h4 class="text-2xl font-semibold mb-2">System Architecture</h4>
+                            <p class="text-slate-400">
+                                BI delivery pipeline with secure URL generation and cost-aware rendering.
+                            </p>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Angular</span>
+                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">ASP.NET Core</span>
+                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">AWS Lambda</span>
+                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">QuickSight</span>
+                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">RDS / DynamoDB / S3</span>
+                        </div>
+                    </div>
+
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/30 p-6 overflow-hidden">
+                        <div class="overflow-x-auto">
+                        <svg viewBox="0 0 1200 330" class="w-full min-w-[980px] h-auto">
+                            <defs>
+                            <linearGradient id="biWireGrad" x1="0" x2="1">
+                                <stop offset="0%" stop-color="#3b82f6" stop-opacity=".15"/>
+                                <stop offset="50%" stop-color="#3b82f6" stop-opacity=".9"/>
+                                <stop offset="100%" stop-color="#3b82f6" stop-opacity=".15"/>
+                            </linearGradient>
+                            <filter id="biGlow">
+                                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                            </defs>
+
+                            <!-- Nodes -->
+
+                            <g font-family="ui-sans-serif, system-ui" fill="#e2e8f0">
+                            <!-- Angular -->
+                            <rect
+                                x="40"
+                                y="110"
+                                width="190"
+                                height="90"
+                                rx="18"
+                                fill="rgba(17,24,39,.85)"
+                                stroke="rgba(148,163,184,.28)"
+                            />
+                            <text
+                                x="135"
+                                y="145"
+                                text-anchor="middle"
+                                font-size="20"
+                                font-weight="600"
+                            >
+                                Angular
+                            </text>
+
+                            <text
+                                x="135"
+                                y="170"
+                                text-anchor="middle"
+                                font-size="13"
+                                fill="#94a3b8"
+                            >
+                                Embedded Report UI
+                            </text>
+
+                            <!-- .NET API -->
+
+                            <rect
+                                x="300"
+                                y="110"
+                                width="210"
+                                height="90"
+                                rx="18"
+                                fill="rgba(17,24,39,.85)"
+                                stroke="rgba(148,163,184,.28)"
+                            />
+
+                            <text
+                                x="405"
+                                y="145"
+                                text-anchor="middle"
+                                font-size="20"
+                                font-weight="600"
+                            >
+                                .NET API
+                            </text>
+
+                            <text
+                                x="405"
+                                y="170"
+                                text-anchor="middle"
+                                font-size="13"
+                                fill="#94a3b8"
+                            >
+                                Auth · Orchestration
+                            </text>
+
+                            <!-- Lambda -->
+
+                            <rect
+                                x="580"
+                                y="40"
+                                width="190"
+                                height="90"
+                                rx="18"
+                                fill="rgba(17,24,39,.85)"
+                                stroke="rgba(148,163,184,.28)"
+                            />
+
+                            <text
+                                x="675"
+                                y="75"
+                                text-anchor="middle"
+                                font-size="20"
+                                font-weight="600"
+                            >
+                                AWS Lambda
+                            </text>
+
+                            <text
+                                x="675"
+                                y="100"
+                                text-anchor="middle"
+                                font-size="13"
+                                fill="#94a3b8"
+                            >
+                                Secure Embed API
+                            </text>
+
+
+                            <!-- Snapshot Flow -->
+
+                            <rect
+                                x="580"
+                                y="190"
+                                width="190"
+                                height="90"
+                                rx="18"
+                                fill="rgba(17,24,39,.85)"
+                                stroke="rgba(148,163,184,.28)"
+                            />
+
+                            <text
+                                x="675"
+                                y="225"
+                                text-anchor="middle"
+                                font-size="20"
+                                font-weight="600"
+                            >
+                                Snapshot Flow
+                            </text>
+
+                            <text
+                                x="675"
+                                y="250"
+                                text-anchor="middle"
+                                font-size="13"
+                                fill="#94a3b8"
+                            >
+                                S3 · Headless Render
+                            </text>
+
+
+                            <!-- QuickSight -->
+
+                            <rect
+                                x="860"
+                                y="40"
+                                width="220"
+                                height="90"
+                                rx="18"
+                                fill="rgba(17,24,39,.92)"
+                                stroke="#3b82f6"
+                            />
+
+                            <text
+                                x="970"
+                                y="75"
+                                text-anchor="middle"
+                                font-size="20"
+                                font-weight="600"
+                            >
+                                Amazon QuickSight
+                            </text>
+
+                            <text
+                                x="970"
+                                y="100"
+                                text-anchor="middle"
+                                font-size="13"
+                                fill="#94a3b8"
+                            >
+                                Embedded BI Engine
+                            </text>
+
+
+                            <!-- Data Platform -->
+
+                            <rect
+                                x="860"
+                                y="190"
+                                width="220"
+                                height="90"
+                                rx="18"
+                                fill="rgba(17,24,39,.85)"
+                                stroke="rgba(148,163,184,.28)"
+                            />
+
+                            <text
+                                x="970"
+                                y="225"
+                                text-anchor="middle"
+                                font-size="20"
+                                font-weight="600"
+                            >
+                                Data Platform
+                            </text>
+
+                            <text
+                                x="970"
+                                y="250"
+                                text-anchor="middle"
+                                font-size="13"
+                                fill="#94a3b8"
+                            >
+                                RDS · DynamoDB · SPICE
+                            </text>
+
+                            </g>
+
+
+                            <!-- Wires -->
+
+                            <!-- Angular -> API -->
+                            <path
+                                d="M230 155 L300 155"
+                                stroke="#3b82f6"
+                                stroke-width="3"
+                                fill="none"
+                            />
+
+                            <!-- API -> Lambda -->
+                            <path
+                                d="M510 155 C540 155 540 85 580 85"
+                                stroke="#3b82f6"
+                                stroke-width="3"
+                                fill="none"
+                            />
+
+                            <!-- API -> Snapshot -->
+                            <path
+                                d="M510 155 C540 155 540 235 580 235"
+                                stroke="#3b82f6"
+                                stroke-width="3"
+                                fill="none"
+                            />
+
+                            <!-- Lambda -> QuickSight -->
+                            <path
+                                d="M770 85 L860 85"
+                                stroke="#3b82f6"
+                                stroke-width="3"
+                                fill="none"
+                            />
+
+                            <!-- QuickSight -> Data Platform -->
+                            <path
+                                d="M970 130 L970 190"
+                                stroke="#3b82f6"
+                                stroke-width="3"
+                                fill="none"
+                            />
+
+                            <!-- Label -->
+                            <text
+                                x="673"
+                                y="155"
+                                text-anchor="middle"
+                                font-size="13"
+                                fill="#60a5fa"
+                            >
+                                Secure Embed + Snapshot-Oriented Delivery
+                            </text>
+                        </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scale + Report Categories -->
+                <div class="grid lg:grid-cols-2 gap-6 mb-16">
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                        <h4 class="text-2xl font-semibold mb-5">System Scale</h4>
+                        <div class="space-y-4 text-slate-300 text-sm leading-relaxed">
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div data-i18n="projects.system-scale.data-volume" class="text-slate-200 font-semibold mb-2">Data Volume</div>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div data-i18n="projects.system-scale.usage-traffic" class="text-slate-200 font-semibold mb-2">Usage & Traffic</div>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div data-i18n="projects.system-scale.user-scope" class="text-slate-200 font-semibold mb-2">User Scope</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                        <h4 class="text-2xl font-semibold mb-5">Report Categories</h4>
+                        <div class="grid gap-4 text-sm">
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-slate-200 font-semibold mb-2">Attendance & Access Management</div>
+                                <p data-i18n="projects.report-categories.attendance" class="text-slate-400 leading-relaxed"></p>
+                            </div>
+
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-slate-200 font-semibold mb-2">Health & Incident Monitoring</div>
+                                <p data-i18n="projects.report-categories.incident-monitoring" class="text-slate-400 leading-relaxed"></p>
+                            </div>
+
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-slate-200 font-semibold mb-2">District & School-Level Summary</div>
+                                <p data-i18n="projects.report-categories.summary" class="text-slate-400 leading-relaxed"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Modeling -->
+                <div class="mb-16">
+                    <h4 class="text-2xl font-semibold mb-6">Data Platform & Modeling Strategy</h4>
+
+                    <div class="grid lg:grid-cols-3 gap-6">
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
+                            <div class="text-slate-200 font-semibold mb-3">Database-Centric Analytics Logic</div>
+                            <p data-i18n="projects.data-platform.analytics-logic" class="text-slate-400 text-sm leading-relaxed"></p>
+                        </div>
+
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
+                            <div class="text-slate-200 font-semibold mb-3">Lightweight BI Layer</div>
+                            <p data-i18n="projects.data-platform.bi-layer" class="text-slate-400 text-sm leading-relaxed"></p>
+                        </div>
+
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
+                            <div class="text-slate-200 font-semibold mb-3">OLTP → Analytics Separation</div>
+                            <p data-i18n="projects.data-platform.platform" class="text-slate-400 text-sm leading-relaxed"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Performance Optimization -->
+                <div class="mb-16">
+                <h4 class="text-2xl font-semibold mb-6">Performance Optimization</h4>
+
+                <div class="grid lg:grid-cols-3 gap-6">
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
+                        <div class="text-slate-200 font-semibold mb-3">District-Level Heavy Report Optimization</div>
+                        <p data-i18n="projects.performance-opt.heavy-report-opt" class="text-slate-400 text-sm leading-relaxed"></p>
+                    </div>
+
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
+                        <div class="text-slate-200 font-semibold mb-3">SPICE for Non-Realtime Reports</div>
+                        <p data-i18n="projects.performance-opt.spice" class="text-slate-400 text-sm leading-relaxed"></p>
+                    </div>
+
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
+                        <div class="text-slate-200 font-semibold mb-3">Database-Level Query Tuning</div>
+                        <p data-i18n="projects.performance-opt.query-tuning" class="text-slate-400 text-sm leading-relaxed"></p>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Multi-tenant + Cost -->
+                <div class="grid lg:grid-cols-2 gap-6 mb-16">
+                <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                    <h4 class="text-2xl font-semibold mb-5">Embedded Reporting & Multi-Tenant Design</h4>
+                    <div class="space-y-4 text-sm text-slate-400 leading-relaxed">
+                        <div data-i18n="projects.performance-opt.design.a" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                        <div data-i18n="projects.performance-opt.design.b" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                        <div data-i18n="projects.performance-opt.design.c" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                    </div>
+                </div>
+
+                <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                    <h4 class="text-2xl font-semibold mb-5">Cost Optimization Strategy</h4>
+                    <div class="space-y-4 text-sm text-slate-400 leading-relaxed">
+                        <div data-i18n="projects.performance-opt.strategy.a" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                        <div data-i18n="projects.performance-opt.strategy.b" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                        <div data-i18n="projects.performance-opt.strategy.c" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Tech Stack -->
+                <div class="mb-16">
+                <h4 class="text-2xl font-semibold mb-6">Technology Stack</h4>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                    <div class="text-slate-200 font-semibold mb-3">Frontend</div>
+                    <div class="flex flex-wrap gap-2 text-xs">
+                        <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Angular</span>
+                    </div>
+                    </div>
+
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                    <div class="text-slate-200 font-semibold mb-3">Backend</div>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">ASP.NET Core</span>
+                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">C#</span>
+                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Lambda</span>
+                        </div>
+                    </div>
+
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                    <div class="text-slate-200 font-semibold mb-3">Data & BI</div>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">QuickSight</span>
+                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">RDS MySQL</span>
+                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">DynamoDB</span>
+                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">SPICE</span>
+                        </div>
+                    </div>
+
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                    <div class="text-slate-200 font-semibold mb-3">Pipeline & Ops</div>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">S3</span>
+                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">SQS</span>
+                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Step Functions</span>
+                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">EC2</span>
+                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Azure DevOps</span>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Impact -->
+                <div>
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                        <h4 class="text-2xl font-semibold mb-5">Impact</h4>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-accent font-semibold mb-2">Cost</div>
+                                <p data-i18n="projects.impact.cost" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-accent font-semibold mb-2">Performance</div>
+                                <p data-i18n="projects.impact.performance" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-accent font-semibold mb-2">Scale</div>
+                                <p data-i18n="projects.impact.scale" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-accent font-semibold mb-2">Architecture</div>
+                                <p data-i18n="projects.impact.arc" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <script src="../src/main.js"></script>
+    </body>
+</html>

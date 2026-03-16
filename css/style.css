@@ -34,13 +34,13 @@ html {
 }
 
 .home__title--name{
-  background: linear-gradient(90deg,#3b82f6,#abcbf1);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+    background: linear-gradient(90deg,#3b82f6,#abcbf1);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
 .ti-cursor{
-  color:#3b82f6;
+    color:#3b82f6;
 }
 
 .hero-grid-wrap {

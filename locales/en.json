@@ -45,5 +45,53 @@
         "ai2": "AI-based annotation & segmentation workflow.",
         "metric": "Flutter-based unit conversion app deployed across iOS, Web, and Desktop platforms.",
         "memo": "Cross-platform memo management app using Flutter, Firebase Auth, and Firestore with hierarchical note structure."
+    },
+
+    "projects": {
+        "bi-report": {
+            "main": "Production-grade AWS QuickSight–driven analytics and reporting platform designed for large-scale educational environments, combining embedded BI, multi-tenant access control, database-driven analytics modeling, and aggressive session cost optimization."
+        },
+        "summary": {
+            "a": "Embedded analytics platform fully integrated into the application UI using secure QuickSight embed flows.",
+            "b": "Designed for large-scale reporting workloads across thousands of schools and administrative users.",
+            "c": "Database views, analytics modeling, and query tuning used to support high-frequency operational reporting.",
+            "d": "Snapshot-based rendering strategy reduced projected QuickSight session cost by approximately 90%."
+        },
+        "system-scale": {
+            "data-volume": "Five years of historical incident data with hundreds of thousands of records, including operational metadata, incident classification, timestamps, school and facility information.",
+            "usage-traffic": "Thousands to tens of thousands of daily report views across approximately 30 reports and 10+ visualization types.",
+            "user-scope": "Supports around 2,000 schools and thousands of administrative users operating at school and district levels."
+        },
+        "report-categories": {
+            "attendance": "Student attendance tracking, staff check-in / check-out logs, late arrival monitoring, and tardiness analytics.",
+            "incident-monitoring": "Vaccination reporting, infection tracking, facility exposure logging, and date / district / school-based aggregation.",
+            "summary": "Role-based dashboards providing school-only or district-wide analytical views depending on user scope."
+        },
+        "data-platform": {
+            "analytics-logic": "Complex business rules, aggregations, and reporting transformations were implemented at the RDS layer using database views to reduce BI dataset complexity and stabilize query patterns.",
+            "bi-layer": "Simple report-specific expressions were delegated to QuickSight calculated fields, keeping the visualization layer lightweight and avoiding unnecessary duplication of heavy aggregation logic.",
+            "platform": "Reporting workloads were isolated from the transactional path through view-based models, SPICE usage, and dedicated read-oriented strategies to support operational analytics without destabilizing OLTP behavior."
+        },
+        "performance-opt": {
+            "heavy-report-opt": "Expensive district-wide joins were reduced by isolating school metadata into DynamoDB and synchronizing relational metadata into a read-optimized structure.",
+            "spice": "Daily summary reports were moved to SPICE with scheduled refresh, eliminating unnecessary real-time query load on the source database.",
+            "query-tuning": "Composite indexes, execution plan analysis, join restructuring, and view-based query shaping reduced dashboard latency and improved overall reporting responsiveness.",
+            "design": {
+                "a": "Reports were built in QuickSight and embedded into the application using secure URLs generated through .NET API and Lambda orchestration.",
+                "b": "Access control was enforced through API-level authorization, role-aware filtering, and parameterized tenant scoping for school-level and district-level users.",
+                "c": "This architecture maintained secure multi-tenant isolation while keeping the reporting experience fully embedded."
+            },
+            "strategy": {
+                "a": "QuickSight session pricing made high-frequency report access operationally expensive at scale.",
+                "b": "A snapshot rendering pipeline was introduced: if a requested report snapshot already existed, the platform served the cached visual output instead of creating a new BI session.",
+                "c": "Headless browser capture + S3 storage dramatically reduced session creation while preserving visual equivalence for non-interactive report scenarios."
+            }
+        },
+        "impact": {
+            "cost": "Reduced projected QuickSight operating cost by approximately 90%.",
+            "performance": "Maintained around 3-second average dashboard response time.",
+            "scale": "Supported 2,000+ schools and thousands of administrative users.",
+            "arc": "Delivered a secure multi-tenant embedded analytics platform on AWS-native services."
+        }
     }
 }
