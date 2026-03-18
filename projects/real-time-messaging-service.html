@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Real-Time Messaging Service | Eungchan Kang</title>
+        <link rel="icon" href="/images/favicon.ico">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: "#0b1120",
+                            secondary: "#111827",
+                            accent: "#3b82f6"
+                        }
+                    }
+                }
+            }
+        </script>
+        <link rel="stylesheet" href="/css/style.css">
+        <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+    </head>
+
+    <body class="bg-primary text-slate-200 font-sans">
+
+        <section class="section-glow py-24 border-t border-slate-800">
+
+            <div class="max-w-6xl mx-auto px-6">
+
+            <!-- Back Button -->
+
+            <div class="mb-10">
+
+                <a href="../index.html#projects"
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-secondary/40 text-sm text-slate-300 hover:bg-secondary/60 hover:text-white transition">
+
+                <span class="text-base">←</span>
+
+                Back to Projects
+
+                </a>
+
+            </div>
+
+            <!-- Header -->
+
+            <div class="mb-12">
+
+                <h1 class="text-4xl md:text-5xl font-semibold mb-4">
+
+                Real-Time Messaging Service
+                </h1>
+
+                <p da class="text-slate-400 text-lg mb-6">
+                Angular + .NET 8 + SignalR + AWS (Event-Driven Architecture)
+                </p>
+
+                <a href="https://github.com/yeschan119/real-time-messaging-service"
+                target="_blank"
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-secondary/40 text-sm text-slate-300 hover:text-white hover:border-accent hover:bg-secondary/60 transition">
+
+                View Details on GitHub
+                </a>
+
+            </div>
+
+            <!-- Executive Summary -->
+
+            <div class="mb-8">
+
+                <h2 class="text-2xl font-semibold mb-4">
+                    Executive Summary
+                </h2>
+
+                <p data-i18n="projects.real-time-message.summary.main" class="text-slate-400 mb-4"></p>
+                <ul class="list-disc list-inside text-slate-400 space-y-2">
+                    <li data-i18n="projects.real-time-message.summary.a"></li>
+                    <li data-i18n="projects.real-time-message.summary.b"></li>
+                    <li data-i18n="projects.real-time-message.summary.c"></li>
+                    <li data-i18n="projects.real-time-message.summary.d"></li>
+                    <li data-i18n="projects.real-time-message.summary.e"></li>
+                    <li data-i18n="projects.real-time-message.summary.f"></li>
+                    <li data-i18n="projects.real-time-message.summary.g"></li>
+                </ul>
+                <p data-i18n="projects.real-time-message.summary.h" class="text-slate-400 mt-6 italic"></p>
+            </div>
+
+            <!-- High-Level Architecture -->
+            <div class="rounded-2xl border border-slate-700/70 bg-secondary/35 p-5 mt-5 overflow-x-auto">
+                <h2 class="text-2xl font-semibold">
+                    High-Level Architecture
+                </h2>
+                <svg viewBox="0 0 1400 520" class="w-full min-w-[990px] h-auto">
+
+                    <defs>
+                        <linearGradient id="msgWire" x1="0" x2="1">
+                            <stop offset="0%" stop-color="#3b82f6" stop-opacity=".3"/>
+                            <stop offset="50%" stop-color="#3b82f6" stop-opacity="1"/>
+                            <stop offset="100%" stop-color="#3b82f6" stop-opacity=".3"/>
+                        </linearGradient>
+
+                        <marker
+                            id="arrow"
+                            markerWidth="10"
+                            markerHeight="10"
+                            refX="10"
+                            refY="3"
+                            orient="auto"
+                            markerUnits="strokeWidth">
+
+                            <path d="M0,0 L10,3 L0,6 Z" fill="#3b82f6"/>
+                        </marker>
+                    </defs>
+
+                    <!-- Angular -->
+
+                    <rect
+                        x="20"
+                        y="120"
+                        width="200"
+                        height="90"
+                        rx="16"
+                        fill="rgba(17,24,39,.9)"
+                        stroke="#3b82f6"
+                    />
+
+                    <text
+                        x="120"
+                        y="160"
+                        text-anchor="middle"
+                        font-size="20"
+                        fill="#e2e8f0"
+                        font-weight="600">
+
+                        Angular
+                    </text>
+
+                    <text
+                        x="120"
+                        y="185"
+                        text-anchor="middle"
+                        font-size="12"
+                        fill="#94a3b8">
+
+                        SignalR Client
+                    </text>
+
+
+                    <!-- SignalR Hub -->
+
+                    <rect
+                        x="280"
+                        y="120"
+                        width="220"
+                        height="90"
+                        rx="16"
+                        fill="rgba(17,24,39,.9)"
+                        stroke="rgba(148,163,184,.3)"
+                    />
+
+                    <text
+                        x="390"
+                        y="160"
+                        text-anchor="middle"
+                        font-size="20"
+                        fill="#e2e8f0"
+                        font-weight="600">
+
+                        SignalR Hub
+                    </text>
+
+                    <text
+                        x="390"
+                        y="185"
+                        text-anchor="middle"
+                        font-size="12"
+                        fill="#94a3b8">
+
+                        .NET 8 · Elastic Beanstalk
+                    </text>
+
+
+                    <!-- Amazon SQS -->
+
+                    <rect
+                        x="560"
+                        y="120"
+                        width="200"
+                        height="90"
+                        rx="16"
+                        fill="rgba(17,24,39,.9)"
+                        stroke="rgba(148,163,184,.3)"
+                    />
+
+                    <text
+                        x="660"
+                        y="160"
+                        text-anchor="middle"
+                        font-size="20"
+                        fill="#e2e8f0"
+                        font-weight="600">
+
+                        Amazon SQS
+                    </text>
+
+                    <text
+                        x="660"
+                        y="185"
+                        text-anchor="middle"
+                        font-size="12"
+                        fill="#94a3b8">
+
+                        FIFO Queue
+                    </text>
+
+                    <!-- AWS Lambda -->
+
+                    <rect
+                        x="820"
+                        y="120"
+                        width="200"
+                        height="90"
+                        rx="16"
+                        fill="rgba(17,24,39,.9)"
+                        stroke="rgba(148,163,184,.3)"
+                    />
+
+                    <text
+                        x="920"
+                        y="160"
+                        text-anchor="middle"
+                        font-size="20"
+                        fill="#e2e8f0"
+                        font-weight="600">
+
+                        AWS Lambda
+                    </text>
+
+                    <text
+                        x="920"
+                        y="180"
+                        text-anchor="middle"
+                        font-size="12"
+                        fill="#94a3b8">
+
+                        Message Processor
+                    </text>
+
+                    <!-- DynamoDB -->
+
+                    <rect
+                        x="1080"
+                        y="120"
+                        width="220"
+                        height="90"
+                        rx="16"
+                        fill="rgba(17,24,39,.9)"
+                        stroke="#3b82f6"
+                    />
+
+                    <text
+                        x="1190"
+                        y="160"
+                        text-anchor="middle"
+                        font-size="20"
+                        fill="#e2e8f0"
+                        font-weight="600">
+
+                        DynamoDB
+                    </text>
+
+                    <text
+                        x="1190"
+                        y="180"
+                        text-anchor="middle"
+                        font-size="12"
+                        fill="#94a3b8">
+
+                        Live Message Store
+                    </text>
+
+
+                    <!-- Archive Worker -->
+
+                    <rect
+                        x="1080"
+                        y="270"
+                        width="220"
+                        height="70"
+                        rx="14"
+                        fill="rgba(17,24,39,.85)"
+                        stroke="rgba(148,163,184,.3)"
+                    />
+
+                    <text
+                        x="1190"
+                        y="300"
+                        text-anchor="middle"
+                        font-size="18"
+                        fill="#e2e8f0"
+                        font-weight="600">
+
+                        Archive Worker
+                    </text>
+
+                    <text
+                        x="1190"
+                        y="320"
+                        text-anchor="middle"
+                        font-size="11"
+                        fill="#94a3b8">
+
+                        Batch / TTL Export
+                    </text>
+
+
+                    <!-- RDS -->
+
+                    <rect
+                        x="1080"
+                        y="390"
+                        width="220"
+                        height="70"
+                        rx="14"
+                        fill="rgba(17,24,39,.85)"
+                        stroke="rgba(148,163,184,.3)"
+                    />
+
+                    <text
+                        x="1190"
+                        y="425"
+                        text-anchor="middle"
+                        font-size="18"
+                        fill="#e2e8f0"
+                        font-weight="600">
+
+                        RDS
+                    </text>
+
+                    <text
+                        x="1190"
+                        y="440"
+                        text-anchor="middle"
+                        font-size="11"
+                        fill="#94a3b8">
+
+                        Chat History Archive
+                    </text>
+
+
+                    <!-- Main Flow -->
+
+                    <path
+                        d="M220 165 L280 165"
+                        stroke="url(#msgWire)"
+                        stroke-width="4"
+                        marker-end="url(#arrow)"
+                    />
+
+                    <text
+                        x="220"
+                        y="120"
+                        font-size="11"
+                        fill="#60a5fa">
+
+                        WebSocket
+                    </text>
+
+                    <path
+                        d="M500 165 L560 165"
+                        stroke="url(#msgWire)"
+                        stroke-width="4"
+                        marker-end="url(#arrow)"
+                    />
+
+                    <path
+                        d="M760 165 L820 165"
+                        stroke="url(#msgWire)"
+                        stroke-width="4"
+                        marker-end="url(#arrow)"
+                    />
+
+                    <path
+                        d="M1020 165 L1080 165"
+                        stroke="url(#msgWire)"
+                        stroke-width="4"
+                        marker-end="url(#arrow)"
+                    />
+
+
+                    <!-- Archive Flow -->
+
+                    <path
+                        d="M1190 240 L1190 270"
+                        stroke="url(#msgWire)"
+                        stroke-width="3"
+                        marker-end="url(#arrow)"
+                    />
+
+                    <path
+                        d="M1190 320 L1190 390"
+                        stroke="url(#msgWire)"
+                        stroke-width="3"
+                        marker-end="url(#arrow)"
+                    />
+
+                    <text
+                        x="1150"
+                        y="230"
+                        font-size="11"
+                        fill="#60a5fa">
+
+                        History Archive
+                    </text>
+
+                </svg>
+            </div>
+            <!-- Technical Stack -->
+
+            <div class="mb-5 mt-10">
+
+                <h2 class="text-2xl font-semibold mb-6">
+                    Technical Stack
+                </h2>
+
+                <div class="grid md:grid-cols-3 gap-6">
+
+                    <div class="bg-secondary/40 p-6 rounded-lg">
+
+                        <h3 class="font-semibold mb-3">
+                            Frontend
+                        </h3>
+
+                        <ul class="text-slate-400 space-y-2 text-sm">
+                            <li>Angular 12</li>
+                            <li>SignalR JavaScript Client</li>
+                        </ul>
+
+                    </div>
+
+                    <div class="bg-secondary/40 p-6 rounded-lg">
+
+                        <h3 class="font-semibold mb-3">
+                        Backend
+                        </h3>
+
+                        <ul class="text-slate-400 space-y-2 text-sm">
+                            <li>.NET 8 (ASP.NET Core)</li>
+                            <li>SignalR Hub</li>
+                        </ul>
+
+                    </div>
+
+                    <div class="bg-secondary/40 p-6 rounded-lg">
+
+                        <h3 class="font-semibold mb-3">
+                        AWS
+                        </h3>
+
+                        <ul class="text-slate-400 space-y-2 text-sm">
+                            <li>Amazon SQS (Standard + FIFO)</li>
+                            <li>AWS Lambda</li>
+                            <li>DynamoDB</li>
+                            <li>Elastic Beanstalk</li>
+                            <li>Amazon S3 (Presigned URL)</li>
+                            <li>CloudWatch</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- System Scale -->
+
+            <div class="mb-10 mt-10">
+
+                <h2 class="text-2xl font-semibold mb-4">
+                    System Scale
+                </h2>
+
+                <table class="w-full text-left border border-slate-700">
+
+                <thead class="bg-secondary/40">
+
+                    <tr>
+                        <th class="p-3">Metric</th>
+                        <th class="p-3">Value</th>
+                    </tr>
+
+                </thead>
+
+                <tbody class="text-slate-400">
+
+                    <tr class="border-t border-slate-700">
+                        <td data-i18n="projects.real-time-message.scale.org" class="p-3">Organizations</td>
+                        <td data-i18n="projects.real-time-message.scale.orgValue" class="p-3">2 Hospitals</td>
+                    </tr>
+
+                    <tr class="border-t border-slate-700">
+                        <td data-i18n="projects.real-time-message.scale.user" class="p-3">Users</td>
+                        <td data-i18n="projects.real-time-message.scale.userValue" class="p-3">Hundreds</td>
+                    </tr>
+
+                    <tr class="border-t border-slate-700">
+                        <td data-i18n="projects.real-time-message.scale.msg" class="p-3">Daily Messages</td>
+                        <td data-i18n="projects.real-time-message.scale.msgValue" class="p-3">Hundreds ~ Thousands</td>
+                    </tr>
+
+                    <tr class="border-t border-slate-700">
+                        <td data-i18n="projects.real-time-message.scale.time" class="p-3">Average Response</td>
+                        <td data-i18n="projects.real-time-message.scale.timeValue" class="p-3">Real-time</td>
+                    </tr>
+
+                </tbody>
+
+                </table>
+
+            </div>
+
+            <!-- Expandable Sections -->
+
+            <details class="mb-6">
+
+                <summary class="cursor-pointer text-lg font-semibold">
+
+                Core Features
+
+                </summary>
+
+                <div class="mt-4 text-slate-400 space-y-4">
+
+                <p class="font-semibold">Messaging</p>
+
+                <ul class="list-disc list-inside">
+                    <li data-i18n="projects.real-time-message.feature.msg-1"></li>
+                    <li data-i18n="projects.real-time-message.feature.msg-2"></li>
+                    <li data-i18n="projects.real-time-message.feature.msg-3"></li>
+                    <li data-i18n="projects.real-time-message.feature.msg-4"></li>
+                    <li data-i18n="projects.real-time-message.feature.msg-5"></li>
+                    <!-- <li data-i18n="projects.real-time-message.feature.msg-6"><li> -->
+                    <li data-i18n="projects.real-time-message.feature.msg-7"></li>
+                    <li data-i18n="projects.real-time-message.feature.msg-8"></li>
+                    <li data-i18n="projects.real-time-message.feature.msg-9"></li>
+                </ul>
+
+                <p class="font-semibold mt-4">File Upload</p>
+
+                <ul class="list-disc list-inside">
+                    <li data-i18n="projects.real-time-message.feature.file-1"></li>
+                    <li data-i18n="projects.real-time-message.feature.file-2"></li>
+                    <li data-i18n="projects.real-time-message.feature.file-3"></li>
+                </ul>
+
+                </div>
+
+            </details>
+
+            <details class="mb-6">
+
+                <summary class="cursor-pointer text-lg font-semibold">
+
+                Performance Optimization
+
+                </summary>
+
+                <div class="mt-4 text-slate-400 space-y-4">
+
+                <ul class="list-disc list-inside">
+
+                    <li data-i18n="projects.real-time-message.opt.a"></li>
+                    <li data-i18n="projects.real-time-message.opt.b"></li>
+                    <li data-i18n="projects.real-time-message.opt.c"></li>
+                    <li data-i18n="projects.real-time-message.opt.d"></li>
+                    <li data-i18n="projects.real-time-message.opt.e"></li>
+
+                </ul>
+
+                </div>
+
+            </details>
+
+            <details class="mb-6">
+
+                <summary class="cursor-pointer text-lg font-semibold">
+
+                Technical Decisions
+
+                </summary>
+
+                <div class="mt-4 text-slate-400 space-y-4">
+
+                <p data-i18n="projects.real-time-message.tech.signalR"></p>
+
+                <p data-i18n="projects.real-time-message.tech.sqs"></p>
+
+                <p data-i18n="projects.real-time-message.tech.ddb"></p>
+
+                <p data-i18n="projects.real-time-message.tech.s3"></p>
+
+                </div>
+
+            </details>
+
+            <!-- Conclusion -->
+
+            <div class="mt-16">
+
+                <h2 class="text-2xl font-semibold mb-4">
+
+                Conclusion
+
+                </h2>
+
+                <p data-i18n="projects.real-time-message.conclusion" class="text-slate-400"></p>
+
+            </div>
+
+            </div>
+
+        </section>
+        <script src="/src/main.js"></script>
+    </body>
+</html>

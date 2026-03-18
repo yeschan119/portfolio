@@ -173,6 +173,56 @@
                     "f": "• Conversion of operational data into actionable intelligence"
                 }
             }
+        },
+        "real-time-message": {
+            "summary": {
+                "main": "Designed and implemented a <strong>production-grade real-time messaging platform</strong> with:",
+                "a": "WebSocket-based real-time communication (SignalR)",
+                "b": "Event-driven persistence (SQS → Lambda → DynamoDB)",
+                "c": "1:1 and Group Chat support",
+                "d": "Secure file uploads via S3 Presigned URL",
+                "e": "Edit / Delete / Read Receipt lifecycle",
+                "f": "Fully deployed on AWS Elastic Beanstalk",
+                "g": "Horizontally scalable backend architecture",
+                "h": "Real-time UX combined with resilient cloud-native event processing."
+            },
+            "scale": {
+                "org": "Organizations",
+                "orgValue": "2 Hospitals",
+                "user": "Users",
+                "userValue": "Hundreds",
+                "msg": "Daily Messages",
+                "msgValue": "Hundreds ~ Thousands",
+                "time": "Average Response",
+                "timeValue": "Real-time"
+            },
+            "feature": {
+                "msg-1": "Real-time send/receive",
+                "msg-2": "Edit message",
+                "msg-3": "Delete message",
+                "msg-4": "Read receipts",
+                "msg-5": "Group chat",
+                "msg-6": "history search",
+                "msg-7": "chatting status check(in-progress/closed)",
+                "msg-8": "Online presence updates",
+                "file-1": "Store files in Amazon S3",
+                "file-2": "Persist only Presigned URL in message record",
+                "file-3": "Secure direct upload from client"
+            },
+            "opt": {
+                "a": "WebSocket + SignalR for minimal latency",
+                "b": "DynamoDB key-value model for scalable message storage",
+                "c": "SQS FIFO queue guarantees strict message ordering",
+                "d": "Asynchronous persistence via SQS → Lambda",
+                "e": "RDS Optimization(index, partition, normalization) for Message Archive"
+            },
+            "tech": {
+                "signalR": "<strong>Why SignalR?</strong> Native WebSocket support in .NET and simplified connection management.",
+                "sqs": "<strong>Why SQS FIFO?</strong> Ensures message ordering and prevents duplicate/out-of-order persistence.",
+                "ddb": "strong>Why DynamoDB?</strong> Key-value workload optimized for chat message storage.",
+                "s3": "<strong>Why S3?</strong> Store files externally and keep database lightweight."
+            },
+            "conclusion": "This project demonstrates a real-time WebSocket architecture combined with event-driven cloud infrastructure. The system ensures reliable message ordering, scalable storage, and resilient backend processing."
         }
     }
 }
