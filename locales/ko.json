@@ -236,6 +236,56 @@
                 "s3": "<strong>왜 S3인가?</strong> 파일을 외부 스토리지에 저장하여 데이터베이스를 경량화."
             },
             "conclusion": "이 프로젝트는 WebSocket 기반 실시간 아키텍처와 이벤트 기반 클라우드 인프라를 결합한 시스템입니다. 메시지 순서 보장, 확장 가능한 스토리지 구조, 안정적인 백엔드 처리 구조를 통해 대규모 환경에서도 안정적인 실시간 메시징 서비스를 제공합니다."
+        },
+        "cloud-data-platform": {
+            "summary": "Azure 기반 ETL 및 리포팅 플랫폼을 <strong>확장 가능한 이벤트 기반 AWS 분석 시스템</strong>으로 재설계",
+            "summary-detail": "단순한 lift-and-shift가 아닌, 데이터 파이프라인, 오케스트레이션, 스냅샷 생성, 리포팅 아키텍처를 포함한 전체 데이터 플랫폼을 <strong>완전히 재설계</strong>한 프로젝트",
+            "outcomes": {
+                "a": "이벤트 기반 분산 아키텍처 구축",
+                "b": "분산 스냅샷 생성 엔진 구현",
+                "c": "수평 확장 가능한 구조",
+                "d": "인프라 비용 최적화",
+                "e": "메타데이터 기반 오케스트레이션",
+                "f": "Power BI → Amazon QuickSight 마이그레이션"
+            },
+            "legacy-components": {
+                "event-hubs": "Azure Event Hubs",
+                "steam-analytics": "Stream Analytics",
+                "data-lake": "Azure Data Lake",
+                "databricks": "Azure Databricks",
+                "data-factory": "Azure Data Factory",
+                "sql-server": "Azure SQL Server",
+                "power-bi": "Power BI"
+            },
+            "new-components": {
+                "api": ".NET API (트리거 레이어)",
+                "lambda": "AWS Lambda",
+                "ddb": "DynamoDB (메타데이터 저장소)",
+                "sqs": "Amazon SQS (작업 큐)",
+                "step-functions": "AWS Step Functions (오케스트레이션)",
+                "ec2": "EC2 Auto Scaling Workers (Node.js)",
+                "s3": "Amazon S3 (스냅샷 저장소)",
+                "quicksight": "Amazon QuickSight (리포팅)",
+                "rds": "Amazon RDS (MySQL)"
+            },
+            "snapshot": {
+                "trigger": ".NET API가 Lambda 트리거",
+                "metadata": "Lambda가 DynamoDB에서 메타데이터 확인",
+                "create-meta": "스냅샷이 존재하지 않을 경우 메타데이터 생성",
+                "job-push": "작업을 SQS 큐에 등록",
+                "orchestrate": "Step Functions가 실행 흐름 오케스트레이션",
+                "ec2-worker": "EC2 워커가 QuickSight 리포트 렌더링",
+                "snapshot": "생성된 스냅샷을 S3에 저장",
+                "update-meta": "DynamoDB 메타데이터 업데이트"
+            },
+            "strategy": {
+                "data-lake": "Azure Data Lake → Amazon S3",
+                "sql": "Azure SQL → Amazon RDS",
+                "data-factory": "Azure Data Factory → Step Functions + Lambda",
+                "power-bi": "Power BI → Amazon QuickSight",
+                "sqs": "SQS 기반 분산 워커 모델 도입"
+            },
+            "conclusion": "이 프로젝트는 클라우드 아키텍처 재설계 역량, 분산 시스템 설계, 이벤트 기반 오케스트레이션, 확장 가능한 분석 인프라 구축, 그리고 비용 효율적인 클라우드 엔지니어링 기법으로 구현되었습니다."
         }
     }
 }

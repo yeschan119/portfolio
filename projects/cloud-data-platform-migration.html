@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cloud Data Platform Migration | Eungchan Kang</title>
+        <link rel="icon" href="/images/favicon.ico">
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                    colors: {
+                        primary: "#0b1120",
+                        secondary: "#111827",
+                        accent: "#3b82f6"
+                    }
+                    }
+                }
+            }
+        </script>
+
+        <link rel="stylesheet" href="/css/style.css">
+        <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+    </head>
+
+    <body class="bg-primary text-slate-200 font-sans">
+        <section class="section-glow py-24 border-t border-slate-800">
+            <div class="max-w-6xl mx-auto px-6">
+                <!-- Back Button -->
+                <div class="mb-10">
+
+                    <a href="/index.html#projects"
+                        class="inline-flex items-center
+                                gap-2 px-4 py-2 rounded-lg
+                                border border-slate-700
+                                bg-secondary/40 text-sm
+                                text-slate-300 hover:bg-secondary/60
+                                hover:text-white transition">
+                    <span class="text-base">←</span>
+                        Back to Projects
+                    </a>
+
+                </div>
+
+                <!-- Header -->
+                <div class="mb-12">
+                    <h1 class="text-4xl md:text-5xl font-semibold mb-4">
+                        Cloud Data Platform Migration
+                    </h1>
+
+                    <p class="text-slate-400 text-lg mb-6">
+                        Azure Data Pipeline → AWS Distributed Analytics Architecture
+                    </p>
+
+                    <a href="https://github.com/yeschan119/Cloud-Data-Platform-Migration" target="_blank"
+                            class="inline-flex items-center
+                                    gap-2 px-4 py-2 rounded-lg
+                                    border border-slate-700
+                                    bg-secondary/40 text-sm
+                                    text-slate-300 hover:text-white
+                                    hover:border-accent hover:bg-secondary/60 transition">
+                        View Details on GitHub
+                    </a>
+
+                </div>
+
+                <!-- Executive Summary -->
+
+                <div class="mb-10">
+                    <h2 class="text-2xl font-semibold mb-4">
+                        Executive Summary
+                    </h2>
+
+                    <p data-i18n="projects.cloud-data-platform.summary" class="text-slate-400 mb-3"></p>
+                    <p data-i18n="projects.cloud-data-platform.summary-detail" class="text-slate-400 mb-6"></p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-4">
+                        Key Outcomes
+                    </h3>
+
+                    <ul class="list-disc list-inside text-slate-400 space-y-2">
+                        <li data-i18n="projects.cloud-data-platform.outcomes.a"></li>
+                        <li data-i18n="projects.cloud-data-platform.outcomes.b"></li>
+                        <li data-i18n="projects.cloud-data-platform.outcomes.c"></li>
+                        <li data-i18n="projects.cloud-data-platform.outcomes.d"></li>
+                        <li data-i18n="projects.cloud-data-platform.outcomes.e"></li>
+                        <li data-i18n="projects.cloud-data-platform.outcomes.f"></li>
+                    </ul>
+                </div>
+
+                <!-- High-Level Transformation -->
+                <div class="mb-10">
+
+                    <h2 class="text-2xl font-semibold mb-6">
+                        High-Level Transformation
+                    </h2>
+
+                    <div class="rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 overflow-x-auto">
+                        <svg viewBox="0 0 1300 370" class="w-full min-w-[950px] h-auto">
+
+                            <!-- TITLE -->
+                            <text
+                                x="600"
+                                y="40"
+                                text-anchor="middle"
+                                font-size="24"
+                                font-weight="700"
+                                fill="#e2e8f0">
+                                Azure Data Pipeline (Before)
+                            </text>
+
+                            <!-- INGESTION -->
+
+                            <rect x="60" y="120" width="160" height="60" rx="14"
+                            fill="rgba(17,24,39,.9)" stroke="#334155"/>
+
+                            <text x="140" y="155" text-anchor="middle" fill="#e2e8f0">
+                                Event Hubs
+                            </text>
+
+                            <rect x="260" y="120" width="180" height="60" rx="14"
+                            fill="rgba(17,24,39,.9)" stroke="#334155"/>
+
+                            <text x="350" y="155" text-anchor="middle" fill="#e2e8f0">
+                                Stream Analytics
+                            </text>
+
+                            <!-- DATA LAKE (single) -->
+
+                            <rect x="500" y="110" width="200" height="80" rx="16"
+                            fill="rgba(17,24,39,.9)" stroke="#3b82f6"/>
+
+                            <text x="600" y="155" text-anchor="middle" fill="#e2e8f0" font-size="16">
+                                Azure Data Lake
+                            </text>
+
+                            <!-- DATA FACTORY -->
+
+                            <rect x="760" y="120" width="180" height="60" rx="14"
+                            fill="rgba(17,24,39,.9)" stroke="#334155"/>
+
+                            <text x="850" y="155" text-anchor="middle" fill="#e2e8f0">
+                            Data Factory
+                            </text>
+
+                            <!-- DATABRICKS -->
+
+                            <rect x="760" y="260" width="180" height="60" rx="14"
+                            fill="rgba(17,24,39,.9)" stroke="#334155"/>
+
+                            <text x="850" y="295" text-anchor="middle" fill="#e2e8f0">
+                                Databricks
+                            </text>
+
+                            <!-- SQL SERVER -->
+
+                            <rect x="1000" y="120" width="160" height="60" rx="14"
+                            fill="rgba(17,24,39,.9)" stroke="#334155"/>
+
+                            <text x="1080" y="155" text-anchor="middle" fill="#e2e8f0">
+                                SQL Server
+                            </text>
+
+                            <!-- POWER BI -->
+
+                            <rect x="1000" y="260" width="160" height="60" rx="14"
+                            fill="rgba(17,24,39,.9)" stroke="#3b82f6"/>
+
+                            <text x="1080" y="295" text-anchor="middle" fill="#e2e8f0">
+                                Power BI
+                            </text>
+
+                            <!-- WIRES -->
+                            <!-- ingestion -->
+
+                            <line x1="220" y1="150" x2="260" y2="150"
+                            stroke="#3b82f6" stroke-width="3"/>
+
+                            <line x1="440" y1="150" x2="500" y2="150"
+                            stroke="#3b82f6" stroke-width="3"/>
+
+                            <!-- lake -> data factory -->
+
+                            <line x1="700" y1="150" x2="760" y2="150"
+                            stroke="#3b82f6" stroke-width="3"/>
+
+                            <!-- data factory -> databricks -->
+
+                            <line x1="850" y1="180" x2="850" y2="260"
+                                stroke="#3b82f6" stroke-width="3"/>
+
+                            <!-- data factory -> databricks -->
+                            <line x1="1080" y1="180" x2="1080" y2="260"
+                                stroke="#3b82f6" stroke-width="3"/>
+
+                            <!-- data factory -> sql server -->
+
+                            <line x1="940" y1="150" x2="1000" y2="150"
+                                stroke="#3b82f6" stroke-width="3"/>
+
+                            <!-- databricks -> lake (loop) -->
+                            <path
+                                d="M760 290 C650 280 590 320 600 190"
+                                stroke="#3b82f6"
+                                stroke-width="3"
+                                fill="none"
+                            />
+
+                        </svg>
+                    </div>
+                    <div class="mb-5"></div>
+
+                    <div class="rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 overflow-x-auto">
+                        <svg viewBox="0 50 1400 440" class="w-full min-w-[1000px] h-auto">
+
+                            <!-- TITLE -->
+                            <text
+                                x="600"
+                                y="100"
+                                text-anchor="middle"
+                                font-size="24"
+                                font-weight="700"
+                                fill="#e2e8f0">
+                                AWS Data Pipeline (After)
+                            </text>
+
+                            <!-- MAIN FLOW -->
+
+                            <rect x="60" y="160" width="160" height="70" rx="14" fill="rgba(17,24,39,.9)" stroke="#334155"/>
+                            <text x="140" y="200" text-anchor="middle" fill="#e2e8f0">Event</text>
+
+                            <rect x="260" y="160" width="160" height="70" rx="14" fill="rgba(17,24,39,.9)" stroke="#334155"/>
+                            <text x="340" y="200" text-anchor="middle" fill="#e2e8f0">Lambda</text>
+
+                            <rect x="460" y="160" width="180" height="70" rx="14" fill="rgba(17,24,39,.9)" stroke="#334155"/>
+                            <text x="550" y="200" text-anchor="middle" fill="#e2e8f0">QuickSight</text>
+
+                            <rect x="680" y="160" width="200" height="70" rx="14" fill="rgba(17,24,39,.9)" stroke="#3b82f6"/>
+                            <text x="780" y="200" text-anchor="middle" fill="#e2e8f0">Lambda (Embed URL)</text>
+
+                            <rect x="920" y="160" width="200" height="70" rx="14" fill="rgba(17,24,39,.9)" stroke="#3b82f6"/>
+                            <text x="1020" y="200" text-anchor="middle" fill="#e2e8f0">iFrame(Embed URL)</text>
+
+                            <!-- MAIN WIRES -->
+
+                            <line x1="220" y1="195" x2="260" y2="195" stroke="#3b82f6" stroke-width="3"/>
+                            <line x1="420" y1="195" x2="460" y2="195" stroke="#3b82f6" stroke-width="3"/>
+                            <line x1="640" y1="195" x2="680" y2="195" stroke="#3b82f6" stroke-width="3"/>
+                            <line x1="880" y1="195" x2="920" y2="195" stroke="#3b82f6" stroke-width="3"/>
+
+                            <!-- SQS -->
+
+                            <rect x="260" y="300" width="160" height="70" rx="14" fill="rgba(17,24,39,.9)" stroke="#334155"/>
+                            <text x="340" y="340" text-anchor="middle" fill="#e2e8f0">SQS</text>
+
+                            <!-- STEP FUNCTIONS -->
+
+                            <rect x="460" y="300" width="180" height="70" rx="14" fill="rgba(17,24,39,.9)" stroke="#334155"/>
+                            <text x="550" y="340" text-anchor="middle" fill="#e2e8f0">Step Functions</text>
+
+                            <!-- EC2 -->
+
+                            <rect x="680" y="300" width="200" height="70" rx="14" fill="rgba(17,24,39,.9)" stroke="#334155"/>
+                            <text x="780" y="340" text-anchor="middle" fill="#e2e8f0">EC2 Auto Scaling</text>
+
+                            <!-- RESULT STORAGE -->
+
+                            <rect x="920" y="300" width="180" height="60" rx="12" fill="rgba(17,24,39,.9)" stroke="#3b82f6"/>
+                            <text x="1010" y="335" text-anchor="middle" fill="#e2e8f0">QuickSight</text>
+
+                            <rect x="1140" y="240" width="110" height="60" rx="12" fill="rgba(17,24,39,.9)" stroke="#3b82f6"/>
+                            <text x="1195" y="275" text-anchor="middle" fill="#e2e8f0">S3</text>
+
+                            <rect x="1140" y="370" width="120" height="60" rx="12" fill="rgba(17,24,39,.9)" stroke="#3b82f6"/>
+                            <text x="1200" y="405" text-anchor="middle" fill="#e2e8f0">DynamoDB</text>
+
+                            <!-- SNAPSHOT WIRES -->
+                            <line x1="340" y1="300" x2="340" y2="230" stroke="#3b82f6" stroke-width="3"/>
+                            <line x1="420" y1="335" x2="460" y2="335" stroke="#3b82f6" stroke-width="3"/>
+                            <line x1="640" y1="335" x2="680" y2="335" stroke="#3b82f6" stroke-width="3"/>
+                            <line x1="880" y1="335" x2="920" y2="335" stroke="#3b82f6" stroke-width="3"/>
+                            <line x1="1100" y1="335" x2="1190" y2="335" stroke="#3b82f6" stroke-width="3"/>
+                            <line x1="1190" y1="300" x2="1190" y2="370" stroke="#3b82f6" stroke-width="3"/>
+
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Expandable Sections -->
+
+                <details class="mb-6">
+                    <summary class="cursor-pointer text-lg font-semibold">
+                        Legacy Architecture (Azure)
+                    </summary>
+
+                    <div class="mt-4 text-slate-400 space-y-4">
+                        <h4 class="font-semibold">
+                            Components
+                        </h4>
+
+                        <ul class="list-disc list-inside">
+                            <li data-i18n="projects.cloud-data-platform.legacy-components.event-hubs"></li>
+                            <li data-i18n="projects.cloud-data-platform.legacy-components.steam-analytics"></li>
+                            <li data-i18n="projects.cloud-data-platform.legacy-components.data-lake"></li>
+                            <li data-i18n="projects.cloud-data-platform.legacy-components.databricks"></li>
+                            <li data-i18n="projects.cloud-data-platform.legacy-components.data-factory"></li>
+                            <li data-i18n="projects.cloud-data-platform.legacy-components.sql-server"></li>
+                            <li data-i18n="projects.cloud-data-platform.legacy-components.power-bi"></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="mb-6">
+                    <summary class="cursor-pointer text-lg font-semibold">
+                        Re-Architected Architecture (AWS)
+                    </summary>
+                    <div class="mt-4 text-slate-400 space-y-4">
+                        <h4 class="font-semibold">
+                            Core Components
+                        </h4>
+                        <ul class="list-disc list-inside">
+                            <li data-i18n="projects.cloud-data-platform.new-components.api"></li>
+                            <li data-i18n="projects.cloud-data-platform.new-components.lambda"></li>
+                            <li data-i18n="projects.cloud-data-platform.new-components.ddb"></li>
+                            <li data-i18n="projects.cloud-data-platform.new-components.sqs"></li>
+                            <li data-i18n="projects.cloud-data-platform.new-components.step-functions"></li>
+                            <li data-i18n="projects.cloud-data-platform.new-components.ec2"></li>
+                            <li data-i18n="projects.cloud-data-platform.new-components.s3"></li>
+                            <li data-i18n="projects.cloud-data-platform.new-components.quicksight"></li>
+                            <li data-i18n="projects.cloud-data-platform.new-components.rds"></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="mb-6">
+                    <summary class="cursor-pointer text-lg font-semibold">
+                        Distributed Snapshot Engine
+                    </summary>
+                    <div class="mt-4 text-slate-400 space-y-4">
+                        <ol class="list-decimal list-inside space-y-2">
+                            <li data-i18n="projects.cloud-data-platform.snapshot.trigger" ></li>
+                            <li data-i18n="projects.cloud-data-platform.snapshot.metadata"></li>
+                            <li data-i18n="projects.cloud-data-platform.snapshot.create-meta"></li>
+                            <li data-i18n="projects.cloud-data-platform.snapshot.job-push"></li>
+                            <li data-i18n="projects.cloud-data-platform.snapshot.orchestrate"></li>
+                            <li data-i18n="projects.cloud-data-platform.snapshot.ec2-worker"></li>
+                            <li data-i18n="projects.cloud-data-platform.snapshot.snapshot"></li>
+                            <li data-i18n="projects.cloud-data-platform.snapshot.update-meta"></li>
+                        </ol>
+                    </div>
+                </details>
+                <details class="mb-6">
+
+                    <summary class="cursor-pointer text-lg font-semibold">
+                        Migration Strategy
+                    </summary>
+
+                    <div class="mt-4 text-slate-400 space-y-4">
+                        <ul class="list-disc list-inside">
+                            <li data-i18n="projects.cloud-data-platform.strategy.data-lake"></li>
+                            <li data-i18n="projects.cloud-data-platform.strategy.sql"></li>
+                            <li data-i18n="projects.cloud-data-platform.strategy.data-factory"></li>
+                            <li data-i18n="projects.cloud-data-platform.strategy.power-bi"></li>
+                            <li data-i18n="projects.cloud-data-platform.strategy.sqs"></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <!-- Conclusion -->
+
+                <div class="mt-16">
+                    <h2 class="text-2xl font-semibold mb-4">
+                        Conclusion
+                    </h2>
+                    <p data-i18n="projects.cloud-data-platform.conclusion" class="text-slate-400"></p>
+                </div>
+            </div>
+        </section>
+
+        <script src="/src/main.js"></script>
+    </body>
+</html>

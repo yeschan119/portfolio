@@ -223,6 +223,56 @@
                 "s3": "<strong>Why S3?</strong> Store files externally and keep database lightweight."
             },
             "conclusion": "This project demonstrates a real-time WebSocket architecture combined with event-driven cloud infrastructure. The system ensures reliable message ordering, scalable storage, and resilient backend processing."
+        },
+        "cloud-data-platform": {
+            "summary": "Re-architected an enterprise Azure-based ETL and reporting platform into a <strong>scalable, event-driven AWS analytics system</strong>.",
+            "summary-detail": "This was not a lift-and-shift migration — it was a <strong>full redesign</strong> of the entire data platform including pipeline, orchestration, snapshot generation, and reporting architecture.",
+            "outcomes": {
+                "a": "Event-driven distributed architecture",
+                "b": "Distributed snapshot generation engine",
+                "c": "Horizontal scalability",
+                "d": "Infrastructure cost optimization",
+                "e": "Metadata-driven orchestration",
+                "f": "Power BI → Amazon QuickSight migration"
+            },
+            "legacy-components": {
+            "event-hubs": "Azure Event Hubs",
+            "steam-analytics": "Stream Analytics",
+            "data-lake": "Azure Data Lake",
+            "databricks": "Azure Databricks",
+            "data-factory": "Azure Data Factory",
+            "sql-server": "Azure SQL Server",
+            "power-bi": "Power BI"
+            },
+            "new-components": {
+                "api": ".NET API (Trigger Layer)",
+                "lambda": "AWS Lambda",
+                "ddb": "DynamoDB (Metadata Store)",
+                "sqs": "Amazon SQS (Job Queue)",
+                "step-functions": "AWS Step Functions (Orchestration)",
+                "ec2": "EC2 Auto Scaling Workers (Node.js)",
+                "s3": "Amazon S3 (Snapshot Storage)",
+                "quicksight": "Amazon QuickSight (Reporting)",
+                "rds": "Amazon RDS (MySQL)"
+            },
+            "snapshot": {
+                "trigger": ".NET API triggers Lambda",
+                "metadata": "Lambda checks metadata in DynamoDB",
+                "create-meta": "If snapshot not exists → create metadata",
+                "job-push": "Job pushed to SQS",
+                "orchestrate": "Step Functions orchestrate execution",
+                "ec2-worker": "EC2 workers render QuickSight reports",
+                "snapshot": "Snapshot stored in S3",
+                "update-meta": "Metadata updated in DynamoDB"
+            },
+            "strategy": {
+                "data-lake": "Azure Data Lake → Amazon S3",
+                "sql": "Azure SQL → Amazon RDS",
+                "data-factory": "Azure Data Factory → Step Functions + Lambda",
+                "power-bi": "Power BI → Amazon QuickSight",
+                "sqs": "SQS-based distributed worker model"
+            },
+                "conclusion": "This migration demonstrates deep cloud architecture redesign capability, distributed system design, event-driven orchestration, scalable analytics infrastructure, and cost-aware cloud engineering."
         }
     }
 }
