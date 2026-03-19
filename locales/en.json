@@ -273,6 +273,117 @@
                 "sqs": "SQS-based distributed worker model"
             },
                 "conclusion": "This migration demonstrates deep cloud architecture redesign capability, distributed system design, event-driven orchestration, scalable analytics infrastructure, and cost-aware cloud engineering."
+        },
+        "apm-dashboard": {
+            "summary": {
+                "main": "APM-Dashboard is a custom-built internal <strong>Application Performance Monitoring(APM)</strong> system implemented using the <strong>.NET OpenTelemetry SDK.</strong>",
+                "sub1": "The platform instruments ASP.NET Core applications to capture distributed traces across <strong>Controller → API → SQL</strong> layers, exports structured telemetry data via a custom exporter, and persists it in DynamoDB. An Angular-based dashboard provides performance benchmarking, trace inspection, and activity analysis.",
+                "sub2": "This system functions as a lightweight internal alternative to external APM tools."
+            },
+            "overview": {
+                "trace": "Application Performance Traces (Controller → API → SQL)",
+                "tree": "Distributed Trace Trees (Parent / Child Span relationships)",
+                "activity": "User Activity Logs (CRUD operations)",
+                "metric": "Performance Benchmark Metrics (Top10 Slowest / Fastest Endpoints)"
+            },
+            "flow": {
+                "step1": "HTTP Request Instrumentation",
+                "step2": "Distributed Span Generation",
+                "step3": "Telemetry Export",
+                "step4": "Trace Persistence",
+                "http": {
+                    "step1": "ASP.NET Core Controller receives request",
+                    "step2": "OpenTelemetry automatically creates a Server Span"
+                },
+                "span": {
+                    "step1": "AspNetCore → Server Span",
+                    "step2": "HttpClient → Client Span",
+                    "step3": "SqlClient → DB Span",
+                    "step4": "TraceId / SpanId assigned",
+                    "step5": "Parent / Child hierarchy constructed"
+                },
+                "export": {
+                    "step1": "Custom Exporter converts Span into structured JSON",
+                    "step2": "Batched export to DynamoDB"
+                },
+                "trace": {
+                    "step1": "PK: TraceId",
+                    "step2": "SK: SpanId",
+                    "step3": "TTL: 7 Days",
+                    "step4": "On-Demand mode for scalable write throughput"
+                }
+            },
+            "db-model": "The TraceId / SpanId schema enables full reconstruction of distributed trace trees.",
+            "features": {
+                "step1": "Performance Benchmarking",
+                "step2": "Distributed Trace Viewer",
+                "step3": "User Activity Monitoring",
+                "step4": "SQL Inspection Panel",
+                "benchmark": {
+                    "step1": "Top 10 Slowest Controllers",
+                    "step2": "Top 10 Fastest Controllers",
+                    "step3": "Top 10 APIs",
+                    "step4": "Top 10 SQL Queries",
+                    "step5": "Execution time ranking"
+                },
+                "trace": {
+                    "step1": "Hierarchical visualization:",
+                    "step2": "TraceId-based span reconstruction using ParentSpanId relationships."
+                },
+                "monitoring": {
+                    "step1": "CRUD action tracking",
+                    "step2": "User-based filtering",
+                    "step3": "Timestamp-based inspection"
+                },
+                "sql": {
+                    "step1": "Pretty-formatted SQL",
+                    "step2": "Execution time display",
+                    "step3": "Copy-to-clipboard support"
+                }
+            },
+            "highlight": {
+                "step1": "OpenTelemetry-Based APM Implementation",
+                "step2": "Custom Telemetry Exporter",
+                "step3": "Distributed Trace Modeling",
+                "step4": "AWS Infrastructure Metrics Integration",
+                "step5": "Optimized Batch Telemetry Persistence",
+                "implementation": {
+                    "step1": "Implemented distributed tracing using the .NET OpenTelemetry SDK."
+                },
+                "exporter": {
+                    "step1": "Span → Structured JSON transformation",
+                    "step2": "Batch writes to DynamoDB",
+                    "step3": "TTL-based automatic cleanup"
+                },
+                "trace": {
+                    "step1": "TraceId as partition key",
+                    "step2": "SpanId as sort key",
+                    "step3": "ParentSpanId for hierarchical reconstruction"
+                },
+                "metrics": {
+                    "step": "The dashboard collects infrastructure-level performance metrics such as CPU and memory usage using AWS CloudWatch.",
+                    "step1": "AWS SDK for .NET",
+                    "step2": "Real-time metric polling",
+                    "step3": "Integrated with application traces",
+                    "step4": "This enables correlation between application latency and infrastructure behavior."
+                },
+                "batch": {
+                    "strategy": "Hybrid batch strategy:",
+                    "benefits": "Benefits:",
+                    "step1": "Batch size: 20 spans",
+                    "step2": "Time-based flush: every 30 seconds",
+                    "step3": "Async background exporter",
+                    "step4": "Reduced write amplification",
+                    "step5": "Lower DynamoDB cost",
+                    "step6": "Stable ingestion throughput",
+                    "step7": "Minimal telemetry loss risk"
+                }
+            },
+            "conclusion": {
+                "step1": "APM-Dashboard is an internal Application Performance Monitoring system that captures, models, stores, and visualizes distributed traces using .NET OpenTelemetry and DynamoDB.",
+                "step2": "The platform integrates performance tracing and user activity monitoring into a unified telemetry model, reconstructs span hierarchies via TraceId/SpanId relationships, and provides analytical dashboards for performance benchmarking and trace inspection.",
+                "step3": "This project demonstrates the practical implementation of distributed tracing, custom telemetry exporting, DynamoDB-based trace persistence, and internal APM architecture design without relying on external monitoring services."
+            }
         }
     }
 }

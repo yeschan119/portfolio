@@ -286,6 +286,117 @@
                 "sqs": "SQS 기반 분산 워커 모델 도입"
             },
             "conclusion": "이 프로젝트는 클라우드 아키텍처 재설계 역량, 분산 시스템 설계, 이벤트 기반 오케스트레이션, 확장 가능한 분석 인프라 구축, 그리고 비용 효율적인 클라우드 엔지니어링 기법으로 구현되었습니다."
+        },
+        "apm-dashboard": {
+            "summary": {
+                "main": "APM-Dashboard는 <strong>.NET OpenTelemetry SDK</strong>를 기반으로 구현된 내부용 <strong>Application Performance Monitoring(APM)</strong> 시스템",
+                "sub1": "ASP.NET Core 애플리케이션을 계측하여 <strong>Controller → API → SQL</strong> 레이어 전반의 분산 트레이스를 수집하고, 커스텀 Exporter를 통해 구조화된 텔레메트리 데이터를 생성하여 DynamoDB에 저장. Angular 기반 대시보드를 통해 성능 분석, 트레이스 조회, 사용자 활동 분석 제공",
+                "sub2": "외부 APM 솔루션을 대체할 수 있는 경량 내부 APM 플랫폼"
+            },
+            "overview": {
+                "trace": "애플리케이션 성능 트레이스 (Controller → API → SQL)",
+                "tree": "분산 트레이스 트리 구조 (Parent / Child Span 관계)",
+                "activity": "사용자 활동 로그 (CRUD 작업)",
+                "metric": "성능 벤치마크 지표 (상위 10개 느린/빠른 엔드포인트)"
+            },
+            "flow": {
+                "step1": "HTTP 요청 계측",
+                "step2": "분산 Span 생성",
+                "step3": "텔레메트리 Export",
+                "step4": "트레이스 저장",
+                "http": {
+                    "step1": "ASP.NET Core Controller가 요청 수신",
+                    "step2": "OpenTelemetry가 Server Span 자동 생성"
+                },
+                "span": {
+                    "step1": "AspNetCore → Server Span",
+                    "step2": "HttpClient → Client Span",
+                    "step3": "SqlClient → DB Span",
+                    "step4": "TraceId / SpanId 생성",
+                    "step5": "Parent / Child 계층 구조 구성"
+                },
+                "export": {
+                    "step1": "Custom Exporter가 Span을 구조화된 JSON으로 변환",
+                    "step2": "배치 단위로 DynamoDB에 저장"
+                },
+                "trace": {
+                    "step1": "PK: TraceId",
+                    "step2": "SK: SpanId",
+                    "step3": "TTL: 7일",
+                    "step4": "On-Demand 모드로 확장 가능한 쓰기 처리량 지원"
+                }
+            },
+            "db-model": "TraceId / SpanId 스키마를 통해 분산 트레이스 트리를 완전히 재구성 가능",
+            "features": {
+                "step1": "성능 벤치마킹",
+                "step2": "분산 트레이스 뷰어",
+                "step3": "사용자 활동 모니터링",
+                "step4": "SQL 분석 패널",
+                "benchmark": {
+                    "step1": "상위 10개 느린 Controller",
+                    "step2": "상위 10개 빠른 Controller",
+                    "step3": "상위 10개 API",
+                    "step4": "상위 10개 SQL 쿼리",
+                    "step5": "실행 시간 기준 랭킹"
+                },
+                "trace": {
+                    "step1": "계층형 시각화 제공",
+                    "step2": "ParentSpanId 기반으로 TraceId 단위 Span 재구성"
+                },
+                "monitoring": {
+                    "step1": "CRUD 작업 추적",
+                    "step2": "사용자 기반 필터링",
+                    "step3": "시간 기준 분석"
+                },
+                "sql": {
+                    "step1": "가독성 높은 SQL 포맷팅",
+                    "step2": "실행 시간 표시",
+                    "step3": "클립보드 복사 기능"
+                }
+            },
+            "highlight": {
+                "step1": "OpenTelemetry 기반 APM 시스템 구현",
+                "step2": "커스텀 텔레메트리 Exporter 개발",
+                "step3": "분산 트레이스 데이터 모델링",
+                "step4": "AWS 인프라 메트릭 통합",
+                "step5": "배치 기반 텔레메트리 저장 최적화",
+                "implementation": {
+                    "step1": ".NET OpenTelemetry SDK를 활용한 분산 트레이싱 구현"
+                },
+                "exporter": {
+                    "step1": "Span → 구조화된 JSON 변환",
+                    "step2": "DynamoDB 배치 저장",
+                    "step3": "TTL 기반 자동 데이터 정리"
+                },
+                "trace": {
+                    "step1": "TraceId를 Partition Key로 사용",
+                    "step2": "SpanId를 Sort Key로 사용",
+                    "step3": "ParentSpanId를 통한 계층 구조 복원"
+                },
+                "metrics": {
+                    "step": "AWS CloudWatch를 활용하여 CPU, 메모리 등 인프라 수준 성능 지표를 수집",
+                    "step1": "AWS SDK for .NET 사용",
+                    "step2": "실시간 메트릭 조회",
+                    "step3": "애플리케이션 트레이스와 통합",
+                    "step4": "애플리케이션 지연과 인프라 상태 간 상관관계 분석 가능"
+                },
+                "batch": {
+                    "strategy": "하이브리드 배치 전략 적용",
+                    "benefits": "주요 효과:",
+                    "step1": "배치 크기: 20개 Span",
+                    "step2": "시간 기반 Flush: 30초 주기",
+                    "step3": "비동기 백그라운드 Exporter",
+                    "step4": "쓰기 증폭 감소",
+                    "step5": "DynamoDB 비용 절감",
+                    "step6": "안정적인 수집 처리량 확보",
+                    "step7": "텔레메트리 손실 최소화"
+                }
+            },
+            "conclusion": {
+                "step1": "APM-Dashboard는 .NET OpenTelemetry와 DynamoDB를 기반으로 분산 트레이스를 수집, 모델링, 저장 및 시각화하는 내부 APM 시스템",
+                "step2": "성능 트레이싱과 사용자 활동 모니터링을 통합된 텔레메트리 모델로 구성하고, TraceId/SpanId 기반으로 Span 계층을 재구성하여 분석 대시보드를 제공",
+                "step3": "외부 모니터링 서비스 없이 분산 트레이싱, 커스텀 텔레메트리 Export, DynamoDB 기반 저장 구조, 내부 APM 아키텍처 설계를 직접 구현한 사례"
+            }
         }
     }
 }

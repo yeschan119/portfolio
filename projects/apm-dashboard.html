@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>APM Dashboard | Eungchan Kang</title>
+
+        <link rel="icon" href="/images/favicon.ico">
+
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: "#0b1120",
+                            secondary: "#111827",
+                            accent: "#3b82f6"
+                        }
+                    }
+                }
+            };
+        </script>
+
+        <link rel="stylesheet" href="/css/style.css">
+
+    </head>
+
+    <body class="bg-primary text-slate-200 font-sans">
+
+        <section class="section-glow py-24 border-t border-slate-800">
+
+            <div class="max-w-6xl mx-auto px-6">
+
+                <!-- Back Button -->
+
+                <div class="mb-10">
+
+                    <a href="/index.html#projects"
+                        class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-secondary/40 text-sm text-slate-300 hover:bg-secondary/60 hover:text-white transition">
+
+                        <span class="text-base">←</span>
+                        Back to Projects
+
+                    </a>
+
+                </div>
+
+                <!-- Header -->
+
+                <div class="mb-12">
+
+                    <h1 class="text-4xl md:text-5xl font-semibold mb-4">
+                        APM Dashboard
+                    </h1>
+
+                    <p class="text-slate-400 text-lg mb-6">
+                        Application Performance Monitoring Platform
+                    </p>
+
+                    <a href="https://github.com/yeschan119/APM-Dashboard" target="_blank"
+                        class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-secondary/40 text-sm text-slate-300 hover:text-white hover:border-accent hover:bg-secondary/60 transition">
+                        View Details on GitHub
+                    </a>
+
+                </div>
+
+                <!-- Image -->
+
+                <div class="mb-12">
+                    <img
+                        src="/images/projects/apm-dashboard.png"
+                        class="rounded-xl border border-slate-700"
+                        alt="APM Dashboard"
+                    >
+                </div>
+
+                <!-- Executive Summary -->
+
+                <div class="mb-10">
+                    <h2 class="text-2xl font-semibold mb-4">
+                        Executive Summary
+                    </h2>
+                    <p class="text-slate-400 mb-4"
+                        data-i18n="projects.apm-dashboard.summary.main">
+                    </p>
+                    <p class="text-slate-400"
+                        data-i18n="projects.apm-dashboard.summary.sub1">
+                    </p>
+                    <p class="text-slate-400"
+                        data-i18n="projects.apm-dashboard.summary.sub2">
+                    </p>
+                </div>
+
+                <!-- Project Overview -->
+                <div class="mb-10">
+                    <h2 class="text-2xl font-semibold mb-4">
+                        Project Overview
+                    </h2>
+                    <ul class="list-disc list-inside text-slate-400 space-y-2">
+                        <li data-i18n="projects.apm-dashboard.overview.trace"></li>
+                        <li data-i18n="projects.apm-dashboard.overview.tree"></li>
+                        <li data-i18n="projects.apm-dashboard.overview.activity"></li>
+                        <li data-i18n="projects.apm-dashboard.overview.metric"></li>
+                    </ul>
+                </div>
+
+                <!-- Architecture -->
+
+                <div class="mb-10">
+
+                    <h2 class="text-2xl font-semibold mb-6">
+                        Architecture Overview
+                    </h2>
+
+                    <div class="rounded-2xl border border-slate-700/70 bg-secondary/30 p-6 overflow-x-auto">
+                        <svg viewBox="0 0 1200 420" class="w-full min-w-[1000px] h-auto text-slate-200">
+                            <!-- 1. Angular -->
+
+                            <rect x="40" y="80" width="220" height="240" rx="10"
+                                fill="none" stroke="#6366f1" stroke-width="2"/>
+
+                            <text x="60" y="110" fill="#e2e8f0">Angular</text>
+                            <rect x="80" y="130" width="140" height="50" rx="6" fill="#1f2937"/>
+                            <text x="100" y="160" fill="#e2e8f0">User Interface</text>
+                            <rect x="80" y="230" width="140" height="50" rx="6" fill="#1f2937"/>
+                            <text x="95" y="260" fill="#e2e8f0">APM Dashboard</text>
+
+                            <!-- 2. .NET -->
+
+                            <rect x="350" y="60" width="420" height="260" rx="10"
+                                fill="none" stroke="#3b82f6" stroke-width="2"/>
+                            <text x="370" y="90" fill="#e2e8f0">.NET</text>
+
+                            <!-- API -->
+                            <rect x="370" y="130" width="110" height="50" rx="6" fill="#1f2937"/>
+                            <text x="410" y="160" fill="#e2e8f0">API</text>
+
+                            <!-- Controllers -->
+                            <rect x="510" y="130" width="110" height="50" rx="6" fill="#1f2937"/>
+                            <text x="525" y="160" fill="#e2e8f0">Controllers</text>
+
+                            <!-- Functions -->
+                            <rect x="650" y="130" width="110" height="50" rx="6" fill="#1f2937"/>
+                            <text x="670" y="160" fill="#e2e8f0">Functions</text>
+
+                            <!-- APM Controller -->
+                            <rect x="520" y="230" width="150" height="50" rx="6" fill="#1f2937"/>
+                            <text x="540" y="260" fill="#e2e8f0">APM Controller</text>
+
+                            <!-- Pooling -->
+
+                            <rect x="800" y="120" width="100" height="50" rx="6"
+                                fill="#334155"/>
+                            <text x="820" y="150" fill="#e2e8f0">Pooling</text>
+
+                            <!-- 3. AWS -->
+                            <rect x="940" y="60" width="220" height="260" rx="10"
+                                fill="none" stroke="#f97316" stroke-width="2"/>
+                            <text x="960" y="90" fill="#e2e8f0">AWS</text>
+
+                            <!-- Lambda -->
+                            <rect x="990" y="120" width="120" height="50" rx="6" fill="#1f2937"/>
+                            <text x="1020" y="150" fill="#e2e8f0">Lambda</text>
+
+                            <!-- DynamoDB -->
+                            <rect x="990" y="190" width="120" height="50" rx="6" fill="#1f2937"/>
+                            <text x="1010" y="220" fill="#e2e8f0">DynamoDB</text>
+
+                            <!-- CloudWatch -->
+                            <rect x="990" y="260" width="120" height="50" rx="6" fill="#1f2937"/>
+                            <text x="1005" y="290" fill="#e2e8f0">CloudWatch</text>
+
+                            <!-- ================= WIRES ================= -->
+
+                            <!-- User Interface -> API -->
+                            <line x1="220" y1="155" x2="370" y2="155"
+                                stroke="#94a3b8" stroke-width="2"/>
+
+                            <!-- API -> Controllers -->
+                            <line x1="480" y1="155" x2="510" y2="155"
+                                stroke="#94a3b8" stroke-width="2"/>
+
+                            <!-- Controllers -> Functions -->
+                            <line x1="620" y1="155" x2="650" y2="155"
+                                stroke="#94a3b8" stroke-width="2"/>
+
+                            <!-- Functions -> Pooling -->
+                            <line x1="760" y1="155" x2="800" y2="155"
+                                stroke="#94a3b8" stroke-width="2"/>
+
+                            <!-- Pooling -> Lambda -->
+                            <line x1="900" y1="145" x2="990" y2="145"
+                                stroke="#94a3b8" stroke-width="2"/>
+
+                            <!-- Lambda -> DynamoDB -->
+                            <line x1="1050" y1="170" x2="1050" y2="190"
+                                stroke="#94a3b8" stroke-width="2"/>
+
+                            <!-- CloudWatch -> APM Controller -->
+                            <path d="M990 285 L900 285 L900 260 L670 260"
+                                stroke="#94a3b8" stroke-width="2" fill="none"/>
+
+                            <!-- APM Controller -> Dashboard -->
+                            <line x1="520" y1="255" x2="220" y2="255"
+                                stroke="#94a3b8" stroke-width="2"/>
+
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Execution Flow -->
+
+                <details class="mb-6">
+                    <summary class="cursor-pointer text-lg font-semibold">
+                        Execution Flow
+                    </summary>
+
+                    <div class="mt-4 text-slate-400 space-y-4">
+
+                        <ol class="list-decimal list-inside space-y-4">
+
+                            <!-- STEP 1 -->
+                            <p data-i18n="projects.apm-dashboard.flow.step1"></p>
+                            <ul class="list-disc list-inside ml-4 space-y-1">
+                                <li data-i18n="projects.apm-dashboard.flow.http.step1"></li>
+                                <li data-i18n="projects.apm-dashboard.flow.http.step2"></li>
+                            </ul>
+
+                            <!-- STEP 2 -->
+                            <p data-i18n="projects.apm-dashboard.flow.step2"></p>
+                            <ul class="list-disc list-inside ml-4 space-y-1">
+                                <li data-i18n="projects.apm-dashboard.flow.span.step1"></li>
+                                <li data-i18n="projects.apm-dashboard.flow.span.step2"></li>
+                                <li data-i18n="projects.apm-dashboard.flow.span.step3"></li>
+                                <li data-i18n="projects.apm-dashboard.flow.span.step4"></li>
+                                <li data-i18n="projects.apm-dashboard.flow.span.step5"></li>
+                            </ul>
+
+                            <!-- STEP 3 -->
+                            <p data-i18n="projects.apm-dashboard.flow.step3"></p>
+                            <ul class="list-disc list-inside ml-4 space-y-1">
+                                <li data-i18n="projects.apm-dashboard.flow.export.step1"></li>
+                                <li data-i18n="projects.apm-dashboard.flow.export.step2"></li>
+                            </ul>
+
+                            <!-- STEP 4 -->
+                            <p data-i18n="projects.apm-dashboard.flow.step4"></p>
+                            <ul class="list-disc list-inside ml-4 space-y-1">
+                                <li data-i18n="projects.apm-dashboard.flow.trace.step1"></li>
+                                <li data-i18n="projects.apm-dashboard.flow.trace.step2"></li>
+                                <li data-i18n="projects.apm-dashboard.flow.trace.step3"></li>
+                                <li data-i18n="projects.apm-dashboard.flow.trace.step4"></li>
+                            </ul>
+                        </ol>
+                    </div>
+                </details>
+
+                <!-- DynamoDB Model -->
+
+                <details class="mb-6">
+                    <summary class="cursor-pointer text-lg font-semibold">
+                        DynamoDB Data Model
+                    </summary>
+                    <div class="mt-4">
+                        <table class="w-full text-left border border-slate-700">
+                            <thead class="bg-secondary/40">
+                                <tr>
+                                    <th class="p-3">Field</th>
+                                    <th class="p-3">Description</th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="text-slate-400">
+
+                                <tr class="border-t border-slate-700">
+                                    <td class="p-3">PK</td>
+                                    <td class="p-3">TraceId</td>
+                                </tr>
+
+                                <tr class="border-t border-slate-700">
+                                    <td class="p-3">SK</td>
+                                    <td class="p-3">SpanId</td>
+                                </tr>
+
+                                <tr class="border-t border-slate-700">
+                                    <td class="p-3">Type</td>
+                                    <td class="p-3">controller / api / sql</td>
+                                </tr>
+
+                                <tr class="border-t border-slate-700">
+                                    <td class="p-3">DurationMs</td>
+                                    <td class="p-3">Execution Time</td>
+                                </tr>
+
+                                <tr class="border-t border-slate-700">
+                                    <td class="p-3">ParentSpanId</td>
+                                    <td class="p-3">Hierarchy</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p data-i18n="projects.apm-dashboard.db-model" class="mt-3"></p>
+                    </div>
+                </details>
+
+                <!-- Features -->
+
+                <details class="mb-6">
+                    <summary class="cursor-pointer text-lg font-semibold">
+                        APM Features
+                    </summary>
+
+                    <div class="mt-4 text-slate-400 space-y-4">
+                        <ol class="list-decimal list-inside space-y-4">
+
+                            <!-- STEP 1 -->
+                            <p data-i18n="projects.apm-dashboard.features.step1"></p>
+                            <ul class="list-disc list-inside ml-4 space-y-1">
+                                <li data-i18n="projects.apm-dashboard.features.benchmark.step1"></li>
+                                <li data-i18n="projects.apm-dashboard.features.benchmark.step2"></li>
+                                <li data-i18n="projects.apm-dashboard.features.benchmark.step3"></li>
+                                <li data-i18n="projects.apm-dashboard.features.benchmark.step4"></li>
+                                <li data-i18n="projects.apm-dashboard.features.benchmark.step5"></li>
+                            </ul>
+
+                            <!-- STEP 2 -->
+                            <p data-i18n="projects.apm-dashboard.features.step2"></p>
+                            <ul class="list-disc list-inside ml-4 space-y-1">
+                                <li data-i18n="projects.apm-dashboard.features.trace.step1"></li>
+                                <pre class="text-slate-400 font-mono text-sm">
+    Controller
+    └── API
+    └── SQL
+                                </pre>
+                                <li data-i18n="projects.apm-dashboard.features.trace.step2"></li>
+                            </ul>
+
+                            <!-- STEP 3 -->
+                            <p data-i18n="projects.apm-dashboard.features.step3"></p>
+                            <ul class="list-disc list-inside ml-4 space-y-1">
+                                <li data-i18n="projects.apm-dashboard.features.monitoring.step1"></li>
+                                <li data-i18n="projects.apm-dashboard.features.monitoring.step2"></li>
+                                <li data-i18n="projects.apm-dashboard.features.monitoring.step3"></li>
+                            </ul>
+
+                            <!-- STEP 4 -->
+                            <p data-i18n="projects.apm-dashboard.features.step4"></p>
+                            <ul class="list-disc list-inside ml-4 space-y-1">
+                                <li data-i18n="projects.apm-dashboard.features.sql.step1"></li>
+                                <li data-i18n="projects.apm-dashboard.features.sql.step2"></li>
+                                <li data-i18n="projects.apm-dashboard.features.sql.step3"></li>
+                            </ul>
+                        </ol>
+                    </div>
+                </details>
+
+                <!-- Tech Highlights -->
+
+                <details class="mb-6">
+
+                    <summary class="cursor-pointer text-lg font-semibold">
+                        Technical Highlights
+                    </summary>
+
+                    <div class="mt-4 text-slate-400 space-y-4">
+
+                        <ol class="list-decimal list-inside space-y-4">
+
+                            <!-- STEP 1 -->
+                            <p data-i18n="projects.apm-dashboard.highlight.step1"></p>
+                            <ul class="list-disc list-inside ml-4 space-y-1">
+                                <li data-i18n="projects.apm-dashboard.highlight.implementation.step1"></li>
+                            </ul>
+
+                            <!-- STEP 2 -->
+                            <p data-i18n="projects.apm-dashboard.highlight.step2"></p>
+                            <ul class="list-disc list-inside ml-4 space-y-1">
+                                <li data-i18n="projects.apm-dashboard.highlight.exporter.step1"></li>
+                                <li data-i18n="projects.apm-dashboard.highlight.exporter.step2"></li>
+                                <li data-i18n="projects.apm-dashboard.highlight.exporter.step3"></li>
+                            </ul>
+
+                            <!-- STEP 3 -->
+                            <p data-i18n="projects.apm-dashboard.highlight.step3"></p>
+                            <ul class="list-disc list-inside ml-4 space-y-1">
+                                <li data-i18n="projects.apm-dashboard.highlight.trace.step1"></li>
+                                <li data-i18n="projects.apm-dashboard.highlight.trace.step2"></li>
+                                <li data-i18n="projects.apm-dashboard.highlight.trace.step3"></li>
+                            </ul>
+
+                            <!-- STEP 4 -->
+                            <p data-i18n="projects.apm-dashboard.highlight.step4"></p>
+                            <ul class="list-disc list-inside ml-4 space-y-1">
+                                <p data-i18n="projects.apm-dashboard.highlight.metrics.step"></p>
+                                <li data-i18n="projects.apm-dashboard.highlight.metrics.step1"></li>
+                                <li data-i18n="projects.apm-dashboard.highlight.metrics.step2"></li>
+                                <li data-i18n="projects.apm-dashboard.highlight.metrics.step3"></li>
+                                <p data-i18n="projects.apm-dashboard.highlight.metrics.step4"></p>
+                            </ul>
+
+                            <!-- STEP 5 -->
+                            <p data-i18n="projects.apm-dashboard.highlight.step5"></p>
+                            <ul class="list-disc list-inside ml-4 space-y-1">
+                                <p data-i18n="projects.apm-dashboard.highlight.batch.strategy"></p>
+                                <li data-i18n="projects.apm-dashboard.highlight.batch.step1"></li>
+                                <li data-i18n="projects.apm-dashboard.highlight.batch.step2"></li>
+                                <li data-i18n="projects.apm-dashboard.highlight.batch.step3"></li>
+                                <p data-i18n="projects.apm-dashboard.highlight.batch.benefits"></p>
+                                <li data-i18n="projects.apm-dashboard.highlight.batch.step4"></li>
+                                <li data-i18n="projects.apm-dashboard.highlight.batch.step5"></li>
+                                <li data-i18n="projects.apm-dashboard.highlight.batch.step6"></li>
+                                <li data-i18n="projects.apm-dashboard.highlight.batch.step7"></li>
+                            </ul>
+                        </ol>
+                    </div>
+
+                </details>
+
+                <!-- Tech Stack -->
+
+                <div class="mb-10">
+
+                    <h2 class="text-2xl font-semibold mb-6">
+                        Tech Stack
+                    </h2>
+
+                    <div class="grid md:grid-cols-3 gap-6">
+
+                        <div class="bg-secondary/40 p-6 rounded-lg">
+                            <h3 class="font-semibold mb-3">Backend</h3>
+                            <ul class="text-slate-400 space-y-2 text-sm">
+                                <li>ASP.NET Core</li>
+                                <li>OpenTelemetry</li>
+                                <li>Custom Exporter</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-secondary/40 p-6 rounded-lg">
+                            <h3 class="font-semibold mb-3">Frontend</h3>
+                            <ul class="text-slate-400 space-y-2 text-sm">
+                                <li>Angular</li>
+                                <li>Trace Viewer</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-secondary/40 p-6 rounded-lg">
+                            <h3 class="font-semibold mb-3">Cloud</h3>
+                            <ul class="text-slate-400 space-y-2 text-sm">
+                                <li>AWS DynamoDB</li>
+                                <li>CloudWatch</li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Conclusion -->
+
+                <div class="mt-16">
+
+                    <h2 class="text-2xl font-semibold mb-4">
+                        Conclusion
+                    </h2>
+
+                    <ul class="list-disc list-inside ml-4 space-y-1">
+                        <li data-i18n="projects.apm-dashboard.conclusion.step1"></li>
+                        <li data-i18n="projects.apm-dashboard.conclusion.step2"></li>
+                        <li data-i18n="projects.apm-dashboard.conclusion.step3"></li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <script src="/src/main.js"></script>
+    </body>
+</html>
