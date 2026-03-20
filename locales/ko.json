@@ -17,7 +17,7 @@
     "contact_title":"연락처",
 
     "arc_title": "시스템 아키텍처 설계",
-    "arc_desc": "애플리케이션, 데이터, 성능, 클라우드, 관측성 계층을 아우르는 End to End 데이터 분석 플랫폼",
+    "arc_desc": "애플리케이션, 데이터, 성능, Cloud, Observability Layer 까지 End to End 데이터 분석 플랫폼",
 
     "skill-lang": "각 언어에 커서를 올리면 언어 활용 경험을 확인할 수 있습니다.",
     "work": {
