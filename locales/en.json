@@ -18,6 +18,7 @@
     "arc_title": "System Architecture Blueprint",
     "arc_desc": "End-to-end data analytics platform across application,<br class='hidden md:block' />data, performance, cloud, and observability layers.",
 
+    "skill-lang": "",
     "work": {
         "aiworkx1": "• Developed object detection models optimized for edge devices without GPUs",
         "aiworkx2": "• Built and productized image annotation and segmentation models using OpenCV",

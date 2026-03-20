@@ -57,7 +57,7 @@
 
                 <button id="langKo"
                     class="lang-btn text-xs px-3 py-1 rounded-lg border border-slate-700 transition hover:border-accent">
-                    KO
+                    한국어
                 </button>
             </div>
 
@@ -554,6 +554,7 @@
         <p class="text-slate-400 mt-2">
           Languages for Front-end, Back-end, Data-modeling, Database, and Platform Engineering.
         </p>
+        <p data-i18n="skill-lang"></p>
       </div>
 
       <div class="fade-in grid lg:grid-cols-[1.3fr,1fr] gap-6">
@@ -570,15 +571,43 @@
             <!-- Card 1 -->
             <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 hover:border-slate-500 transition">
               <div class="text-sm text-slate-400 mb-2">Languages</div>
-              <div class="flex flex-wrap gap-2 text-s">
-                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">TypeScript</span>
-                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">C#</span>
-                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Python</span>
-                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">SQL</span>
-                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">PL/SQL</span>
-                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">C/C++</span>
-                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">HTML/CSS</span>
-                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Java</span>
+              <div class="flex flex-wrap gap-2 text-s m-2">
+                <div class="skill-wrapper">
+                  <span class="skill-item px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20" data-skill="python">Python</span>
+                  <div class="skill-note"></div>
+                </div>
+                <div class="skill-wrapper">
+                  <span class="skill-item px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20" data-skill="cpp">C/C++</span>
+                  <div class="skill-note"></div>
+                </div>
+                <div class="skill-wrapper">
+                  <span class="skill-item px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20" data-skill="csharp">C#</span>
+                  <div class="skill-note"></div>
+                </div>
+                <div class="skill-wrapper">
+                  <span class="skill-item px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20" data-skill="typescript">TypeScript</span>
+                  <div class="skill-note"></div>
+                </div>
+                <div class="skill-wrapper">
+                  <span class="skill-item px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20" data-skill="html">HTML/CSS</span>
+                  <div class="skill-note"></div>
+                </div>
+                <div class="skill-wrapper">
+                  <span class="skill-item px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20" data-skill="sql">SQL</span>
+                  <div class="skill-note"></div>
+                </div>
+                <div class="skill-wrapper">
+                  <span class="skill-item px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20" data-skill="pl_sql">PL/SQL</span>
+                  <div class="skill-note"></div>
+                </div>
+                <div class="skill-wrapper">
+                  <span class="skill-item px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20" data-skill="dart">Dart</span>
+                  <div class="skill-note"></div>
+                </div>
+                <div class="skill-wrapper">
+                  <span class="skill-item px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20" data-skill="java">Java</span>
+                  <div class="skill-note"></div>
+                </div>
               </div>
             </div>
 
@@ -750,7 +779,7 @@
 
         <a class="card project-card fade-in group bg-secondary/40 backdrop-blur-md p-6 rounded-2xl border border-slate-700"
           data-tags="mobile"
-          href="https://github.com/yeschan119/metricbox/blob/main/README.En.md" target="_blank">
+          href="https://github.com/yeschan119/metricbox/blob/main/README..md" target="_blank">
           <div class="text-xs text-slate-400 mb-2">Mobile • Cross Platform</div>
           <h4 class="text-xl font-semibold mb-2 group-hover:text-accent transition">Unit Converter</h4>
           <p data-i18n="project.metric" class="text-slate-400 text-sm leading-relaxed"></p>
@@ -758,7 +787,7 @@
 
         <a class="card project-card fade-in group bg-secondary/40 backdrop-blur-md p-6 rounded-2xl border border-slate-700"
           data-tags="mobile cloud"
-          href="https://github.com/yeschan119/tabnoteX/blob/main/README.En.md" target="_blank">
+          href="https://github.com/yeschan119/tabnoteX/blob/main/README.Ko.md" target="_blank">
           <div class="text-xs text-slate-400 mb-2">Mobile • Cloud</div>
           <h4 class="text-xl font-semibold mb-2 group-hover:text-accent transition">Memo App</h4>
           <p data-i18n="project.memo" class="text-slate-400 text-sm leading-relaxed"></p>
