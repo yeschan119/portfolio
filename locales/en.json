@@ -18,7 +18,7 @@
     "arc_title": "System Architecture Blueprint",
     "arc_desc": "End-to-end data analytics platform across application,<br class='hidden md:block' />data, performance, cloud, and observability layers.",
 
-    "skill-lang": "",
+    "skill-lang": "Hover over a language to see experience.",
     "work": {
         "aiworkx1": "• Developed object detection models optimized for edge devices without GPUs",
         "aiworkx2": "• Built and productized image annotation and segmentation models using OpenCV",
@@ -33,6 +33,108 @@
     "peer-kokomo": "Eungchan is an engineer capable of delivering end-to-end systems, from cloud architecture design to full-stack web development. His deep expertise in databases enables him to make strong contributions to system performance and scalability.",
     "peer-tmax": "While working on the DB Optimizer team, Eungchan was responsible for the database statistics module and consistently resolved complex issues related to statistics collection and execution plans. He also collaborated closely with the team and proactively addressed database management and SQL tuning issues encountered by enterprise clients.",
 
+    "skill": {
+        "python": {
+            "years": "5 years",
+            "project": {
+                "title": "Project Experience",
+                "one": "Awarded Excellence Prize in SK Telecom AI Competition",
+                "two": "Developed multiple projects using Flask and Django (banking system, credit scoring model)",
+                "three": "Built mini games and solved algorithmic coding problems"
+            },
+            "product": {
+                "title": "Production Experience",
+                "one": "Developed Python-based desktop applications at Daewoong Pharmaceutical",
+                "two": "Worked as an AI Vision Engineer at AIWORKX",
+                "three": "Built automation systems for reporting workflows at an RDBMS company, improving operational efficiency"
+            }
+        },
+        "csharp": {
+            "years": "3 years",
+            "product": {
+                "title": "Production Experience",
+                "one": "Backend development using ASP.NET Core",
+                "two": "Developed backend systems for a large-scale web browser used by hundreds of thousands of users"
+            }
+        },
+        "cpp": {
+            "years": "5 years",
+            "project": {
+                "title": "Project Experience",
+                "one": "Designed and implemented data-level components of a database engine",
+                "two": "Built multiple algorithm-focused projects"
+            },
+            "product": {
+                "title": "Production Experience",
+                "one": "Designed logic and implemented features in R&D team at Tmax Tibero (RDBMS)",
+                "two": "Enhanced DB parser and optimizer modules (SQL Tuning Advisor, SQL Plan Management)",
+                "three": "Migrated legacy C codebase to C++",
+                "four": "Led long-term internal C++ study sessions"
+            }
+        },
+        "typescript": {
+            "years": "3 years",
+            "project": {
+                "title": "Project Experience",
+                "one": "Developed multiple mini projects"
+            },
+            "product": {
+                "title": "Production Experience",
+                "one": "Frontend development using Angular for a large-scale web browser platform",
+                "two": "Built production-grade LG Kiosk application using TypeScript"
+            }
+        },
+        "html": {
+            "years": "2 years",
+            "project": {
+                "title": "Project Experience",
+                "one": "Built personal portfolio using HTML/CSS"
+            },
+            "product": {
+                "title": "Production Experience",
+                "one": "Frontend development using Angular for a large-scale web browser platform",
+                "two": "Developed LG Kiosk application UI using HTML/CSS"
+            }
+        },
+        "sql": {
+            "years": "5 years (MySQL, Oracle, SQL Server, PostgreSQL, Tibero)",
+            "project": {
+                "title": "Project Experience",
+                "one": "Integrated databases into multiple projects across Python, Java, and C# (e.g., banking systems)"
+            },
+            "product": {
+                "title": "Production Experience",
+                "one": "Performed SQL tuning for enterprise clients (banks, companies, educational institutions)",
+                "two": "Optimized queries using execution plan analysis, indexing, partitioning, joins, and hints",
+                "three": "Designed and implemented SQL plan generation logic for production systems",
+                "four": "Improved system performance by over 30% in a large-scale web browser service"
+            }
+        },
+        "pl_sql": {
+            "years": "2 years",
+            "product": {
+                "title": "Production Experience",
+                "one": "Owned and enhanced statistics collection module in Tibero RDBMS engine",
+                "two": "Worked extensively with PL/SQL-based internal engine components"
+            }
+        },
+        "java": {
+            "years": "1 year",
+            "project": {
+                "title": "Project Experience",
+                "one": "Developed several small projects",
+                "two": "Completed coursework on object-oriented programming using Java"
+            }
+        },
+        "dart": {
+            "years": "2 years",
+            "product": {
+                "title": "Production Experience (iOS, macOS Apps)",
+                "one": "Developed unit conversion applications",
+                "two": "Built note management applications"
+            }
+        }
+    },
     "project": {
         "report": "Embedded QuickSight analytics with snapshot automation and distributed scaling.",
         "ims": "Multi-Organization real-time reporting platform with OLTP + Analytics separation.",
