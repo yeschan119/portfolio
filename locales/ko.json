@@ -12,7 +12,7 @@
     "hero_title":"DB 설계부터 Dashboard 구현까지<br class='hidden md:block' />확장 가능한 시스템 구축 경험",
     "hero_desc":"DB & Cloud Architecture 설계부터 Dashboard 구현까지<br class='hidden md:block' />확장 가능한 시스템 구축 경험을 가지고 있습니다.",
     "ai-button": "강응찬의 AI와 대화하기",
-    "ai-main": "Ask me anything 🙏🏻 (ex: Data Engineer 직문 관련 프로젝트 알려줘)",
+    "ai-main": "Ask me anything 🙏🏻 (ex: Data Engineer 직무 관련 프로젝트 리스트)",
     "ai-sub": "이 AI는 응찬의 Git history를 학습한 결과를 보여줍니다. 프로젝트 관련 더 자세한 정보는 포트폴리오 프로젝트 탭에서 확인하실 수 있습니다.",
 
     "about_title":"소개",
@@ -29,7 +29,7 @@
 
     "skill-lang": "각 언어에 커서를 올리면 언어 활용 경험을 확인할 수 있습니다.",
     "work": {
-        "aiworkx1": "• GPU가 없는 edge 장치에서 Object dection을 수행할 수 있는 모델 개발",
+        "aiworkx1": "• GPU가 없는 edge 장치에서 Obj트ect dection을 수행할 수 있는 모델 개발",
         "aiworkx2": "• Image annotation & segmentation model 개발 및 제품화(OpenCV)",
         "tmax1": "• DB 통계 수집 기능 모듈을 담당하여 관리 및 기능 추가",
         "tmax2": "• SQL Tuning Advisor 모듈을 구현 및 SPM(실행 계획 관리 기능)을 개발",

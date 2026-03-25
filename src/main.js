@@ -331,17 +331,7 @@ function initSlider() {
   Server Warmup
 ========================================================= */
 async function warmUpServer() {
-  try {
-    await fetch("https://portfolio-llm-b1gj.onrender.com/chat", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ message: "__warmup__" })
-    });
-
-    console.log("🔥 server ready");
-  } catch (e) {
-    console.log("warmup failed");
-  }
+  fetch("https://portfolio-llm-b1gj.onrender.com/health")
+    .then(() => console.log("server warmed up"))
+    .catch(() => {});
 }
