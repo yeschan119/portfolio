@@ -1,232 +1,220 @@
 /* =========================================================
-  DOM Ready Wrapper
+  ENTRY POINT
 ========================================================= */
 document.addEventListener("DOMContentLoaded", () => {
+  initMobileMenu();
+  initLanguage();
+  initChat();
+  initScrollEffects();
+  initCounter();
+  initSlider();
+  warmUpServer();
+});
 
 /* =========================================================
   Mobile Menu
 ========================================================= */
-const mobileBtn = document.getElementById("mobileMenuBtn");
-const mobileMenu = document.getElementById("mobileMenu");
+function initMobileMenu() {
+  const mobileBtn = document.getElementById("mobileMenuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
 
-mobileBtn?.addEventListener("click", () => {
-  mobileMenu.classList.toggle("hidden");
-});
+  mobileBtn?.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
 
-mobileMenu?.querySelectorAll("a").forEach(a =>
-  a.addEventListener("click", () => mobileMenu.classList.add("hidden"))
-);
+  mobileMenu?.querySelectorAll("a").forEach(a =>
+    a.addEventListener("click", () => mobileMenu.classList.add("hidden"))
+  );
+}
 
 /* =========================================================
-  Language Toggle
+  Language
 ========================================================= */
+function initLanguage() {
+  let translations = {};
 
-let currentLang = "en";
-let translations = {};
-
-async function loadLanguage(lang) {
+  async function loadLanguage(lang) {
     try {
-        const response = await fetch("/locales/" + lang + ".json");
-        translations = await response.json();
-        applyTranslations();
-        localStorage.setItem("preferredLang", lang);
-        currentLang = lang;
-        setActiveLang(lang);
+      const response = await fetch("/locales/" + lang + ".json");
+      translations = await response.json();
+      applyTranslations();
+      localStorage.setItem("preferredLang", lang);
+      setActiveLang(lang);
     } catch (error) {
-        console.error("Language load error:", error);
+      console.error("Language load error:", error);
     }
-}
+  }
 
-function applyTranslations() {
+  function applyTranslations() {
     document.querySelectorAll("[data-i18n]").forEach(element => {
-        const key = element.getAttribute("data-i18n");
+      const keys = element.getAttribute("data-i18n").split(".");
+      let value = translations;
 
-        const keys = key.split(".");
-        let value = translations;
+      keys.forEach(k => value = value?.[k]);
 
-        keys.forEach(k => {
-            value = value?.[k];
-        });
-
-        if (value) {
-            element.innerHTML = value;
-        }
+      if (value) element.innerHTML = value;
     });
-}
+  }
 
-const btnEn = document.getElementById("langEn");
-const btnKo = document.getElementById("langKo");
-const btnEnMobile = document.getElementById("langEnMobile");
-const btnKoMobile = document.getElementById("langKoMobile");
-
-btnEn?.addEventListener("click", () => loadLanguage("en"));
-btnKo?.addEventListener("click", () => loadLanguage("ko"));
-btnEnMobile?.addEventListener("click", () => loadLanguage("en"));
-btnKoMobile?.addEventListener("click", () => loadLanguage("ko"));
-
-/* 최초 실행 */
-const savedLang = localStorage.getItem("preferredLang") || "ko";
-loadLanguage(savedLang);
-
-function setActiveLang(lang) {
-
-    document.querySelectorAll(".lang-btn").forEach(btn => {
-        btn.classList.remove("bg-accent","text-white","border-accent");
-    });
+  function setActiveLang(lang) {
+    document.querySelectorAll(".lang-btn").forEach(btn =>
+      btn.classList.remove("bg-accent","text-white","border-accent")
+    );
 
     if (lang === "en") {
-        document.getElementById("langEn")?.classList.add("bg-accent","text-white","border-accent");
-        document.getElementById("langEnMobile")?.classList.add("bg-accent","text-white","border-accent");
+      document.getElementById("langEn")?.classList.add("bg-accent","text-white","border-accent");
     }
 
     if (lang === "ko") {
-        document.getElementById("langKo")?.classList.add("bg-accent","text-white","border-accent");
-        document.getElementById("langKoMobile")?.classList.add("bg-accent","text-white","border-accent");
+      document.getElementById("langKo")?.classList.add("bg-accent","text-white","border-accent");
     }
+  }
+
+  document.getElementById("langEn")?.addEventListener("click", () => loadLanguage("en"));
+  document.getElementById("langKo")?.addEventListener("click", () => loadLanguage("ko"));
+
+  const savedLang = localStorage.getItem("preferredLang") || "ko";
+  loadLanguage(savedLang);
 }
 
-const openBtn = document.getElementById('openChat');
-const sendBtn = document.getElementById('sendChat');
-const closeBtn = document.getElementById('closeChat');
-const overlay = document.getElementById('chatOverlay');
+/* =========================================================
+  Chat
+========================================================= */
+function initChat() {
+  const openBtn = document.getElementById('openChat');
+  const sendBtn = document.getElementById('sendChat');
+  const closeBtn = document.getElementById('closeChat');
+  const overlay = document.getElementById('chatOverlay');
 
-if (!openBtn || !sendBtn || !closeBtn || !overlay) {
-  console.error('chat elements missing');
-} else {
+  if (!openBtn || !sendBtn || !closeBtn || !overlay) return;
 
   let isOpen = false;
 
-  function openChat() {
+  openBtn.addEventListener('click', () => {
     if (isOpen) return;
     isOpen = true;
 
     overlay.classList.remove('hidden');
+    requestAnimationFrame(() => overlay.classList.add('active'));
+  });
 
-    setTimeout(() => {
-      overlay.classList.add('active');
-    }, 20);
-  }
+  closeBtn.addEventListener('click', closeChat);
 
   function closeChat() {
     if (!isOpen) return;
     isOpen = false;
 
     overlay.classList.remove('active');
-
-    setTimeout(() => {
-      overlay.classList.add('hidden');
-    }, 500);
+    setTimeout(() => overlay.classList.add('hidden'), 500);
   }
 
-  if (sendBtn) {
-    sendBtn.addEventListener('click', sendChat);
-  }
+  sendBtn.addEventListener('click', sendChat);
+  initChatInput();
 
-  const input = document.getElementById("chatInput");
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeChat();
+  });
 
-    let isComposing = false;
-
-    // 한글 입력 시작
-    input.addEventListener("compositionstart", () => {
-      isComposing = true;
-    });
-
-    // 한글 입력 완료
-    input.addEventListener("compositionend", () => {
-      isComposing = false;
-    });
-
-    // Enter 처리
-    input.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" && !isComposing) {
-        e.preventDefault(); // 줄바꿈 방지
-        sendChat();
-      }
-    });
-
-    async function sendChat() {
-      const input = document.getElementById("chatInput");
-      const chat = document.getElementById("chatMessages");
-
-      const message = input.value.trim();
-      if (!message) return;
-
-      input.value = "";
-
-      // USER
-      chat.innerHTML += `
-        <div class="chat-user">
-          <div>${message}</div>
-        </div>
-      `;
-
-      chat.scrollTop = chat.scrollHeight;
-
-      // 🔥 loading 생성
-      const loadingId = "loading-" + Date.now();
-
-      chat.innerHTML += `
-        <div id="${loadingId}" class="chat-ai">
-          <div class="typing-indicator">
-            <div class="dots">
-              <span></span><span></span><span></span>
-            </div>
-            <div class="typing-text">AI is thinking...</div>
-          </div>
-        </div>
-      `;
-
-      chat.scrollTop = chat.scrollHeight;
-
-      try {
-        const res = await fetch("https://portfolio-llm-b1gj.onrender.com/chat", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({ message })
-        });
-
-        const data = await res.json();
-
-        // loading 제거
-        const loadingEl = document.getElementById(loadingId);
-        if (loadingEl) loadingEl.remove();
-
-        // AI 메시지 생성
-        const container = document.createElement("div");
-        container.className = "chat-ai";
-
-        const bubble = document.createElement("div");
-        container.appendChild(bubble);
-        chat.appendChild(container);
-
-        // 타이핑 효과
-        await typeWriter(data.reply, bubble);
-
-        // markdown 변환
-        bubble.innerHTML = formatAIResponse(data.reply);
-
-      } catch (err) {
-        document.getElementById(loadingId)?.remove();
-      }
-
-      chat.scrollTop = chat.scrollHeight;
-    }
-
-    openBtn.addEventListener('click', openChat);
-    sendBtn.addEventListener('click', sendChat);
-    closeBtn.addEventListener('click', closeChat);
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeChat();
-    });
-
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) closeChat();
-    });
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeChat();
+  });
 }
 
+/* =========================================================
+  Chat Input (한글 대응)
+========================================================= */
+function initChatInput() {
+  const input = document.getElementById("chatInput");
+
+  let isComposing = false;
+
+  input.addEventListener("compositionstart", () => {
+    isComposing = true;
+  });
+
+  input.addEventListener("compositionend", () => {
+    isComposing = false;
+  });
+
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !isComposing) {
+      e.preventDefault();
+      sendChat();
+    }
+  });
+}
+
+/* =========================================================
+  Send Chat
+========================================================= */
+async function sendChat() {
+  const input = document.getElementById("chatInput");
+  const chat = document.getElementById("chatMessages");
+
+  const message = input.value.trim();
+  if (!message) return;
+
+  input.value = "";
+
+  // USER
+  chat.innerHTML += `
+    <div class="chat-user">
+      <div>${message}</div>
+    </div>
+  `;
+
+  chat.scrollTop = chat.scrollHeight;
+
+  // loading
+  const loadingId = "loading-" + Date.now();
+
+  chat.innerHTML += `
+    <div id="${loadingId}" class="chat-ai">
+      <div class="typing-indicator">
+        <div class="dots">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="typing-text">AI is thinking...</div>
+      </div>
+    </div>
+  `;
+
+  chat.scrollTop = chat.scrollHeight;
+
+  try {
+    const res = await fetch("https://portfolio-llm-b1gj.onrender.com/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ message })
+    });
+
+    const data = await res.json();
+
+    document.getElementById(loadingId)?.remove();
+
+    const container = document.createElement("div");
+    container.className = "chat-ai";
+
+    const bubble = document.createElement("div");
+    container.appendChild(bubble);
+    chat.appendChild(container);
+
+    await typeWriter(data.reply, bubble);
+
+    bubble.innerHTML = formatAIResponse(data.reply);
+
+  } catch (err) {
+    document.getElementById(loadingId)?.remove();
+  }
+
+  chat.scrollTop = chat.scrollHeight;
+}
+
+/* =========================================================
+  Type Writer
+========================================================= */
 function typeWriter(text, element, speed = 15) {
   return new Promise((resolve) => {
     let i = 0;
@@ -235,9 +223,6 @@ function typeWriter(text, element, speed = 15) {
       if (i < text.length) {
         element.textContent += text.charAt(i);
         i++;
-
-        element.scrollTop = element.scrollHeight;
-
         setTimeout(typing, speed);
       } else {
         resolve();
@@ -248,198 +233,115 @@ function typeWriter(text, element, speed = 15) {
   });
 }
 
+/* =========================================================
+  Markdown
+========================================================= */
 function formatAIResponse(text) {
   if (!text) return "";
-
   const html = marked.parse(text);
   return `<div class="ai-markdown">${html}</div>`;
 }
 
 marked.setOptions({
-  highlight: function(code, lang) {
+  highlight: function(code) {
     return hljs.highlightAuto(code).value;
   }
 });
 
-
-
-
 /* =========================================================
-  Scroll Fade-in
+  Scroll Effects
 ========================================================= */
-const fadeElements = document.querySelectorAll(".fade-in");
+function initScrollEffects() {
+  const fadeElements = document.querySelectorAll(".fade-in");
 
-const fadeObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-    }
-  });
-}, { threshold: 0.15 });
-
-fadeElements.forEach(el => fadeObserver.observe(el));
-
-
-/* =========================================================
-  Counter Animation
-========================================================= */
-let countersRan = false;
-
-const heroSection = document.querySelector(".hero-bg");
-
-const counterObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting || countersRan) return;
-
-    countersRan = true;
-
-    document.querySelectorAll(".counter").forEach(counter => {
-      const target = Number(counter.dataset.target || 0);
-      let current = 0;
-      const step = Math.max(1, Math.floor(target / 80));
-
-      const tick = () => {
-        current += step;
-        if (current >= target) {
-          counter.innerText = target;
-          return;
-        }
-        counter.innerText = current;
-        requestAnimationFrame(tick);
-      };
-
-      tick();
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("show");
     });
-  });
-}, { threshold: 0.35 });
+  }, { threshold: 0.15 });
 
-heroSection && counterObserver.observe(heroSection);
-
-
-/* =========================================================
-  Architecture Flow Animation
-========================================================= */
-const down = document.getElementById("flowDown");
-const up = document.getElementById("flowUp");
-const dotDown = document.getElementById("dotDown");
-const dotUp = document.getElementById("dotUp");
-
-if (down && up && dotDown && dotUp) {
-
-  const len1 = down.getTotalLength();
-  const len2 = up.getTotalLength();
-
-  function animateFlow(time) {
-    const p1 = (time % 4000) / 4000;
-    const p2 = (time % 5000) / 5000;
-
-    const pt1 = down.getPointAtLength(len1 * p1);
-    const pt2 = up.getPointAtLength(len2 * p2);
-
-    dotDown.setAttribute("cx", pt1.x);
-    dotDown.setAttribute("cy", pt1.y);
-    dotUp.setAttribute("cx", pt2.x);
-    dotUp.setAttribute("cy", pt2.y);
-
-    requestAnimationFrame(animateFlow);
-  }
-
-  requestAnimationFrame(animateFlow);
+  fadeElements.forEach(el => observer.observe(el));
 }
 
-
 /* =========================================================
-  Project Filtering
+  Counter
 ========================================================= */
-const filterButtons = document.querySelectorAll(".filter-btn");
-const projectCards = document.querySelectorAll(".project-card");
-const emptyState = document.getElementById("emptyState");
+function initCounter() {
+  let ran = false;
+  const hero = document.querySelector(".hero-bg");
 
-function applyFilter(filter) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting || ran) return;
 
-  filterButtons.forEach(btn => {
-    btn.setAttribute("aria-pressed", btn.dataset.filter === filter);
-  });
+      ran = true;
 
-  let visible = 0;
+      document.querySelectorAll(".counter").forEach(counter => {
+        const target = Number(counter.dataset.target || 0);
+        let current = 0;
+        const step = Math.max(1, Math.floor(target / 80));
 
-  projectCards.forEach(card => {
-    const tags = (card.dataset.tags || "").split(" ");
-    const show = filter === "all" || tags.includes(filter);
+        const tick = () => {
+          current += step;
+          if (current >= target) {
+            counter.innerText = target;
+            return;
+          }
+          counter.innerText = current;
+          requestAnimationFrame(tick);
+        };
 
-    if (show) {
-      card.style.display = "";
-      card.classList.remove("hidden");
-      visible++;
-    } else {
-      card.style.display = "none";
-    }
-  });
+        tick();
+      });
+    });
+  }, { threshold: 0.35 });
 
-  if (emptyState) {
-    emptyState.classList.toggle("hidden", visible !== 0);
-  }
+  hero && observer.observe(hero);
 }
 
-filterButtons.forEach(btn =>
-  btn.addEventListener("click", () =>
-    applyFilter(btn.dataset.filter)
-  )
-);
-
-applyFilter("all");
-
-
 /* =========================================================
-  Timeline Scroll Progress
+  Slider
 ========================================================= */
-const timeline = document.querySelector(".timeline");
-const progress = document.getElementById("timelineProgress");
+function initSlider() {
+  const track = document.getElementById("referenceTrack");
+  const prev = document.getElementById("prevRef");
+  const next = document.getElementById("nextRef");
 
-function updateTimeline() {
-  if (!timeline || !progress) return;
-
-  const rect = timeline.getBoundingClientRect();
-  const vh = window.innerHeight;
-
-  const total = rect.height;
-  const visible = Math.min(total, Math.max(0, vh - rect.top));
-
-  const ratio = Math.min(1, visible / total);
-
-  progress.style.height = `${ratio * 100}%`;
-}
-
-window.addEventListener("scroll", updateTimeline);
-window.addEventListener("resize", updateTimeline);
-updateTimeline();
-
-
-/* =========================================================
-  Reference Slider
-========================================================= */
-const track = document.getElementById("referenceTrack");
-const prevBtn = document.getElementById("prevRef");
-const nextBtn = document.getElementById("nextRef");
-
-if (track && prevBtn && nextBtn) {
+  if (!track || !prev || !next) return;
 
   let index = 0;
   const total = track.children.length;
 
-  function updateSlide() {
+  function update() {
     track.style.transform = `translateX(-${index * 100}%)`;
   }
 
-  nextBtn.addEventListener("click", () => {
+  next.addEventListener("click", () => {
     index = (index + 1) % total;
-    updateSlide();
+    update();
   });
 
-  prevBtn.addEventListener("click", () => {
+  prev.addEventListener("click", () => {
     index = (index - 1 + total) % total;
-    updateSlide();
+    update();
   });
 }
 
-});
+/* =========================================================
+  Server Warmup
+========================================================= */
+async function warmUpServer() {
+  try {
+    await fetch("https://portfolio-llm-b1gj.onrender.com/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ message: "__warmup__" })
+    });
+
+    console.log("🔥 server ready");
+  } catch (e) {
+    console.log("warmup failed");
+  }
+}
