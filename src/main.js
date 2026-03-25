@@ -65,7 +65,7 @@ btnEnMobile?.addEventListener("click", () => loadLanguage("en"));
 btnKoMobile?.addEventListener("click", () => loadLanguage("ko"));
 
 /* 최초 실행 */
-const savedLang = localStorage.getItem("preferredLang") || "en";
+const savedLang = localStorage.getItem("preferredLang") || "ko";
 loadLanguage(savedLang);
 
 function setActiveLang(lang) {

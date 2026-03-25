@@ -16,7 +16,12 @@
     "ai-sub": "This AI is trained on Eungchan’s Git history. For deeper insights into each project, visit the Projects section of the portfolio.",
 
     "about_title": "About",
-    "about_desc": "Full-Stack & Data Platform Engineer with 5+ years of experience across cloud-native backend systems,<br class='hidden md:block' />RDBMS internals, SQL optimization, and analytics dashboard ownership.<br class='hidden md:block' />I deliver end-to-end systems — database design, ASP.NET Core APIs, and interactive Angular dashboards.",
+    "about": {
+        "detail1": "• Full-Stack & Data Platform Engineer with 5+ years of experience in cloud-native backend systems",
+        "detail2": "• Experienced in cloud-based backend development, RDBMS internals, SQL optimization, and analytics dashboard development",
+        "detail3": "• Build end-to-end systems, from database design to dashboard implementation",
+        "detail4": "• Passionate about LLMs; actively developing projects in Python and integrating LLM + MCP-based AI-driven features into this portfolio"
+    },
     
     "arc_title": "System Architecture Blueprint",
     "arc_desc": "End-to-end data analytics platform across application,<br class='hidden md:block' />data, performance, cloud, and observability layers.",

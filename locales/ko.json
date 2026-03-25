@@ -16,7 +16,12 @@
     "ai-sub": "이 AI는 응찬의 Git history를 학습한 결과를 보여줍니다. 프로젝트 관련 더 자세한 정보는 포트폴리오 프로젝트 탭에서 확인하실 수 있습니다.",
 
     "about_title":"소개",
-    "about_desc": "5년 이상의 경험을 가진 Full-Stack & Data Platform Engineer로서<br class='hidden md:block' />클라우드 기반 백엔드 시스템, RDBMS 내부 구조, SQL 최적화, 그리고 분석 대시보드 개발을 수행해왔습니다.<br class='hidden md:block' />데이터베이스 설계부터 ASP.NET Core API, Angular 기반 인터랙티브 대시보드까지 end-to-end 시스템을 구축합니다.",
+    "about": {
+        "detail1": "• Full-Stack & Data Platform Engineer with 5+ years of experience across cloud-native backend systems",
+        "detail2": "• 클라우드 기반 백엔드 시스템, RDBMS 내부 구조, SQL 최적화, 그리고 분석 대시보드 개발을 수행해왔습니다.",
+        "detail3": "• 데이터베이스 설계부터 대시보현 구현까지 end-to-end 시스템을 구축합니다.",
+        "detail4": "• LLM에 관심이 많아 Python을 활용하여 다양한 프로젝트를 수행중이며 이 포트폴리오 역시 <strong>LLM + MCP 기반 AI-driven</strong> 기능을 추가했습니다."
+    },
     "contact_title":"연락처",
 
     "arc_title": "시스템 아키텍처 설계",
