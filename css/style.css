@@ -213,14 +213,14 @@ html {
     border-radius: 12px;
     padding: 16px;
     z-index: 50;
-  }
+}
 
-  .group:hover .tooltip-box {
+.group:hover .tooltip-box {
     opacity: 1;
     transform: translateX(-50%) translateY(0) scale(1);
-  }
+}
 
-  .tooltip-arrow {
+.tooltip-arrow {
     position: absolute;
     top: 100%;
     left: 50%;
@@ -232,4 +232,236 @@ html {
     background: #0f172a;
     border-right: 1px solid #334155;
     border-bottom: 1px solid #334155;
-  }
+}
+
+/* split animation */
+#chatOverlay.active #splitTop {
+    transform: translateY(-100%);
+}
+
+#chatOverlay.active #splitBottom {
+    transform: translateY(100%);
+}
+
+/* chat 등장 */
+#chatOverlay.active #chatBox {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* overlay 전체 배경 */
+#chatOverlay {
+    background: rgba(11, 17, 32, 0.96);
+}
+
+/* split layer */
+#splitTop,
+#splitBottom {
+    background: #0b1120;
+    will-change: transform;
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* chat box */
+#chatBox {
+    width: 600px;
+    height: 600px;
+
+    background: #111827;
+    backdrop-filter: none;
+
+    opacity: 0;
+    transform: scale(0.96);
+    transition: opacity 0.28s ease, transform 0.28s ease;
+
+    resize: both;
+    overflow: auto;
+
+    min-width: 280px;
+    min-height: 250px;
+    max-width: 90vw;
+    max-height: 80vh;
+
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+}
+
+/* 모바일 */
+@media (max-width: 640px) {
+    #chatBox {
+        width: 90vw;
+        height: 60vh;
+    }
+}
+
+/* AI chat */
+.chat-user {
+    text-align: right;
+}
+
+.chat-user > div {
+    display: inline-block;
+    background: #3b82f6;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 12px;
+    max-width: 75%;
+}
+
+.chat-ai {
+    text-align: left;
+}
+
+.chat-ai > div:not(.typing-indicator) {
+    display: inline-block;
+    background: #111827;
+    border: 1px solid #374151;
+    padding: 10px 12px;
+    border-radius: 12px;
+    max-width: 80%;
+}
+
+/* Markdown wrapper */
+.ai-markdown {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #e2e8f0;
+}
+
+/* markdown 내부는 배경/테두리 제거 */
+.ai-markdown,
+.ai-markdown div,
+.ai-markdown p,
+.ai-markdown ul,
+.ai-markdown li,
+.ai-markdown h2,
+.ai-markdown h3 {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+/* 제목/문단 스타일 */
+.ai-markdown h2 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 16px;
+    margin-bottom: 6px;
+    color: #60a5fa;
+}
+
+.ai-markdown h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    color: #cbd5f5;
+}
+
+.ai-markdown p {
+    margin-bottom: 6px;
+}
+
+.ai-markdown ul {
+    padding-left: 18px;
+    margin-bottom: 8px;
+}
+
+.ai-markdown li {
+    margin-bottom: 4px;
+}
+
+.ai-markdown strong {
+    color: #fff;
+}
+
+/* typing */
+.typing {
+    opacity: 0.6;
+    font-style: italic;
+}
+
+.loading-dots {
+    display: flex;
+    gap: 6px;
+    padding: 6px 10px;
+}
+
+.loading-dots span {
+    width: 6px;
+    height: 6px;
+    background: #94a3b8;
+    border-radius: 50%;
+    animation: blink 1.4s infinite;
+}
+
+.loading-dots span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.loading-dots span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes blink {
+    0%, 80%, 100% { opacity: 0.3; }
+    40% { opacity: 1; }
+}
+
+.typing-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 🔥 dots 영역 따로 */
+.typing-indicator .dots {
+    display: flex;
+    gap: 6px;
+}
+
+/* dot만 애니메이션 */
+.typing-indicator .dots span {
+    width: 8px;
+    height: 8px;
+    background-color: #60a5fa;
+    border-radius: 50%;
+    animation: typingBlink 1.2s infinite ease-in-out;
+}
+
+.typing-indicator .dots span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.typing-indicator .dots span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* 🔥 텍스트는 완전히 분리 */
+.typing-text {
+    font-size: 13px;
+    color: #94a3b8;
+    white-space: nowrap;
+    opacity: 0.7;
+}
+
+@keyframes typingBlink {
+    0%, 80%, 100% { opacity: 0.2; transform: translateY(0); }
+    40% { opacity: 1; transform: translateY(-6px); }
+}
+
+@keyframes typingBlink {
+    0% {
+    opacity: 0.2;
+    transform: translateY(0);
+    }
+    30% {
+        opacity: 1;
+        transform: translateY(-6px); /* 🔥 크게 */
+    }
+    60% {
+        opacity: 0.4;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0.2;
+    }
+}

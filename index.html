@@ -23,6 +23,8 @@
   </script>
   <link rel="stylesheet" href="css/style.css">
   <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/highlight.js/lib/common.min.js"></script>
 </head>
 
 <body class="bg-primary text-slate-200 font-sans">
@@ -136,7 +138,14 @@
               </div>
           </div>
 
-          <div class="mt-12 flex justify-center gap-4">
+          <div class="mt-7 flex justify-center">
+            <button id="openChat" data-i18n="ai-button"
+              class="px-6 py-3 rounded-xl border border-accent text-accent text-sm font-semibold
+                    hover:bg-accent hover:text-white transition">
+            </button>
+          </div>
+
+          <div class="mt-7 flex justify-center gap-4">
               <a href="#projects" class="px-5 py-3 rounded-xl bg-accent text-white text-sm font-semibold hover:opacity-90 transition">
                   View Projects
               </a>
@@ -146,6 +155,46 @@
           </div>
       </div>
   </section>
+  <div id="chatOverlay" class="fixed inset-0 z-50 hidden bg-black/40 backdrop-blur-sm">
+
+  <!-- split for AI chat -->
+    <div id="splitTop" class="absolute top-0 left-0 w-full h-1/2 bg-black transition-all duration-500"></div>
+    <div id="splitBottom" class="absolute bottom-0 left-0 w-full h-1/2 bg-black transition-all duration-500"></div>
+
+    <!-- chat -->
+    <div class="absolute inset-0 flex items-center justify-center">
+      <div id="chatBox"
+        class="w-[90%] max-w-xl h-[500px]
+              bg-[#111827]/90 backdrop-blur-xl
+              border border-slate-700 rounded-2xl p-4 flex flex-col
+              opacity-0 scale-90 transition-all duration-500">
+
+        <!-- header -->
+        <div class="flex justify-between mb-3">
+          <span>Eungchan's AI</span>
+          <button id="closeChat">✕</button>
+        </div>
+
+        <!-- messages -->
+        <div id="chatMessages" class="flex-1 overflow-y-auto space-y-3 mb-3 text-sm">
+          <div data-i18n="ai-main" class="text-slate-400" style="opacity: 0.9;"></div>
+          <p data-i18n="ai-sub" class="text-slate-400" style="font-size: 12px; opacity: 0.5;"></p>
+        </div>
+
+        <div class="flex gap-2">
+                      <input id="chatInput"
+              class="flex-1 bg-primary text-white border border-slate-700 rounded-lg px-3 py-2 text-sm
+                    focus:bg-primary focus:text-white outline-none"
+            />
+          <button id="sendChat"
+            class="px-4 py-2 bg-accent text-white rounded-lg text-sm">
+            Send
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
   <!-- ABOUT -->
   <section id="about" class="section-glow py-24 border-t border-slate-800">

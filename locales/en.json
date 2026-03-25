@@ -11,6 +11,9 @@
     "hero_desc": "Experienced in building scalable systems,<br class='hidden md:block' />from DB & Cloud architecture design to analytics dashboard implementation.",
     "hero_btn_projects": "View Projects",
     "hero_btn_arch": "Architecture Diagram",
+    "ai-button": "Try to talk with Eungchan's AI",
+    "ai-main": "Ask anything 🙏🏻 (e.g., Show me Data Engineering projects)",
+    "ai-sub": "This AI is trained on Eungchan’s Git history. For deeper insights into each project, visit the Projects section of the portfolio.",
 
     "about_title": "About",
     "about_desc": "Full-Stack & Data Platform Engineer with 5+ years of experience across cloud-native backend systems,<br class='hidden md:block' />RDBMS internals, SQL optimization, and analytics dashboard ownership.<br class='hidden md:block' />I deliver end-to-end systems — database design, ASP.NET Core APIs, and interactive Angular dashboards.",

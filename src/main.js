@@ -85,189 +85,183 @@ function setActiveLang(lang) {
     }
 }
 
-// skills
-const skillData = {
-    python: `
-    > 5년 경험
-    > 프로젝트 레벨 경험
-        - SKT AI 경진대회 우수상 수상
-        - flask, django를 사용한 다수의 미니 프로젝트 수행
-            - 은행 시스템 구현, 신용평가 모델 구현
-        - 다수의 미니 게임 개발 및 coding test  문제들 풀기
-    > 프로덕션 레벨 경험
-        - 제약회사(대웅제약) python desktop application 개발
-        - AI 회사(AIWORKX)에서 AI vision 개발자로 근무
-            - AI modeling(YOLO 등)
-            - OpenCV를 활용한 AI Application 개발
-        - RDBMS(Tibero)회사에서 업무 보고 자동화 시스템을 파이썬으로 구현(업무 효율화)`,
+const openBtn = document.getElementById('openChat');
+const sendBtn = document.getElementById('sendChat');
+const closeBtn = document.getElementById('closeChat');
+const overlay = document.getElementById('chatOverlay');
 
-    csharp: `
-      > 3년 경험
-      > 프로덕션 레벨 경험
-        - Asp dotNet Core 기반 Backend 개발 담당
-        - 수십만 명이 사용하는 Web Browser의 backend 개발 진행`,
+if (!openBtn || !sendBtn || !closeBtn || !overlay) {
+  console.error('chat elements missing');
+} else {
 
-    cpp: `
-      > 5년 경험
-      > 프로젝트 구현
-        - DB engine의 data-level 설계 및 구현
-        - 다양한 알고리즘을 활용한 다수의 미니 프로젝트 구현
-      > 프로덕션 레벨 개발 경험
-        - RDBMS(Tmax Tibero)회사 R&D팀에서 로직 설계 및 기능 추가
-            - DB Parser / Optimizer module 기능 추가
-                - 대표적으로 SQL Tuning Advisor, SQL Plan Management 기능 추가
-            - 사내 C++ study 장기간 진행
-            - Legacy Code(C 언어)를 C++로 이전하는 작업 진행`,
+  let isOpen = false;
 
-      typescript: `
-      > 3년 경험
-      > 프로젝트 경험
-        - 다수의 미니 프로젝트 경험
-      > 프로덕션 레벨
-          - 수십만 명이 사용하는 Web Browser에서 Angular Framework를 기반으로 Front-end 개발
-          - 실제 상용화된 LG KIOSK application을 Typescript로 구현`,
+  function openChat() {
+    if (isOpen) return;
+    isOpen = true;
 
-    sql: `
-      > 5년 경험(MySQL, Oracle, SQL Server, PostgreSQL, Tibero)
-      > 프로젝트 경험
-          - 다양한 언어(python, java, C#)로 진행하는 프로젝트에서 DB를 연결하여 프로젝트 수행
-              - 은행 관리 시스템 등
-      > 프로덕션 레벨 경험
-          - RDBMS회사(Timax Tibero)에서 다수의 client(은행, 회사, 학교)들을 상대로 SQL Tuning 작업 수행
-              - query plan을 분석하고 각종 인덱스, 파티션, 조인, 힌트등 기법으로 튜닝 진행
-          - SQL plan을 직접 구현하고 테스트하고 프로덕션 배포
-          - 수십만 명이 사용하는 Web Browser에서 DB 관리를 담당하여 30% 이상의 Performance 달성`,
+    overlay.classList.remove('hidden');
 
-    pl_sql: `
-      > 2년 경험
-      > 프로덕션 경험
-        - RDBMS(Tibero) engine에서 통계수집 모듈을 담당하여 기능 추가 및 관리 진행
-        - Tibero의 통계수집 모듈은 대부분 Pl/SQL로 구현되어 있음`,
-
-    html: `
-      > 2년 경험
-      > 프로젝트 경험
-        - 포트폴리오를 직접 HTML/CSS로 구현
-      > 프로덕션 레벨 경험
-          - 수십만 명이 사용하는 Web Browser에서 Angular Framework를 기반으로 Front-end 개발
-          - 실제 상용화된 LG KIOSK application을 HTML/CSS로 구현
-      `,
-
-    java: `
-      > 1년 경험
-      - 소수의 미니 프로젝트 수행
-      - OOP 구조 수업을 Java로 수강`,
-
-    dart: `
-      > IOS, MacOS용 Application 개발
-      > 각종 단위 변환 application
-      > 메모 관리 application`,
-
-    aws: `
-      > 4년
-      > 프로젝트 경험
-        - 미니 프로젝트들 전부 RDS/EC2/Lambda 등으로 구현
-      > 프로덕션 레벨 경험
-        2년 동안 full-stack 개발자로 근무하면서 다양한 AWS Architecture 설계 및 구현`,
-};
-
-const wrappers = document.querySelectorAll('.skill-wrapper');
-
-wrappers.forEach(wrapper => {
-  const item = wrapper.querySelector('.skill-item');
-  const note = wrapper.querySelector('.skill-note');
-  const key = item.dataset.skill;
-
-  // hover
-  wrapper.addEventListener('mouseenter', () => show(wrapper, key));
-  wrapper.addEventListener('mouseleave', () => hide(wrapper));
-
-  // click (모바일 대응)
-  item.addEventListener('click', (e) => {
-    e.stopPropagation();
-    toggle(wrapper, key);
-  });
-
-  function show(w, key) {
-    if (!skillData[key]) return;
-    note.textContent = skillData[key];
-    w.classList.add('active');
+    setTimeout(() => {
+      overlay.classList.add('active');
+    }, 20);
   }
 
-  function hide(w) {
-    w.classList.remove('active');
+  function closeChat() {
+    if (!isOpen) return;
+    isOpen = false;
+
+    overlay.classList.remove('active');
+
+    setTimeout(() => {
+      overlay.classList.add('hidden');
+    }, 500);
   }
 
-  function toggle(w, key) {
-    wrappers.forEach(x => x.classList.remove('active'));
-    show(w, key);
+  if (sendBtn) {
+    sendBtn.addEventListener('click', sendChat);
   }
-});
 
-// 바깥 클릭 시 닫기
-document.addEventListener('click', () => {
-  wrappers.forEach(w => w.classList.remove('active'));
-});
+  const input = document.getElementById("chatInput");
 
-function formatContent(text) {
-  if (!text) return '';
+    let isComposing = false;
 
-  return text
-    .split('\n')
-    .map(line => {
-      const trimmed = line.trim();
-      if (!trimmed) return '';
+    // 한글 입력 시작
+    input.addEventListener("compositionstart", () => {
+      isComposing = true;
+    });
 
-      if (trimmed.startsWith('>')) {
-        return `<div class="note-title">${trimmed.replace('>', '').trim()}</div>`;
+    // 한글 입력 완료
+    input.addEventListener("compositionend", () => {
+      isComposing = false;
+    });
+
+    // Enter 처리
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && !isComposing) {
+        e.preventDefault(); // 줄바꿈 방지
+        sendChat();
+      }
+    });
+
+    async function sendChat() {
+      const input = document.getElementById("chatInput");
+      const chat = document.getElementById("chatMessages");
+
+      const message = input.value.trim();
+      if (!message) return;
+
+      input.value = "";
+
+      // USER
+      chat.innerHTML += `
+        <div class="chat-user">
+          <div>${message}</div>
+        </div>
+      `;
+
+      chat.scrollTop = chat.scrollHeight;
+
+      // 🔥 loading 생성
+      const loadingId = "loading-" + Date.now();
+
+      chat.innerHTML += `
+        <div id="${loadingId}" class="chat-ai">
+          <div class="typing-indicator">
+            <div class="dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="typing-text">AI is thinking...</div>
+          </div>
+        </div>
+      `;
+
+      chat.scrollTop = chat.scrollHeight;
+
+      try {
+        const res = await fetch("https://portfolio-llm-b1gj.onrender.com/chat", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ message })
+        });
+
+        const data = await res.json();
+
+        // loading 제거
+        const loadingEl = document.getElementById(loadingId);
+        if (loadingEl) loadingEl.remove();
+
+        // AI 메시지 생성
+        const container = document.createElement("div");
+        container.className = "chat-ai";
+
+        const bubble = document.createElement("div");
+        container.appendChild(bubble);
+        chat.appendChild(container);
+
+        // 타이핑 효과
+        await typeWriter(data.reply, bubble);
+
+        // markdown 변환
+        bubble.innerHTML = formatAIResponse(data.reply);
+
+      } catch (err) {
+        document.getElementById(loadingId)?.remove();
       }
 
-      if (trimmed.startsWith('-')) {
-        return `<div class="note-item">${trimmed.substring(1).trim()}</div>`;
-      }
+      chat.scrollTop = chat.scrollHeight;
+    }
 
-      return `<div class="note-text">${trimmed}</div>`;
-    })
-    .join('');
+    openBtn.addEventListener('click', openChat);
+    sendBtn.addEventListener('click', sendChat);
+    closeBtn.addEventListener('click', closeChat);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeChat();
+    });
+
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeChat();
+    });
 }
 
-wrappers.forEach(wrapper => {
-  const item = wrapper.querySelector('.skill-item');
-  const note = wrapper.querySelector('.skill-note');
+function typeWriter(text, element, speed = 15) {
+  return new Promise((resolve) => {
+    let i = 0;
 
-  if (!item || !note) return;
+    function typing() {
+      if (i < text.length) {
+        element.textContent += text.charAt(i);
+        i++;
 
-  const key = item.dataset.skill;
+        element.scrollTop = element.scrollHeight;
 
-  // 🔥 hover (desktop)
-  wrapper.addEventListener('mouseenter', () => {
-    if (!skillData[key]) return;
-
-    note.innerHTML = formatContent(skillData[key]);
-    wrapper.classList.add('active');
-  });
-
-  wrapper.addEventListener('mouseleave', () => {
-    wrapper.classList.remove('active');
-  });
-
-  // 🔥 click (mobile + 유지)
-  item.addEventListener('click', (e) => {
-    e.stopPropagation();
-
-    wrappers.forEach(w => w.classList.remove('active'));
-
-    if (skillData[key]) {
-      note.innerHTML = formatContent(skillData[key]);
-      wrapper.classList.add('active');
+        setTimeout(typing, speed);
+      } else {
+        resolve();
+      }
     }
+
+    typing();
   });
+}
+
+function formatAIResponse(text) {
+  if (!text) return "";
+
+  const html = marked.parse(text);
+  return `<div class="ai-markdown">${html}</div>`;
+}
+
+marked.setOptions({
+  highlight: function(code, lang) {
+    return hljs.highlightAuto(code).value;
+  }
 });
 
-// 🔥 바깥 클릭 시 닫기
-document.addEventListener('click', () => {
-  wrappers.forEach(w => w.classList.remove('active'));
-});
+
 
 
 /* =========================================================
