@@ -495,6 +495,105 @@
                 "step2": "The platform integrates performance tracing and user activity monitoring into a unified telemetry model, reconstructs span hierarchies via TraceId/SpanId relationships, and provides analytical dashboards for performance benchmarking and trace inspection.",
                 "step3": "This project demonstrates the practical implementation of distributed tracing, custom telemetry exporting, DynamoDB-based trace persistence, and internal APM architecture design without relying on external monitoring services."
             }
+        },
+        "database-admin": {
+            "header": {
+                "title": "Database Administration & Engine Engineering",
+                "subtitle": "Enterprise RDBMS · DBA · Optimizer · Engine Internals",
+                "description": "Database Engineer with hands-on experience across both <strong>enterprise production issue resolution</strong> and <strong>RDBMS core engine development</strong>. Worked on SQL tuning, query optimizer improvement, execution plan stability, and engine-level performance fixes for enterprise and financial systems."
+            },
+
+            "overview": {
+                "title": "Overview",
+                "desc": "At an enterprise RDBMS vendor, I worked across two critical areas: resolving high-risk production performance issues for customers and improving the internals of the database engine itself..",
+                "item1": "Implemented internal <strong>SQL Tuning Advisor</strong> and <strong>SQL Plan Management (SPM)</strong> features.",
+                "item2": "Improved <strong>Cost-Based Optimization</strong> and <strong>statistics accuracy</strong> to stabilize query performance.",
+                "item3": "Resolved production DB issues in enterprise and financial environments, including performance degradation, downtime, and unstable plans.",
+                "item4": "Reduced critical query execution time from <strong>seconds to milliseconds</strong>in major performance cases."
+            },
+
+            "skills": {
+                "title": "Core Skills"
+            },
+
+            "track1": {
+                "title": "Production DB Performance Engineering",
+                "desc": "Worked directly on real enterprise customer incidents in production environments. Focused on performance degradation, execution plan instability.",
+                "customer": "Enterprise / finance / telecom-scale systems. Planned to include customer case references such as KT, Hyundai Motor, Shinhan Bank, and Woori Bank.",
+                "problem": "Query slowdown, unstable execution plans, stale or missing statistics, schema bottlenecks, partitioning inefficiency, and emergency database incidents.",
+                "solution": "Execution plan analysis, statistics validation, index redesign, query rewriting, schema tuning, and engine-level patch development when SQL tuning alone was insufficient."
+            },
+
+            "track2": {
+                "title": "RDBMS Engine Design & Implementation",
+                "desc": "Developed and improved internal engine modules used to optimize SQL execution, stabilize plans, and improve the maintainability of core database components.",
+                "optimizer": "Improved SQL plan logic and statistics processing to support better Cost-Based Optimization decisions.",
+                "feature": "Implemented SQL Tuning Advisor, SQL Plan Management, plan evolution, and plan baseline behavior as real product-level capabilities.",
+                "engine": "Participated in refactoring legacy C-based engine modules into C++-structured code to improve maintainability, extensibility, and code safety."
+            },
+
+            "architecture": {
+                "title": "RDBMS Optimization Architecture",
+                "desc": "High-level view of how SQL flows through parser, optimizer(statistics, tuning advisor, spm), and execution layers."
+            },
+
+            "customer": {
+                "title": "Enterprise Customer Issue Resolution",
+                "context": {
+                    "case1": "• Severe query slowdown under real production workloads",
+                    "case2": "• Emergency incidents involving downtime or unstable plans",
+                    "case3": "• Optimizer misbehavior due to stale statistics or skewed distributions",
+                    "case4": "• Cases where SQL-level tuning alone was not sufficient"
+                },
+                "approach": {
+                    "case1": "• Analyzed workloads, execution plans, and statistics from customer environments",
+                    "case2": "• Identified root causes at optimizer, statistics, or engine level",
+                    "case3": "• Applied schema / index / partition / engine-level fixes with reproducible validation",
+                    "case4": "• Cases where SQL-level tuning alone was not sufficient"
+                },
+                "result": "Planned customer-facing references for this section include large-scale enterprise and finance environments such as <strong>KT, Hyundai Motor, Shinhan Bank, and Woori Bank</strong>."
+            },
+
+            "case1": {
+                "title": "SQL Plan Management (SPM)",
+                "problem": "Execution plans became unstable after statistics changes or upgrades, causing performance regressions.",
+                "implementation": "Implemented plan baseline and evolution mechanism",
+                "outcome": "Improved plan stability and predictability. Released as a real enterprise product feature."
+            },
+
+            "case2": {
+                "title": "Join Performance Optimization",
+                "problem": "Join cardinality estimation errors caused suboptimal plans in PK-FK joins, OR-condition join filters, and complex predicates, leading to unnecessary full scans.",
+                "implementation": "Redesigned PK-FK join selectivity logic, improved predicate selectivity estimation for OR conditions, and refined cost comparison / branching behavior in the optimizer.",
+                "result1": "PK-FK Join: 5s → 1s",
+                "result2": "OR Join: 3s → 0.8s",
+                "result3": "Partition Pruning: 827ms → 27ms"
+            },
+
+            "case3": {
+                "title": "Production DB Engineering & Engine Modernization",
+                "prod": {
+                    "case1": "• Execution plan and cardinality analysis",
+                    "case2": "• Statistics and index strategy redesign",
+                    "case3": "• Query rewriting for complex performance bottlenecks",
+                    "case4": "• Schema / partition / workload distribution improvements",
+                    "case5": "• Engine-level patches for non-SQL-resolvable issues"
+                },
+                "engine": {
+                    "case1": "• Refactored legacy C modules into C++-structured components",
+                    "case2": "• Improved modularity and maintainability",
+                    "case3": "• Applied more extensible design patterns for optimizer features",
+                    "case4": "• Increased code readability and long-term engine evolvability"
+                },
+                "outcome": "Improved stability, maintainability, and scalability"
+            },
+
+            "conclusion": {
+                "title": "Conclusion",
+                "desc1": "This work demonstrates a rare combination of skills: production-grade DBA problem solving, query optimizer development, statistics engineering, and database engine modernization.",
+                "desc2": "This work demonstrates a rare combination of skills: production-grade DBA problem solving, query optimizer development, statistics engineering, and database engine modernization.",
+                "note": "Due to company policy, actual source code cannot be disclosed. This page focuses on architecture, problem-solving approach, and measurable outcomes."
+            }
         }
     }
 }

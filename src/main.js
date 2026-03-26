@@ -243,11 +243,13 @@ function formatAIResponse(text) {
   return `<div class="ai-markdown">${html}</div>`;
 }
 
-marked.setOptions({
-  highlight: function(code) {
-    return hljs.highlightAuto(code).value;
-  }
-});
+if (typeof marked !== "undefined") {
+  marked.setOptions({
+    highlight: function (code) {
+      return hljs.highlightAuto(code).value;
+    }
+  });
+}
 
 function initArchitecture() {
   const down = document.getElementById("flowDown");

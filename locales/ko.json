@@ -163,7 +163,7 @@
         "apm": "애플리케이션 성능 모니터링(APM) 대시보드 및 운영 인사이트 시스템",
         "db-stat": "데이터베이스 통계 수집 모듈 및 쿼리 옵티마이저 개선 구현",
         "db-tuning": "자동화된 쿼리 성능 최적화 및 튜닝 추천 시스템 구현",
-        "db-total": "DB 엔진 내부 구조 및 시스템 레벨 설계 및 기능추가",
+        "db-total": "DB 관리, SQL Tuning, DB 엔진 내부 구조 설계 및 기능추가",
         "ai1": "실시간 추론을 지원하는 Edge 기반 객체 탐지 모델링 프로젝트",
         "ai2": "AI 기반 데이터 어노테이션 및 세그멘테이션 워크플로우 프로젝트",
         "metric": "Flutter 기반 단위 변환 애플리케이션 (iOS, Web, Desktop 지원)",
@@ -507,6 +507,105 @@
                 "step1": "APM-Dashboard는 .NET OpenTelemetry와 DynamoDB를 기반으로 분산 트레이스를 수집, 모델링, 저장 및 시각화하는 내부 APM 시스템",
                 "step2": "성능 트레이싱과 사용자 활동 모니터링을 통합된 텔레메트리 모델로 구성하고, TraceId/SpanId 기반으로 Span 계층을 재구성하여 분석 대시보드를 제공",
                 "step3": "외부 모니터링 서비스 없이 분산 트레이싱, 커스텀 텔레메트리 Export, DynamoDB 기반 저장 구조, 내부 APM 아키텍처 설계를 직접 구현한 사례"
+            }
+        },
+        "database-admin": {
+            "header": {
+                "title": "데이터베이스 운영 및 엔진 개발",
+                "subtitle": "Enterprise RDBMS · DBA · Optimizer · Engine Internals",
+                "description": "엔터프라이즈 환경에서의 <strong>프로덕션 장애 대응</strong>과 <strong>RDBMS 엔진 내부 개발</strong>을 모두 경험한 데이터베이스 엔지니어. SQL 튜닝, 쿼리 옵티마이저 개선, 실행 계획 안정화를 통해 기업 및 금융 시스템의 안정성과 성능을 향상시켰습니다."
+            },
+
+            "overview": {
+                "title": "개요",
+                "desc": "엔터프라이즈 RDBMS 벤더에서 두 가지 핵심 영역을 담당: 고객사의 고위험 프로덕션 성능 이슈 해결과 데이터베이스 엔진 내부 구조 개선.",
+                "item1": "<strong>SQL Tuning Advisor</strong> 및 <strong>SQL Plan Management(SPM)</strong> 기능 구현",
+                "item2": "<strong>Cost-Based Optimizer</strong> 개선 및 <strong>DB 통계 정확도 향상</strong>을 통한 쿼리 성능 안정화",
+                "item3": "기업 및 금융 환경에서 성능 저하, 장애, 실행 계획 불안정 등 프로덕션 DB 이슈 해결",
+                "item4": "주요 성능 문제에서 쿼리 실행 시간을 <strong>수 초 → 밀리초</strong> 수준으로 개선"
+            },
+
+            "skills": {
+                "title": "핵심 역량"
+            },
+
+            "track1": {
+                "title": "프로덕션 DB 성능 엔지니어링",
+                "desc": "실제 엔터프라이즈 고객 환경에서 발생한 프로덕션 장애를 직접 대응하며 성능 저하 및 실행 계획 불안정 문제를 해결.",
+                "customer": "대기업 / 금융 / 통신 규모 시스템 (KT, 현대자동차, 신한은행, 우리은행 등 고객 사례 포함 예정)",
+                "problem": "쿼리 성능 저하, 실행 계획 불안정, 통계 부정확/누락, 스키마 병목, 파티셔닝 비효율, 긴급 장애 상황",
+                "solution": "실행 계획 분석, 통계 검증, 인덱스 재설계, 쿼리 리라이팅, 스키마 튜닝, 필요 시 엔진 레벨 패치까지 수행"
+            },
+
+            "track2": {
+                "title": "RDBMS 엔진 설계 및 구현",
+                "desc": "SQL 실행 최적화, 실행 계획 안정화, 엔진 유지보수성 향상을 위한 내부 모듈 개발 및 개선 수행.",
+                "optimizer": "Cost-Based Optimization 정확도를 높이기 위한 SQL 계획 생성 로직 및 통계 처리 개선",
+                "feature": "SQL Tuning Advisor, SQL Plan Management, Plan Evolution, Plan Baseline 등 실제 제품 기능 구현",
+                "engine": "기존 C 기반 엔진 모듈을 C++ 구조로 리팩토링하여 유지보수성, 확장성, 코드 안정성 향상"
+            },
+
+            "architecture": {
+                "title": "RDBMS 최적화 아키텍처",
+                "desc": "Parser → Optimizer(통계, Tuning Advisor, SPM) → Execution으로 이어지는 SQL 처리 흐름의 상위 구조"
+            },
+
+            "customer": {
+                "title": "엔터프라이즈 고객 장애 대응",
+                "context": {
+                    "case1": "• 실제 운영 환경에서 발생한 심각한 쿼리 성능 저하",
+                    "case2": "• 다운타임 또는 실행 계획 불안정이 포함된 긴급 장애 상황",
+                    "case3": "• 통계 오류 및 데이터 분포 왜곡으로 인한 옵티마이저 오작동",
+                    "case4": "• SQL 튜닝만으로 해결되지 않는 복합적인 성능 문제"
+                },
+                "approach": {
+                    "case1": "• 고객 환경의 워크로드, 실행 계획, 통계 분석",
+                    "case2": "• 옵티마이저, 통계, 엔진 레벨에서 근본 원인 식별",
+                    "case3": "• 스키마/인덱스/파티션/엔진 수준의 개선 적용 및 재현 기반 검증",
+                    "case4": "• SQL 튜닝으로 해결 불가능한 경우 엔진 레벨 수정 수행"
+                },
+                "result": "KT, 현대자동차, 신한은행, 우리은행 등 대규모 엔터프라이즈 및 금융 고객 사례 기반"
+            },
+
+            "case1": {
+                "title": "SQL Plan Management (SPM)",
+                "problem": "통계 변경 또는 버전 업그레이드 이후 실행 계획이 불안정해져 성능 저하 발생",
+                "implementation": "Plan Baseline 및 Plan Evolution 메커니즘 구현",
+                "outcome": "실행 계획의 안정성과 예측 가능성 향상, 실제 엔터프라이즈 제품 기능으로 릴리즈(KT)"
+            },
+
+            "case2": {
+                "title": "조인 성능 최적화",
+                "problem": "PK-FK 조인, OR 조건 조인 필터, 복잡한 조건에서 카디널리티 추정 오류로 인해 비효율적인 실행 계획 및 Full Scan 발생",
+                "implementation": "PK-FK 조인 선택도 로직 개선, OR 조건 선택도 추정 정확도 향상, 옵티마이저 비용 비교 및 분기 로직 개선",
+                "result1": "PK-FK Join: 5초 → 1초",
+                "result2": "OR Join: 3초 → 0.8초",
+                "result3": "Partition Pruning: 827ms → 27ms"
+            },
+
+            "case3": {
+                "title": "프로덕션 DB 엔지니어링 및 엔진 현대화",
+                "prod": {
+                    "case1": "• 실행 계획 및 카디널리티 분석",
+                    "case2": "• 통계 및 인덱스 전략 재설계",
+                    "case3": "• 복잡한 성능 병목 쿼리 리라이팅",
+                    "case4": "• 스키마 / 파티션 / 워크로드 분산 구조 개선",
+                    "case5": "• SQL로 해결 불가능한 문제에 대한 엔진 레벨 패치"
+                },
+                "engine": {
+                    "case1": "• 레거시 C 모듈을 C++ 구조로 리팩토링",
+                    "case2": "• 모듈화 및 유지보수성 향상",
+                    "case3": "• 옵티마이저 기능 확장을 위한 설계 개선",
+                    "case4": "• 코드 가독성 및 장기적인 확장성 확보"
+                },
+                "outcome": "시스템 안정성, 유지보수성, 확장성 전반 개선"
+            },
+
+            "conclusion": {
+                "title": "결론",
+                "desc1": "프로덕션 환경 DBA 문제 해결, 쿼리 옵티마이저 개발, 통계 엔지니어링, 데이터베이스 엔진 설계를 경험",
+                "desc2": "엔터프라이즈 환경에서의 실전 문제 해결과 내부 엔진 개발을 동시에 수행하며 데이터베이스 전반에 대한 경험 확보",
+                "note": "회사 정책상 소스 코드는 공개할 수 없으며, 본 페이지는 아키텍처, 문제 해결 접근 방식, 정량적 성과 중심으로 구성됨"
             }
         }
     }

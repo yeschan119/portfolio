@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Database Administration & DB Engineering | Eungchan Kang</title>
+        <link rel="icon" href="/images/favicon.ico" />
+
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                extend: {
+                    colors: {
+                    primary: "#0b1120",
+                    secondary: "#111827",
+                    accent: "#3b82f6"
+                    }
+                }
+                }
+            };
+        </script>
+
+        <link rel="stylesheet" href="/css/style.css" />
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    </head>
+
+    <body class="bg-primary text-slate-200 font-sans">
+        <section class="section-glow py-24 border-t border-slate-800">
+            <div class="max-w-6xl mx-auto px-6">
+
+                <!-- Back Button -->
+                <div class="mb-10">
+                <a
+                    href="../index.html#projects"
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-secondary/40 text-sm text-slate-300 hover:bg-secondary/60 hover:text-white transition"
+                >
+                    <span class="text-base">←</span>
+                    Back to Projects
+                </a>
+                </div>
+
+                <!-- Header -->
+                <div class="mb-14">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20 text-xs text-slate-300 mb-6">
+                    <span class="w-2 h-2 rounded-full bg-accent"></span>
+                    Case Study · Enterprise RDBMS · DBA · Engine Internals
+                </div>
+
+                <h1 class="text-4xl md:text-5xl font-semibold mb-4">
+                    Database Administration & DB Engineering
+                </h1>
+
+                <p data-i18n="projects.database-admin.header.description" class="text-slate-400 text-lg max-w-4xl leading-relaxed"></p>
+
+                <div class="mt-6">
+                    <a
+                    href="https://github.com/yeschan119/Database-System-Engineering"
+                    target="_blank"
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-secondary/40 text-sm text-slate-300 hover:text-white hover:border-accent hover:bg-secondary/60 transition"
+                    >
+                    View Details on GitHub
+                    </a>
+                </div>
+                </div>
+
+                <!-- Executive Summary + Key Metrics -->
+                <div class="grid lg:grid-cols-[1.35fr,0.9fr] gap-6 mb-16">
+                <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                    <h2 class="text-2xl font-semibold mb-5">Overview</h2>
+
+                    <p data-i18n="projects.database-admin.overview.desc" class="text-slate-400 leading-relaxed mb-5"></p>
+
+                    <div class="grid sm:grid-cols-2 gap-4 text-sm text-slate-300 leading-relaxed">
+                        <div data-i18n="projects.database-admin.overview.item1" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                        <div data-i18n="projects.database-admin.overview.item2" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                        <div data-i18n="projects.database-admin.overview.item3" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                        <div data-i18n="projects.database-admin.overview.item4" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                    </div>
+                </div>
+
+                <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                    <h2 class="text-2xl font-semibold mb-5">Core Skills</h2>
+
+                    <div class="flex flex-wrap gap-2 text-xs mb-6">
+                        <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">DB Administration</span>
+                        <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">SQL Tuning</span>
+                        <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Cost-Based Optimization</span>
+                        <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Statistics</span>
+                        <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">SQL • PL/SQL</span>
+                        <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">C/C++</span>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                    <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
+                        <div class="text-3xl font-bold text-accent mb-2">3+</div>
+                        <div class="text-sm text-slate-400">Production Issues / Week</div>
+                    </div>
+
+                    <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
+                        <div class="text-3xl font-bold text-accent mb-2">ms</div>
+                        <div class="text-sm text-slate-400">Latency Target</div>
+                    </div>
+
+                    <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
+                        <div class="text-3xl font-bold text-accent mb-2">SPM</div>
+                        <div class="text-sm text-slate-400">Plan Stability</div>
+                    </div>
+
+                    <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
+                        <div class="text-3xl font-bold text-accent mb-2">CBO</div>
+                        <div class="text-sm text-slate-400">Optimizer Logic</div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Two Tracks -->
+                <div class="grid lg:grid-cols-2 gap-6 mb-16">
+                <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                    <h2 class="text-2xl font-semibold mb-5">1. Production DB Performance Engineering</h2>
+
+                    <p data-i18n="projects.database-admin.track1.desc" class="text-slate-400 text-sm leading-relaxed mb-5"></p>
+
+                    <div class="space-y-4 text-sm text-slate-400 leading-relaxed">
+                        <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                            <div class="text-slate-200 font-semibold mb-2">Representative Customer Environments</div>
+                            <p data-i18n="projects.database-admin.track1.customer"></p>
+                        </div>
+
+                        <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                            <div class="text-slate-200 font-semibold mb-2">Typical Problems</div>
+                            <p data-i18n="projects.database-admin.track1.problem"></p>
+                        </div>
+
+                        <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                            <div class="text-slate-200 font-semibold mb-2">How I Solved Them</div>
+                            <p data-i18n="projects.database-admin.track1.solution"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                    <h2 class="text-2xl font-semibold mb-5">2. RDBMS Engine Design & Implementation</h2>
+
+                    <p data-i18n="projects.database-admin.track2.desc" class="text-slate-400 text-sm leading-relaxed mb-5"></p>
+
+                    <div class="space-y-4 text-sm text-slate-400 leading-relaxed">
+                    <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                        <div class="text-slate-200 font-semibold mb-2">Optimizer / Statistics</div>
+                        <p data-i18n="projects.database-admin.track2.optimizer"></p>
+                    </div>
+
+                    <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                        <div class="text-slate-200 font-semibold mb-2">Product Features</div>
+                        <p data-i18n="projects.database-admin.track2.feature"></p>
+                    </div>
+
+                    <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                        <div class="text-slate-200 font-semibold mb-2">Engine Modernization</div>
+                        <p data-i18n="projects.database-admin.track2.engine"></p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Architecture -->
+                <div class="mb-16">
+                <div class="flex items-center justify-between flex-wrap gap-4 mb-6">
+                    <div>
+                    <h2 class="text-2xl font-semibold mb-2">RDBMS Optimization Architecture</h2>
+                    <p data-i18n="projects.database-admin.architecture.desc" class="text-slate-400"></p>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2 text-xs">
+                    <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">SQL Parser</span>
+                    <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Optimizer</span>
+                    <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Statistics</span>
+                    <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">SPM</span>
+                    <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Execution Plan</span>
+                    </div>
+                </div>
+
+                <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/30 p-6 overflow-hidden">
+                    <div class="overflow-x-auto">
+                    <svg viewBox="0 0 1300 500" class="w-full min-w-[900px] h-auto">
+
+                        <defs>
+                        <linearGradient id="dbWireGrad" x1="0" x2="1">
+                            <stop offset="0%" stop-color="#3b82f6" stop-opacity=".2"/>
+                            <stop offset="50%" stop-color="#3b82f6" stop-opacity=".95"/>
+                            <stop offset="100%" stop-color="#3b82f6" stop-opacity=".2"/>
+                        </linearGradient>
+
+                        <filter id="dbGlow" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                            <feMerge>
+                            <feMergeNode in="coloredBlur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                        </defs>
+
+                        <!-- SQL Input -->
+                        <rect x="60" y="190" width="170" height="70" rx="16" fill="rgba(17,24,39,.9)" stroke="#3b82f6"/>
+                        <text x="145" y="232" text-anchor="middle" font-size="22" font-weight="600" fill="#e2e8f0">SQL Input</text>
+
+                        <!-- Parser -->
+                        <rect x="290" y="190" width="180" height="70" rx="16" fill="rgba(17,24,39,.9)" stroke="rgba(148,163,184,.28)"/>
+                        <text x="380" y="232" text-anchor="middle" font-size="22" font-weight="600" fill="#e2e8f0">SQL Parser</text>
+
+                        <!-- Optimizer -->
+                        <rect x="530" y="190" width="220" height="70" rx="16" fill="rgba(17,24,39,.92)" stroke="#3b82f6"/>
+                        <text x="640" y="232" text-anchor="middle" font-size="22" font-weight="600" fill="#e2e8f0">Query Optimizer</text>
+
+                        <!-- Execution -->
+                        <rect x="1000" y="190" width="200" height="70" rx="16" fill="rgba(17,24,39,.9)" stroke="#3b82f6"/>
+                        <text x="1100" y="232" text-anchor="middle" font-size="22" font-weight="600" fill="#e2e8f0">Execution Engine</text>
+
+                        <!-- Top Modules -->
+                        <rect x="540" y="70" width="180" height="70" rx="16" fill="rgba(17,24,39,.9)" stroke="rgba(148,163,184,.28)"/>
+                        <text x="630" y="112" text-anchor="middle" font-size="18" font-weight="600" fill="#e2e8f0">Statistics Manager</text>
+
+                        <rect x="800" y="70" width="180" height="70" rx="16" fill="rgba(17,24,39,.9)" stroke="rgba(148,163,184,.28)"/>
+                        <text x="890" y="112" text-anchor="middle" font-size="18" font-weight="600" fill="#e2e8f0">SQL Tuning Advisor</text>
+
+                        <!-- Bottom Module -->
+                        <rect x="760" y="330" width="220" height="70" rx="16" fill="rgba(17,24,39,.9)" stroke="rgba(148,163,184,.28)"/>
+                        <text x="870" y="372" text-anchor="middle" font-size="20" font-weight="600" fill="#e2e8f0">SQL Plan Management</text>
+
+                        <!-- Wires -->
+                        <path d="M230 225 L290 225"
+                            stroke="#3b82f6"
+                            stroke-width="4"
+                            fill="none"/>
+
+                        <!-- Parser → Optimizer -->
+                        <path d="M470 225 L530 225"
+                            stroke="#3b82f6"
+                            stroke-width="4"
+                            fill="none"/>
+
+                        <!-- Optimizer → Execution -->
+                        <path d="M750 225 L1000 225"
+                            stroke="#3b82f6"
+                            stroke-width="4"
+                            fill="none"/>
+
+                        <path d="M640 190 C640 180, 630 200, 635 140" stroke="url(#dbWireGrad)" stroke-width="3" fill="none"/>
+                        <path d="M720 105 L800 105" stroke="url(#dbWireGrad)" stroke-width="3" fill="none"/>
+                        <path d="M890 140 C890 165, 835 180, 750 205" stroke="url(#dbWireGrad)" stroke-width="3" fill="none"/>
+
+                        <path d="M760 365 C700 365, 660 330, 640 260" stroke="url(#dbWireGrad)" stroke-width="3" fill="none"/>
+                        <path d="M980 365 C1080 365, 1100 310, 1100 260" stroke="url(#dbWireGrad)" stroke-width="3" fill="none"/>
+
+                        <!-- Labels -->
+                        <text x="640" y="285" text-anchor="middle" font-size="13" fill="#60a5fa">
+                        Candidate Plan Generation · Cost Model · Cardinality Estimation
+                        </text>
+
+                        <text x="870" y="430" text-anchor="middle" font-size="13" fill="#60a5fa">
+                        Baseline Enforcement · Plan Stability · Evolution
+                        </text>
+                    </svg>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Customer Issue Resolution -->
+                <div class="mb-16">
+                    <h2 data-i18n="projects.database-admin.customer.title" class="text-2xl font-semibold mb-6"></h2>
+
+                    <div class="grid lg:grid-cols-[1fr,1fr] gap-6">
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                            <div class="text-slate-200 font-semibold mb-4">Context</div>
+                            <ul class="space-y-2 text-sm text-slate-400 leading-relaxed">
+                                <li data-i18n="projects.database-admin.customer.context.case1"></li>
+                                <li data-i18n="projects.database-admin.customer.context.case2"></li>
+                                <li data-i18n="projects.database-admin.customer.context.case3"></li>
+                                <li data-i18n="projects.database-admin.customer.context.case4"></li>
+                            </ul>
+                        </div>
+
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                        <div class="text-slate-200 font-semibold mb-4">Approach & Outcome</div>
+                        <ul class="space-y-2 text-sm text-slate-400 leading-relaxed">
+                            <li data-i18n="projects.database-admin.customer.approach.case1"></li>
+                            <li data-i18n="projects.database-admin.customer.approach.case2"></li>
+                            <li data-i18n="projects.database-admin.customer.approach.case3"></li>
+                            <li data-i18n="projects.database-admin.customer.approach.case4"></li>
+                        </ul>
+                        </div>
+                    </div>
+
+                    <div data-i18n="projects.database-admin.customer.result" class="mt-6 rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-sm text-slate-300 leading-relaxed"></div>
+                </div>
+
+                <!-- Case Studies -->
+                <div class="mb-16">
+                    <h2 class="text-2xl font-semibold mb-6">Case Studies</h2>
+
+                    <div class="grid gap-6">
+
+                        <!-- Case 1 -->
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                        <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
+                            <h3 class="text-xl font-semibold">Case 1. SQL Plan Management (SPM)</h3>
+                            <span class="text-xs px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20 text-slate-300">
+                                Product Feature
+                            </span>
+                        </div>
+
+                        <div class="grid lg:grid-cols-3 gap-4 text-sm text-slate-400 leading-relaxed">
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-slate-200 font-semibold mb-2">Problem</div>
+                                <p data-i18n="projects.database-admin.case1.problem"></p>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-slate-200 font-semibold mb-2">Implementation</div>
+                                <p data-i18n="projects.database-admin.case1.implementation"></p>
+                            </div>
+
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                            <div class="text-slate-200 font-semibold mb-2">Outcome</div>
+                                <p data-i18n="projects.database-admin.case1.outcome"></p>
+                            </div>
+                        </div>
+                        </div>
+
+                        <!-- Case 2 -->
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                        <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
+                            <h3 class="text-xl font-semibold">Case 2. Join Performance Optimization</h3>
+                            <span class="text-xs px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20 text-slate-300">
+                                Optimizer Logic
+                            </span>
+                        </div>
+
+                        <div class="grid lg:grid-cols-[1.1fr,0.9fr] gap-6">
+                            <div class="space-y-4 text-sm text-slate-400 leading-relaxed">
+                                <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                    <div class="text-slate-200 font-semibold mb-2">Problem</div>
+                                    <p data-i18n="projects.database-admin.case2.problem"></p>
+                                </div>
+
+                                <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                    <div class="text-slate-200 font-semibold mb-2">Implementation</div>
+                                    <p data-i18n="projects.database-admin.case2.implementation"></p>
+                                </div>
+                            </div>
+
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                            <div class="text-slate-200 font-semibold mb-4">Measured Outcome</div>
+
+                            <div class="space-y-3 text-sm">
+                                <div class="flex justify-between border-b border-slate-800 pb-2">
+                                    <span class="text-slate-400">PK-FK Join</span>
+                                    <span class="text-accent font-semibold">5s → 1s</span>
+                                </div>
+
+                                <div class="flex justify-between border-b border-slate-800 pb-2">
+                                    <span class="text-slate-400">OR Join Filter</span>
+                                    <span class="text-accent font-semibold">3s → 0.8s</span>
+                                </div>
+
+                                <div class="flex justify-between">
+                                    <span class="text-slate-400">Partition Pruning</span>
+                                    <span class="text-accent font-semibold">827.13ms → 27.24ms</span>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case 3 -->
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                        <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
+                            <h3 class="text-xl font-semibold">Case 3. Production DB Performance Engineering & Engine Modernization</h3>
+                            <span class="text-xs px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20 text-slate-300">
+                            DBA + Engine
+                            </span>
+                        </div>
+
+                        <div class="grid lg:grid-cols-2 gap-6">
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-slate-200 font-semibold mb-3">Production Performance Engineering</div>
+                                <ul class="space-y-2 text-sm text-slate-400 leading-relaxed">
+                                    <li data-i18n="projects.database-admin.case3.prod.case1"></li>
+                                    <li data-i18n="projects.database-admin.case3.prod.case2"></li>
+                                    <li data-i18n="projects.database-admin.case3.prod.case3"></li>
+                                    <li data-i18n="projects.database-admin.case3.prod.case4"></li>
+                                    <li data-i18n="projects.database-admin.case3.prod.case5"></li>
+                                </ul>
+                            </div>
+
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-slate-200 font-semibold mb-3">Engine Modernization</div>
+                                <ul class="space-y-2 text-sm text-slate-400 leading-relaxed">
+                                    <li data-i18n="projects.database-admin.case3.engine.case1"></li>
+                                    <li data-i18n="projects.database-admin.case3.engine.case2"></li>
+                                    <li data-i18n="projects.database-admin.case3.engine.case3"></li>
+                                    <li data-i18n="projects.database-admin.case3.engine.case4"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                </div>
+
+                <!-- Closing -->
+                <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                    <h2 class="text-2xl font-semibold mb-5">Conclusion</h2>
+                    <p data-i18n="projects.database-admin.conclusion.desc1" class="text-slate-400 leading-relaxed mb-4"></p>
+                    <p data-i18n="projects.database-admin.conclusion.desc2" class="text-slate-400 leading-relaxed mb-6"></p>
+                    <p data-i18n="projects.database-admin.conclusion.note" class="text-xs text-slate-500"></p>
+                </div>
+
+            </div>
+        </section>
+        <script src="/src/main.js"></script>
+    </body>
+</html>
