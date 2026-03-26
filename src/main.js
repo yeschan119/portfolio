@@ -4,6 +4,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   initMobileMenu();
   initLanguage();
+  initArchitecture();
   initChat();
   initScrollEffects();
   initCounter();
@@ -247,6 +248,38 @@ marked.setOptions({
     return hljs.highlightAuto(code).value;
   }
 });
+
+function initArchitecture() {
+  const down = document.getElementById("flowDown");
+  const up = document.getElementById("flowUp");
+  const dotDown = document.getElementById("dotDown");
+  const dotUp = document.getElementById("dotUp");
+
+  if (!down || !up || !dotDown || !dotUp) {
+    console.warn("flow elements not found");
+    return;
+  }
+
+  const len1 = down.getTotalLength();
+  const len2 = up.getTotalLength();
+
+  function animateFlow(time) {
+    const p1 = (time % 4000) / 4000;
+    const p2 = (time % 5000) / 5000;
+
+    const pt1 = down.getPointAtLength(len1 * p1);
+    const pt2 = up.getPointAtLength(len2 * p2);
+
+    dotDown.setAttribute("cx", pt1.x);
+    dotDown.setAttribute("cy", pt1.y);
+    dotUp.setAttribute("cx", pt2.x);
+    dotUp.setAttribute("cy", pt2.y);
+
+    requestAnimationFrame(animateFlow);
+  }
+
+  requestAnimationFrame(animateFlow);
+}
 
 /* =========================================================
   Scroll Effects
