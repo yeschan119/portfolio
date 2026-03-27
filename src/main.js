@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollEffects();
   initCounter();
   initSlider();
+  initProjectFilter();
   warmUpServer();
 });
 
@@ -338,28 +339,72 @@ function initCounter() {
   Slider
 ========================================================= */
 function initSlider() {
-  const track = document.getElementById("referenceTrack");
-  const prev = document.getElementById("prevRef");
-  const next = document.getElementById("nextRef");
+    const track = document.getElementById("referenceTrack");
+    const prev = document.getElementById("prevRef");
+    const next = document.getElementById("nextRef");
 
-  if (!track || !prev || !next) return;
+    if (!track || !prev || !next) return;
 
-  let index = 0;
-  const total = track.children.length;
+    let index = 0;
+    const total = track.children.length;
 
-  function update() {
-    track.style.transform = `translateX(-${index * 100}%)`;
-  }
+    function update() {
+      track.style.transform = `translateX(-${index * 100}%)`;
+    }
 
-  next.addEventListener("click", () => {
-    index = (index + 1) % total;
-    update();
-  });
+    next.addEventListener("click", () => {
+      index = (index + 1) % total;
+      update();
+    });
 
-  prev.addEventListener("click", () => {
-    index = (index - 1 + total) % total;
-    update();
-  });
+    prev.addEventListener("click", () => {
+      index = (index - 1 + total) % total;
+      update();
+    });
+}
+
+function initProjectFilter() {
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const projectCards = document.querySelectorAll(".project-card");
+    const emptyState = document.getElementById("emptyState");
+
+    if (!filterButtons.length || !projectCards.length) {
+      console.warn("project filter elements not found");
+      return;
+    }
+
+    function applyFilter(filter) {
+      filterButtons.forEach(btn => {
+        btn.setAttribute("aria-pressed", btn.dataset.filter === filter);
+      });
+
+      let visible = 0;
+
+      projectCards.forEach(card => {
+        const tags = (card.dataset.tags || "").split(" ");
+        const show = filter === "all" || tags.includes(filter);
+
+        if (show) {
+          card.style.display = "";
+          card.classList.remove("hidden");
+          visible++;
+        } else {
+          card.style.display = "none";
+        }
+      });
+
+      if (emptyState) {
+        emptyState.classList.toggle("hidden", visible === 0);
+      }
+    }
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        applyFilter(btn.dataset.filter);
+      });
+    });
+
+    applyFilter("all");
 }
 
 /* =========================================================
