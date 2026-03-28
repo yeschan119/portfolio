@@ -594,6 +594,198 @@
                 "desc2": "This work demonstrates a rare combination of skills: production-grade DBA problem solving, query optimizer development, statistics engineering, and database engine modernization.",
                 "note": "Due to company policy, actual source code cannot be disclosed. This page focuses on architecture, problem-solving approach, and measurable outcomes."
             }
+        },
+        "sql-tuning-advisor": {
+            "header": {
+                "title": "SQL Tuning Advisor",
+                "desc": "Designed and implemented an automated SQL tuning system by reverse-engineering Oracle SQL Tuning Advisor. The system analyzes slow SQL and generates optimization recommendations including SQL Profile, index suggestions, statistics fixes, and SQL rewrites."
+            },
+
+            "overview": {
+                "title": "Overview",
+                "desc1": "<strong class=\"text-white\">Oracle SQL Tuning Advisor</strong> is an automated SQL performance analysis and optimization system provided by Oracle Database.",
+                "desc2": "This project reverse-engineered that workflow and implemented an Oracle-style <strong class=\"text-white\">SQL tuning automation framework</strong>, including task lifecycle management, advisor metadata tables, analysis modules, report generation, and SQL Profile acceptance flow.",
+                "desc3": "In practical terms, this can be understood as an advanced internal system that automates <strong class=\"text-white\">EXPLAIN analysis + optimizer tuning + recommendation generation</strong>."
+            },
+
+            "tech": {
+                "title": "Tech Stack",
+                "cplus": "C++ (engine-level logic)",
+                "plsql": "PL/SQL (advisor packages & procedures)",
+                "sql": "SQL Tuning / Optimizer Analysis"
+            },
+
+            "purpose": {
+                "title": "Purpose",
+                "items": {
+                    "a": "• Analyze bottlenecks in slow SQL",
+                    "b": "• Derive optimal execution plans",
+                    "c": "• Generate automated tuning recommendations",
+                    "d": "• Automate SQL tuning workflows"
+                },
+                "desc": "The key objective of this project was not just manual SQL tuning, but <strong class=\"text-white\">automation of SQL tuning workflows</strong>: converting optimizer knowledge and performance diagnostics into a repeatable advisor system that can create, execute, analyze, and report tuning tasks."
+            },
+
+            "analysis": {
+                "title": "⚙️ Analysis Types",
+                "stat": {
+                    "title": "1. Statistics Analysis",
+                    "desc": "Detects stale or missing statistics that lead to incorrect execution plans."
+                },
+                "profiling": {
+                    "title": "2. SQL Profiling",
+                    "desc": "Compares estimated vs actual row count patterns and generates profile-based recommendations to improve optimizer decision quality."
+                },
+                "access": {
+                    "title": "3. Access Path Analysis",
+                    "desc": "Evaluates whether Full Scan or Index Scan is more appropriate and suggests access-path improvements."
+                },
+                "structure": {
+                    "title": "4. SQL Structure Analysis",
+                    "desc": "Detects query patterns that degrade performance and provides rewrite recommendations."
+                }
+            },
+
+            "execution": {
+                "title": "Execution Flow"
+            },
+
+            "result": {
+                "title": "Result Types",
+                "table": {
+                    "type": "Type",
+                    "desc": "Description",
+                    "profile": "SQL Profile",
+                    "profileDesc": "Execution plan improvement",
+                    "index": "Index Recommendation",
+                    "indexDesc": "Suggests index creation",
+                    "stats": "Statistics Recommendation",
+                    "statsDesc": "Suggests statistics collection",
+                    "rewrite": "SQL Rewrite",
+                    "rewriteDesc": "Query restructuring",
+                    "plan": "Alternative Plan",
+                    "planDesc": "Suggests alternative execution plans"
+                }
+            },
+
+            "implementation": {
+                "title": "SQL Tuning Advisor Implementation",
+                "purpose": {
+                    "title": "Purpose",
+                    "desc": "Implemented an Oracle-style SQL Tuning Advisor by reverse engineering internal architecture, including task lifecycle, analysis modules, recommendation logic, report generation, and SQL Profile acceptance flow."
+                },
+                "milestone": {
+                    "a": "• Research Oracle SQL Tuning Advisor",
+                    "b": "• Reverse engineer DBMS_SQLTUNE",
+                    "c": "• Design advisor packages, system tables, and views",
+                    "d": "• Build tuning task execution and report generation system"
+                },
+                "feature": {
+                    "a": "• Tuning Task lifecycle management",
+                    "b": "• Statistics validation",
+                    "c": "• Virtual index simulation",
+                    "d": "• SQL rewrite recommendation engine",
+                    "e": "• Expensive operation detection (NOT IN, UNION, join issues)",
+                    "f": "• Report generation for tuning outcome",
+                    "g": "• SQL Profile acceptance workflow"
+                }
+            },
+
+            "design": {
+                "title": "Design",
+
+                "package": {
+                    "title": "1. Package Design",
+                    "desc": "The advisor was designed around multiple internal packages, following the Oracle-style separation between public APIs, internal execution logic, and low-level utility subprograms.",
+                    "item1" :{
+                        "a": "• Public package that exposes the main advisor lifecycle APIs",
+                        "b": "• Includes procedures/functions for <strong class=\"text-white\">CREATE, EXECUTE, REPORT, and ACCEPT SQL PROFILE</strong>",
+                        "c": "• Serves as the main user-facing interface for tuning task management"
+                    },
+                    "item2": {
+                        "a": "• Internal execution package responsible for the detailed analysis steps during tuning task execution",
+                        "b": "• Encapsulates advisor workflow logic such as statistics analysis, access path analysis, and structural SQL checks",
+                        "c": "• Separates internal execution behavior from the public package API"
+                    },
+                    "item3": {
+                        "a": "• Utility package for subprograms that need lower-level implementation",
+                        "b": "• Designed to isolate logic better suited for <strong class=\"text-white\">C/C++-level implementation</strong>",
+                        "c": "• Helps keep advisor package logic modular and maintainable"
+                    },
+                    "a": "• DBMS_SQLTUNE package (public API)",
+                    "b": "• DBMS_SQLTUNE_INTERNAL (execution logic)",
+                    "c": "• Utility package (C/C++ modules)"
+                },
+
+                "table": {
+                    "title": "2. System Tables",
+                    "desc": "The advisor required dedicated system metadata tables created during DB booting, along with DBA-style views for visibility into definitions, tasks, objects, executions, and logs.",
+                    "system_tables": {
+                        "definitions": "• <strong class=\"text-white\">ADVISOR_DEFINITIONS</strong>: Stores metadata for advisor categories such as ADDM, SQL Access Advisor, Undo Advisor, SQL Tuning Advisor, and SQL Workload Manager",
+                        "tasks": "• <strong class=\"text-white\">ADVISOR_TASKS</strong>: Stores and manages each advisor execution unit as a task",
+                        "types": "• <strong class=\"text-white\">ADVISOR_OBJECT_TYPES</strong>: Defines supported advisor object types",
+                        "objects": "• <strong class=\"text-white\">ADVISOR_OBJECTS</strong>: Stores task-related objects by object_id and object_name",
+                        "logs": "• <strong class=\"text-white\">ADVISOR_LOGS</strong>: Records step-by-step logging of advisor execution and tuning progress"
+                    },
+                    "footer": "This metadata layer was critical for implementing <strong class=\"text-white\">task lifecycle persistence, execution traceability, and report generation</strong>",
+                    "a": "• ADVISOR_DEFINITIONS",
+                    "b": "• ADVISOR_TASKS",
+                    "c": "• ADVISOR_OBJECTS",
+                    "d": "• ADVISOR_LOGS"
+                },
+
+                "create": {
+                    "title": "3. Create Tuning Task",
+                    "a": "• Accepts user inputs such as <strong class=\"text-white\">sql_id, scope, task_name, time_limit</strong>, and related tuning parameters",
+                    "b": "• Generates default values for missing optional inputs",
+                    "c": "• Performs validation checks on input arguments",
+                    "d": "• Persists validated inputs and generated metadata into advisor system tables",
+                    "e": "• Establishes the initial lifecycle state of the tuning task"
+                },
+
+                "execute": {
+                    "title": "4. Execute Tuning Task",
+                    "desc": "The execution phase was designed as a multi-step analysis pipeline that automatically inspects optimizer-related causes of SQL performance issues.",
+                    "stat": {
+                        "a": "• Detects missing or stale statistics on tables and indexes",
+                        "b": "• Identifies cases where poor optimizer estimates may be caused by statistics quality issues"
+                    },
+                    "access": {
+                        "a": "• Evaluates whether current access paths are cost-optimal with and without indexes",
+                        "b": "• Generates guidance on access path improvement",
+                        "c": "• Can recommend running SQL Access Advisor when index-oriented design changes are needed"
+                    },
+                    "structure": {
+                        "a": "• Detects query patterns known to cause performance degradation at syntax / semantic analysis stage",
+                        "b": "• Recommends replacing <strong class=\"text-white\">NOT IN</strong> with <strong class=\"text-white\">NOT EXISTS</strong>",
+                        "c": "• Recommends replacing <strong class=\"text-white\">UNION</strong> with <strong class=\"text-white\">UNION ALL</strong> where appropriate",
+                        "d": "• Detects datatype mismatch between indexed columns and WHERE clause predicates",
+                        "e": "• Detects missing join conditions that indicate design mistakes or hidden Cartesian effects"
+                    }
+                },
+                "report": {
+                    "a": "• Aggregates advisor findings from execution logs, analysis output, and recommendation records",
+                    "b": "• Produces structured tuning reports for users",
+                    "c": "• Summarizes actionable items such as statistics collection, SQL rewrite, alternative plan, and SQL Profile usage",
+                    "d": "• Designed as the final user-facing output of the tuning task lifecycle"
+                },
+                "profile": {
+                    "a": "• Supports applying approved SQL Profile recommendations to the target SQL",
+                    "b": "• Connects advisor recommendation results to optimizer execution behavior",
+                    "c": "• Bridges analysis output with actual runtime performance improvement"
+                }
+            },
+            "summary": {
+                "a": "• <strong class=\"text-white\">Public API Layer</strong>: DBMS_SQLTUNE package for task creation, execution, reporting, and SQL Profile acceptance",
+                "b": "• <strong class=\"text-white\">Internal Execution Layer</strong>: DBMS_SQLTUNE_INTERNAL package for advisor pipeline and analysis execution",
+                "c": "• <strong class=\"text-white\">Utility Layer</strong>: C/C++-oriented utility package for low-level subprogram support",
+                "d": "• <strong class=\"text-white\">Metadata Layer</strong>: Advisor system tables and DBA views for definitions, tasks, objects, logs, and executions",
+                "e": "• <strong class=\"text-white\">Recommendation Layer</strong>: Statistics, access path, structural rewrite, and SQL Profile recommendation generation<"
+            },
+            "conclusion": {
+                "a": "This project demonstrates more than SQL tuning itself: it demonstrates the <strong class=\"text-white\">design and implementation of an automated SQL tuning system</strong> that models advisor lifecycle, analysis workflow, metadata persistence, recommendation generation, and optimizer-facing profile application.",
+                "b": "It also highlights hands-on experience in <strong class=\"text-white\">C++, PL/SQL, database internals, optimizer behavior, and performance engineering</strong>."
+            }
         }
     }
 }

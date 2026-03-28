@@ -607,6 +607,195 @@
                 "desc2": "엔터프라이즈 환경에서의 실전 문제 해결과 내부 엔진 개발을 동시에 수행하며 데이터베이스 전반에 대한 경험 확보",
                 "note": "회사 정책상 소스 코드는 공개할 수 없으며, 본 페이지는 아키텍처, 문제 해결 접근 방식, 정량적 성과 중심으로 구성됨"
             }
+        },
+        "sql-tuning-advisor": {
+            "header": {
+                "title": "SQL 튜닝 어드바이저",
+                "desc": "Oracle SQL Tuning Advisor기능을 참고하여 자동화된 SQL 튜닝 시스템을 설계 및 구현했습니다. 본 시스템은 느린 SQL을 분석하고 SQL Profile, 인덱스 추천, 통계 보정, SQL 재작성 등 다양한 최적화 방안을 자동으로 생성합니다."
+            },
+
+            "overview": {
+                "title": "개요",
+                "desc1": "<strong class=\"text-white\">Oracle SQL Tuning Advisor</strong>는 Oracle Database에서 제공하는 자동화된 SQL 성능 분석 및 최적화 시스템입니다.",
+                "desc2": "본 프로젝트는 해당 시스템의 동작을 리버스 엔지니어링하여 <strong class=\"text-white\">SQL 튜닝 자동화 프레임워크</strong>를 구현했습니다. 여기에는 Task lifecycle 관리, Advisor 메타데이터 테이블, 분석 모듈, 리포트 생성, SQL Profile 적용 흐름이 포함됩니다.",
+                "desc3": "실무적으로는 <strong class=\"text-white\">EXPLAIN 분석 + 옵티마이저 튜닝 + 추천 생성</strong>을 자동화한 고도화된 내부 시스템으로 볼 수 있습니다."
+            },
+
+            "tech": {
+                "title": "기술 스택",
+                "cplus": "C++ (엔진 레벨 로직)",
+                "plsql": "PL/SQL (어드바이저 패키지 및 프로시저)",
+                "sql": "SQL 튜닝 / 옵티마이저 분석"
+            },
+
+            "purpose": {
+                "title": "목적",
+                "items": {
+                    "a": "• 느린 SQL의 병목 분석",
+                    "b": "• 최적 실행 계획 도출",
+                    "c": "• 자동화된 튜닝 추천 생성",
+                    "d": "• SQL 튜닝 프로세스 자동화"
+                },
+                "desc": "이 프로젝트의 핵심 목표는 단순 SQL 튜닝이 아니라 <strong class=\"text-white\">SQL 튜닝 프로세스의 자동화</strong>입니다. 옵티마이저 지식과 성능 분석 과정을 시스템화하여, tuning task를 생성, 실행, 분석, 리포트까지 자동으로 수행할 수 있도록 설계했습니다."
+            },
+
+            "analysis": {
+                "title": "⚙️ 분석 유형",
+                "stat": {
+                    "title": "1. 통계 분석",
+                    "desc": "오래되었거나 누락된 통계를 탐지하여 잘못된 실행 계획이 생성되는 문제를 식별합니다."
+                },
+                "profiling": {
+                    "title": "2. SQL 프로파일링",
+                    "desc": "예상 row 수와 실제 row 수를 비교하여 카디널리티 추정 오류를 보정합니다."
+                },
+                "access": {
+                    "title": "3. 접근 경로 분석",
+                    "desc": "Full Scan과 Index Scan 중 어떤 방식이 더 적절한지 평가하고 최적의 접근 경로를 제안합니다."
+                },
+                "structure": {
+                    "title": "4. SQL 구조 분석",
+                    "desc": "성능 저하를 유발하는 쿼리 패턴을 탐지하고 재작성 방안을 제안합니다."
+                }
+            },
+
+            "execution": {
+                "title": "실행 흐름"
+            },
+
+            "result": {
+                "title": "결과 유형",
+                "table": {
+                    "type": "유형",
+                    "desc": "설명",
+                    "profile": "SQL Profile",
+                    "profileDesc": "실행 계획 개선",
+                    "index": "인덱스 추천",
+                    "indexDesc": "인덱스 생성 제안",
+                    "stats": "통계 추천",
+                    "statsDesc": "통계 수집 제안",
+                    "rewrite": "SQL 재작성",
+                    "rewriteDesc": "쿼리 구조 개선",
+                    "plan": "대체 실행 계획",
+                    "planDesc": "다른 실행 계획 제안"
+                }
+            },
+
+            "implementation": {
+                "title": "SQL 튜닝 어드바이저 구현",
+                "purpose": {
+                    "title": "목적",
+                    "desc": "Oracle SQL Tuning Advisor의 내부 구조를 리버스 엔지니어링하여 Task lifecycle, 분석 모듈, 추천 로직, 리포트 생성, SQL Profile 적용 흐름까지 포함한 시스템을 구현했습니다."
+                },
+                "milestone": {
+                    "a": "• Oracle SQL Tuning Advisor 분석",
+                    "b": "• DBMS_SQLTUNE 리버스 엔지니어링",
+                    "c": "• 어드바이저 패키지 및 시스템 테이블 설계",
+                    "d": "• 튜닝 task 실행 및 리포트 생성 시스템 구축"
+                },
+                "feature": {
+                    "a": "• Tuning Task lifecycle 관리",
+                    "b": "• 통계 검증",
+                    "c": "• 가상 인덱스 시뮬레이션",
+                    "d": "• SQL 재작성 추천 엔진",
+                    "e": "• 비효율 연산 탐지 (NOT IN, UNION, 조인 문제)",
+                    "f": "• 튜닝 결과 리포트 생성",
+                    "g": "• SQL Profile 적용 기능"
+                }
+            },
+
+            "design": {
+                "title": "설계",
+
+                "package": {
+                    "title": "1. 패키지 설계",
+                    "desc": "Oracle 구조를 참고하여 Public API, 내부 실행 로직, 저수준 유틸리티 모듈을 분리하는 방식으로 설계되었습니다.",
+                    "item1": {
+                        "a": "• 주요 Advisor lifecycle API를 제공하는 Public 패키지",
+                        "b": "• <strong class=\"text-white\">CREATE, EXECUTE, REPORT, ACCEPT SQL PROFILE</strong> 기능 포함",
+                        "c": "• 사용자 인터페이스 역할 수행"
+                    },
+                    "item2": {
+                        "a": "• 내부 실행 로직을 담당하는 패키지",
+                        "b": "• 통계 분석, 접근 경로 분석, SQL 구조 분석 수행",
+                        "c": "• Public API와 내부 로직 분리"
+                    },
+                    "item3": {
+                        "a": "• 저수준 로직 처리를 위한 유틸리티 패키지",
+                        "b": "• <strong class=\"text-white\">C/C++ 레벨 구현</strong>과 연계",
+                        "c": "• 모듈화 및 유지보수성 향상"
+                    }
+                },
+
+                "table": {
+                    "title": "2. 시스템 테이블 설계",
+                    "desc": "DB 부팅 시 생성되는 Advisor 메타데이터 테이블과 DBA 뷰를 통해 Task, 실행, 로그 등을 관리하도록 설계했습니다.",
+                    "system_tables": {
+                        "definitions": "• <strong class=\"text-white\">ADVISOR_DEFINITIONS</strong>: Advisor 유형 관리",
+                        "tasks": "• <strong class=\"text-white\">ADVISOR_TASKS</strong>: Task 관리",
+                        "types": "• <strong class=\"text-white\">ADVISOR_OBJECT_TYPES</strong>: 객체 타입 정의",
+                        "objects": "• <strong class=\"text-white\">ADVISOR_OBJECTS</strong>: Task 대상 객체 관리",
+                        "logs": "• <strong class=\"text-white\">ADVISOR_LOGS</strong>: 실행 로그 기록"
+                    },
+                    "footer": "이 메타데이터 구조는 <strong class=\"text-white\">Task lifecycle 관리, 실행 추적, 리포트 생성</strong>을 가능하게 합니다."
+                },
+
+                "create": {
+                    "title": "3. Tuning Task 생성",
+                    "a": "• sql_id, scope, task_name 등 입력값 처리",
+                    "b": "• 기본값 자동 설정",
+                    "c": "• 입력값 검증 수행",
+                    "d": "• 메타데이터 저장",
+                    "e": "• 초기 상태 설정"
+                },
+
+                "execute": {
+                    "title": "4. Tuning Task 실행",
+                    "desc": "옵티마이저 기반 성능 문제를 분석하는 다단계 파이프라인으로 구성되었습니다.",
+                    "stat": {
+                        "a": "• 통계 누락 및 오래된 통계 탐지",
+                        "b": "• 옵티마이저 추정 오류 원인 분석"
+                    },
+                    "access": {
+                        "a": "• 인덱스 기반 접근 경로 평가",
+                        "b": "• 최적 접근 경로 제안",
+                        "c": "• SQL Access Advisor 연계 가능"
+                    },
+                    "structure": {
+                        "a": "• 비효율 쿼리 패턴 탐지",
+                        "b": "• NOT IN → NOT EXISTS 추천",
+                        "c": "• UNION → UNION ALL 추천",
+                        "d": "• 데이터 타입 mismatch 탐지",
+                        "e": "• Join 조건 누락 탐지"
+                    }
+                },
+
+                "report": {
+                    "a": "• 분석 결과 통합",
+                    "b": "• 사용자용 리포트 생성",
+                    "c": "• 실행 계획, 통계, SQL 재작성 등 요약",
+                    "d": "• 최종 결과 제공"
+                },
+
+                "profile": {
+                    "a": "• SQL Profile 적용",
+                    "b": "• 옵티마이저 실행 계획과 연계",
+                    "c": "• 실제 성능 개선 반영"
+                }
+            },
+
+            "summary": {
+                "a": "• Public API Layer: DBMS_SQLTUNE",
+                "b": "• Internal Execution Layer: DBMS_SQLTUNE_INTERNAL",
+                "c": "• Utility Layer: C/C++ 모듈",
+                "d": "• Metadata Layer: Advisor System Tables",
+                "e": "• Recommendation Layer: SQL 튜닝 결과 생성"
+            },
+
+            "conclusion": {
+                "a": "이 프로젝트는 단순 SQL 튜닝이 아니라 <strong class=\"text-white\">SQL 튜닝 자동화 시스템 설계 및 구현</strong> 역량을 보여줍니다.",
+                "b": "<strong class=\"text-white\">C++, PL/SQL, DB 내부 구조, 옵티마이저, 성능 엔지니어링</strong>에 대한 실무 경험을 포함합니다."
+            }
         }
     }
 }

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>SQL Tuning Advisor | Eungchan Kang</title>
+
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: "#0b1120",
+                            secondary: "#111827",
+                            accent: "#3b82f6"
+                        }
+                    }
+                }
+            }
+        </script>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+    </head>
+
+    <body class="bg-primary text-slate-200 font-sans">
+        <section class="py-24 border-t border-slate-800">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="mb-3">
+                    <button
+                        onclick="history.back()"
+                        class="flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-700 
+                            bg-secondary/40 text-sm text-slate-300 hover:bg-secondary/60 hover:text-white transition">
+                        <span class="text-sm">←</span>
+                        Back to Main
+                    </button>
+                </div>
+
+                <!-- HEADER -->
+                <div class="mb-5">
+                    <h1 class="text-4xl md:text-5xl font-semibold mb-4">
+                        SQL Tuning Advisor
+                    </h1>
+                    <p data-i18n="projects.sql-tuning-advisor.header.desc" class="text-slate-300 text-lg max-w-4xl leading-relaxed"></p>
+                </div>
+
+                <a href="https://github.com/yeschan119/SQL_Tuning_Advisor"
+                    target="_blank"
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-secondary/40 text-sm text-slate-300 hover:text-white hover:border-accent hover:bg-secondary/60 transition"
+                    aria-label="View project on GitHub">
+
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        class="w-6 h-6"
+                        fill="currentColor"
+                        viewBox="0 0 24 24">
+
+                        <path d="M12 .5C5.7.5.8 5.4.8 11.7c0 5 3.2
+                                9.2 7.6 10.7.6.1.8-.3.8-.6v-2.2c-3.1.7-3.8-1.3-3.8-1.3-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7
+                                1.1.1 1.7 1.1 1.7 1.1 1 .1 2.1-.7 2.6-1.3.1-.7.4-1.2.7-1.5-2.5-.3-5.2-1.2-5.2-5.4
+                                0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.4.1-2.9
+                                0 0 .9-.3 3 .9.9-.2 1.8-.3 2.7-.3
+                                .9 0 1.8.1 2.7.3 2.1-1.2 3-.9 3-.9
+                                .6 1.5.2 2.6.1 2.9.7.8 1.1 1.7 1.1
+                                2.9 0 4.2-2.7 5.1-5.3 5.4.4.3.8
+                                1 .8 2.1v3.1c0 .3.2.7.8.6
+                                4.4-1.5 7.6-5.7 7.6-10.7C23.2
+                                5.4 18.3.5 12 .5z"/>
+                    </svg>
+
+                    View Details on GitHub
+                </a>
+
+                <!-- OVERVIEW -->
+                <div class="mb-10 mt-8">
+                    <h2 class="text-2xl font-semibold mb-3">Overview</h2>
+                    <div class="bg-secondary/40 border border-slate-700 rounded-xl p-6 space-y-4">
+                        <p data-i18n="projects.sql-tuning-advisor.overview.desc1" lass="text-slate-400"></p>
+
+                        <p data-i18n="projects.sql-tuning-advisor.overview.desc2" class="text-slate-400"></p>
+
+                        <p data-i18n="projects.sql-tuning-advisor.overview.desc3" class="text-slate-400"></p>
+                    </div>
+                </div>
+
+                <!-- TECH STACK -->
+                <div class="mb-10">
+                    <h2 class="text-2xl font-semibold mb-3">Tech Stack</h2>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-secondary/40 border border-slate-700 rounded-xl p-6">
+                            <h3 class="font-semibold text-white mb-2">C++</h3>
+                            <p data-i18n="projects.sql-tuning-advisor.tech.cplus" class="text-slate-400 text-sm"></p>
+                        </div>
+                        <div class="bg-secondary/40 border border-slate-700 rounded-xl p-6">
+                            <h3 class="font-semibold text-white mb-2">PL/SQL</h3>
+                            <p data-i18n="projects.sql-tuning-advisor.tech.plsql" class="text-slate-400 text-sm"></p>
+                        </div>
+                        <div class="bg-secondary/40 border border-slate-700 rounded-xl p-6">
+                            <h3 class="font-semibold text-white mb-2">SQL Tuning</h3>
+                            <p data-i18n="projects.sql-tuning-advisor.tech.sql" class="text-slate-400 text-sm"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PURPOSE -->
+                <div class="mb-10">
+                    <h2 class="text-2xl font-semibold mb-3">Purpose</h2>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <ul class="bg-secondary/40 border border-slate-700 rounded-xl p-6 text-slate-400 space-y-2">
+                            <li data-i18n="projects.sql-tuning-advisor.purpose.items.a"></li>
+                            <li data-i18n="projects.sql-tuning-advisor.purpose.items.b"></li>
+                            <li data-i18n="projects.sql-tuning-advisor.purpose.items.c"></li>
+                            <li data-i18n="projects.sql-tuning-advisor.purpose.items.d"></li>
+                        </ul>
+                        <div data-i18n="projects.sql-tuning-advisor.purpose.desc" class="bg-secondary/40 border border-slate-700 rounded-xl p-6 text-slate-400 text-sm leading-relaxed"></div>
+                    </div>
+                </div>
+
+                <!-- ANALYSIS -->
+                <div class="mb-10">
+                    <h2 class="text-2xl font-semibold mb-3">⚙️ Analysis Types</h2>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-secondary/40 border border-slate-700 rounded-xl p-6">
+                            <h3 class="font-semibold mb-3">1. Statistics Analysis</h3>
+                            <p data-i18n="projects.sql-tuning-advisor.analysis.stat.desc" class="text-slate-400 mb-4 text-sm"></p>
+    <pre class="text-xs bg-primary/60 pt-3 rounded-md overflow-x-auto">
+EXEC DBMS_STATS.GATHER_TABLE_STATS('HR', 'EMPLOYEES');
+    </pre>
+                        </div>
+
+                        <div class="bg-secondary/40 border border-slate-700 rounded-xl p-6">
+                            <h3 class="font-semibold mb-3">2. SQL Profiling</h3>
+                            <p data-i18n="projects.sql-tuning-advisor.analysis.profiling.desc" class="text-slate-400 text-sm"></p>
+                        </div>
+
+                        <div class="bg-secondary/40 border border-slate-700 rounded-xl p-6">
+                            <h3 class="font-semibold mb-3">3. Access Path Analysis</h3>
+                            <p data-i18n="projects.sql-tuning-advisor.analysis.access.desc" class="text-slate-400 mb-4 text-sm"></p>
+    <pre class="text-xs bg-primary/60 p-2 rounded-md overflow-x-auto">
+CREATE INDEX idx_emp_salary ON employees(salary);
+    </pre>
+                        </div>
+
+                        <div class="bg-secondary/40 border border-slate-700 rounded-xl p-6">
+                            <h3 class="font-semibold mb-3">4. SQL Structure Analysis</h3>
+                            <p data-i18n="projects.sql-tuning-advisor.analysis.structure.desc" class="text-slate-400 mb-4 text-sm"></p>
+    <pre class="text-xs bg-primary/60 p-2 rounded-md overflow-x-auto">
+-- Bad
+SELECT * FROM orders WHERE TO_CHAR(order_date, 'YYYY') = '2024';
+
+-- Good
+SELECT * FROM orders
+WHERE order_date BETWEEN DATE '2024-01-01' AND DATE '2024-12-31';
+    </pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EXECUTION -->
+                <div class="mb-5">
+                    <h2 class="text-2xl font-semibold mb-3">Execution Flow</h2>
+                    <div class="space-y-4">
+<pre class="text-xs bg-primary/60 rounded-md overflow-x-auto">
+BEGIN
+    DBMS_SQLTUNE.CREATE_TUNING_TASK(...);
+END;
+</pre>
+
+<pre class="text-xs bg-primary/60 rounded-md overflow-x-auto">
+BEGIN
+    DBMS_SQLTUNE.EXECUTE_TUNING_TASK(...);
+END;
+</pre>
+
+<pre class="text-xs bg-primary/60 rounded-md overflow-x-auto">
+SELECT DBMS_SQLTUNE.REPORT_TUNING_TASK(...) FROM dual;
+</pre>
+                    </div>
+                </div>
+
+                <!-- RESULT TABLE -->
+                <div class="mb-10">
+                    <h2 class="text-2xl font-semibold mb-3">Result Types</h2>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm border border-slate-700">
+                            <thead class="bg-secondary/40">
+                                <tr>
+                                    <th class="p-3 text-left">Type</th>
+                                    <th class="p-3 text-left">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-slate-400">
+                                <tr class="border-t border-slate-700">
+                                    <td class="p-3">SQL Profile</td>
+                                    <td class="p-3">Execution plan improvement</td>
+                                </tr>
+                                <tr class="border-t border-slate-700">
+                                    <td class="p-3">Index Recommendation</td>
+                                    <td class="p-3">Suggests index creation</td>
+                                </tr>
+                                <tr class="border-t border-slate-700">
+                                    <td class="p-3">Statistics Recommendation</td>
+                                    <td class="p-3">Suggests statistics collection</td>
+                                </tr>
+                                <tr class="border-t border-slate-700">
+                                    <td class="p-3">SQL Rewrite</td>
+                                    <td class="p-3">Query restructuring</td>
+                                </tr>
+                                <tr class="border-t border-slate-700">
+                                    <td class="p-3">Alternative Plan</td>
+                                    <td class="p-3">Suggests alternative execution plans</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- IMPLEMENTATION -->
+                <div class="mt-10">
+                    <h2 class="text-3xl font-semibold mb-5">
+                        SQL Tuning Advisor Implementation
+                    </h2>
+
+                    <div class="space-y-8 text-slate-400 text-sm leading-relaxed">
+
+                        <div class="bg-secondary/40 border border-slate-700 rounded-xl p-6">
+                            <strong class="text-white">Purpose</strong>
+                            <p data-i18n="projects.sql-tuning-advisor.implementation.purpose.desc" class="mt-2"></p>
+                        </div>
+
+                        <div class="bg-secondary/40 border border-slate-700 rounded-xl p-6">
+                            <strong class="text-white">Milestones</strong>
+                            <ul class="mt-2 space-y-1">
+                                <li data-i18n="projects.sql-tuning-advisor.implementation.milestone.a"></li>
+                                <li data-i18n="projects.sql-tuning-advisor.implementation.milestone.b"></li>
+                                <li data-i18n="projects.sql-tuning-advisor.implementation.milestone.c"></li>
+                                <li data-i18n="projects.sql-tuning-advisor.implementation.milestone.d"></li>
+                                <li data-i18n="projects.sql-tuning-advisor.implementation.milestone.e"></li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-secondary/40 border border-slate-700 rounded-xl p-6">
+                            <strong class="text-white">Core Features</strong>
+                            <ul class="mt-2 space-y-1">
+                                <li data-i18n="projects.sql-tuning-advisor.implementation.feature.a"></li>
+                                <li data-i18n="projects.sql-tuning-advisor.implementation.feature.b"></li>
+                                <li data-i18n="projects.sql-tuning-advisor.implementation.feature.c"></li>
+                                <li data-i18n="projects.sql-tuning-advisor.implementation.feature.d"></li>
+                                <li data-i18n="projects.sql-tuning-advisor.implementation.feature.e"></li>
+                                <li data-i18n="projects.sql-tuning-advisor.implementation.feature.f"></li>
+                                <li data-i18n="projects.sql-tuning-advisor.implementation.feature.g"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DESIGN -->
+                <div class="mt-12">
+                    <h2 class="text-3xl font-semibold mb-5">Design</h2>
+
+                    <div class="space-y-8 text-slate-400 text-sm leading-relaxed">
+
+                        <!-- PACKAGE DESIGN -->
+                        <div class="bg-secondary/40 border border-slate-700 rounded-xl p-6">
+                            <h3 class="text-xl font-semibold text-white mb-4">1. Package Design</h3>
+                            <p data-i18n="projects.sql-tuning-advisor.design.package.desc" class="mb-4"></p>
+
+                            <div class="space-y-4">
+                                <div>
+                                    <h4 class="font-semibold text-white">PKG_DBMS_SQLTUNE (Body & Spec)</h4>
+                                    <ul class="mt-2 space-y-1">
+                                        <li data-i18n="projects.sql-tuning-advisor.design.package.item1.a"></li>
+                                        <li data-i18n="projects.sql-tuning-advisor.design.package.item1.b"></strong></li>
+                                        <li data-i18n="projects.sql-tuning-advisor.design.package.item1.c"></li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h4 class="font-semibold text-white">PKG_DBMS_SQLTUNE_INTERNAL (Body & Spec)</h4>
+                                    <ul class="mt-2 space-y-1">
+                                        <li data-i18n="projects.sql-tuning-advisor.design.package.item2.a"></li>
+                                        <li data-i18n="projects.sql-tuning-advisor.design.package.item2.b"></li>
+                                        <li data-i18n="projects.sql-tuning-advisor.design.package.item2.c"></li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h4 class="font-semibold text-white">PKG_DBMS_SQLTUNE_UTIL</h4>
+                                    <ul class="mt-2 space-y-1">
+                                        <li data-i18n="projects.sql-tuning-advisor.design.package.item3.a"></li>
+                                        <li data-i18n="projects.sql-tuning-advisor.design.package.item3.b"></li>
+                                        <li data-i18n="projects.sql-tuning-advisor.design.package.item3.c"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TABLE & VIEW DESIGN -->
+                        <div class="bg-secondary/40 border border-slate-700 rounded-xl p-6">
+                            <h3 class="text-xl font-semibold text-white mb-4">2. System Tables & Views Design</h3>
+                            <p  data-i18n="projects.sql-tuning-advisor.design.table.desc" class="mb-4"></p>
+
+                            <div class="space-y-4">
+                                <div>
+                                    <h4 class="font-semibold text-white">System Tables</h4>
+                                    <ul class="mt-2 space-y-1">
+                                        <li data-i18n="projects.sql-tuning-advisor.design.table.system_tables.definitions"></li>
+                                        <li data-i18n="projects.sql-tuning-advisor.design.table.system_tables.tasks"></li>
+                                        <li data-i18n="projects.sql-tuning-advisor.design.table.system_tables.types"></li>
+                                        <li data-i18n="projects.sql-tuning-advisor.design.table.system_tables.objects"></li>
+                                        <li data-i18n="projects.sql-tuning-advisor.design.table.system_tables.logs"></li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h4 class="font-semibold text-white">DBA Views</h4>
+                                    <ul class="mt-2 space-y-1">
+                                        <li>• DBA_ADVISOR_DEFINITIONS</li>
+                                        <li>• DBA_ADVISOR_TASKS</li>
+                                        <li>• DBA_ADVISOR_OBJECTS</li>
+                                        <li>• DBA_ADVISOR_EXECUTIONS</li>
+                                        <li>• DBA_ADVISOR_LOG</li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <p data-i18n="projects.sql-tuning-advisor.design.table.footer"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CREATE TUNING TASK -->
+                        <div class="bg-secondary/40 border border-slate-700 rounded-xl p-6">
+                            <h3 class="text-xl font-semibold text-white mb-4">3. Create Tuning Task Design</h3>
+                            <ul class="space-y-2">
+                                <li data-i18n="projects.sql-tuning-advisor.design.create.a"></li>
+                                <li data-i18n="projects.sql-tuning-advisor.design.create.b"></li>
+                                <li data-i18n="projects.sql-tuning-advisor.design.create.c"></li>
+                                <li data-i18n="projects.sql-tuning-advisor.design.create.d"></li>
+                                <li data-i18n="projects.sql-tuning-advisor.design.create.e"></li>
+                            </ul>
+                        </div>
+
+                        <!-- EXECUTE TUNING TASK -->
+                        <div class="bg-secondary/40 border border-slate-700 rounded-xl p-6">
+                            <h3 class="text-xl font-semibold text-white mb-4">4. Execute Tuning Task Design</h3>
+                            <p data-i18n="projects.sql-tuning-advisor.design.execute.desc" class="mb-4"></p>
+
+                            <div class="space-y-4">
+                                <div>
+                                    <h4 class="font-semibold text-white">Statistical Analysis</h4>
+                                    <ul class="mt-2 space-y-1">
+                                        <li data-i18n="projects.sql-tuning-advisor.design.execute.stat.a"></li>
+                                        <li data-i18n="projects.sql-tuning-advisor.design.execute.stat.b"></li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h4 class="font-semibold text-white">Access Path Analysis</h4>
+                                    <ul class="mt-2 space-y-1">
+                                        <li data-i18n="projects.sql-tuning-advisor.design.execute.access.a"></li>
+                                        <li data-i18n="projects.sql-tuning-advisor.design.execute.access.b"></li>
+                                        <li data-i18n="projects.sql-tuning-advisor.design.execute.access.c"></li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h4 class="font-semibold text-white">SQL Structural Analysis</h4>
+                                    <ul class="mt-2 space-y-1">
+                                        <li data-i18n="projects.sql-tuning-advisor.design.execute.structure.a"></li>
+                                        <li data-i18n="projects.sql-tuning-advisor.design.execute.structure.b"></li>
+                                        <li data-i18n="projects.sql-tuning-advisor.design.execute.structure.c"></li>
+                                        <li data-i18n="projects.sql-tuning-advisor.design.execute.structure.d"></li>
+                                        <li data-i18n="projects.sql-tuning-advisor.design.execute.structure.e"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- REPORT TUNING TASK -->
+                        <div class="bg-secondary/40 border border-slate-700 rounded-xl p-6">
+                            <h3 class="text-xl font-semibold text-white mb-4">5. Report Tuning Task Design</h3>
+                            <ul class="space-y-2">
+                                <li data-i18n="projects.sql-tuning-advisor.design.report.a"></li>
+                                <li data-i18n="projects.sql-tuning-advisor.design.report.b"></li>
+                                <li data-i18n="projects.sql-tuning-advisor.design.report.c"></li>
+                                <li data-i18n="projects.sql-tuning-advisor.design.report.d"></li>
+                            </ul>
+                        </div>
+
+                        <!-- ACCEPT SQL PROFILE -->
+                        <div class="bg-secondary/40 border border-slate-700 rounded-xl p-6">
+                            <h3 class="text-xl font-semibold text-white mb-4">6. Accept SQL Profile Design</h3>
+                            <ul class="space-y-2">
+                                <li data-i18n="projects.sql-tuning-advisor.design.profile.a"></li>
+                                <li data-i18n="projects.sql-tuning-advisor.design.profile.b"></li>
+                                <li data-i18n="projects.sql-tuning-advisor.design.profile.c"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SYSTEM DESIGN SUMMARY -->
+                <div class="mt-12">
+                    <h2 class="text-3xl font-semibold mb-5">System Design Summary</h2>
+                    <div class="bg-secondary/40 border border-slate-700 rounded-xl p-6 text-slate-400 text-sm leading-relaxed">
+                        <ul class="space-y-2">
+                            <li data-i18n="projects.sql-tuning-advisor.summary.a"></li>
+                            <li data-i18n="projects.sql-tuning-advisor.summary.b"></li>
+                            <li data-i18n="projects.sql-tuning-advisor.summary.c"></li>
+                            <li data-i18n="projects.sql-tuning-advisor.summary.d"></li>
+                            <li data-i18n="projects.sql-tuning-advisor.summary.e"></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- EXAMPLE EXECUTION -->
+                <!-- <div class="mt-12">
+                    <h2 class="text-3xl font-semibold mb-5">Example Execution</h2>
+                    <div class="bg-secondary/40 border border-slate-700 rounded-xl p-6">
+    <pre class="mt-3 text-xs bg-primary/60 p-3 rounded-md overflow-x-auto">
+    DECLARE
+        l_sql_tune_task_id VARCHAR2(100);
+    BEGIN
+        l_sql_tune_task_id := DBMS_SQLTUNE.create_tuning_task (
+            sql_id     => '5dkrnbx1z8gcb',
+            scope      => DBMS_SQLTUNE.scope_comprehensive,
+            time_limit => 500,
+            task_name  => 'tuning_task'
+        );
+    END;
+    /
+    </pre>
+                    </div>
+                </div> -->
+
+                <!-- CONCLUSION -->
+                <div class="mt-12">
+                    <h2 class="text-3xl font-semibold mb-5">Conclusion</h2>
+                    <div class="bg-secondary/40 border border-slate-700 rounded-xl p-6 text-slate-400 text-sm leading-relaxed space-y-3">
+                        <p data-i18n="projects.sql-tuning-advisor.conclusion.a"></p>
+                        <p data-i18n="projects.sql-tuning-advisor.conclusion.b"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script src="/src/main.js"></script>
+    </body>
+</html>
