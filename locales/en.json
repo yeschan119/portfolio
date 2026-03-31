@@ -149,6 +149,7 @@
         "chat": "SignalR + SQS + DynamoDB architecture for real-time delivery.",
         "migration": "Azure → AWS distributed analytics architecture migration.",
         "apm": "Application performance monitoring dashboard and operational insights.",
+        "insurance": "large-scale Insurance Claim Lifecycle Tracking & Monitoring System",
         "db-stat": "Database statistics module & query optimizer improvement implementation.",
         "db-tuning": "Automated query optimization and tuning recommendations.",
         "db-total": "DB engine internals and system-level design experiments.",
