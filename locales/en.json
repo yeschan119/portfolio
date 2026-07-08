@@ -28,6 +28,9 @@
 
     "skill-lang": "Hover over a language to see experience.",
     "work": {
+        "koclo1": "• Designed and automated apparel sales, inventory, ordering, settlement, and store operations as a unified apparel distribution management system",
+        "koclo2": "• Applied Software Architecture principles to the apparel company system, separating domain, API, data, and deployment layers",
+        "koclo3": "• Built an AI Agent-based environment that connects system queries, controls, and automation tasks so operators can control the software more directly",
         "aiworkx1": "• Developed object detection models optimized for edge devices without GPUs",
         "aiworkx2": "• Built and productized image annotation and segmentation models using OpenCV",
         "tmax1": "• Owned and enhanced the database statistics collection module",
