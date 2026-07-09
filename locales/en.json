@@ -159,7 +159,9 @@
         "ai1": "Edge-based object detection pipeline with real-time inference.",
         "ai2": "AI-based annotation & segmentation workflow.",
         "metric": "Flutter-based unit conversion app deployed across iOS, Web, and Desktop platforms.",
-        "memo": "Cross-platform memo management app using Flutter, Firebase Auth, and Firestore with hierarchical note structure."
+        "memo": "Cross-platform memo management app using Flutter, Firebase Auth, and Firestore with hierarchical note structure.",
+        "erp": "Re-architected a file-based legacy ERP onto a single-source, 5-layer reference architecture — owning the migration strategy end to end.",
+        "aiagent": "Designed an operating model for AI-assisted engineering — a domain-bounded agent org, defense-in-depth governance, and a persistent-knowledge system."
     },
 
     "projects": {
@@ -789,6 +791,88 @@
             "conclusion": {
                 "a": "This project demonstrates more than SQL tuning itself: it demonstrates the <strong class=\"text-white\">design and implementation of an automated SQL tuning system</strong> that models advisor lifecycle, analysis workflow, metadata persistence, recommendation generation, and optimizer-facing profile application.",
                 "b": "It also highlights hands-on experience in <strong class=\"text-white\">C++, PL/SQL, database internals, optimizer behavior, and performance engineering</strong>."
+            }
+        },
+        "erp-replatform": {
+            "main": "Re-architected a legacy fashion ERP — where data was scattered across PKL/JSON files and consistency kept breaking — onto a single-source-of-truth, 5-layer reference architecture, and owned a phased, zero-downtime migration strategy. Defined the data contracts, builder standard, and snapshot model that turned a pile of one-off scripts into a governed pipeline.",
+            "loc": "Role: Architect & sole implementer — owned architecture, migration strategy, data contracts, and delivery end to end.",
+            "summary": {
+                "a": "Adopted single-source-of-truth as a first principle to eliminate a whole class of consistency failures — every report reads the DB, not files, retiring the PKL/JSON dependency axis.",
+                "b": "Defined a 5-layer reference architecture (Raw → Cleansed → Marts → Snapshot → Outputs) so every new report follows the same governed flow with no exceptions.",
+                "c": "Separated immediacy (HTML) from time-series analytics (snapshots) by design — dual-writing outputs and absorbing analytics needs at the contract level via a -current / -trend / -history query contract.",
+                "d": "Codified a three-layer split of presentation, I/O, and compute as the frontend standard — a repeatable tab-development convention the team can follow verbatim."
+            },
+            "system-scale": {
+                "codebase": "A single-owned production codebase spanning backend, data pipeline, and frontend (~130K LOC, 403 commits) with clearly defined layer boundaries and ownership.",
+                "database": "One PostgreSQL 16 instance, 97 tables layered along raw/cleansed/snapshot boundaries and unified under products.id as the canonical key — establishing a single authority for the data model.",
+                "surface": "26 API boundaries, 25 domain services, 36 frontend views, and 148 pipeline scripts operated consistently on one DB contract."
+            },
+            "principles": {
+                "ssot": "Designed every builder to use only the DB → memory → output path via a shared loader — removing the file-cache shortcut entirely so consistency is guaranteed by architecture, not operational discipline.",
+                "snapshot": "Split outputs into volatile views and durable snapshots and defined a standard query contract (-current / -trend / -history) — absorbing time-series needs into design at the contract level.",
+                "buildless": "Chose a bundler-free CDN Vue 3 + scoped-CSS standard — a deliberate architectural trade-off that removes build-pipeline and dependency-management complexity from operations."
+            },
+            "performance": {
+                "oom": "Root-caused a full production outage (host OOM) to an architectural anti-pattern — a shared, monolithic in-memory model — and re-architected to per-domain bounded loaders, established as a design rule applied to every tab thereafter, not a one-off patch.",
+                "codec": "Identified serialization as the system throughput bottleneck and redesigned the codec strategy — cutting core-path latency several-fold (dev-measured 32.9s → 5.6s) and reclaiming capacity headroom.",
+                "cache": "Designed a service-cache layer with version-stamp invalidation — removing repeated recomputation and structurally lowering read cost (dev-measured 30s → 0.4s)."
+            },
+            "pipeline": {
+                "a": "Designed NAS ingestion as idempotent, incremental loads with per-batch failure isolation (minimized blast radius) — so one bad file never halts the whole pipeline.",
+                "b": "After a column-shift incident, introduced an ingestion contract and validation gate — a defensive design that converts silent data corruption into fail-fast.",
+                "c": "Time-separated builder scheduling with real-time observability (sub-step monitor) built in — treating operational visibility as an architectural requirement."
+            },
+            "frontend": {
+                "a": "Defined a convention that forces the View to be a shell and presentation to be components — a structural guardrail against single files owning multiple responsibilities.",
+                "b": "Standardized charts/data as client-initialized and decoupled from server outputs — letting the presentation layer evolve independently of data generation.",
+                "c": "Banned the shared monolith in favor of per-tab bounded loaders while reusing canonical formulas — a design that delivers autonomy and consistency at once."
+            },
+            "impact": {
+                "reliability": "Guaranteed data consistency by architecture rather than operational discipline — structurally removing the failure classes of file dependence, key mismatch, and format errors",
+                "performance": "Redesigned core paths to retire latency and capacity risk, and codified regression-prevention rules alongside (dev-measured)",
+                "scale": "Converged into an integrated platform running 97 tables, 36 views, and 148 scripts consistently on one source of truth",
+                "arc": "Owned — at the strategy level — the re-architecture and phased migration from a file-based monolith to a snapshot-oriented single source of truth"
+            }
+        },
+        "agent-platform": {
+            "main": "Designed an operating model to scale and govern AI-assisted engineering on top of a live production ERP. Split agent responsibility along product-domain boundaries (Conway-aligned), and established defense-in-depth safety governance plus a persistent-knowledge system that compounds across sessions — an orchestration layer built on top of Claude Code.",
+            "loc": "Role: Designer of the operating model — defined and implemented the agent org structure, governance, and knowledge architecture.",
+            "summary": {
+                "a": "Designed agent responsibility to map 1:1 onto product-domain boundaries — an org structure (Conway-aligned) that contains a change's blast radius within its domain.",
+                "b": "Defined a skill layer that routes work as identify → delegate → regression-verify — standardizing so a process, not a person, allocates work.",
+                "c": "Designed a layered persistent-knowledge system (domain, system contracts, learned feedback) so organizational knowledge compounds across sessions.",
+                "d": "Designed three-tier, defense-in-depth governance (policy, confirmation, hard block) that structurally controls the risk of irreversible and production-impacting actions."
+            },
+            "system-scale": {
+                "agents": "42 agents with per-domain responsibility boundaries — domain ownership and change isolation implemented at the org level.",
+                "skills": "16 skill routers — repeatable work standards that codify identify → delegate → verify.",
+                "memory": "59 knowledge artifacts — organizational memory layered into terms/rules (domain), system contracts (service), and learned feedback."
+            },
+            "pillars": {
+                "mapping": "Isolated responsibility via 1:1 agent-domain mapping (bounded contexts) — designing org boundaries so work in one domain doesn't spill into another.",
+                "meta": "Designed a meta-framework (agent-blueprint) that stamps out the standard system (skills + agents + knowledge + commands) for any new domain from a canonical template — making the practice itself scalable.",
+                "knowledge": "Designed a learning loop that persists feedback as knowledge — preventing recurrence of the same mistake by process, not personal memory."
+            },
+            "governance": {
+                "policy": "Continuously enforces intent-level risks that command patterns can't catch (production-data edits, mass sends) — the first line of governance.",
+                "gate": "Controls hard-to-reverse actions (commit/push, container ops, deletes) with pre-execution confirmation — inserting human approval into the workflow as a contract.",
+                "hardblock": "Blocks irreversible commands by default (force push, reset, drop, production-network access), allowing only time-boxed exceptions — a hard gate enforcing least privilege and explicit exceptions."
+            },
+            "review": {
+                "a": "Designed review to inspect only the diff in an isolated worktree — scoping review by contract.",
+                "b": "Parallelized four dedicated perspectives (intent, quality, layer, data) and integrated them — structurally removing single-viewpoint blind spots.",
+                "c": "Separated authoring from review into distinct passes (separation of duties) — categorically forbidding same-context self-approval."
+            },
+            "memory": {
+                "a": "Domain-knowledge layer — canonicalizes terms, boundaries, rules, and shared dependencies to preserve business context in the system.",
+                "b": "System-contract layer — maps the provenance of screens, APIs, DB, and response keys into architecture knowledge that can be checked against code.",
+                "c": "Learning layer — session handovers and accumulated feedback guarantee continuity of long-running work and organizational memory."
+            },
+            "impact": {
+                "velocity": "Achieved parallel, consistent execution across a large codebase at the org level via per-domain agents and process routing",
+                "safety": "Structurally controls the accident risk of production/irreversible actions through defense-in-depth governance",
+                "knowledge": "Built a learning system where organizational knowledge compounds across sessions over 59 persistent artifacts",
+                "arc": "Designed and established a self-extending engineering operating model that treats AI as a first-class actor"
             }
         }
     }

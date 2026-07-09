@@ -1,0 +1,317 @@
+<!-- RETAIL ERP RE-PLATFORM -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Retail ERP Re-Platform</title>
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+
+        <!-- Tailwind CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: "#0b1120",
+                            secondary: "#111827",
+                            accent: "#3b82f6"
+                        }
+                    }
+                }
+            }
+        </script>
+
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+    </head>
+    <body class="bg-primary text-white">
+        <section id="retail-erp-replatform" class="section-glow py-24 border-t border-slate-800">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="mb-10">
+                    <button
+                        onclick="history.back()"
+                        class="flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-700
+                            bg-secondary/40 text-sm text-slate-300 hover:bg-secondary/60 hover:text-white transition">
+                        <span class="text-sm">←</span>
+                        Back to Projects
+                    </button>
+                </div>
+
+                <!-- Header -->
+                <div class="mb-14">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20 text-xs text-slate-300 mb-6">
+                        <span class="w-2 h-2 rounded-full bg-accent"></span>
+                        Case Study • Software Architecture • Single Source of Truth
+                    </div>
+
+                    <h3 class="text-4xl font-semibold mb-4">
+                        Retail ERP Re-Platform
+                    </h3>
+
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-secondary/40 text-sm text-slate-400">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                        Enterprise • Private Repository
+                    </div>
+
+                    <p data-i18n="projects.erp-replatform.main" class="text-slate-400 mt-4 text-lg max-w-4xl leading-relaxed"></p>
+                    <p data-i18n="projects.erp-replatform.loc" class="mt-3 text-sm max-w-4xl leading-relaxed"></p>
+                </div>
+
+                <!-- Executive Summary -->
+                <div class="grid lg:grid-cols-[1.35fr,0.9fr] gap-6 mb-16">
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                        <h4 class="text-xl font-semibold mb-5">Executive Summary</h4>
+                        <div class="grid sm:grid-cols-2 gap-4 text-sm text-slate-300 leading-relaxed">
+                            <div data-i18n="projects.erp-replatform.summary.a" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                            <div data-i18n="projects.erp-replatform.summary.b" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                            <div data-i18n="projects.erp-replatform.summary.c" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                            <div data-i18n="projects.erp-replatform.summary.d" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                        </div>
+                    </div>
+
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                        <h4 class="text-xl font-semibold mb-5">Key Metrics</h4>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
+                                <div class="text-3xl font-bold text-accent mb-2">97</div>
+                                <div class="text-sm text-slate-400">PostgreSQL Tables</div>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
+                                <div class="text-3xl font-bold text-accent mb-2">~131K</div>
+                                <div class="text-sm text-slate-400">Lines of Code</div>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
+                                <div class="text-3xl font-bold text-accent mb-2">36</div>
+                                <div class="text-sm text-slate-400">Vue Views</div>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
+                                <div class="text-3xl font-bold text-accent mb-2">~77×</div>
+                                <div class="text-sm text-slate-400">Read Path Speedup</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Architecture -->
+                <div class="mb-16">
+                    <div class="flex items-center justify-between flex-wrap gap-4 mb-6">
+                        <div>
+                            <h4 class="text-2xl font-semibold mb-2">System Architecture</h4>
+                            <p class="text-slate-400">
+                                Single-source-of-truth flow: files ingest into PostgreSQL, builders read the DB, results fan out to snapshots and a build-less Vue frontend.
+                            </p>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">PostgreSQL 16</span>
+                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">FastAPI</span>
+                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Vue 3</span>
+                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Docker</span>
+                        </div>
+                    </div>
+
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/30 p-6 overflow-hidden">
+                        <div class="overflow-x-auto">
+                        <svg viewBox="0 0 1200 340" class="w-full min-w-[980px] h-auto">
+                            <g font-family="ui-sans-serif, system-ui" fill="#e2e8f0">
+                                <!-- NAS Source -->
+                                <rect x="30" y="120" width="180" height="90" rx="18" fill="rgba(17,24,39,.85)" stroke="rgba(148,163,184,.28)"/>
+                                <text x="120" y="155" text-anchor="middle" font-size="19" font-weight="600">NAS Files</text>
+                                <text x="120" y="180" text-anchor="middle" font-size="13" fill="#94a3b8">PKL · CSV</text>
+
+                                <!-- Ingest + Guard -->
+                                <rect x="270" y="120" width="200" height="90" rx="18" fill="rgba(17,24,39,.85)" stroke="rgba(148,163,184,.28)"/>
+                                <text x="370" y="150" text-anchor="middle" font-size="19" font-weight="600">Ingest Pipeline</text>
+                                <text x="370" y="175" text-anchor="middle" font-size="13" fill="#94a3b8">cron · format guard</text>
+
+                                <!-- PostgreSQL SSOT -->
+                                <rect x="530" y="110" width="230" height="110" rx="18" fill="rgba(17,24,39,.92)" stroke="#3b82f6"/>
+                                <text x="645" y="150" text-anchor="middle" font-size="20" font-weight="600">PostgreSQL 16</text>
+                                <text x="645" y="175" text-anchor="middle" font-size="13" fill="#94a3b8">Single Source of Truth</text>
+                                <text x="645" y="196" text-anchor="middle" font-size="13" fill="#60a5fa">97 tables · 5 layers</text>
+
+                                <!-- Builders -->
+                                <rect x="820" y="30" width="180" height="90" rx="18" fill="rgba(17,24,39,.85)" stroke="rgba(148,163,184,.28)"/>
+                                <text x="910" y="65" text-anchor="middle" font-size="19" font-weight="600">Builders</text>
+                                <text x="910" y="90" text-anchor="middle" font-size="13" fill="#94a3b8">db_master_loader</text>
+
+                                <!-- Snapshots -->
+                                <rect x="820" y="210" width="180" height="90" rx="18" fill="rgba(17,24,39,.85)" stroke="rgba(148,163,184,.28)"/>
+                                <text x="910" y="245" text-anchor="middle" font-size="19" font-weight="600">Snapshots</text>
+                                <text x="910" y="270" text-anchor="middle" font-size="13" fill="#94a3b8">time-series</text>
+
+                                <!-- Vue Frontend -->
+                                <rect x="1030" y="120" width="150" height="90" rx="18" fill="rgba(17,24,39,.85)" stroke="rgba(148,163,184,.28)"/>
+                                <text x="1105" y="155" text-anchor="middle" font-size="19" font-weight="600">Vue 3</text>
+                                <text x="1105" y="180" text-anchor="middle" font-size="13" fill="#94a3b8">36 views</text>
+                            </g>
+
+                            <!-- Wires -->
+                            <path d="M210 165 L270 165" stroke="#3b82f6" stroke-width="3" fill="none"/>
+                            <path d="M470 165 L530 165" stroke="#3b82f6" stroke-width="3" fill="none"/>
+                            <path d="M760 150 C795 150 795 75 820 75" stroke="#3b82f6" stroke-width="3" fill="none"/>
+                            <path d="M760 180 C795 180 795 255 820 255" stroke="#3b82f6" stroke-width="3" fill="none"/>
+                            <path d="M1000 75 C1105 75 1105 120 1105 120" stroke="#3b82f6" stroke-width="3" fill="none"/>
+                            <path d="M1000 255 C1105 255 1105 210 1105 210" stroke="#3b82f6" stroke-width="3" fill="none"/>
+
+                            <text x="645" y="255" text-anchor="middle" font-size="13" fill="#60a5fa">Raw → Cleansed → Marts → Snapshot → Outputs</text>
+                        </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- System Scale -->
+                <div class="mb-16">
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                        <h4 class="text-2xl font-semibold mb-5">Scope & Ownership</h4>
+                        <div class="grid lg:grid-cols-3 gap-4 text-slate-300 text-sm leading-relaxed">
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-slate-200 font-semibold mb-2">Codebase</div>
+                                <p data-i18n="projects.erp-replatform.system-scale.codebase" class="text-slate-400"></p>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-slate-200 font-semibold mb-2">Database</div>
+                                <p data-i18n="projects.erp-replatform.system-scale.database" class="text-slate-400"></p>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-slate-200 font-semibold mb-2">Surface Area</div>
+                                <p data-i18n="projects.erp-replatform.system-scale.surface" class="text-slate-400"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Platform Principles -->
+                <div class="mb-16">
+                    <h4 class="text-2xl font-semibold mb-6">Data Platform Principles</h4>
+                    <div class="grid lg:grid-cols-3 gap-6">
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
+                            <div class="text-slate-200 font-semibold mb-3">Single Source of Truth</div>
+                            <p data-i18n="projects.erp-replatform.principles.ssot" class="text-slate-400 text-sm leading-relaxed"></p>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
+                            <div class="text-slate-200 font-semibold mb-3">Snapshot Time-Series</div>
+                            <p data-i18n="projects.erp-replatform.principles.snapshot" class="text-slate-400 text-sm leading-relaxed"></p>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
+                            <div class="text-slate-200 font-semibold mb-3">Build-less Frontend</div>
+                            <p data-i18n="projects.erp-replatform.principles.buildless" class="text-slate-400 text-sm leading-relaxed"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Performance Optimization -->
+                <div class="mb-16">
+                    <h4 class="text-2xl font-semibold mb-6">Performance Engineering</h4>
+                    <div class="grid lg:grid-cols-3 gap-6">
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
+                            <div class="text-slate-200 font-semibold mb-3">Host OOM Root-Cause & Isolation</div>
+                            <p data-i18n="projects.erp-replatform.performance.oom" class="text-slate-400 text-sm leading-relaxed"></p>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
+                            <div class="text-slate-200 font-semibold mb-3">Serialization Codec Swap</div>
+                            <p data-i18n="projects.erp-replatform.performance.codec" class="text-slate-400 text-sm leading-relaxed"></p>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
+                            <div class="text-slate-200 font-semibold mb-3">Service-Level Cache (~77×)</div>
+                            <p data-i18n="projects.erp-replatform.performance.cache" class="text-slate-400 text-sm leading-relaxed"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ingest + Frontend -->
+                <div class="grid lg:grid-cols-2 gap-6 mb-16">
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                        <h4 class="text-2xl font-semibold mb-5">Ingest Pipeline & Guardrails</h4>
+                        <div class="space-y-4 text-sm text-slate-400 leading-relaxed">
+                            <div data-i18n="projects.erp-replatform.pipeline.a" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                            <div data-i18n="projects.erp-replatform.pipeline.b" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                            <div data-i18n="projects.erp-replatform.pipeline.c" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                        </div>
+                    </div>
+
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                        <h4 class="text-2xl font-semibold mb-5">Frontend Standard (dev-blueprint)</h4>
+                        <div class="space-y-4 text-sm text-slate-400 leading-relaxed">
+                            <div data-i18n="projects.erp-replatform.frontend.a" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                            <div data-i18n="projects.erp-replatform.frontend.b" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                            <div data-i18n="projects.erp-replatform.frontend.c" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tech Stack -->
+                <div class="mb-16">
+                    <h4 class="text-2xl font-semibold mb-6">Technology Stack</h4>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                            <div class="text-slate-200 font-semibold mb-3">Frontend</div>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Vue 3 (CDN)</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Chart.js</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">ES Modules</span>
+                            </div>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                            <div class="text-slate-200 font-semibold mb-3">Backend</div>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">FastAPI</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Python</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">SQLAlchemy</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">orjson</span>
+                            </div>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                            <div class="text-slate-200 font-semibold mb-3">Data</div>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">PostgreSQL 16</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Snapshot Tables</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Partition / Index</span>
+                            </div>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                            <div class="text-slate-200 font-semibold mb-3">Pipeline & Ops</div>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Docker Compose</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">cron</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">NAS Sync</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Impact -->
+                <div>
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                        <h4 class="text-2xl font-semibold mb-5">Impact</h4>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-accent font-semibold mb-2">Reliability</div>
+                                <p data-i18n="projects.erp-replatform.impact.reliability" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-accent font-semibold mb-2">Performance</div>
+                                <p data-i18n="projects.erp-replatform.impact.performance" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-accent font-semibold mb-2">Scale</div>
+                                <p data-i18n="projects.erp-replatform.impact.scale" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-accent font-semibold mb-2">Architecture</div>
+                                <p data-i18n="projects.erp-replatform.impact.arc" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <script src="/src/main.js"></script>
+    </body>
+</html>
