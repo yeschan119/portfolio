@@ -314,16 +314,17 @@ function initCounter() {
 
       document.querySelectorAll(".counter").forEach(counter => {
         const target = Number(counter.dataset.target || 0);
+        const suffix = counter.dataset.suffix || "";
         let current = 0;
         const step = Math.max(1, Math.floor(target / 80));
 
         const tick = () => {
           current += step;
           if (current >= target) {
-            counter.innerText = target;
+            counter.innerText = target + suffix;
             return;
           }
-          counter.innerText = current;
+          counter.innerText = current + suffix;
           requestAnimationFrame(tick);
         };
 
