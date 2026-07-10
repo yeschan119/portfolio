@@ -1,0 +1,6 @@
+# OMC / local tooling
+.omc/
+llm/
+
+# OS
+.DS_Store

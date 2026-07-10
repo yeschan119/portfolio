@@ -168,23 +168,36 @@
               </div>
 
               <!-- CTA buttons -->
-              <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-4 pt-1 w-full sm:w-auto font-mono-custom">
-                  <a href="#projects" class="btn-primary-neu group flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-bold w-full sm:w-auto min-h-[44px]">
-                      <span>View Projects</span>
+              <div class="flex flex-col items-center lg:items-start gap-3 pt-1 w-full sm:w-auto font-mono-custom">
+                  <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-4 w-full sm:w-auto">
+                      <a href="#projects" class="btn-primary-neu group flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-bold w-full sm:w-auto min-h-[44px]">
+                          <span>View Projects</span>
+                          <span class="transition-transform group-hover:translate-x-1">›</span>
+                      </a>
+                      <button type="button" id="openResume" class="btn-secondary-neu flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold w-full sm:w-auto min-h-[44px] cursor-pointer">
+                          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h6"/></svg>
+                          <span>Resume</span>
+                      </button>
+                  </div>
+
+                  <!-- AI chat CTA: below View Projects, clearly clickable -->
+                  <button type="button" id="openChat"
+                      class="group inline-flex items-center justify-center gap-2 rounded-full border border-accent/40 bg-accent/[0.07] px-5 py-2.5 text-sm font-semibold text-accent hover:bg-accent/15 hover:border-accent hover:-translate-y-0.5 transition-all cursor-pointer w-full sm:w-auto min-h-[44px]"
+                      style="box-shadow: var(--neu-sm)">
+                      <span class="relative flex h-2 w-2">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-70"></span>
+                          <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+                      </span>
+                      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                      <span data-i18n="ai-button"></span>
                       <span class="transition-transform group-hover:translate-x-1">›</span>
-                  </a>
-                  <a href="#architecture" class="btn-secondary-neu flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold w-full sm:w-auto min-h-[44px]">
-                      <span>Architecture Diagram</span>
-                  </a>
-                  <button id="openChat" data-i18n="ai-button"
-                      class="flex items-center justify-center gap-2 text-slate-400 hover:text-accent transition-colors text-sm font-semibold w-full sm:w-auto min-h-[44px]">
                   </button>
               </div>
           </div>
 
           <!-- RIGHT COLUMN: orbit avatar -->
           <div class="relative z-10 flex flex-col items-center justify-center max-w-sm mx-auto w-full gap-4">
-              <div class="orbit-container relative flex items-center justify-center w-[330px] h-[330px] sm:w-[420px] sm:h-[420px] mx-auto select-none my-6">
+              <div class="orbit-container relative flex items-center justify-center w-[290px] h-[290px] sm:w-[350px] sm:h-[350px] mx-auto select-none my-6">
                   <!-- Central Avatar -->
                   <div class="relative z-20 group p-1.5">
                       <div class="absolute -inset-1 rounded-full bg-accent-deep/20 opacity-25 blur-lg transition duration-700 group-hover:opacity-45"></div>
@@ -441,13 +454,18 @@
           <div class="timeline pl-12">
             <div id="timelineProgress" class="timeline-progress"></div>
             <!-- Item 1 -->
-            <div class="relative pb-16 t-item">
+            <div class="relative pb-8 t-item">
               <div class="t-node" style="top: 4px;"></div>
 
-              <div class="bg-secondary/40 border border-slate-700/70 rounded-2xl p-6 card">
+              <div class="bg-secondary/40 border border-slate-700/70 rounded-2xl p-6 card relative">
+                <!-- live "Present" indicator light (top-left) -->
+                <span class="absolute -top-1.5 -left-1.5 flex h-3.5 w-3.5">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-70"></span>
+                  <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-accent" style="box-shadow:0 0 10px 2px rgba(0,180,216,.85)"></span>
+                </span>
                 <div class="flex justify-between flex-wrap gap-2">
                   <h4 class="text-xl font-semibold">Senior Software Engineer</h4>
-                  <span class="text-sm text-slate-400">May 2026 – Present</span>
+                  <span class="text-sm text-slate-400">2026.05 – Present</span>
                 </div>
 
                 <div class="text-accent text-sm mt-1 mb-4">
@@ -464,7 +482,7 @@
 
             <!-- Item 2 -->
             <a href="https://www.kokomo247.com/" target="_blank" class="block">
-              <div class="relative pb-16 t-item cursor-pointer">
+              <div class="relative pb-8 t-item cursor-pointer">
                 <div class="t-node" style="top: 4px;"></div>
 
                 <div class="bg-secondary/40 border border-slate-700/70 rounded-2xl p-6 card hover:border-accent transition">
@@ -490,7 +508,7 @@
 
             <!-- Item 3 -->
             <a href="https://www.tmaxtibero.com/" target="_blank" class="block">
-              <div class="relative pb-16 t-item">
+              <div class="relative pb-8 t-item">
                 <div class="t-node" style="top: 4px;"></div>
                 <div class="bg-secondary/40 border border-slate-700/70 rounded-2xl p-6 card">
                   <div class="flex justify-between flex-wrap gap-2">
@@ -598,7 +616,7 @@
                   </div>
                 </div>
               </div>
-              <p data-i18n="peer-kokomo" class="text-base md:text-xl text-slate-200 leading-relaxed"></p>
+              <p data-i18n="peer-kokomo" class="text-sm md:text-lg text-slate-200 leading-relaxed"></p>
             </div>
 
             <!-- Slide 2 -->
@@ -637,7 +655,7 @@
                 </div>
               </div>
 
-              <p data-i18n="peer-tmax" class="text-base md:text-xl text-slate-200 leading-relaxed"></p>
+              <p data-i18n="peer-tmax" class="text-sm md:text-lg text-slate-200 leading-relaxed"></p>
             </div>
           </div>
         </div>
@@ -1480,6 +1498,73 @@
       })();
     </script>
   </section>
+
+  <!-- RESUME VIEWER -->
+  <div id="resumeOverlay" class="fixed inset-0 z-[60] hidden opacity-0 transition-opacity duration-300 bg-black/60 backdrop-blur-sm">
+    <div class="absolute inset-0 flex items-center justify-center p-4">
+      <div id="resumePanel" class="flex flex-col w-full max-w-4xl h-[88vh] rounded-2xl overflow-hidden border border-white/10 bg-primary scale-95 transition-transform duration-300"
+           style="box-shadow: var(--neu-raised)">
+        <!-- header -->
+        <div class="flex items-center justify-between gap-3 px-4 py-3 border-b border-white/5">
+          <div class="flex items-center gap-2">
+            <svg class="h-4 w-4 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+            <span class="text-sm font-bold text-white font-mono-custom">Resume</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <a href="docs/Resume.pdf" download="Eungchan_Kang_Resume.pdf"
+               class="btn-primary-neu flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-bold font-mono-custom">
+              <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
+              <span>Download</span>
+            </a>
+            <button type="button" id="closeResume" aria-label="Close"
+              class="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-slate-950/40 text-slate-300 hover:text-white hover:border-accent/40 transition cursor-pointer">✕</button>
+          </div>
+        </div>
+        <!-- PDF viewer -->
+        <iframe id="resumeFrame" title="Resume" class="flex-1 w-full bg-white" src="about:blank"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Resume viewer: open on the hero "Resume" button, download via the panel's Download button -->
+  <script>
+    (function () {
+      const RESUME_URL = "docs/Resume.pdf";
+      const openBtn = document.getElementById("openResume");
+      const overlay = document.getElementById("resumeOverlay");
+      const panel = document.getElementById("resumePanel");
+      const frame = document.getElementById("resumeFrame");
+      const closeBtn = document.getElementById("closeResume");
+      if (!openBtn || !overlay) return;
+
+      function open() {
+        // load the PDF only when opened
+        frame.src = RESUME_URL + "#view=FitH&toolbar=1";
+        overlay.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+        requestAnimationFrame(() => {
+          overlay.classList.remove("opacity-0");
+          panel.classList.remove("scale-95");
+        });
+      }
+      function close() {
+        overlay.classList.add("opacity-0");
+        panel.classList.add("scale-95");
+        document.body.style.overflow = "";
+        setTimeout(() => {
+          overlay.classList.add("hidden");
+          frame.src = "about:blank"; // unload the PDF
+        }, 300);
+      }
+
+      openBtn.addEventListener("click", open);
+      closeBtn.addEventListener("click", close);
+      overlay.addEventListener("click", (e) => { if (e.target === overlay || e.target === overlay.firstElementChild) close(); });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && !overlay.classList.contains("hidden")) close();
+      });
+    })();
+  </script>
 
   <footer class="py-10 text-center text-slate-600 text-sm border-t border-slate-800">
     © 2026 Eungchan Kang

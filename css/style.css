@@ -518,9 +518,10 @@ h1, h2, h3, h4, h5, h6 { letter-spacing: .04em; }
     background-image: radial-gradient(rgba(255,255,255,.9) 1px, transparent 1px);
     background-size: 32px 32px;
 }
-/* keep all real content above the canvas */
-header, section, footer, #chatOverlay { position: relative; z-index: 10; }
-#chatOverlay { z-index: 50; }
+/* keep all real content above the canvas.
+   NOTE: do NOT include #chatOverlay here — it must keep its Tailwind
+   `position: fixed` so the chat opens as a centered full-screen overlay. */
+header, section, footer { position: relative; z-index: 10; }
 
 /* --- Custom scrollbar --- */
 ::-webkit-scrollbar { width: 8px; }

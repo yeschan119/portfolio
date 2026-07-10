@@ -30,7 +30,7 @@
     "skill-lang": "각 언어에 커서를 올리면 언어 활용 경험을 확인할 수 있습니다.",
     "work": {
         "koclo1": "• 의류 판매, 재고, 발주, 정산, 매장 운영 흐름을 하나의 의류 유통 관리 시스템으로 설계 및 자동화",
-        "koclo2": "• 의류회사 시스템에 Software Architecture 원칙을 적용하여 도메인, API, 데이터, 배포 계층을 분리해 구현",
+        "koclo2": "• 의류회사 시스템에 Software Architecture 원칙을 적용하여 도메인, API, 데이터, 배포 계층을 분리",
         "koclo3": "• AI Agent 기반으로 시스템 조회, 제어, 자동화 작업을 연결해 운영자가 소프트웨어를 더 직접적으로 컨트롤할 수 있는 환경 구축",
         "aiworkx1": "• GPU가 없는 edge 장치에서 Obj트ect dection을 수행할 수 있는 모델 개발",
         "aiworkx2": "• Image annotation & segmentation model 개발 및 제품화(OpenCV)",
@@ -38,7 +38,7 @@
         "tmax2": "• SQL Tuning Advisor 모듈을 구현 및 SPM(실행 계획 관리 기능)을 개발",
         "tmax3": "• 기업 및 금융권 고객을 대상으로 SQL 튜닝 및 DBA 기술 지원",
         "kokomo1": "• 다양한 client들을 위한 Large-scale SaaS 아키텍처 설계 및 구현",
-        "kokomo2": "• Front-end(Dashboard) → Back-end(API) → Cloud(AWS) → DB까지 end-to-end로 구축 및 운영",
+        "kokomo2": "• 프레젠테이션, 애플리케이션, 인프라, 데이터 계층으로 구성된 Layered Architecture를 설계하고 구축",
         "kokomo3": "• System(DB/Backend) 성능 최적화를 통해 약 30%의 성능 개선 달성"
     },
 

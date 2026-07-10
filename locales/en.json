@@ -36,9 +36,9 @@
         "tmax1": "• Owned and enhanced the database statistics collection module",
         "tmax2": "• Implemented the SQL Tuning Advisor module and developed SPM (SQL Plan Management)",
         "tmax3": "• Provided SQL tuning and DBA technical support for enterprise and financial sector clients",
-        "kokomo1": "• Designed and implemented large-scale SaaS architectures for multiple clients",
-        "kokomo2": "• Built and operated end-to-end systems from Front-end (Dashboard) → Back-end (API) → Cloud (AWS) → Database",
-        "kokomo3": "• Achieved ~30% performance improvement through system (DB/Backend) optimization"
+        "kokomo1": "• Designed and implemented large-scale SaaS architectures for multiple clients.",
+        "kokomo2": "• Architected and delivered an end-to-end layered platform across the presentation, application, infrastructure, and data layers.",
+        "kokomo3": "• Achieved ~30% performance improvement through system (DB/Backend) optimization."
     },
 
     "peer-kokomo": "Eungchan is an engineer capable of delivering end-to-end systems, from cloud architecture design to full-stack web development. His deep expertise in databases enables him to make strong contributions to system performance and scalability.",
