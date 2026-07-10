@@ -465,3 +465,453 @@ html {
         opacity: 0.2;
     }
 }
+/* =========================================================
+    REFERENCE DESIGN SYSTEM (dark neumorphic · cyan)
+    Ported from hassan-ali-portfolio to reskin this site.
+========================================================= */
+:root {
+    --bg: #1a1a2e;
+    --accent: #00b4d8;        /* cyan  (secondary-accent) */
+    --accent-deep: #023e8a;   /* deep blue (primary-accent) */
+    --muted: rgba(255,255,255,.6);
+    --neu-raised: 6px 6px 12px rgba(0,0,0,.5), -6px -6px 12px rgba(255,255,255,.05);
+    --neu-inset:  inset 6px 6px 12px rgba(0,0,0,.5), inset -6px -6px 12px rgba(255,255,255,.05);
+    --neu-sm:     4px 4px 8px rgba(0,0,0,.4), -4px -4px 8px rgba(255,255,255,.04);
+    --neu-glow:   0 0 12px rgba(2,62,138,.4);
+}
+
+body {
+    background-color: var(--bg);
+    font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 { letter-spacing: .04em; }
+
+.font-mono-custom { font-family: 'Courier New', Courier, monospace; }
+
+/* --- Background layers --- */
+#constellation {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+    display: block;
+}
+.ambient-glows {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at top left, rgba(0,180,216,.10), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(2,62,138,.12), transparent 55%);
+}
+.ambient-dots {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: .04;
+    background-image: radial-gradient(rgba(255,255,255,.9) 1px, transparent 1px);
+    background-size: 32px 32px;
+}
+/* keep all real content above the canvas */
+header, section, footer, #chatOverlay { position: relative; z-index: 10; }
+#chatOverlay { z-index: 50; }
+
+/* --- Custom scrollbar --- */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #12122099; }
+::-webkit-scrollbar-thumb { background: #2a2a4a; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-deep); }
+
+/* --- Navigation glass --- */
+.nav-glass {
+    background: rgba(26,26,46,.8) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: var(--neu-sm);
+}
+
+/* =========================================================
+    Neumorphic cards / pills (map onto existing utilities)
+========================================================= */
+/* Raised cards: any rounded-2xl block filled with the card colour */
+section [class*="bg-secondary"][class*="rounded-2xl"],
+.card, .project-card {
+    background-color: var(--bg) !important;
+    border: 1px solid rgba(255,255,255,.05) !important;
+    box-shadow: var(--neu-raised);
+    transition: all .3s ease;
+}
+/* Recessed sub-cards */
+section [class*="bg-primary/30"][class*="rounded-2xl"] {
+    background-color: var(--bg) !important;
+    border: 1px solid rgba(255,255,255,.04) !important;
+    box-shadow: var(--neu-inset);
+}
+/* Card hover glow */
+.card:hover, .project-card:hover,
+section [class*="bg-secondary"][class*="rounded-2xl"]:hover {
+    transform: translateY(-4px);
+    border-color: rgba(2,62,138,.35) !important;
+    box-shadow: var(--neu-glow), var(--neu-raised);
+}
+
+/* Pills / tags: rounded-full chips filled with the card colour */
+[class*="bg-secondary"][class*="rounded-full"],
+.skill-item {
+    background-color: var(--bg) !important;
+    border: 1px solid rgba(255,255,255,.05) !important;
+    box-shadow: var(--neu-sm) !important;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgba(255,255,255,.9);
+    transition: all .3s ease;
+}
+[class*="bg-secondary"][class*="rounded-full"]:hover,
+.skill-item:hover {
+    color: var(--accent) !important;
+    border-color: rgba(2,62,138,.4) !important;
+    box-shadow: var(--neu-glow), var(--neu-sm) !important;
+}
+
+/* =========================================================
+    Section headings — accent underline bar
+========================================================= */
+section h3 { color: #fff; position: relative; }
+section h3::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    margin-top: 14px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, var(--accent-deep), var(--accent));
+}
+.text-center h3::after,
+#contact h3::after { margin-left: auto; margin-right: auto; }
+
+/* =========================================================
+    HERO recolor + reference elements
+========================================================= */
+.hero-bg {
+    background:
+        radial-gradient(1200px 700px at 50% 25%, rgba(0,180,216,.14), transparent 60%),
+        linear-gradient(-45deg, #14142a, #1a1a2e, #131327, #20203a);
+    background-size: 100% 100%, 400% 400%;
+    animation: gradientMove 14s ease infinite;
+}
+.home__title--name {
+    display: inline-block;
+    background: linear-gradient(90deg, #00b4d8, #90e0ef);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* room for descenders (g, y) so the gradient text isn't clipped at the bottom */
+    line-height: 1.35;
+    padding-bottom: .12em;
+}
+.ti-cursor { color: var(--accent); }
+.hero-grid::before {
+    background:
+        repeating-linear-gradient(0deg, rgba(0,180,216,.12) 0 1px, transparent 1px 36px),
+        repeating-linear-gradient(90deg, rgba(0,180,216,.10) 0 1px, transparent 1px 36px);
+}
+.hero-grid::after {
+    background: radial-gradient(circle at 50% 30%, rgba(0,180,216,.18), transparent 55%);
+}
+
+.scanlines { position: relative; }
+.scanlines::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(0deg, rgba(0,180,216,.015) 0px, rgba(0,180,216,.015) 1px, transparent 1px, transparent 2px);
+    pointer-events: none;
+    z-index: 5;
+}
+
+@keyframes subtle-pulse {
+    0%,100% { opacity:.3; transform:scale(1); }
+    50%     { opacity:.5; transform:scale(1.05); }
+}
+.animate-pulse-glow { animation: subtle-pulse 8s infinite ease-in-out; }
+
+/* Hero pill / stats / focus banner */
+.pill-neu {
+    background-color: var(--bg);
+    border: 1px solid rgba(255,255,255,.05);
+    box-shadow: var(--neu-sm);
+}
+.stat-neu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    padding: 10px 16px;
+    border-radius: 16px;
+    background-color: var(--bg);
+    border: 1px solid rgba(255,255,255,.05);
+    box-shadow: var(--neu-raised);
+    min-width: 120px;
+}
+.focus-banner {
+    background-color: var(--bg);
+    border: 1px solid rgba(255,255,255,.05);
+    box-shadow: var(--neu-raised);
+}
+
+/* Hero CTA buttons */
+.btn-primary-neu {
+    background-color: var(--accent-deep);
+    color: #fff;
+    box-shadow: var(--neu-sm);
+    border: 1px solid transparent;
+    transition: all .3s ease;
+}
+.btn-primary-neu:hover {
+    box-shadow: var(--neu-inset), 0 0 10px rgba(2,62,138,.5);
+    transform: translateY(-1px);
+}
+.btn-secondary-neu {
+    color: var(--accent);
+    background: transparent;
+    border: 1px solid var(--accent-deep);
+    box-shadow: var(--neu-sm);
+    transition: all .3s ease;
+}
+.btn-secondary-neu:hover {
+    box-shadow: var(--neu-inset);
+    background-color: rgba(2,62,138,.1);
+}
+
+/* Avatar + orbit */
+.avatar-ring {
+    background-color: var(--bg);
+    box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px rgba(2,62,138,.6);
+}
+.avatar-scan {
+    position: absolute;
+    left: 0; right: 0; top: 0%;
+    height: 4px;
+    background: linear-gradient(to right, transparent, var(--accent), transparent);
+    opacity: .7;
+    animation: avatarScan 4s infinite linear;
+}
+@keyframes avatarScan { 0%,100% { top: 0%; } 50% { top: 100%; } }
+
+.orbit-slot { position: absolute; inset: 0; pointer-events: none; }
+.orbit-cell { position: absolute; top: 0; left: 50%; pointer-events: auto; z-index: 30; }
+.orbit-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+    border-radius: 9999px;
+    background-color: var(--bg);
+    border: 1px solid rgba(255,255,255,.05);
+    box-shadow: var(--neu-sm);
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #e2e8f0;
+    font-family: 'Courier New', Courier, monospace;
+    transition: all .3s ease;
+}
+.orbit-badge:hover {
+    color: var(--accent);
+    border-color: rgba(0,180,216,.3);
+    transform: scale(1.1);
+}
+@keyframes orbit-rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes orbit-rotate-reverse { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
+.orbit-spin { animation: orbit-rotate 25s linear infinite; }
+.orbit-spin-reverse { animation: orbit-rotate-reverse 25s linear infinite; }
+.orbit-container:hover .orbit-spin,
+.orbit-container:hover .orbit-spin-reverse { animation-play-state: paused; }
+
+/* =========================================================
+    Recolour existing blue accents -> cyan/deep-blue
+========================================================= */
+.section-glow::before {
+    box-shadow:
+        0 0 0 1px rgba(0,180,216,.08),
+        0 0 40px rgba(0,180,216,.06),
+        0 0 80px rgba(2,62,138,.05);
+}
+.timeline::before {
+    background: linear-gradient(to bottom, rgba(0,180,216,0), rgba(0,180,216,.55), rgba(0,180,216,0));
+}
+.timeline-progress {
+    background: linear-gradient(to bottom, rgba(0,180,216,.25), rgba(0,180,216,.95));
+    box-shadow: 0 0 18px rgba(0,180,216,.3);
+}
+.t-node {
+    background: var(--bg);
+    border: 2px solid rgba(0,180,216,.9);
+    box-shadow: 0 0 0 6px rgba(2,62,138,.15);
+}
+.filter-btn { transition: all .25s ease; }
+.filter-btn[aria-pressed="true"] {
+    background: rgba(2,62,138,.2);
+    border-color: rgba(0,180,216,.55);
+    color: #cfeffb;
+    box-shadow: var(--neu-glow), var(--neu-sm);
+}
+.tooltip-box {
+    background: rgba(26,26,46,.92);
+    border: 1px solid rgba(255,255,255,.08);
+    box-shadow: var(--neu-raised);
+}
+.tooltip-arrow {
+    background: rgba(26,26,46,.92);
+    border-right: 1px solid rgba(255,255,255,.08);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+/* AI chat recolor */
+#chatOverlay { background: rgba(20,20,40,.96); }
+#splitTop, #splitBottom { background: var(--bg); }
+#chatBox { background: var(--bg); border: 1px solid rgba(255,255,255,.06); box-shadow: var(--neu-raised); }
+.chat-user > div { background: var(--accent-deep); }
+.chat-ai > div:not(.typing-indicator) { background: var(--bg); border: 1px solid rgba(255,255,255,.08); }
+.ai-markdown h2 { color: var(--accent); }
+
+/* =========================================================
+    Architecture SVG recolour (blue -> cyan palette)
+========================================================= */
+#architecture svg [stroke="#3b82f6"] { stroke: var(--accent); }
+#architecture svg [stroke="#60a5fa"] { stroke: #48cae4; }
+#architecture svg [fill="#3b82f6"]  { fill: var(--accent); }
+#architecture svg [stop-color="#3b82f6"] { stop-color: var(--accent); }
+#architecture svg text[fill="#3b82f6"] { fill: var(--accent); }
+
+/* Footer stays subtle on the dark field */
+footer { color: rgba(255,255,255,.35); border-color: rgba(255,255,255,.05); }
+
+/* =========================================================
+    Contact form + gradient accent
+========================================================= */
+.grad-accent {
+    background: linear-gradient(90deg, var(--accent-deep), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+/* keep the underline bar visible under gradient headings */
+#contact h3 { color: #fff; }
+
+.contact-input {
+    width: 100%;
+    border-radius: 16px;
+    background-color: var(--bg);
+    box-shadow: var(--neu-inset);
+    padding: 12px 16px;
+    font-size: 14px;
+    color: #fff;
+    outline: none;
+    border: 2px solid transparent;
+    transition: all .3s ease;
+}
+.contact-input::placeholder { color: rgba(255,255,255,.25); }
+.contact-input:focus { border-bottom-color: var(--accent); }
+.contact-input.invalid { border-color: rgba(239,68,68,.55); }
+
+.contact-node {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 16px;
+    background-color: var(--bg);
+    border: 1px solid rgba(255,255,255,.05);
+    box-shadow: var(--neu-sm);
+    transition: all .3s ease;
+}
+.contact-node:hover {
+    box-shadow: var(--neu-inset);
+    border-color: rgba(2,62,138,.4);
+}
+.contact-node .ico {
+    display: flex;
+    padding: 8px;
+    border-radius: 12px;
+    background: rgba(2,62,138,.12);
+    color: var(--accent);
+    transition: all .3s ease;
+}
+.contact-node:hover .ico { background: var(--accent-deep); color: #fff; }
+
+/* =========================================================
+    Projects: scrollable viewport (~3 rows), custom scrollbar
+========================================================= */
+.projects-scroll {
+    max-height: 660px;
+    overflow-y: auto;
+    padding: 4px 10px 4px 4px;
+    /* soft fade at the bottom to hint more content */
+    -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 40px), transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 calc(100% - 40px), transparent 100%);
+}
+.projects-scroll .project-card {
+    min-height: 176px;
+    display: flex;
+    flex-direction: column;
+}
+.projects-scroll::-webkit-scrollbar { width: 8px; }
+.projects-scroll::-webkit-scrollbar-track { background: transparent; }
+.projects-scroll::-webkit-scrollbar-thumb { background: #2a2a4a; border-radius: 4px; }
+.projects-scroll::-webkit-scrollbar-thumb:hover { background: var(--accent-deep); }
+
+/* =========================================================
+    Hero: remove the gradient/grid backdrop so the top section
+    matches the others (the constellation field shows through).
+    Keep the .hero-bg class — main.js observes it to fire the
+    stat counters.
+========================================================= */
+.hero-bg {
+    background: transparent !important;
+    animation: none !important;
+}
+.hero-grid-wrap { display: none !important; }
+.scanlines::after { display: none !important; }
+
+/* =========================================================
+    Clearer section separation
+    The default slate-800 top borders are almost invisible on the
+    navy constellation field. Replace them with a glowing cyan
+    gradient divider + a soft center node so each section reads
+    as its own block (without adding heavy panel backgrounds).
+========================================================= */
+section.border-t,
+footer.border-t {
+    border-top: 1px solid transparent !important;
+    border-image: linear-gradient(
+        to right,
+        transparent 6%,
+        rgba(0,180,216,.10) 20%,
+        rgba(0,180,216,.55) 50%,
+        rgba(0,180,216,.10) 80%,
+        transparent 94%) 1 !important;
+    position: relative;
+}
+
+/* Glowing node centered on the divider */
+section.border-t::after,
+footer.border-t::after {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 7px;
+    height: 7px;
+    border-radius: 9999px;
+    background: var(--accent);
+    box-shadow: 0 0 10px 2px rgba(0,180,216,.6);
+    pointer-events: none;
+    z-index: 2;
+}
+

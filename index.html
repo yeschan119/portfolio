@@ -6,6 +6,11 @@
   <title>Eungchan Kang | Full-Stack & Data Platform Engineer</title>
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 
+  <!-- Poppins (headings/body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -13,9 +18,13 @@
         theme: {
           extend: {
             colors: {
-              primary: "#0b1120",
-              secondary: "#111827",
-              accent: "#3b82f6"
+              primary: "#1a1a2e",       // page background
+              secondary: "#222241",     // card fill (separated by neumorphic shadow)
+              accent: "#00b4d8",        // secondary-accent (cyan)
+              "accent-deep": "#023e8a"  // primary-accent (deep blue)
+          },
+            fontFamily: {
+              sans: ['Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif']
           }
         }
       }
@@ -24,18 +33,28 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/highlight.js/lib/common.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
 </head>
 
 <body class="bg-primary text-slate-200 font-sans">
+  <!-- Animated constellation background -->
+  <canvas id="constellation" aria-hidden="true"></canvas>
+  <!-- High-tech ambient gradients -->
+  <div class="ambient-glows" aria-hidden="true"></div>
+  <!-- Tech dot grid pattern -->
+  <div class="ambient-dots" aria-hidden="true"></div>
+
   <!-- NAVBAR -->
-  <header class="fixed w-full backdrop-blur-md bg-primary/70 border-b border-slate-800 z-50">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center">
+  <header class="nav-glass fixed w-full border-b border-white/5 z-50">
+    <div class="max-w-6xl mx-auto px-6 h-[72px] flex items-center">
 
         <!-- LEFT -->
-        <h1 class="text-lg font-semibold tracking-wide">
-            Eungchan Kang
-        </h1>
+        <div class="leading-tight">
+            <h1 class="text-base font-bold tracking-wide text-white">
+                Eungchan Kang
+            </h1>
+            <span class="text-xs text-accent font-semibold font-mono-custom">Full-Stack &amp; Data Platform</span>
+        </div>
 
         <!-- RIGHT GROUP -->
         <div class="ml-auto flex items-center gap-8">
@@ -82,7 +101,7 @@
 
     <!-- Mobile Menu -->
     <div id="mobileMenu"
-        class="md:hidden hidden border-t border-slate-800 bg-primary/85 backdrop-blur-md">
+        class="md:hidden hidden border-t border-white/5 nav-glass">
         <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-3 text-sm">
 
             <a href="#about" class="hover:text-accent transition">About</a>
@@ -109,50 +128,104 @@
   </header>
 
   <!-- HERO -->
-  <section class="section-glow relative min-h-screen flex items-center justify-center text-center px-6 hero-bg pt-24">
+  <section class="hero-bg scanlines relative min-h-screen flex flex-col justify-center overflow-hidden px-6 pt-28 pb-16">
       <!-- 3D grid background -->
       <div class="hero-grid-wrap">
           <div class="hero-grid"></div>
       </div>
 
-      <div class="relative max-w-4xl fade-in">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20 text-xs text-slate-300 mb-6">
-              <span class="w-2 h-2 rounded-full bg-accent"></span>
+      <!-- ambient hero glows -->
+      <div class="pointer-events-none absolute -top-40 left-1/4 h-[400px] w-[400px] rounded-full bg-accent-deep/10 blur-[120px] animate-pulse-glow"></div>
+      <div class="pointer-events-none absolute -bottom-40 right-1/4 h-[400px] w-[400px] rounded-full bg-accent-deep/10 blur-[120px] animate-pulse-glow" style="animation-delay:2s"></div>
+
+      <div class="relative mx-auto max-w-6xl w-full z-10">
+        <div class="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center fade-in">
+
+          <!-- LEFT COLUMN -->
+          <div class="space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start">
+              <div class="inline-flex items-center gap-2 rounded-full pill-neu px-3.5 py-1.5 text-xs font-semibold text-accent font-mono-custom">
+                  <span class="w-2 h-2 rounded-full bg-accent"></span>
                   Full-Stack • Cloud • Data Platform • DB Performance
-          </div>
-          <h2 class="home__title--name text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold leading-tight mb-6"></h2>
-          <p data-i18n="hero_desc" class="text-lg text-slate-300/70 leading-relaxed mb-10"></p>
-
-          <div class="flex justify-center flex-wrap gap-10 text-center">
-              <div class="min-w-[140px]">
-                  <div class="text-4xl font-bold text-accent counter" data-target="5" data-suffix="+">0</div>
-                  <div class="text-sm text-slate-400">Years Experience</div>
               </div>
-              <div class="min-w-[140px]">
-                  <div class="text-4xl font-bold text-accent counter" data-target="20">0</div>
-                  <div class="text-sm text-slate-400">20+ Projects Delivered</div>
+
+              <h2 class="home__title--name text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold leading-snug min-h-[4.5rem]"></h2>
+              <p data-i18n="hero_desc" class="text-sm md:text-base text-slate-300 max-w-xl leading-relaxed font-mono-custom mx-auto lg:mx-0"></p>
+
+              <!-- Stat counters -->
+              <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
+                  <div class="stat-neu">
+                      <span class="text-2xl font-extrabold text-accent counter" data-target="5" data-suffix="+">0</span>
+                      <span class="text-[11px] text-slate-400 font-mono-custom">Years Experience</span>
+                  </div>
+                  <div class="stat-neu">
+                      <span class="text-2xl font-extrabold text-accent counter" data-target="20" data-suffix="+">0</span>
+                      <span class="text-[11px] text-slate-400 font-mono-custom">Projects Delivered</span>
+                  </div>
+                  <div class="stat-neu">
+                      <span class="text-2xl font-extrabold text-accent counter" data-target="30" data-suffix="%">0</span>
+                      <span class="text-[11px] text-slate-400 font-mono-custom">Performance Gain</span>
+                  </div>
               </div>
-              <div class="min-w-[140px]">
-                  <div class="text-4xl font-bold text-accent counter" data-target="30">0</div>
-                  <div class="text-sm text-slate-400">% Performance Gain</div>
+
+              <!-- CTA buttons -->
+              <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-4 pt-1 w-full sm:w-auto font-mono-custom">
+                  <a href="#projects" class="btn-primary-neu group flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-bold w-full sm:w-auto min-h-[44px]">
+                      <span>View Projects</span>
+                      <span class="transition-transform group-hover:translate-x-1">›</span>
+                  </a>
+                  <a href="#architecture" class="btn-secondary-neu flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold w-full sm:w-auto min-h-[44px]">
+                      <span>Architecture Diagram</span>
+                  </a>
+                  <button id="openChat" data-i18n="ai-button"
+                      class="flex items-center justify-center gap-2 text-slate-400 hover:text-accent transition-colors text-sm font-semibold w-full sm:w-auto min-h-[44px]">
+                  </button>
               </div>
           </div>
 
-          <div class="mt-7 flex justify-center">
-            <button id="openChat" data-i18n="ai-button"
-              class="px-6 py-3 rounded-xl border border-accent text-accent text-sm font-semibold
-                    hover:bg-accent hover:text-white transition">
-            </button>
+          <!-- RIGHT COLUMN: orbit avatar -->
+          <div class="relative z-10 flex flex-col items-center justify-center max-w-sm mx-auto w-full gap-4">
+              <div class="orbit-container relative flex items-center justify-center w-[330px] h-[330px] sm:w-[420px] sm:h-[420px] mx-auto select-none my-6">
+                  <!-- Central Avatar -->
+                  <div class="relative z-20 group p-1.5">
+                      <div class="absolute -inset-1 rounded-full bg-accent-deep/20 opacity-25 blur-lg transition duration-700 group-hover:opacity-45"></div>
+                      <div class="avatar-ring relative h-48 w-48 sm:h-60 sm:w-60 rounded-full p-1.5 overflow-hidden">
+                          <div class="relative h-full w-full overflow-hidden rounded-full bg-primary">
+                              <img src="images/favicon.ico" alt="Eungchan Kang" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105">
+                              <div class="avatar-scan"></div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- Orbit rings -->
+                  <div class="absolute inset-0 rounded-full border border-dashed border-accent/15 pointer-events-none"></div>
+                  <div class="absolute inset-4 rounded-full border border-dashed border-accent-deep/10 pointer-events-none"></div>
+
+                  <!-- Spinning skill badges -->
+                  <div class="orbit-spin absolute inset-0">
+                      <div class="orbit-slot" style="transform:rotate(0deg)"><div class="orbit-cell" style="transform:translate(-50%,-50%) rotate(0deg)"><div class="orbit-spin-reverse"><span class="orbit-badge">🅰️ Angular</span></div></div></div>
+                      <div class="orbit-slot" style="transform:rotate(51.43deg)"><div class="orbit-cell" style="transform:translate(-50%,-50%) rotate(-51.43deg)"><div class="orbit-spin-reverse"><span class="orbit-badge">🟣 .Net</span></div></div></div>
+                      <div class="orbit-slot" style="transform:rotate(102.86deg)"><div class="orbit-cell" style="transform:translate(-50%,-50%) rotate(-102.86deg)"><div class="orbit-spin-reverse"><span class="orbit-badge">🟢 NodeJS</span></div></div></div>
+                      <div class="orbit-slot" style="transform:rotate(154.29deg)"><div class="orbit-cell" style="transform:translate(-50%,-50%) rotate(-154.29deg)"><div class="orbit-spin-reverse"><span class="orbit-badge">⚡ FastAPI</span></div></div></div>
+                      <div class="orbit-slot" style="transform:rotate(205.71deg)"><div class="orbit-cell" style="transform:translate(-50%,-50%) rotate(-205.71deg)"><div class="orbit-spin-reverse"><span class="orbit-badge">☁️ AWS</span></div></div></div>
+                      <div class="orbit-slot" style="transform:rotate(257.14deg)"><div class="orbit-cell" style="transform:translate(-50%,-50%) rotate(-257.14deg)"><div class="orbit-spin-reverse"><span class="orbit-badge">🗄️ RDBMS</span></div></div></div>
+                      <div class="orbit-slot" style="transform:rotate(308.57deg)"><div class="orbit-cell" style="transform:translate(-50%,-50%) rotate(-308.57deg)"><div class="orbit-spin-reverse"><span class="orbit-badge">🤖 AI</span></div></div></div>
+                  </div>
+              </div>
+
+              <!-- Current focus banner -->
+              <div class="w-full text-center mt-3">
+                  <div class="inline-flex items-center gap-2 px-4 py-2 rounded-2xl focus-banner">
+                      <span class="relative flex h-2 w-2">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+                      </span>
+                      <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400 font-mono-custom">Current Focus:</span>
+                      <span class="text-xs text-white font-bold font-mono-custom">Software Architecture</span>
+                  </div>
+              </div>
           </div>
 
-          <div class="mt-7 flex justify-center gap-4">
-              <a href="#projects" class="px-5 py-3 rounded-xl bg-accent text-white text-sm font-semibold hover:opacity-90 transition">
-                  View Projects
-              </a>
-              <a href="#architecture" class="px-5 py-3 rounded-xl border border-slate-700 text-sm font-semibold hover:border-slate-500 transition">
-                  Architecture Diagram
-              </a>
-          </div>
+        </div>
       </div>
   </section>
 
@@ -219,170 +292,135 @@
         <p data-i18n="arc_desc" class="text-slate-400 text-lg max-w-3xl mx-auto"></p>
       </div>
 
-      <div class="section-glow rounded-2xl bg-secondary/30 border border-slate-700 p-6">
-      <div class="flex justify-center">
-        <svg viewBox="0 0 1000 770"
-          class="w-full h-auto"
-          preserveAspectRatio="xMidYMid meet">
-
-          <!-- ===== DEFINITIONS ===== -->
-          <defs>
-            <linearGradient id="layerGrad" x1="0" x2="1">
-                <stop offset="0%" stop-color="#3b82f6" stop-opacity=".15"/>
-                <stop offset="100%" stop-color="#3b82f6" stop-opacity=".05"/>
-            </linearGradient>
-
-            <filter id="glow">
-                <feGaussianBlur stdDeviation="6" result="b"/>
-                <feMerge>
-                <feMergeNode in="b"/>
-                <feMergeNode in="SourceGraphic"/>
-                </feMerge>
-            </filter>
-
-            <mask id="layerMask">
-                <rect width="1000" height="820" fill="white"/>
-                <rect x="250" y="20" width="500" height="90" fill="black"/>
-                <rect x="200" y="130" width="600" height="110" fill="black"/>
-                <rect x="150" y="260" width="700" height="140" fill="black"/>
-                <rect x="200" y="420" width="600" height="120" fill="black"/>
-                <rect x="250" y="560" width="500" height="90" fill="black"/>
-                <rect x="100" y="670" width="800" height="60" fill="black"/>
-            </mask>
-          </defs>
-
-          <!-- ===== FLOW ===== -->
-          <g mask="url(#layerMask)">
-            <path id="flowDown"
-                    d="M500 110 L500 720"
-                    stroke="#3b82f6"
-                    stroke-width="3"
-                    stroke-dasharray="8 6"
-                    opacity=".35"/>
-
-            <path id="flowUp"
-                    d="M500 720 L500 110"
-                    stroke="#60a5fa"
-                    stroke-width="2"
-                    stroke-dasharray="4 6"
-                    opacity=".35"/>
-
-            <circle id="dotDown" r="7" fill="#3b82f6" filter="url(#glow)"/>
-            <circle id="dotUp" r="6" fill="#60a5fa" filter="url(#glow)"/>
-          </g>
-
-          <!-- ===== LAYERS ===== -->
-          <rect x="250" y="10" width="500" height="100" rx="18"
-              fill="url(#layerGrad)" stroke="#3b82f6"/>
-          <text x="500" y="50"
-              text-anchor="middle"
-              dominant-baseline="middle"
-              fill="#e2e8f0"
-              font-weight="600">
-            Large-scale Tenants / Organizations
-          </text>
-          <text x="500" y="75"
-              text-anchor="middle"
-              dominant-baseline="middle"
-              fill="#94a3b8"
-              font-size="13">
-            End-users interacting through Front-End UI / SaaS Platforms
-          </text>
-
-          <!-- APPLICATION -->
-          <rect x="200" y="130" width="600" height="110" rx="18"
-              fill="rgba(17,24,39,.9)" stroke="rgba(148,163,184,.35)"/>
-          <text x="500" y="170"
-              text-anchor="middle"
-              dominant-baseline="middle"
-              fill="#e2e8f0"
-              font-weight="600">
-            Application & Delivery Layer
-          </text>
-          <text x="500" y="195"
-              text-anchor="middle"
-              dominant-baseline="middle"
-              fill="#94a3b8"
-              font-size="13">
-            REST API • SignalR / WebSocket • Auth • Multi-organization Isolation
-          </text>
-
-          <!-- DATA -->
-          <rect x="150" y="260" width="700" height="140" rx="20"
-              fill="rgba(17,24,39,.95)" stroke="#3b82f6"/>
-          <text x="500" y="305"
-              text-anchor="middle"
-              dominant-baseline="middle"
-              fill="#e2e8f0"
-              font-size="20"
-              font-weight="600">
-            Data Platform Core
-          </text>
-          <text x="500" y="330"
-              text-anchor="middle"
-              dominant-baseline="middle"
-              fill="#94a3b8"
-              font-size="13">
-            OLTP • OLAP design & implementation
-          </text>
-          <text x="500" y="355"
-              text-anchor="middle"
-              dominant-baseline="middle"
-              fill="#94a3b8"
-              font-size="13">
-            C#(LINQ • Lambda • Raw SQL) • EF Core(SQL Translation / Execution) • DB(MySQL / SQL Server)
-          </text>
-
-          <!-- PERFORMANCE -->
-          <rect x="200" y="420" width="600" height="120" rx="18"
-              fill="rgba(17,24,39,.9)" stroke="rgba(148,163,184,.35)"/>
-
-          <text x="500"
-              y="480"
-              text-anchor="middle"
-              fill="#e2e8f0"
-              font-weight="600">
-
-            <tspan x="500" dy="-20">Performance & Database Engineering</tspan>
-            <tspan x="500" dy="22" fill="#94a3b8" font-size="13">
-                DB Architecture Design & Implementation
-            </tspan>
-            <tspan x="500" dy="20" fill="#94a3b8" font-size="13">
-                SQL Tuning • Execution Plan Optimization • Index/Partition
-            </tspan>
-
-          </text>
-                  <!-- CLOUD -->
-            <rect x="250" y="560" width="500" height="100" rx="18"
-                fill="rgba(18,29,53,.95)" stroke="#3b82f6"/>
-
-          <text x="500"
-                y="605"
-                text-anchor="middle"
-                fill="#e2e8f0"
-                font-weight="600">
-
-              <tspan x="500" dy="-10">Cloud & Infrastructure</tspan>
-              <tspan x="500" dy="22" fill="#94a3b8" font-size="13">
-                  Cloud Architecture Design & Implementation
-              </tspan>
-              <tspan x="500" dy="20" fill="#94a3b8" font-size="13">
-                  Distributed Systems • High Availability • Auto Scaling
-              </tspan>
-            </text>
-
-            <!-- OBSERVABILITY -->
-            <rect x="150" y="690" width="700" height="60" rx="14"
-                  fill="rgba(17,24,70,.95)" stroke="#3b82f6"/>
-
-            <text x="500" y="720"
-                  text-anchor="middle"
-                  dominant-baseline="middle"
-                  fill="#3b82f6"
-                  font-weight="600">
-              Observability — Logs • Metrics • Tracing • Monitoring
-            </text>
-          </svg>
+      <div class="rounded-2xl p-6">
+      <div class="overflow-x-auto pb-2">
+        <svg viewBox="0 0 1240 316" preserveAspectRatio="xMidYMid meet" class="h-auto mx-auto block" style="min-width:860px;width:100%;max-width:1240px;font-family:'Poppins',ui-sans-serif,sans-serif">
+  <defs>
+    <linearGradient id="acCard" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(0,180,216,0.10)"/>
+      <stop offset="100%" stop-color="rgba(2,62,138,0.03)"/>
+    </linearGradient>
+    <linearGradient id="acCore" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(0,180,216,0.22)"/>
+      <stop offset="100%" stop-color="rgba(2,62,138,0.08)"/>
+    </linearGradient>
+    <filter id="acGlow" x="-250%" y="-250%" width="600%" height="600%">
+      <feGaussianBlur stdDeviation="2.4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="acArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#00b4d8"/>
+    </marker>
+  </defs>
+  <!-- Observability (cross-cutting) -->
+  <rect x="24" y="246" width="1192" height="54" rx="14" fill="rgba(2,62,138,0.10)" stroke="rgba(0,180,216,0.40)" stroke-width="1.2"/>
+  <text x="620" y="269" text-anchor="middle" fill="#00b4d8" font-size="10" font-weight="700" font-family="'Courier New',monospace" letter-spacing="1.5">CROSS-CUTTING TELEMETRY</text>
+  <text x="620" y="288" text-anchor="middle" fill="#cbd5e1" font-size="13" font-weight="600">Observability — Logs · Metrics · Tracing · Monitoring</text>
+  <!-- Telemetry drips down into Observability -->
+  <line x1="124" y1="190" x2="124" y2="246" stroke="#00b4d8" stroke-width="1" opacity="0.16" stroke-dasharray="2 5"/>
+  <circle r="2" fill="#00b4d8" opacity="0.85" filter="url(#acGlow)"><animateMotion dur="2.4s" begin="0.0s" repeatCount="indefinite" path="M124 190 L124 246"/></circle>
+  <line x1="372" y1="190" x2="372" y2="246" stroke="#00b4d8" stroke-width="1" opacity="0.16" stroke-dasharray="2 5"/>
+  <circle r="2" fill="#00b4d8" opacity="0.85" filter="url(#acGlow)"><animateMotion dur="2.4s" begin="0.42s" repeatCount="indefinite" path="M372 190 L372 246"/></circle>
+  <line x1="620" y1="190" x2="620" y2="246" stroke="#00b4d8" stroke-width="1" opacity="0.16" stroke-dasharray="2 5"/>
+  <circle r="2" fill="#00b4d8" opacity="0.85" filter="url(#acGlow)"><animateMotion dur="2.4s" begin="0.84s" repeatCount="indefinite" path="M620 190 L620 246"/></circle>
+  <line x1="868" y1="190" x2="868" y2="246" stroke="#00b4d8" stroke-width="1" opacity="0.16" stroke-dasharray="2 5"/>
+  <circle r="2" fill="#00b4d8" opacity="0.85" filter="url(#acGlow)"><animateMotion dur="2.4s" begin="1.26s" repeatCount="indefinite" path="M868 190 L868 246"/></circle>
+  <line x1="1116" y1="190" x2="1116" y2="246" stroke="#00b4d8" stroke-width="1" opacity="0.16" stroke-dasharray="2 5"/>
+  <circle r="2" fill="#00b4d8" opacity="0.85" filter="url(#acGlow)"><animateMotion dur="2.4s" begin="1.68s" repeatCount="indefinite" path="M1116 190 L1116 246"/></circle>
+  <!-- Horizontal data-flow spine -->
+  <line x1="2" y1="115" x2="24" y2="115" stroke="#00b4d8" stroke-width="1.6" opacity="0.5" marker-end="url(#acArrow)"/>
+  <circle r="3" fill="#00b4d8" filter="url(#acGlow)"><animateMotion dur="1.4s" repeatCount="indefinite" path="M2 115 L22 115"/></circle>
+  <g>
+    <line x1="224" y1="115" x2="272" y2="115" stroke="#00b4d8" stroke-width="1.4" opacity="0.28" stroke-dasharray="2 5">
+      <animate attributeName="stroke-dashoffset" from="14" to="0" dur="0.7s" repeatCount="indefinite"/>
+    </line>
+    <path d="M244.0 109 L252.0 115 L244.0 121" fill="none" stroke="#00b4d8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.6">
+      <animate attributeName="opacity" values="0.15;0.9;0.15" dur="1.7s" repeatCount="indefinite"/>
+    </path>
+    <circle r="3.2" fill="#00b4d8"  filter="url(#acGlow)"><animateMotion dur="1.7s" begin="0s"    repeatCount="indefinite" path="M224 115 L272 115"/></circle>
+    <circle r="3.0" fill="#48cae4" filter="url(#acGlow)"><animateMotion dur="1.7s" begin="0.57s" repeatCount="indefinite" path="M224 115 L272 115"/></circle>
+    <circle r="2.2" fill="#90e0ef" filter="url(#acGlow)"><animateMotion dur="1.7s" begin="1.14s" repeatCount="indefinite" path="M224 115 L272 115"/></circle>
+  </g>
+  <g>
+    <line x1="472" y1="115" x2="520" y2="115" stroke="#00b4d8" stroke-width="1.4" opacity="0.28" stroke-dasharray="2 5">
+      <animate attributeName="stroke-dashoffset" from="14" to="0" dur="0.7s" repeatCount="indefinite"/>
+    </line>
+    <path d="M492.0 109 L500.0 115 L492.0 121" fill="none" stroke="#00b4d8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.6">
+      <animate attributeName="opacity" values="0.15;0.9;0.15" dur="1.7s" repeatCount="indefinite"/>
+    </path>
+    <circle r="3.2" fill="#00b4d8"  filter="url(#acGlow)"><animateMotion dur="1.7s" begin="0s"    repeatCount="indefinite" path="M472 115 L520 115"/></circle>
+    <circle r="3.0" fill="#48cae4" filter="url(#acGlow)"><animateMotion dur="1.7s" begin="0.57s" repeatCount="indefinite" path="M472 115 L520 115"/></circle>
+    <circle r="2.2" fill="#90e0ef" filter="url(#acGlow)"><animateMotion dur="1.7s" begin="1.14s" repeatCount="indefinite" path="M472 115 L520 115"/></circle>
+  </g>
+  <g>
+    <line x1="720" y1="115" x2="768" y2="115" stroke="#00b4d8" stroke-width="1.4" opacity="0.28" stroke-dasharray="2 5">
+      <animate attributeName="stroke-dashoffset" from="14" to="0" dur="0.7s" repeatCount="indefinite"/>
+    </line>
+    <path d="M740.0 109 L748.0 115 L740.0 121" fill="none" stroke="#00b4d8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.6">
+      <animate attributeName="opacity" values="0.15;0.9;0.15" dur="1.7s" repeatCount="indefinite"/>
+    </path>
+    <circle r="3.2" fill="#00b4d8"  filter="url(#acGlow)"><animateMotion dur="1.7s" begin="0s"    repeatCount="indefinite" path="M720 115 L768 115"/></circle>
+    <circle r="3.0" fill="#48cae4" filter="url(#acGlow)"><animateMotion dur="1.7s" begin="0.57s" repeatCount="indefinite" path="M720 115 L768 115"/></circle>
+    <circle r="2.2" fill="#90e0ef" filter="url(#acGlow)"><animateMotion dur="1.7s" begin="1.14s" repeatCount="indefinite" path="M720 115 L768 115"/></circle>
+  </g>
+  <g>
+    <line x1="968" y1="115" x2="1016" y2="115" stroke="#00b4d8" stroke-width="1.4" opacity="0.28" stroke-dasharray="2 5">
+      <animate attributeName="stroke-dashoffset" from="14" to="0" dur="0.7s" repeatCount="indefinite"/>
+    </line>
+    <path d="M988.0 109 L996.0 115 L988.0 121" fill="none" stroke="#00b4d8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.6">
+      <animate attributeName="opacity" values="0.15;0.9;0.15" dur="1.7s" repeatCount="indefinite"/>
+    </path>
+    <circle r="3.2" fill="#00b4d8"  filter="url(#acGlow)"><animateMotion dur="1.7s" begin="0s"    repeatCount="indefinite" path="M968 115 L1016 115"/></circle>
+    <circle r="3.0" fill="#48cae4" filter="url(#acGlow)"><animateMotion dur="1.7s" begin="0.57s" repeatCount="indefinite" path="M968 115 L1016 115"/></circle>
+    <circle r="2.2" fill="#90e0ef" filter="url(#acGlow)"><animateMotion dur="1.7s" begin="1.14s" repeatCount="indefinite" path="M968 115 L1016 115"/></circle>
+  </g>
+  <line x1="1216" y1="115" x2="1238" y2="115" stroke="#00b4d8" stroke-width="1.6" opacity="0.5" marker-end="url(#acArrow)"/>
+  <circle r="3" fill="#00b4d8" filter="url(#acGlow)"><animateMotion dur="1.4s" repeatCount="indefinite" path="M1216 115 L1236 115"/></circle>
+  <!-- Core emphasis pulse -->
+  <rect x="516" y="36" width="208" height="158" rx="18" fill="none" stroke="#00b4d8" stroke-width="1.5">
+    <animate attributeName="opacity" values="0.12;0.55;0.12" dur="2.6s" repeatCount="indefinite"/>
+  </rect>
+  <g>
+    <rect x="24" y="40" width="200" height="150" rx="16" fill="url(#acCard)" stroke="rgba(0,180,216,0.25)" stroke-width="1.2"/>
+    <text x="124" y="70" text-anchor="middle" fill="#00b4d8" font-size="10" font-weight="700" font-family="'Courier New',monospace" letter-spacing="1">01 · INGRESS</text>
+    <text x="124" y="110" text-anchor="middle" fill="#e6edf5" font-size="15" font-weight="700">Tenants &amp; Orgs</text>
+    <text x="124" y="142" text-anchor="middle" fill="#94a3b8" font-size="11">Front-End UI</text>
+    <text x="124" y="159" text-anchor="middle" fill="#94a3b8" font-size="11">SaaS Platforms</text>
+  </g>
+  <g>
+    <rect x="272" y="40" width="200" height="150" rx="16" fill="url(#acCard)" stroke="rgba(0,180,216,0.25)" stroke-width="1.2"/>
+    <text x="372" y="70" text-anchor="middle" fill="#00b4d8" font-size="10" font-weight="700" font-family="'Courier New',monospace" letter-spacing="1">02 · DELIVERY</text>
+    <text x="372" y="100" text-anchor="middle" fill="#e6edf5" font-size="15" font-weight="700">Application &amp;</text>
+    <text x="372" y="120" text-anchor="middle" fill="#e6edf5" font-size="15" font-weight="700">Delivery Layer</text>
+    <text x="372" y="150" text-anchor="middle" fill="#94a3b8" font-size="11">REST API · WebSocket</text>
+    <text x="372" y="167" text-anchor="middle" fill="#94a3b8" font-size="11">Auth · Multi-org</text>
+  </g>
+  <g>
+    <rect x="520" y="40" width="200" height="150" rx="16" fill="url(#acCore)" stroke="rgba(0,180,216,0.7)" stroke-width="1.6"/>
+    <text x="620" y="70" text-anchor="middle" fill="#00b4d8" font-size="10" font-weight="700" font-family="'Courier New',monospace" letter-spacing="1">03 · CORE</text>
+    <text x="620" y="98" text-anchor="middle" fill="#e6edf5" font-size="16" font-weight="700">Data Platform</text>
+    <text x="620" y="120" text-anchor="middle" fill="#e6edf5" font-size="16" font-weight="700">Core</text>
+    <text x="620" y="148" text-anchor="middle" fill="#94a3b8" font-size="11">OLTP · OLAP</text>
+    <text x="620" y="165" text-anchor="middle" fill="#94a3b8" font-size="11">EF Core · Raw SQL</text>
+    <text x="620" y="182" text-anchor="middle" fill="#94a3b8" font-size="11">MySQL / SQL Server</text>
+  </g>
+  <g>
+    <rect x="768" y="40" width="200" height="150" rx="16" fill="url(#acCard)" stroke="rgba(0,180,216,0.25)" stroke-width="1.2"/>
+    <text x="868" y="70" text-anchor="middle" fill="#00b4d8" font-size="10" font-weight="700" font-family="'Courier New',monospace" letter-spacing="1">04 · PERFORMANCE</text>
+    <text x="868" y="100" text-anchor="middle" fill="#e6edf5" font-size="15" font-weight="700">Performance &amp;</text>
+    <text x="868" y="120" text-anchor="middle" fill="#e6edf5" font-size="15" font-weight="700">DB Engineering</text>
+    <text x="868" y="150" text-anchor="middle" fill="#94a3b8" font-size="11">SQL Tuning</text>
+    <text x="868" y="167" text-anchor="middle" fill="#94a3b8" font-size="11">Index / Partition</text>
+  </g>
+  <g>
+    <rect x="1016" y="40" width="200" height="150" rx="16" fill="url(#acCard)" stroke="rgba(0,180,216,0.25)" stroke-width="1.2"/>
+    <text x="1116" y="70" text-anchor="middle" fill="#00b4d8" font-size="10" font-weight="700" font-family="'Courier New',monospace" letter-spacing="1">05 · CLOUD</text>
+    <text x="1116" y="100" text-anchor="middle" fill="#e6edf5" font-size="15" font-weight="700">Cloud &amp;</text>
+    <text x="1116" y="120" text-anchor="middle" fill="#e6edf5" font-size="15" font-weight="700">Infrastructure</text>
+    <text x="1116" y="150" text-anchor="middle" fill="#94a3b8" font-size="11">Distributed · HA</text>
+    <text x="1116" y="167" text-anchor="middle" fill="#94a3b8" font-size="11">Auto Scaling</text>
+  </g>
+        </svg>
         </div>
     </div>
   </section>
@@ -1047,7 +1085,8 @@
         </div>
       </div>
 
-      <!-- Grid -->
+      <!-- Grid (scrollable · ~3 rows visible) -->
+      <div class="projects-scroll">
       <div id="projectGrid" class="relative grid md:grid-cols-2 lg:grid-cols-3 gap-6 min-h-[240px]">
         <!-- Featured: Software Architecture -->
         <a class="card project-card fade-in group bg-secondary/40 backdrop-blur-md p-6 rounded-2xl border border-slate-700"
@@ -1175,6 +1214,7 @@
           <p data-i18n="project.memo" class="text-slate-400 text-sm leading-relaxed"></p>
         </a>
       </div>
+      </div><!-- /projects-scroll -->
 
       <div id="emptyState" class="hidden mt-10 text-center text-slate-400">
         No projects in this category.
@@ -1183,27 +1223,269 @@
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="section-glow py-24 border-t border-slate-800 text-center">
-    <div class="max-w-3xl mx-auto px-6 fade-in">
-      <h3 class="text-3xl font-semibold mb-6">Contact</h3>
-      <p class="text-slate-400 mb-6">yeschan119@gmail.com</p>
-      <div class="flex justify-center gap-3">
-        <a href="https://github.com/yeschan119" target="_blank"
-          class="inline-block px-6 py-3 bg-accent text-white rounded-xl hover:opacity-90 transition">
-          GitHub
-        </a>
-        <a href="https://www.linkedin.com/in/yeschan119/" target="_blank"
-          class="inline-block px-6 py-3 border border-slate-700 rounded-xl hover:border-slate-500 transition">
-          LinkedIn
-        </a>
+  <section id="contact" class="section-glow py-24 border-t border-slate-800">
+    <div class="max-w-6xl mx-auto px-6 fade-in space-y-10">
+      <div class="space-y-2">
+        <h3 class="text-3xl font-semibold">Get In <span class="grad-accent">Touch!</span></h3>
+        <p class="text-slate-400 max-w-xl pt-2 leading-relaxed">
+          Send a message directly — I usually reply within 24 hours.
+        </p>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-[1.2fr_0.8fr] items-start">
+        <!-- FORM PANEL -->
+        <div class="bg-secondary/35 rounded-2xl p-6 md:p-8">
+          <form id="contactForm" class="space-y-5" novalidate>
+            <!-- Honeypot spam trap (bots fill this; humans never see it) -->
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div class="space-y-1.5">
+                <label for="cf-name" class="text-xs font-semibold text-slate-300 font-mono-custom">Name</label>
+                <input id="cf-name" name="name" type="text" required placeholder="Your name" class="contact-input" />
+                <p class="cf-error text-red-400 text-[11px] hidden font-mono-custom">Name is required</p>
+              </div>
+              <div class="space-y-1.5">
+                <label for="cf-email" class="text-xs font-semibold text-slate-300 font-mono-custom">Email</label>
+                <input id="cf-email" name="email" type="email" required placeholder="you@example.com" class="contact-input" />
+                <p class="cf-error text-red-400 text-[11px] hidden font-mono-custom">Valid email is required</p>
+              </div>
+            </div>
+            <div class="space-y-1.5">
+              <label for="cf-message" class="text-xs font-semibold text-slate-300 font-mono-custom">Message</label>
+              <textarea id="cf-message" name="message" required rows="5" placeholder="Tell me about your project, timeline, and goals..." class="contact-input resize-none"></textarea>
+              <p class="cf-error text-red-400 text-[11px] hidden font-mono-custom">Message must be at least 10 characters</p>
+            </div>
+            <button id="cf-submit" type="submit"
+              class="btn-primary-neu w-full flex items-center justify-center gap-2 rounded-full py-3 text-sm font-bold font-mono-custom min-h-[44px] disabled:opacity-70">
+              <span class="cf-label">Send message</span>
+              <span class="cf-label">→</span>
+              <span class="cf-spinner hidden h-4 w-4 animate-spin rounded-full border-2 border-white/40 border-t-white"></span>
+            </button>
+            <p id="cf-status" class="hidden text-xs text-center font-mono-custom"></p>
+          </form>
+        </div>
+
+        <!-- DIRECT CONNECTIONS -->
+        <div class="bg-secondary/35 rounded-2xl p-6 space-y-4">
+          <h4 class="text-sm font-bold text-white tracking-wide uppercase font-mono-custom">Direct Connections</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">Prefer a direct line? Reach me through any of these — checked regularly.</p>
+          <div class="space-y-3 pt-1">
+            <!-- Direct email (receive mail directly) -->
+            <button type="button" id="copyEmailBtn" data-email="yeschan119@gmail.com"
+              title="Click to copy" class="contact-node group w-full text-left cursor-pointer">
+              <span class="ico">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M4 5h16a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V6a1 1 0 011-1z"/>
+                </svg>
+              </span>
+              <span>
+                <span class="block text-[9px] uppercase font-bold text-slate-400 font-mono-custom">Email Address <span class="text-slate-500">(click to copy)</span></span>
+                <span id="cf-email-value" class="text-xs font-semibold text-slate-200 group-hover:text-accent transition-colors">yeschan119@gmail.com</span>
+              </span>
+            </button>
+            <a href="https://www.linkedin.com/in/yeschan119/" target="_blank" rel="noreferrer" class="contact-node group">
+              <span class="ico">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14C2.2 0 0 2.2 0 5v14c0 2.8 2.2 5 5 5h14c2.8 0 5-2.2 5-5V5c0-2.8-2.2-5-5-5zM7.1 20.5H3.6V9h3.5v11.5zM5.3 7.6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm15.2 12.9h-3.5v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.6V9h3.4v1.6h.1c.5-.9 1.7-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2z"/>
+                </svg>
+              </span>
+              <span>
+                <span class="block text-[9px] uppercase font-bold text-slate-400 font-mono-custom">LinkedIn Profile</span>
+                <span class="text-xs font-semibold text-slate-200 group-hover:text-accent transition-colors">Eungchan Kang</span>
+              </span>
+            </a>
+            <a href="https://github.com/yeschan119" target="_blank" rel="noreferrer" class="contact-node group">
+              <span class="ico">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57C20.565 21.795 24 17.31 24 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+              </span>
+              <span>
+                <span class="block text-[9px] uppercase font-bold text-slate-400 font-mono-custom">GitHub</span>
+                <span class="text-xs font-semibold text-slate-200 group-hover:text-accent transition-colors">yeschan119</span>
+              </span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
+
+    <!-- Contact form -> delivers name/email/message to yeschan119@gmail.com via Web3Forms.
+         SETUP (one time): get a free access key at https://web3forms.com for yeschan119@gmail.com,
+         then paste it into WEB3FORMS_ACCESS_KEY below. Until then, it falls back to opening
+         the visitor's mail app so the form is never broken. -->
+    <script>
+      (function () {
+        // ⬇️ PASTE YOUR WEB3FORMS ACCESS KEY HERE (from https://web3forms.com)
+        const WEB3FORMS_ACCESS_KEY = "ea2d67fb-a5fb-49d2-8ced-f1fc41e54524";
+        const TARGET_EMAIL = "yeschan119@gmail.com";
+        const keyReady =
+          WEB3FORMS_ACCESS_KEY && WEB3FORMS_ACCESS_KEY !== "YOUR_WEB3FORMS_ACCESS_KEY";
+
+        const form = document.getElementById("contactForm");
+        if (!form) return;
+        const status = document.getElementById("cf-status");
+        const submitBtn = document.getElementById("cf-submit");
+        const fields = {
+          name: document.getElementById("cf-name"),
+          email: document.getElementById("cf-email"),
+          message: document.getElementById("cf-message"),
+        };
+        const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+
+        function setStatus(msg, kind) {
+          status.textContent = msg;
+          status.classList.remove("hidden");
+          status.style.color =
+            kind === "error" ? "#f87171" : kind === "success" ? "#34d399" : "var(--accent)";
+        }
+
+        function setLoading(on) {
+          submitBtn.disabled = on;
+          form.querySelectorAll(".cf-label").forEach((el) => el.classList.toggle("hidden", on));
+          form.querySelector(".cf-spinner").classList.toggle("hidden", !on);
+        }
+
+        function validate() {
+          let ok = true;
+          const checks = {
+            name: fields.name.value.trim().length >= 2,
+            email: isEmail(fields.email.value.trim()),
+            message: fields.message.value.trim().length >= 10,
+          };
+          Object.keys(checks).forEach((k) => {
+            const err = fields[k].parentElement.querySelector(".cf-error");
+            if (!checks[k]) {
+              ok = false;
+              fields[k].classList.add("invalid");
+              if (err) err.classList.remove("hidden");
+            } else {
+              fields[k].classList.remove("invalid");
+              if (err) err.classList.add("hidden");
+            }
+          });
+          return ok;
+        }
+
+        // Fallback: open the visitor's mail app pre-addressed to me.
+        function mailtoFallback(name, email, message) {
+          const subject = encodeURIComponent("Portfolio contact from " + name);
+          const body = encodeURIComponent(message + "\n\n— " + name + " (" + email + ")");
+          window.location.href =
+            "mailto:" + TARGET_EMAIL + "?subject=" + subject + "&body=" + body;
+          setStatus("Opening your mail app… if nothing happens, email " + TARGET_EMAIL + " directly.", "info");
+        }
+
+        form.addEventListener("submit", async function (e) {
+          e.preventDefault();
+          if (!validate()) return;
+
+          const name = fields.name.value.trim();
+          const email = fields.email.value.trim();
+          const message = fields.message.value.trim();
+
+          // Honeypot: if a bot ticked the hidden checkbox, silently drop.
+          if (form.botcheck && form.botcheck.checked) return;
+
+          if (!keyReady) {
+            mailtoFallback(name, email, message);
+            return;
+          }
+
+          setLoading(true);
+          setStatus("Sending…", "info");
+          try {
+            const res = await fetch("https://api.web3forms.com/submit", {
+              method: "POST",
+              headers: { "Content-Type": "application/json", Accept: "application/json" },
+              body: JSON.stringify({
+                access_key: WEB3FORMS_ACCESS_KEY,
+                subject: "Portfolio contact from " + name,
+                from_name: "Portfolio Website",
+                name: name,
+                email: email,
+                message: message,
+                replyto: email,
+                botcheck: false,
+              }),
+            });
+            const data = await res.json();
+            if (data.success) {
+              form.reset();
+              setStatus("Message sent! I'll reply to " + email + " within 24 hours.", "success");
+            } else {
+              console.error("Web3Forms error:", data);
+              mailtoFallback(name, email, message);
+            }
+          } catch (err) {
+            console.error("Web3Forms network error:", err);
+            mailtoFallback(name, email, message);
+          } finally {
+            setLoading(false);
+          }
+        });
+      })();
+    </script>
+
+    <!-- Click the email node to copy it to the clipboard -->
+    <script>
+      (function () {
+        const btn = document.getElementById("copyEmailBtn");
+        if (!btn) return;
+        const valueEl = document.getElementById("cf-email-value");
+        const email = btn.dataset.email;
+        const original = email;
+        let timer;
+
+        function fallbackCopy() {
+          // Legacy path for non-secure contexts / older browsers
+          const ta = document.createElement("textarea");
+          ta.value = email;
+          ta.setAttribute("readonly", "");
+          ta.style.position = "fixed";
+          ta.style.top = "-1000px";
+          ta.style.opacity = "0";
+          document.body.appendChild(ta);
+          ta.select();
+          let done = false;
+          try { done = document.execCommand("copy"); } catch (_) { done = false; }
+          document.body.removeChild(ta);
+          return done;
+        }
+
+        function showFeedback(ok) {
+          valueEl.textContent = ok ? "Copied to clipboard ✓" : "Press Ctrl/Cmd+C to copy";
+          valueEl.style.color = ok ? "#34d399" : "#f87171";
+          clearTimeout(timer);
+          timer = setTimeout(() => {
+            valueEl.textContent = original;
+            valueEl.style.color = "";
+          }, 1600);
+        }
+
+        async function copyEmail() {
+          // Prefer the async Clipboard API, but never let a blocked/hung
+          // permission leave the button without feedback: race it against a
+          // timeout, then fall back to execCommand.
+          const modern = (navigator.clipboard && window.isSecureContext)
+            ? navigator.clipboard.writeText(email).then(() => true, () => false)
+            : Promise.resolve(false);
+          const timeout = new Promise((res) => setTimeout(() => res(null), 1000));
+          const result = await Promise.race([modern, timeout]);
+          const ok = result === true ? true : fallbackCopy();
+          showFeedback(ok);
+        }
+
+        btn.addEventListener("click", copyEmail);
+      })();
+    </script>
   </section>
 
   <footer class="py-10 text-center text-slate-600 text-sm border-t border-slate-800">
     © 2026 Eungchan Kang
   </footer>
 
+    <script src="src/constellation.js"></script>
     <script src="src/main.js"></script>
     <script src="src/type.js"></script>
   </body>

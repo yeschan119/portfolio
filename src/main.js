@@ -395,7 +395,8 @@ function initProjectFilter() {
       });
 
       if (emptyState) {
-        emptyState.classList.toggle("hidden", visible === 0);
+        // hide the empty-state whenever at least one card is visible
+        emptyState.classList.toggle("hidden", visible !== 0);
       }
     }
 
