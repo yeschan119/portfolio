@@ -65,17 +65,21 @@ function initLanguage() {
 
     if (lang === "en") {
       document.getElementById("langEn")?.classList.add("bg-accent","text-white","border-accent");
+      document.getElementById("langEnMobile")?.classList.add("bg-accent","text-white","border-accent");
     }
 
     if (lang === "ko") {
       document.getElementById("langKo")?.classList.add("bg-accent","text-white","border-accent");
+      document.getElementById("langKoMobile")?.classList.add("bg-accent","text-white","border-accent");
     }
   }
 
   document.getElementById("langEn")?.addEventListener("click", () => loadLanguage("en"));
   document.getElementById("langKo")?.addEventListener("click", () => loadLanguage("ko"));
+  document.getElementById("langEnMobile")?.addEventListener("click", () => loadLanguage("en"));
+  document.getElementById("langKoMobile")?.addEventListener("click", () => loadLanguage("ko"));
 
-  const savedLang = localStorage.getItem("preferredLang") || "ko";
+  const savedLang = localStorage.getItem("preferredLang") || "en";
   loadLanguage(savedLang);
 }
 
