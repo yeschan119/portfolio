@@ -8,21 +8,13 @@
 
     "hero_tag": "Full-Stack • Cloud • Data Platform • DB Performance",
     "hero_title": "Building Scalable Systems from Database to Dashboard",
-    "hero_desc": "Experienced in building scalable systems,<br class='hidden md:block' />from DB & Cloud architecture design to analytics dashboard implementation.",
+    "hero_desc": "<li>Built scalable systems from DB & Cloud Architecture design to dashboard implementation</li><li>As a Software Architect, designed and implemented ERP systems and built AI Agent-based control systems</li>",
     "hero_btn_projects": "View Projects",
     "hero_btn_arch": "Architecture Diagram",
     "ai-button": "Try to talk with Eungchan's AI",
     "ai-main": "Ask anything 🙏🏻 (e.g., Show me Data Engineering projects)",
     "ai-sub": "This AI is trained on Eungchan’s Git history. For deeper insights into each project, visit the Projects section of the portfolio.",
 
-    "about_title": "About",
-    "about": {
-        "detail1": "• Full-Stack & Data Platform Engineer with 5+ years of experience in cloud-native backend systems",
-        "detail2": "• Experienced in cloud-based backend development, RDBMS internals, SQL optimization, and analytics dashboard development",
-        "detail3": "• Build end-to-end systems, from database design to dashboard implementation",
-        "detail4": "• Passionate about LLMs; actively developing projects in Python • FastAPI and integrating LLM + MCP-based AI-driven features into this portfolio"
-    },
-    
     "arc_title": "System Architecture Blueprint",
     "arc_desc": "End-to-end data analytics platform across application,<br class='hidden md:block' />data, performance, cloud, and observability layers.",
 

@@ -10,18 +10,11 @@
 
     "hero_tag":"풀스택 • 클라우드 • 데이터 플랫폼 • DB 성능",
     "hero_title":"DB 설계부터 Dashboard 구현까지<br class='hidden md:block' />확장 가능한 시스템 구축 경험",
-    "hero_desc":"DB & Cloud Architecture 설계부터 Dashboard 구현까지<br class='hidden md:block' />확장 가능한 시스템 구축 경험을 가지고 있습니다.",
+    "hero_desc":"<li>DB & Cloud Architecture 설계부터 Dashboard 구현까지 확장 가능한 시스템 구축</li><li>Software Architect로서 ERP시스템 설계 및 구현 + AI Agent기반 제어시스템 구축</li>",
     "ai-button": "강응찬의 AI와 대화하기",
     "ai-main": "Ask me anything 🙏🏻 (ex: Data Engineer 직무 관련 프로젝트 리스트)",
     "ai-sub": "이 AI는 응찬의 Git history를 학습한 결과를 보여줍니다. 프로젝트 관련 더 자세한 정보는 포트폴리오 프로젝트 탭에서 확인하실 수 있습니다.",
 
-    "about_title":"소개",
-    "about": {
-        "detail1": "• Full-Stack 개발자로 Web 개발 및 Data Plaftform 설계를 수행했습니다.",
-        "detail2": "• 클라우드 기반 백엔드 시스템, RDBMS 내부 구조, SQL 최적화, 그리고 분석 대시보드 개발을 수행해왔습니다.",
-        "detail3": "• 데이터베이스 설계부터 대시보현 구현까지 end-to-end 시스템을 구축합니다.",
-        "detail4": "• LLM에 관심이 많아 Python • FastAPI를 활용하여 다양한 프로젝트를 수행중이며 이 포트폴리오 역시 <strong>LLM + MCP 기반 AI Chat</strong> 기능 추가."
-    },
     "contact_title":"연락처",
 
     "arc_title": "시스템 아키텍처 설계",
