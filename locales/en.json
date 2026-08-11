@@ -8,7 +8,7 @@
 
     "hero_tag": "Full-Stack • Cloud • Data Platform • DB Performance",
     "hero_title": "Building Scalable Systems from Database to Dashboard",
-    "hero_desc": "<li>Built scalable systems from DB & Cloud Architecture design to dashboard implementation</li><li>As a Software Architect, designed and implemented ERP systems and built AI Agent-based control systems</li>",
+    "hero_desc": "<li>Built scalable systems from DB & Cloud Architecture design to dashboard implementation</li><li>As a Software Architect, designed and built ERP systems on an AI Engineering foundation</li>",
     "hero_btn_projects": "View Projects",
     "hero_btn_arch": "Architecture Diagram",
     "ai-button": "Try to talk with Eungchan's AI",
@@ -21,7 +21,7 @@
     "skill-lang": "Hover over a language to see experience.",
     "work": {
         "koclo1": "• Designed and automated apparel sales, inventory, ordering, settlement, and store operations as a unified apparel distribution management system",
-        "koclo2": "• Applied Software Architecture principles to the apparel company system, separating domain, API, data, and deployment layers",
+        "koclo2": "• Applied Software Architecture principles to the apparel company system, designing and implementing the domain, API, data, and deployment layers",
         "koclo3": "• Built an AI Agent-based environment that connects system queries, controls, and automation tasks so operators can control the software more directly",
         "aiworkx1": "• Developed object detection models optimized for edge devices without GPUs",
         "aiworkx2": "• Built and productized image annotation and segmentation models using OpenCV",
@@ -153,7 +153,8 @@
         "metric": "Flutter-based unit conversion app deployed across iOS, Web, and Desktop platforms.",
         "memo": "Cross-platform memo management app using Flutter, Firebase Auth, and Firestore with hierarchical note structure.",
         "erp": "Re-architected a file-based legacy ERP onto a single-source, 5-layer reference architecture — owning the migration strategy end to end.",
-        "aiagent": "Designed an operating model for AI-assisted engineering — a domain-bounded agent org, defense-in-depth governance, and a persistent-knowledge system."
+        "aiagent": "Designed an operating model for AI-assisted engineering — a domain-bounded agent org, defense-in-depth governance, and a persistent-knowledge system.",
+        "erp-db": "Designed a 112-table ERP database, migrated years of Excel/CSV, and automated the daily load with 16 batches."
     },
 
     "projects": {
@@ -824,6 +825,46 @@
                 "performance": "Redesigned core paths to retire latency and capacity risk, and codified regression-prevention rules alongside (dev-measured)",
                 "scale": "Converged into an integrated platform running 97 tables, 36 views, and 148 scripts consistently on one source of truth",
                 "arc": "Owned — at the strategy level — the re-architecture and phased migration from a file-based monolith to a snapshot-oriented single source of truth"
+            }
+        },
+        "erp-database": {
+            "main": "All of Ko&Clo's operational data — sales, purchases, inventory, returns, samples — lived in Excel and CSV files. I designed the ERP database that replaced them and ran the migration end to end.",
+            "loc": "Role: Database architect & sole implementer — schema, migration code, batch scheduling, DB console.",
+            "summary": {
+                "a": "112 tables across 5 domains replaced the Excel/CSV files as the system of record.",
+                "b": "Schema designed in recurring sessions with the operations and merchandising owners.",
+                "c": "Migration code backfilled every accumulated file with idempotent UPSERT loads.",
+                "d": "16 scheduled batches keep the DB current as new files keep arriving."
+            },
+            "schema": {
+                "workshop": "Recurring sessions with each process owner turned spreadsheet conventions into explicit tables, columns, and lifecycle rules.",
+                "relation": "41 foreign keys where the DB should reject bad data. CASCADE only where a child is meaningless without its parent. 14 legacy links documented as logical relations.",
+                "grouping": "products.id as the canonical key, 5 domain groups with a naming convention, and 144 indexes shaped by actual query paths."
+            },
+            "domain": {
+                "desc": "Five domains, each with its own naming convention and lifecycle. The DB console classifies every table by these prefixes."
+            },
+            "migration": {
+                "code": "9-stage ingestion covering ledgers, trade history, inventory flow, and product master — each stage isolated so one failure never blocks the rest.",
+                "backfill": "Years of Excel/CSV loaded with idempotent UPSERT — a re-run repairs data instead of duplicating it. The same path became the daily incremental load.",
+                "parity": "Each tab verified against legacy file outputs before cutover; a gap beyond ~10% was a defect to root-cause, not a rounding difference."
+            },
+            "batch": {
+                "a": "16 batches spread across the night (02:00–06:30) and an evening polling window, time-separated so heavy loads never overlap.",
+                "b": "After an inserted column silently shifted every field and corrupted sales data, a header-anchor gate now rejects malformed files — silent corruption became immediate failure.",
+                "c": "Each batch declares the tables it owns and its allowed staleness, counted in the weekdays it actually runs — no false alarms on off days."
+            },
+            "console": {
+                "usage": "Reads PostgreSQL catalogs directly — row estimates, table and index size, vacuum/analyze times, database growth.",
+                "relation": "Merges live foreign keys with documented logical relations, so the model people reason about matches what the DB enforces.",
+                "trace": "Maps all 32 ERP tabs to the tables they read — the blast radius of a schema change is visible before it ships.",
+                "freshness": "Batch history, per-table staleness, and NAS disk status with warn/critical thresholds."
+            },
+            "impact": {
+                "ssot": "One PostgreSQL database replaced scattered Excel/CSV as the system of record",
+                "integrity": "Consistency moved from spreadsheet discipline into keys, constraints, and a validation gate",
+                "automation": "16 batches keep the DB current — no manual import in daily operation",
+                "ops": "Usage, relations, tab dependencies, and freshness observable from one console"
             }
         },
         "agent-platform": {

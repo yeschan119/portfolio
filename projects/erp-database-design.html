@@ -1,0 +1,418 @@
+<!-- ERP DATABASE DESIGN & MIGRATION -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>ERP Database Design & Migration</title>
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+
+        <!-- Tailwind CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: "#0b1120",
+                            secondary: "#111827",
+                            accent: "#3b82f6"
+                        }
+                    }
+                }
+            }
+        </script>
+
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+    </head>
+    <body class="bg-primary text-white">
+        <section id="erp-database-design" class="section-glow py-24 border-t border-slate-800">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="mb-10">
+                    <button
+                        onclick="history.back()"
+                        class="flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-700
+                            bg-secondary/40 text-sm text-slate-300 hover:bg-secondary/60 hover:text-white transition">
+                        <span class="text-sm">←</span>
+                        Back to Projects
+                    </button>
+                </div>
+
+                <!-- Header -->
+                <div class="mb-14">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20 text-xs text-slate-300 mb-6">
+                        <span class="w-2 h-2 rounded-full bg-accent"></span>
+                        Case Study • Database Design • Data Migration
+                    </div>
+
+                    <h3 class="text-4xl font-semibold mb-4">
+                        ERP Database Design & Migration
+                    </h3>
+
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-secondary/40 text-sm text-slate-400">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                        Ko&amp;Clo • Enterprise • Private Repository
+                    </div>
+
+                    <p data-i18n="projects.erp-database.main" class="text-slate-400 mt-4 text-lg max-w-4xl leading-relaxed"></p>
+                    <p data-i18n="projects.erp-database.loc" class="mt-3 text-sm max-w-4xl leading-relaxed"></p>
+                </div>
+
+                <!-- Executive Summary -->
+                <div class="grid lg:grid-cols-[1.35fr,0.9fr] gap-6 mb-16">
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                        <h4 class="text-xl font-semibold mb-5">Executive Summary</h4>
+                        <div class="grid sm:grid-cols-2 gap-4 text-sm text-slate-300 leading-relaxed">
+                            <div data-i18n="projects.erp-database.summary.a" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                            <div data-i18n="projects.erp-database.summary.b" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                            <div data-i18n="projects.erp-database.summary.c" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                            <div data-i18n="projects.erp-database.summary.d" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                        </div>
+                    </div>
+
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                        <h4 class="text-xl font-semibold mb-5">Key Metrics</h4>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
+                                <div class="text-3xl font-bold text-accent mb-2">112</div>
+                                <div class="text-sm text-slate-400">Designed Tables</div>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
+                                <div class="text-3xl font-bold text-accent mb-2">55</div>
+                                <div class="text-sm text-slate-400">Modeled Relations</div>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
+                                <div class="text-3xl font-bold text-accent mb-2">16</div>
+                                <div class="text-sm text-slate-400">Scheduled Batches</div>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
+                                <div class="text-3xl font-bold text-accent mb-2">144</div>
+                                <div class="text-sm text-slate-400">Tuned Indexes</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Architecture -->
+                <div class="mb-16">
+                    <div class="flex items-center justify-between flex-wrap gap-4 mb-6">
+                        <div>
+                            <h4 class="text-2xl font-semibold mb-2">Data Flow Architecture</h4>
+                            <p class="text-slate-400">
+                                Excel / CSV → format gate → staged idempotent loads → PostgreSQL, governed from a DB admin console.
+                            </p>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">PostgreSQL 16</span>
+                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Python ETL</span>
+                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">cron</span>
+                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Docker</span>
+                        </div>
+                    </div>
+
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/30 p-6 overflow-hidden">
+                        <div class="overflow-x-auto">
+                        <svg viewBox="0 0 1200 360" class="w-full min-w-[980px] h-auto">
+                            <g font-family="ui-sans-serif, system-ui" fill="#e2e8f0">
+                                <!-- Legacy files -->
+                                <rect x="20" y="130" width="180" height="100" rx="18" fill="rgba(17,24,39,.85)" stroke="rgba(148,163,184,.28)"/>
+                                <text x="110" y="165" text-anchor="middle" font-size="19" font-weight="600">Excel · CSV</text>
+                                <text x="110" y="189" text-anchor="middle" font-size="13" fill="#94a3b8">NAS shared folders</text>
+                                <text x="110" y="210" text-anchor="middle" font-size="13" fill="#94a3b8">daily / accumulated</text>
+
+                                <!-- Format gate -->
+                                <rect x="250" y="130" width="185" height="100" rx="18" fill="rgba(17,24,39,.85)" stroke="rgba(148,163,184,.28)"/>
+                                <text x="342" y="165" text-anchor="middle" font-size="19" font-weight="600">Format Gate</text>
+                                <text x="342" y="189" text-anchor="middle" font-size="13" fill="#94a3b8">header anchor check</text>
+                                <text x="342" y="210" text-anchor="middle" font-size="13" fill="#60a5fa">fail-fast on drift</text>
+
+                                <!-- Staged ingest -->
+                                <rect x="485" y="130" width="195" height="100" rx="18" fill="rgba(17,24,39,.85)" stroke="rgba(148,163,184,.28)"/>
+                                <text x="582" y="165" text-anchor="middle" font-size="19" font-weight="600">Staged Ingest</text>
+                                <text x="582" y="189" text-anchor="middle" font-size="13" fill="#94a3b8">9 stages · UPSERT</text>
+                                <text x="582" y="210" text-anchor="middle" font-size="13" fill="#94a3b8">failure isolation</text>
+
+                                <!-- Batch scheduler -->
+                                <rect x="485" y="20" width="195" height="80" rx="18" fill="rgba(17,24,39,.85)" stroke="rgba(148,163,184,.28)"/>
+                                <text x="582" y="52" text-anchor="middle" font-size="18" font-weight="600">Batch Scheduler</text>
+                                <text x="582" y="76" text-anchor="middle" font-size="13" fill="#94a3b8">16 cron jobs</text>
+
+                                <!-- PostgreSQL -->
+                                <rect x="730" y="115" width="235" height="130" rx="18" fill="rgba(17,24,39,.92)" stroke="#3b82f6"/>
+                                <text x="847" y="152" text-anchor="middle" font-size="20" font-weight="600">PostgreSQL 16</text>
+                                <text x="847" y="177" text-anchor="middle" font-size="13" fill="#94a3b8">112 tables · 5 domains</text>
+                                <text x="847" y="199" text-anchor="middle" font-size="13" fill="#94a3b8">41 FK · 14 logical rels</text>
+                                <text x="847" y="221" text-anchor="middle" font-size="13" fill="#60a5fa">products.id canonical key</text>
+
+                                <!-- Governance console -->
+                                <rect x="1010" y="20" width="170" height="90" rx="18" fill="rgba(17,24,39,.85)" stroke="rgba(148,163,184,.28)"/>
+                                <text x="1095" y="55" text-anchor="middle" font-size="18" font-weight="600">DB Console</text>
+                                <text x="1095" y="79" text-anchor="middle" font-size="13" fill="#94a3b8">usage · relation map</text>
+
+                                <!-- Consumers -->
+                                <rect x="1010" y="255" width="170" height="90" rx="18" fill="rgba(17,24,39,.85)" stroke="rgba(148,163,184,.28)"/>
+                                <text x="1095" y="290" text-anchor="middle" font-size="18" font-weight="600">32 ERP Tabs</text>
+                                <text x="1095" y="314" text-anchor="middle" font-size="13" fill="#94a3b8">reports · agents</text>
+                            </g>
+
+                            <!-- Wires -->
+                            <path d="M200 180 L250 180" stroke="#3b82f6" stroke-width="3" fill="none"/>
+                            <path d="M435 180 L485 180" stroke="#3b82f6" stroke-width="3" fill="none"/>
+                            <path d="M582 100 L582 130" stroke="#3b82f6" stroke-width="3" fill="none"/>
+                            <path d="M680 180 L730 180" stroke="#3b82f6" stroke-width="3" fill="none"/>
+                            <path d="M965 160 C990 160 990 65 1010 65" stroke="#3b82f6" stroke-width="3" fill="none"/>
+                            <path d="M965 205 C990 205 990 300 1010 300" stroke="#3b82f6" stroke-width="3" fill="none"/>
+
+                            <text x="600" y="290" text-anchor="middle" font-size="13" fill="#60a5fa">
+                                Schema workshop → migration backfill → scheduled incremental load → freshness monitoring
+                            </text>
+                        </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Schema Design -->
+                <div class="mb-16">
+                    <h4 class="text-2xl font-semibold mb-6">Schema Design with Domain Owners</h4>
+                    <div class="grid lg:grid-cols-3 gap-6">
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
+                            <div class="text-slate-200 font-semibold mb-3">Recurring Design Workshops</div>
+                            <p data-i18n="projects.erp-database.schema.workshop" class="text-slate-400 text-sm leading-relaxed"></p>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
+                            <div class="text-slate-200 font-semibold mb-3">Relation & Cascade Policy</div>
+                            <p data-i18n="projects.erp-database.schema.relation" class="text-slate-400 text-sm leading-relaxed"></p>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
+                            <div class="text-slate-200 font-semibold mb-3">Domain Grouping & Keys</div>
+                            <p data-i18n="projects.erp-database.schema.grouping" class="text-slate-400 text-sm leading-relaxed"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Domain model -->
+                <div class="mb-16">
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                        <h4 class="text-2xl font-semibold mb-5">Domain Model</h4>
+                        <p data-i18n="projects.erp-database.domain.desc" class="text-slate-400 text-sm leading-relaxed mb-6"></p>
+                        <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 text-sm">
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-accent font-semibold mb-2">Master</div>
+                                <p class="text-xs text-slate-400 leading-relaxed">products · pm_suppliers · stores · product_master_sheets</p>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-accent font-semibold mb-2">Transaction</div>
+                                <p class="text-xs text-slate-400 leading-relaxed">purchase_daily · sales_daily · trade_ledger · returns_ledger</p>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-accent font-semibold mb-2">Order</div>
+                                <p class="text-xs text-slate-400 leading-relaxed">order_build_runs · order_scores · best_integrated</p>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-accent font-semibold mb-2">Report</div>
+                                <p class="text-xs text-slate-400 leading-relaxed">*_snapshots · *_snapshot_items · build_runs</p>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-accent font-semibold mb-2">System</div>
+                                <p class="text-xs text-slate-400 leading-relaxed">users · role_tab_permissions · batch_runs · import_log</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Migration Execution -->
+                <div class="mb-16">
+                    <h4 class="text-2xl font-semibold mb-6">Migration Execution</h4>
+                    <div class="grid lg:grid-cols-3 gap-6">
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
+                            <div class="text-slate-200 font-semibold mb-3">Migration Codebase</div>
+                            <p data-i18n="projects.erp-database.migration.code" class="text-slate-400 text-sm leading-relaxed"></p>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
+                            <div class="text-slate-200 font-semibold mb-3">Historical Backfill</div>
+                            <p data-i18n="projects.erp-database.migration.backfill" class="text-slate-400 text-sm leading-relaxed"></p>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
+                            <div class="text-slate-200 font-semibold mb-3">Parity Verification</div>
+                            <p data-i18n="projects.erp-database.migration.parity" class="text-slate-400 text-sm leading-relaxed"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Batch Automation -->
+                <div class="grid lg:grid-cols-[1fr,1fr] gap-6 mb-16">
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                        <h4 class="text-2xl font-semibold mb-5">Batch Design</h4>
+                        <div class="space-y-4 text-sm text-slate-400 leading-relaxed">
+                            <div data-i18n="projects.erp-database.batch.a" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                            <div data-i18n="projects.erp-database.batch.b" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                            <div data-i18n="projects.erp-database.batch.c" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                        </div>
+                    </div>
+
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                        <h4 class="text-2xl font-semibold mb-5">Schedule Map</h4>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm text-left">
+                                <thead class="text-xs uppercase text-slate-500 border-b border-slate-700/70">
+                                    <tr>
+                                        <th class="py-2 pr-4 font-medium">Time</th>
+                                        <th class="py-2 pr-4 font-medium">Batch</th>
+                                        <th class="py-2 font-medium">Target Tables</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-slate-400">
+                                    <tr class="border-b border-slate-800">
+                                        <td class="py-2 pr-4 text-accent whitespace-nowrap">02:00</td>
+                                        <td class="py-2 pr-4">Daily trade</td>
+                                        <td class="py-2 text-xs">daily_trade_ledger</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-800">
+                                        <td class="py-2 pr-4 text-accent whitespace-nowrap">03:00</td>
+                                        <td class="py-2 pr-4">Sample ingest</td>
+                                        <td class="py-2 text-xs">sample_products · sample_ledger</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-800">
+                                        <td class="py-2 pr-4 text-accent whitespace-nowrap">03:30</td>
+                                        <td class="py-2 pr-4">Returns ledger</td>
+                                        <td class="py-2 text-xs">returns_ledger · backorder_*</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-800">
+                                        <td class="py-2 pr-4 text-accent whitespace-nowrap">04:00</td>
+                                        <td class="py-2 pr-4">Backorder trade</td>
+                                        <td class="py-2 text-xs">backorder_trade_history</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-800">
+                                        <td class="py-2 pr-4 text-accent whitespace-nowrap">06:00</td>
+                                        <td class="py-2 pr-4">Inventory snapshot</td>
+                                        <td class="py-2 text-xs">inventory_snapshot · inventory_flow</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-800">
+                                        <td class="py-2 pr-4 text-accent whitespace-nowrap">06:10</td>
+                                        <td class="py-2 pr-4">Master product</td>
+                                        <td class="py-2 text-xs">products · product_master_sheets</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-800">
+                                        <td class="py-2 pr-4 text-accent whitespace-nowrap">06:30</td>
+                                        <td class="py-2 pr-4">Wholesale daily</td>
+                                        <td class="py-2 text-xs">wholesale_* (7 tables)</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-800">
+                                        <td class="py-2 pr-4 text-accent whitespace-nowrap">20:15</td>
+                                        <td class="py-2 pr-4">Incremental sales / purchase</td>
+                                        <td class="py-2 text-xs">sales_daily · purchase_daily</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-800">
+                                        <td class="py-2 pr-4 text-accent whitespace-nowrap">22:00</td>
+                                        <td class="py-2 pr-4">Purchase price snapshot</td>
+                                        <td class="py-2 text-xs">current_purchase_price</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 pr-4 text-accent whitespace-nowrap">23:00</td>
+                                        <td class="py-2 pr-4">Trade ledger / history</td>
+                                        <td class="py-2 text-xs">trade_ledger · trade_history</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Governance Console -->
+                <div class="mb-16">
+                    <h4 class="text-2xl font-semibold mb-6">DB Governance Console</h4>
+                    <div class="grid lg:grid-cols-2 gap-6">
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
+                            <div class="text-slate-200 font-semibold mb-3">Table Usage & Growth</div>
+                            <p data-i18n="projects.erp-database.console.usage" class="text-slate-400 text-sm leading-relaxed"></p>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
+                            <div class="text-slate-200 font-semibold mb-3">Relation Map</div>
+                            <p data-i18n="projects.erp-database.console.relation" class="text-slate-400 text-sm leading-relaxed"></p>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
+                            <div class="text-slate-200 font-semibold mb-3">Tab ↔ Table Traceability</div>
+                            <p data-i18n="projects.erp-database.console.trace" class="text-slate-400 text-sm leading-relaxed"></p>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
+                            <div class="text-slate-200 font-semibold mb-3">Freshness & Storage Alerts</div>
+                            <p data-i18n="projects.erp-database.console.freshness" class="text-slate-400 text-sm leading-relaxed"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tech Stack -->
+                <div class="mb-16">
+                    <h4 class="text-2xl font-semibold mb-6">Technology Stack</h4>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                            <div class="text-slate-200 font-semibold mb-3">Database</div>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">PostgreSQL 16</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">DDL / Constraints</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Index Design</span>
+                            </div>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                            <div class="text-slate-200 font-semibold mb-3">Migration / ETL</div>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Python</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">pandas</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">openpyxl</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">psycopg</span>
+                            </div>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                            <div class="text-slate-200 font-semibold mb-3">Batch & Ops</div>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">cron</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Docker Compose</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">NAS Mount</span>
+                            </div>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                            <div class="text-slate-200 font-semibold mb-3">Serving</div>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">FastAPI</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">SQLAlchemy</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Vue 3</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Impact -->
+                <div>
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                        <h4 class="text-2xl font-semibold mb-5">Impact</h4>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-accent font-semibold mb-2">Single Source of Truth</div>
+                                <p data-i18n="projects.erp-database.impact.ssot" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-accent font-semibold mb-2">Integrity</div>
+                                <p data-i18n="projects.erp-database.impact.integrity" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-accent font-semibold mb-2">Automation</div>
+                                <p data-i18n="projects.erp-database.impact.automation" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-accent font-semibold mb-2">Operability</div>
+                                <p data-i18n="projects.erp-database.impact.ops" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <script src="/src/main.js"></script>
+    </body>
+</html>
