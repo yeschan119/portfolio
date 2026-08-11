@@ -153,7 +153,7 @@
         "metric": "Flutter-based unit conversion app deployed across iOS, Web, and Desktop platforms.",
         "memo": "Cross-platform memo management app using Flutter, Firebase Auth, and Firestore with hierarchical note structure.",
         "erp": "Re-architected a file-based legacy ERP onto a single-source, 5-layer reference architecture — owning the migration strategy end to end.",
-        "aiagent": "Designed an operating model for AI-assisted engineering — a domain-bounded agent org, defense-in-depth governance, and a persistent-knowledge system.",
+        "aiagent": "Engineered the .claude/ harness Claude Code runs inside — permission tiers, guard hooks, layered memory, and agent scaffolding.",
         "erp-db": "Designed a 112-table ERP database, migrated years of Excel/CSV, and automated the daily load with 16 batches."
     },
 
@@ -868,44 +868,85 @@
             }
         },
         "agent-platform": {
-            "main": "Designed an operating model to scale and govern AI-assisted engineering on top of a live production ERP. Split agent responsibility along product-domain boundaries (Conway-aligned), and established defense-in-depth safety governance plus a persistent-knowledge system that compounds across sessions — an orchestration layer built on top of Claude Code.",
-            "loc": "Role: Designer of the operating model — defined and implemented the agent org structure, governance, and knowledge architecture.",
+            "main": "Ko&Clo runs on an AI-native development model, so the environment came first. Harness Engineering governs what that environment allows, Graph Engineering breaks development into nodes that change in parallel, and Loop Engineering runs each node until it is verified.",
+            "loc": "Role: Built the environment — permission tiers, guard hooks, node scaffolding, and the verification loop.",
             "summary": {
-                "a": "Designed agent responsibility to map 1:1 onto product-domain boundaries — an org structure (Conway-aligned) that contains a change's blast radius within its domain.",
-                "b": "Defined a skill layer that routes work as identify → delegate → regression-verify — standardizing so a process, not a person, allocates work.",
-                "c": "Designed a layered persistent-knowledge system (domain, system contracts, learned feedback) so organizational knowledge compounds across sessions.",
-                "d": "Designed three-tier, defense-in-depth governance (policy, confirmation, hard block) that structurally controls the risk of irreversible and production-impacting actions."
-            },
-            "system-scale": {
-                "agents": "42 agents with per-domain responsibility boundaries — domain ownership and change isolation implemented at the org level.",
-                "skills": "16 skill routers — repeatable work standards that codify identify → delegate → verify.",
-                "memory": "59 knowledge artifacts — organizational memory layered into terms/rules (domain), system contracts (service), and learned feedback."
+                "a": "Harness Engineering — 46 permission rules and 7 hooks decide what the environment allows before any tool runs.",
+                "b": "Graph Engineering — 1 subtab = 1 node = 1 agent, across 53 nodes with their own memory.",
+                "c": "Each node has a single owner, so features are modified and added in parallel without collision.",
+                "d": "Loop Engineering — work repeats until every story passes a fresh reviewer, not until it looks done."
             },
             "pillars": {
-                "mapping": "Isolated responsibility via 1:1 agent-domain mapping (bounded contexts) — designing org boundaries so work in one domain doesn't spill into another.",
-                "meta": "Designed a meta-framework (agent-blueprint) that stamps out the standard system (skills + agents + knowledge + commands) for any new domain from a canonical template — making the practice itself scalable.",
-                "knowledge": "Designed a learning loop that persists feedback as knowledge — preventing recurrence of the same mistake by process, not personal memory."
+                "harness": "Governs the environment — permission tiers, guard hooks, and budgeted context injection.",
+                "graph": "Decomposes the product into nodes — one subtab, one agent, shared assets as explicit edges.",
+                "loop": "Repeats until verified — story-by-story iteration with reviewer sign-off before completion."
             },
-            "governance": {
-                "policy": "Continuously enforces intent-level risks that command patterns can't catch (production-data edits, mass sends) — the first line of governance.",
-                "gate": "Controls hard-to-reverse actions (commit/push, container ops, deletes) with pre-execution confirmation — inserting human approval into the workflow as a contract.",
-                "hardblock": "Blocks irreversible commands by default (force push, reset, drop, production-network access), allowing only time-boxed exceptions — a hard gate enforcing least privilege and explicit exceptions."
+            "layout": {
+                "desc": "Everything the agents run on is version-controlled in the repo — no per-developer setup, no hidden state."
+            },
+            "harness": {
+                "desc": "The environment is designed as six harnesses, each built and audited separately.",
+                "context": "CLAUDE.md policy plus 3-layer memory (meta / domain / service) with budgeted auto-injection.",
+                "permission": "deny / ask tiers in settings.json, plus hooks that block below the permission layer.",
+                "tool": "Skills route, agents own, commands expose — trigger-keyword collisions documented as boundaries.",
+                "subagent": "4 git worktrees for filesystem isolation; the memory-sharing gap between them is documented, not hidden.",
+                "verification": "Regression checklists live in the skills. Creating test files is free; committing them is blocked.",
+                "debugging": "An environment scope matrix built without ever reading a secret value."
+            },
+            "permission": {
+                "deny": "Hard denials — git push, DROP / TRUNCATE, rm -rf /, and any read or edit of .env and secrets. Approval cannot override them.",
+                "ask": "Confirmation required — git commit / merge / rebase, docker compose lifecycle, migrations, chmod, sudo.",
+                "gate": "/nas on and /danger on write a gate file holding an expiry epoch — access is granted for a window, not forever.",
+                "secrets": ".env is deny-read at the permission layer. The environment matrix records where each variable is declared, never its value."
+            },
+            "hooks": {
+                "desc": "Seven hooks across four lifecycle events. Guards exit 2 to block; memory hooks fail open so they can never stall a session.",
+                "recall": "Scores memory files against the prompt by IDF and injects the best match under a 4,000-character budget.",
+                "nas": "Blocks any command carrying a production NAS marker unless the gate is open.",
+                "danger": "Blocks irreversible commands — force push, reset --hard, docker prune, SQL drop / truncate.",
+                "testfile": "Creating test files is free; committing them is blocked. Added after 859 lines of unrequested tests shipped inside a feature commit.",
+                "initsql": "Detects DDL/DML run in a session and requires init.sql — the schema source of truth — to mirror it.",
+                "sync": "Keeps plugin definitions in sync after edits to them.",
+                "consolidate": "If the session took a correction but nothing was recorded, it prompts once before exit."
+            },
+            "graph": {
+                "desc": "Development happens per node, not per repository. A node is one subtab with one owning agent, so a change stays inside its boundary.",
+                "node": "53 agents map 1:1 onto subtabs, each carrying its own domain, architecture, and feedback memory.",
+                "parallel": "Independent nodes are delegated in a single message and run at once — several features change without collision.",
+                "edge": "Shared formulas, API response keys, and DB tables are the edges. Touching one requires reporting back to the main session.",
+                "build": "A new node and its edges are generated by agent-blueprint from a reference node — never invented from scratch."
+            },
+            "loop": {
+                "desc": "A task runs as a persistence loop: it does not stop at “done”, it stops at “verified”.",
+                "story": "Work is split into stories with testable acceptance criteria and iterated one at a time.",
+                "verify": "A fresh reviewer checks each story against its criteria before the loop is allowed to end.",
+                "persist": "Progress and learnings persist across iterations, so a retry resumes instead of restarting."
             },
             "review": {
-                "a": "Designed review to inspect only the diff in an isolated worktree — scoping review by contract.",
-                "b": "Parallelized four dedicated perspectives (intent, quality, layer, data) and integrated them — structurally removing single-viewpoint blind spots.",
-                "c": "Separated authoring from review into distinct passes (separation of duties) — categorically forbidding same-context self-approval."
+                "desc": "A branch review is not a prompt — it is a procedure. The target branch is isolated in a throwaway worktree, only the merge-base diff is examined, and four dimension agents run in parallel over it.",
+                "intent": "Reconstructs why the change was made from commit messages and domain memory, then checks implementation against intent — missing requirements, overreach, regression risk.",
+                "quality": "Error paths, swallowed exceptions, naming and magic values, responsibility separation — plus hardcoded secrets, SQL injection, and auth bypass.",
+                "layer": "Vue ↔ router ↔ service/SQL contract consistency, missing layers, expected-value alignment, and an import smoke check.",
+                "data": "DDL/DML normalization, FK / UNIQUE / index design, migration safety, and the ingestion format guard against column shift.",
+                "verdict": "One Blocker means Changes Requested. Major only means Conditional. Minor and Nit only means Approve with comments. Every finding carries file:line, evidence quoted from the code, and a suggested fix.",
+                "readonly": "Agents may read, run import smoke checks, and verify — never edit, commit, or reach production DB and NAS. The current branch is never switched; a detached worktree is used instead.",
+                "cleanup": "The worktree is removed and pruned on exit, including when the review itself fails. The report is written to docs/reviews/ and is not committed without an explicit instruction."
             },
-            "memory": {
-                "a": "Domain-knowledge layer — canonicalizes terms, boundaries, rules, and shared dependencies to preserve business context in the system.",
-                "b": "System-contract layer — maps the provenance of screens, APIs, DB, and response keys into architecture knowledge that can be checked against code.",
-                "c": "Learning layer — session handovers and accumulated feedback guarantee continuity of long-running work and organizational memory."
+            "blueprint": {
+                "a": "A meta-skill that generates an entire tab work system — skill router, one agent per subtab, command menu, and domain/architecture/feedback memory — from a single reference implementation.",
+                "b": "Creating files before an approved plan is the skill's first prohibition. It explores read-only, presents a mapping table, and waits.",
+                "c": "Verification is part of the skill: generated architecture docs are checked against the actual router and service code, not assumed correct."
+            },
+            "audit": {
+                "a": "A read-only audit graded all six harnesses with zero code changes, and rated Context the weakest — with evidence, not opinion.",
+                "b": "The finding that mattered: CLAUDE.md promised two production container markers were auto-blocked, but the guard regex did not contain them — a documented defense that did not exist.",
+                "c": "Guidance is not enforcement: 7 of 12 feedback ledgers were empty under instruction alone. That evidence became the /learn command and two memory hooks."
             },
             "impact": {
-                "velocity": "Achieved parallel, consistent execution across a large codebase at the org level via per-domain agents and process routing",
-                "safety": "Structurally controls the accident risk of production/irreversible actions through defense-in-depth governance",
-                "knowledge": "Built a learning system where organizational knowledge compounds across sessions over 59 persistent artifacts",
-                "arc": "Designed and established a self-extending engineering operating model that treats AI as a first-class actor"
+                "safety": "Destructive and production-reaching commands are blocked below the approval layer, with access granted only through expiring gates",
+                "repeatability": "A new tab's agent system is scaffolded from one reference structure instead of being invented each time",
+                "knowledge": "Corrections become numbered feedback entries that are re-injected into later sessions automatically",
+                "discipline": "Every enforcement claim in the docs was verified against the code, and the gaps were fixed rather than described"
             }
         }
     }
