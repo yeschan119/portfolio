@@ -150,7 +150,6 @@
         "db-total": "DB engine internals and system-level design experiments.",
         "ai1": "Edge-based object detection pipeline with real-time inference.",
         "ai2": "AI-based annotation & segmentation workflow.",
-        "erp": "Re-architected a file-based legacy ERP onto a single-source, 5-layer reference architecture — owning the migration strategy end to end.",
         "aiagent": "Engineered the .claude/ harness Claude Code runs inside — permission tiers, guard hooks, layered memory, and agent scaffolding.",
         "erp-db": "Designed a 97-table ERP database, migrated years of Excel/CSV, and automated the daily load with 16 batches."
     },
@@ -782,47 +781,6 @@
             "conclusion": {
                 "a": "This project demonstrates more than SQL tuning itself: it demonstrates the <strong class=\"text-white\">design and implementation of an automated SQL tuning system</strong> that models advisor lifecycle, analysis workflow, metadata persistence, recommendation generation, and optimizer-facing profile application.",
                 "b": "It also highlights hands-on experience in <strong class=\"text-white\">C++, PL/SQL, database internals, optimizer behavior, and performance engineering</strong>."
-            }
-        },
-        "erp-replatform": {
-            "main": "Re-architected a legacy fashion ERP — where data was scattered across PKL/JSON files and consistency kept breaking — onto a single-source-of-truth, 5-layer reference architecture, and owned a phased, zero-downtime migration strategy. Defined the data contracts, builder standard, and snapshot model that turned a pile of one-off scripts into a governed pipeline.",
-            "loc": "Role: Architect & sole implementer — owned architecture, migration strategy, data contracts, and delivery end to end.",
-            "summary": {
-                "a": "Adopted single-source-of-truth as a first principle to eliminate a whole class of consistency failures — every report reads the DB, not files, retiring the PKL/JSON dependency axis.",
-                "b": "Defined a 5-layer reference architecture (Raw → Cleansed → Marts → Snapshot → Outputs) so every new report follows the same governed flow with no exceptions.",
-                "c": "Separated immediacy (HTML) from time-series analytics (snapshots) by design — dual-writing outputs and absorbing analytics needs at the contract level via a -current / -trend / -history query contract.",
-                "d": "Codified a three-layer split of presentation, I/O, and compute as the frontend standard — a repeatable tab-development convention the team can follow verbatim."
-            },
-            "system-scale": {
-                "codebase": "A single-owned production codebase spanning backend, data pipeline, and frontend (~130K LOC, 403 commits) with clearly defined layer boundaries and ownership.",
-                "database": "One PostgreSQL 16 instance, 97 tables layered along raw/cleansed/snapshot boundaries and unified under products.id as the canonical key — establishing a single authority for the data model.",
-                "surface": "26 API boundaries, 25 domain services, 36 frontend views, and 148 pipeline scripts operated consistently on one DB contract."
-            },
-            "principles": {
-                "ssot": "Designed every builder to use only the DB → memory → output path via a shared loader — removing the file-cache shortcut entirely so consistency is guaranteed by architecture, not operational discipline.",
-                "snapshot": "Split outputs into volatile views and durable snapshots and defined a standard query contract (-current / -trend / -history) — absorbing time-series needs into design at the contract level.",
-                "buildless": "Chose a bundler-free CDN Vue 3 + scoped-CSS standard — a deliberate architectural trade-off that removes build-pipeline and dependency-management complexity from operations."
-            },
-            "performance": {
-                "oom": "Root-caused a full production outage (host OOM) to an architectural anti-pattern — a shared, monolithic in-memory model — and re-architected to per-domain bounded loaders, established as a design rule applied to every tab thereafter, not a one-off patch.",
-                "codec": "Identified serialization as the system throughput bottleneck and redesigned the codec strategy — cutting core-path latency several-fold (dev-measured 32.9s → 5.6s) and reclaiming capacity headroom.",
-                "cache": "Designed a service-cache layer with version-stamp invalidation — removing repeated recomputation and structurally lowering read cost (dev-measured 30s → 0.4s)."
-            },
-            "pipeline": {
-                "a": "Designed NAS ingestion as idempotent, incremental loads with per-batch failure isolation (minimized blast radius) — so one bad file never halts the whole pipeline.",
-                "b": "After a column-shift incident, introduced an ingestion contract and validation gate — a defensive design that converts silent data corruption into fail-fast.",
-                "c": "Time-separated builder scheduling with real-time observability (sub-step monitor) built in — treating operational visibility as an architectural requirement."
-            },
-            "frontend": {
-                "a": "Defined a convention that forces the View to be a shell and presentation to be components — a structural guardrail against single files owning multiple responsibilities.",
-                "b": "Standardized charts/data as client-initialized and decoupled from server outputs — letting the presentation layer evolve independently of data generation.",
-                "c": "Banned the shared monolith in favor of per-tab bounded loaders while reusing canonical formulas — a design that delivers autonomy and consistency at once."
-            },
-            "impact": {
-                "reliability": "Guaranteed data consistency by architecture rather than operational discipline — structurally removing the failure classes of file dependence, key mismatch, and format errors",
-                "performance": "Redesigned core paths to retire latency and capacity risk, and codified regression-prevention rules alongside (dev-measured)",
-                "scale": "Converged into an integrated platform running 97 tables, 36 views, and 148 scripts consistently on one source of truth",
-                "arc": "Owned — at the strategy level — the re-architecture and phased migration from a file-based monolith to a snapshot-oriented single source of truth"
             }
         },
         "erp-database": {
