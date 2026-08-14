@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .type("a Cloud & Data Platform Engineer")
         .pause(1000)
         .delete(32)
-        .type("a Full-Stack & Data Platform Engineer.")
+        .type("a Full-Stack & AI Platform Engineer.")
         .go();
     }
 
