@@ -150,8 +150,6 @@
         "db-total": "DB engine internals and system-level design experiments.",
         "ai1": "Edge-based object detection pipeline with real-time inference.",
         "ai2": "AI-based annotation & segmentation workflow.",
-        "metric": "Flutter-based unit conversion app deployed across iOS, Web, and Desktop platforms.",
-        "memo": "Cross-platform memo management app using Flutter, Firebase Auth, and Firestore with hierarchical note structure.",
         "erp": "Re-architected a file-based legacy ERP onto a single-source, 5-layer reference architecture — owning the migration strategy end to end.",
         "aiagent": "Engineered the .claude/ harness Claude Code runs inside — permission tiers, guard hooks, layered memory, and agent scaffolding.",
         "erp-db": "Designed a 97-table ERP database, migrated years of Excel/CSV, and automated the daily load with 16 batches."

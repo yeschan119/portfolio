@@ -163,8 +163,6 @@
         "db-total": "DB 관리, SQL Tuning, DB 엔진 내부 구조 설계 및 기능추가",
         "ai1": "실시간 추론을 지원하는 Edge 기반 객체 탐지 모델링 프로젝트",
         "ai2": "AI 기반 데이터 어노테이션 및 세그멘테이션 워크플로우 프로젝트",
-        "metric": "Flutter 기반 단위 변환 애플리케이션 (iOS, Web, Desktop 지원)",
-        "memo": "Flutter, Firebase Auth, Firestore를 활용한 계층형 메모 관리 크로스 플랫폼 앱",
         "erp": "파일 기반 레거시 ERP를 단일 진실 소스 5계층 레퍼런스 아키텍처로 재설계하고 무중단 이관 전략을 주도한 프로덕션 리오더 ERP",
         "aiagent": "Claude Code가 그 안에서 동작하는 .claude/ 하네스 구축 — 권한 티어, 차단 훅, 계층형 메모리, 에이전트 스캐폴딩",
         "erp-db": "97개 테이블 ERP DB 설계, 수년치 Excel/CSV 이관, 16개 정기 배치로 일일 인입 자동화"
