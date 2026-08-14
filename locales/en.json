@@ -154,7 +154,7 @@
         "memo": "Cross-platform memo management app using Flutter, Firebase Auth, and Firestore with hierarchical note structure.",
         "erp": "Re-architected a file-based legacy ERP onto a single-source, 5-layer reference architecture — owning the migration strategy end to end.",
         "aiagent": "Engineered the .claude/ harness Claude Code runs inside — permission tiers, guard hooks, layered memory, and agent scaffolding.",
-        "erp-db": "Designed a 112-table ERP database, migrated years of Excel/CSV, and automated the daily load with 16 batches."
+        "erp-db": "Designed a 97-table ERP database, migrated years of Excel/CSV, and automated the daily load with 16 batches."
     },
 
     "projects": {
@@ -828,43 +828,37 @@
             }
         },
         "erp-database": {
-            "main": "All of Ko&Clo's operational data — sales, purchases, inventory, returns, samples — lived in Excel and CSV files. I designed the ERP database that replaced them and ran the migration end to end.",
-            "loc": "Role: Database architect & sole implementer — schema, migration code, batch scheduling, DB console.",
+            "main": "A project to move seven years of data managed in Excel and CSV files into a database — database design, data migration, and a DB monitoring dashboard.",
             "summary": {
-                "a": "112 tables across 5 domains replaced the Excel/CSV files as the system of record.",
+                "a": "97 tables built out across 5 domains.",
                 "b": "Schema designed in recurring sessions with the operations and merchandising owners.",
-                "c": "Migration code backfilled every accumulated file with idempotent UPSERT loads.",
+                "c": "Migration code that bulk-inserts every accumulated file into the database.",
                 "d": "16 scheduled batches keep the DB current as new files keep arriving."
-            },
-            "schema": {
-                "workshop": "Recurring sessions with each process owner turned spreadsheet conventions into explicit tables, columns, and lifecycle rules.",
-                "relation": "41 foreign keys where the DB should reject bad data. CASCADE only where a child is meaningless without its parent. 14 legacy links documented as logical relations.",
-                "grouping": "products.id as the canonical key, 5 domain groups with a naming convention, and 144 indexes shaped by actual query paths."
             },
             "domain": {
                 "desc": "Five domains, each with its own naming convention and lifecycle. The DB console classifies every table by these prefixes."
             },
             "migration": {
-                "code": "9-stage ingestion covering ledgers, trade history, inventory flow, and product master — each stage isolated so one failure never blocks the rest.",
+                "code": "Master tables loaded first, then their dependent tables grouped and run one stage at a time — each stage isolated so one failure never blocks the rest.",
                 "backfill": "Years of Excel/CSV loaded with idempotent UPSERT — a re-run repairs data instead of duplicating it. The same path became the daily incremental load.",
-                "parity": "Each tab verified against legacy file outputs before cutover; a gap beyond ~10% was a defect to root-cause, not a rounding difference."
+                "partition": "Data loaded daily by date (sales, purchases, logs) is list-partitioned by store so no single table grows unbounded."
             },
             "batch": {
                 "a": "16 batches spread across the night (02:00–06:30) and an evening polling window, time-separated so heavy loads never overlap.",
-                "b": "After an inserted column silently shifted every field and corrupted sales data, a header-anchor gate now rejects malformed files — silent corruption became immediate failure.",
-                "c": "Each batch declares the tables it owns and its allowed staleness, counted in the weekdays it actually runs — no false alarms on off days."
+                "b": "Fallback logic for each failure case (missing file, changed format, and so on), plus backfill logic that always re-checks the previous day and fills in what is missing.",
+                "c": "A batch monitoring dashboard that surfaces the state of every job, with issue alerts and manual re-runs where operators need them."
             },
             "console": {
                 "usage": "Reads PostgreSQL catalogs directly — row estimates, table and index size, vacuum/analyze times, database growth.",
                 "relation": "Merges live foreign keys with documented logical relations, so the model people reason about matches what the DB enforces.",
                 "trace": "Maps all 32 ERP tabs to the tables they read — the blast radius of a schema change is visible before it ships.",
-                "freshness": "Batch history, per-table staleness, and NAS disk status with warn/critical thresholds."
+                "freshness": "Status and statistics for the file storage (NAS) as well as the database."
             },
             "impact": {
-                "ssot": "One PostgreSQL database replaced scattered Excel/CSV as the system of record",
-                "integrity": "Consistency moved from spreadsheet discipline into keys, constraints, and a validation gate",
-                "automation": "16 batches keep the DB current — no manual import in daily operation",
-                "ops": "Usage, relations, tab dependencies, and freshness observable from one console"
+                "ssot": "Seven years of Excel/CSV replaced by one PostgreSQL database — 97 tables across 5 domains as the system of record",
+                "integrity": "Consistency moved from spreadsheet discipline into keys and constraints, with per-store list partitioning keeping the largest tables in check",
+                "automation": "16 batches keep the DB current — fallback and backfill recover the previous day even when a file is missing or its format changes",
+                "ops": "A batch dashboard for alerts and manual re-runs, plus a console covering usage, relations, tab dependencies, and NAS status"
             }
         },
         "agent-platform": {

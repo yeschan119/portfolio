@@ -59,7 +59,6 @@
                     </div>
 
                     <p data-i18n="projects.erp-database.main" class="text-slate-400 mt-4 text-lg max-w-4xl leading-relaxed"></p>
-                    <p data-i18n="projects.erp-database.loc" class="mt-3 text-sm max-w-4xl leading-relaxed"></p>
                 </div>
 
                 <!-- Executive Summary -->
@@ -78,7 +77,7 @@
                         <h4 class="text-xl font-semibold mb-5">Key Metrics</h4>
                         <div class="grid grid-cols-2 gap-4">
                             <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
-                                <div class="text-3xl font-bold text-accent mb-2">112</div>
+                                <div class="text-3xl font-bold text-accent mb-2">97</div>
                                 <div class="text-sm text-slate-400">Designed Tables</div>
                             </div>
                             <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
@@ -90,7 +89,7 @@
                                 <div class="text-sm text-slate-400">Scheduled Batches</div>
                             </div>
                             <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
-                                <div class="text-3xl font-bold text-accent mb-2">144</div>
+                                <div class="text-3xl font-bold text-accent mb-2">122</div>
                                 <div class="text-sm text-slate-400">Tuned Indexes</div>
                             </div>
                         </div>
@@ -145,7 +144,7 @@
                                 <!-- PostgreSQL -->
                                 <rect x="730" y="115" width="235" height="130" rx="18" fill="rgba(17,24,39,.92)" stroke="#3b82f6"/>
                                 <text x="847" y="152" text-anchor="middle" font-size="20" font-weight="600">PostgreSQL 16</text>
-                                <text x="847" y="177" text-anchor="middle" font-size="13" fill="#94a3b8">112 tables · 5 domains</text>
+                                <text x="847" y="177" text-anchor="middle" font-size="13" fill="#94a3b8">97 tables · 5 domains</text>
                                 <text x="847" y="199" text-anchor="middle" font-size="13" fill="#94a3b8">41 FK · 14 logical rels</text>
                                 <text x="847" y="221" text-anchor="middle" font-size="13" fill="#60a5fa">products.id canonical key</text>
 
@@ -172,25 +171,6 @@
                                 Schema workshop → migration backfill → scheduled incremental load → freshness monitoring
                             </text>
                         </svg>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Schema Design -->
-                <div class="mb-16">
-                    <h4 class="text-2xl font-semibold mb-6">Schema Design with Domain Owners</h4>
-                    <div class="grid lg:grid-cols-3 gap-6">
-                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
-                            <div class="text-slate-200 font-semibold mb-3">Recurring Design Workshops</div>
-                            <p data-i18n="projects.erp-database.schema.workshop" class="text-slate-400 text-sm leading-relaxed"></p>
-                        </div>
-                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
-                            <div class="text-slate-200 font-semibold mb-3">Relation & Cascade Policy</div>
-                            <p data-i18n="projects.erp-database.schema.relation" class="text-slate-400 text-sm leading-relaxed"></p>
-                        </div>
-                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
-                            <div class="text-slate-200 font-semibold mb-3">Domain Grouping & Keys</div>
-                            <p data-i18n="projects.erp-database.schema.grouping" class="text-slate-400 text-sm leading-relaxed"></p>
                         </div>
                     </div>
                 </div>
@@ -238,8 +218,8 @@
                             <p data-i18n="projects.erp-database.migration.backfill" class="text-slate-400 text-sm leading-relaxed"></p>
                         </div>
                         <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
-                            <div class="text-slate-200 font-semibold mb-3">Parity Verification</div>
-                            <p data-i18n="projects.erp-database.migration.parity" class="text-slate-400 text-sm leading-relaxed"></p>
+                            <div class="text-slate-200 font-semibold mb-3">Partitioning Strategy</div>
+                            <p data-i18n="projects.erp-database.migration.partition" class="text-slate-400 text-sm leading-relaxed"></p>
                         </div>
                     </div>
                 </div>
@@ -340,7 +320,7 @@
                             <p data-i18n="projects.erp-database.console.trace" class="text-slate-400 text-sm leading-relaxed"></p>
                         </div>
                         <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
-                            <div class="text-slate-200 font-semibold mb-3">Freshness & Storage Alerts</div>
+                            <div class="text-slate-200 font-semibold mb-3">Storage & DB Statistics</div>
                             <p data-i18n="projects.erp-database.console.freshness" class="text-slate-400 text-sm leading-relaxed"></p>
                         </div>
                     </div>
