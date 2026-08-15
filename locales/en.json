@@ -822,7 +822,7 @@
             "summary": {
                 "a": "Harness Engineering — 46 permission rules and 7 hooks decide what the environment allows before any tool runs.",
                 "b": "Loop Engineering — work repeats until every story passes a fresh reviewer, not until it looks done.",
-                "c": "Graph Engineering — 1 subtab = 1 node = 1 agent, across 53 nodes with their own memory.",
+                "c": "Graph Engineering — 1 subtab = 1 node = 1 agent, across 53 nodes, each with its own domain, architecture, and feedback memory.",
                 "d": "Each node has a single owner, so features are modified and added in parallel without collision."
             },
             "pillars": {
