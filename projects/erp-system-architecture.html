@@ -1,0 +1,995 @@
+<!-- ERP SYSTEM ARCHITECTURE — ARCHITECTURE DRIVERS / TRADE-OFF / ADR -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>ERP System Architecture</title>
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+
+        <!-- Tailwind CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: "#0b1120",
+                            secondary: "#111827",
+                            accent: "#3b82f6"
+                        }
+                    }
+                }
+            }
+        </script>
+
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+    <body class="bg-primary text-white">
+        <section id="erp-system-architecture" class="section-glow py-24 border-t border-slate-800">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="mb-10">
+                    <button
+                        onclick="history.back()"
+                        class="flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-700
+                            bg-secondary/40 text-sm text-slate-300 hover:bg-secondary/60 hover:text-white transition">
+                        <span class="text-sm">←</span>
+                        Back to Projects
+                    </button>
+                </div>
+
+                <!-- Header -->
+                <div class="mb-14">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20 text-xs text-slate-300 mb-6">
+                        <span class="w-2 h-2 rounded-full bg-accent"></span>
+                        Case Study • System Architecture • arc42 · C4 · ADR
+                    </div>
+
+                    <h3 class="text-4xl font-semibold mb-4">
+                        ERP System Architecture
+                    </h3>
+
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-secondary/40 text-sm text-slate-400">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                        Ko&amp;Clo • Enterprise • Private Repository
+                    </div>
+
+                    <p data-i18n="projects.erp-architecture.main" class="text-slate-400 mt-4 text-lg max-w-4xl leading-relaxed"></p>
+                </div>
+
+                <!-- Executive Summary -->
+                <div class="grid lg:grid-cols-[1.35fr,0.9fr] gap-6 mb-16">
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                        <h4 class="text-xl font-semibold mb-5">Executive Summary</h4>
+                        <div class="grid sm:grid-cols-2 gap-4 text-sm text-slate-300 leading-relaxed">
+                            <div data-i18n="projects.erp-architecture.summary.a" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                            <div data-i18n="projects.erp-architecture.summary.b" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                            <div data-i18n="projects.erp-architecture.summary.c" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                            <div data-i18n="projects.erp-architecture.summary.d" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                        </div>
+                    </div>
+
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                        <h4 class="text-xl font-semibold mb-5">Scale</h4>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
+                                <div class="text-3xl font-bold text-accent mb-2">150</div>
+                                <div class="text-sm text-slate-400">Tables</div>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
+                                <div class="text-3xl font-bold text-accent mb-2">413</div>
+                                <div class="text-sm text-slate-400">API Routes</div>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
+                                <div class="text-3xl font-bold text-accent mb-2">60</div>
+                                <div class="text-sm text-slate-400">Tabs</div>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
+                                <div class="text-3xl font-bold text-accent mb-2">26</div>
+                                <div class="text-sm text-slate-400">Batch Jobs</div>
+                            </div>
+                        </div>
+                        <div class="mt-4 text-xs text-slate-500 text-center">
+                            214K LOC · py 158K · js 56K — measured 2026-09-12
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Decision Flow -->
+                <div class="mb-16">
+                    <div class="flex items-center justify-between flex-wrap gap-4 mb-6">
+                        <div>
+                            <h4 class="text-2xl font-semibold mb-2">How Each Decision Was Made</h4>
+                            <p data-i18n="projects.erp-architecture.flow.desc" class="text-slate-400 max-w-4xl leading-relaxed"></p>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">arc42</span>
+                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">C4</span>
+                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">ADR</span>
+                        </div>
+                    </div>
+
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/30 p-6 overflow-hidden">
+                        <div class="overflow-x-auto">
+                        <svg viewBox="0 0 1240 400" class="w-full min-w-[1040px] h-auto">
+                            <defs>
+                                <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+                                </marker>
+                            </defs>
+
+                            <g font-family="ui-sans-serif, system-ui" fill="#e2e8f0">
+                                <!-- 1. Business goals -->
+                                <rect x="16" y="164" width="160" height="72" rx="18" fill="rgba(17,24,39,.7)" stroke="rgba(148,163,184,.45)" stroke-dasharray="7 5"/>
+                                <text x="96" y="194" text-anchor="middle" font-size="14" font-weight="600">Business Goals</text>
+                                <text x="96" y="214" text-anchor="middle" font-size="12" fill="#94a3b8">&amp; Requirements</text>
+
+                                <!-- 2. Architecture Drivers -->
+                                <rect x="220" y="96" width="160" height="208" rx="20" fill="rgba(17,24,39,.92)" stroke="#3b82f6" stroke-width="1.6"/>
+                                <text x="300" y="128" text-anchor="middle" font-size="14" font-weight="700" fill="#60a5fa">Architecture</text>
+                                <text x="300" y="146" text-anchor="middle" font-size="14" font-weight="700" fill="#60a5fa">Drivers</text>
+                                <rect x="234" y="162" width="132" height="36" rx="11" fill="rgba(59,130,246,.10)" stroke="rgba(148,163,184,.35)"/>
+                                <text x="300" y="185" text-anchor="middle" font-size="12">Core Function</text>
+                                <rect x="234" y="204" width="132" height="36" rx="11" fill="rgba(59,130,246,.10)" stroke="rgba(148,163,184,.35)"/>
+                                <text x="300" y="227" text-anchor="middle" font-size="12">Quality Attribute</text>
+                                <rect x="234" y="246" width="132" height="36" rx="11" fill="rgba(59,130,246,.10)" stroke="rgba(148,163,184,.35)"/>
+                                <text x="300" y="269" text-anchor="middle" font-size="12">Constraints</text>
+
+                                <!-- 3. Design alternatives -->
+                                <rect x="424" y="96" width="160" height="208" rx="20" fill="rgba(17,24,39,.92)" stroke="#a78bfa" stroke-width="1.6" stroke-dasharray="8 6"/>
+                                <text x="504" y="128" text-anchor="middle" font-size="14" font-weight="700" fill="#c4b5fd">Design</text>
+                                <text x="504" y="146" text-anchor="middle" font-size="14" font-weight="700" fill="#c4b5fd">Alternatives</text>
+                                <rect x="438" y="162" width="132" height="36" rx="11" fill="rgba(167,139,250,.10)" stroke="rgba(148,163,184,.35)"/>
+                                <text x="504" y="185" text-anchor="middle" font-size="12">Tactic</text>
+                                <rect x="438" y="204" width="132" height="36" rx="11" fill="rgba(167,139,250,.10)" stroke="rgba(148,163,184,.35)"/>
+                                <text x="504" y="227" text-anchor="middle" font-size="12">Style</text>
+                                <rect x="438" y="246" width="132" height="36" rx="11" fill="rgba(167,139,250,.10)" stroke="rgba(148,163,184,.35)"/>
+                                <text x="504" y="269" text-anchor="middle" font-size="12">Pattern</text>
+
+                                <!-- 4. Trade-off -->
+                                <rect x="628" y="164" width="160" height="72" rx="18" fill="rgba(17,24,39,.85)" stroke="#fb7185" stroke-width="1.6"/>
+                                <text x="708" y="194" text-anchor="middle" font-size="15" font-weight="700" fill="#fda4af">Trade-off</text>
+                                <text x="708" y="214" text-anchor="middle" font-size="11" fill="#94a3b8">what it costs</text>
+
+                                <!-- 5. Decision -->
+                                <rect x="832" y="164" width="160" height="72" rx="18" fill="rgba(59,130,246,.16)" stroke="#3b82f6" stroke-width="1.8"/>
+                                <text x="912" y="194" text-anchor="middle" font-size="14" font-weight="700" fill="#93c5fd">Architecture</text>
+                                <text x="912" y="214" text-anchor="middle" font-size="14" font-weight="700" fill="#93c5fd">Decision</text>
+
+                                <!-- 6. ADR -->
+                                <rect x="1036" y="164" width="160" height="72" rx="18" fill="rgba(17,24,39,.85)" stroke="#34d399" stroke-width="1.6"/>
+                                <text x="1116" y="192" text-anchor="middle" font-size="16" font-weight="700" fill="#6ee7b7">ADR</text>
+                                <text x="1116" y="214" text-anchor="middle" font-size="11" fill="#94a3b8">context · decision · cost</text>
+
+                                <!-- arrows -->
+                                <g stroke="#64748b" stroke-width="1.6" marker-end="url(#arw)">
+                                    <line x1="180" y1="200" x2="214" y2="200"/>
+                                    <line x1="384" y1="200" x2="418" y2="200"/>
+                                    <line x1="588" y1="200" x2="622" y2="200"/>
+                                    <line x1="792" y1="200" x2="826" y2="200"/>
+                                    <line x1="996" y1="200" x2="1030" y2="200"/>
+                                </g>
+
+                                <!-- footnote -->
+                                <text x="16" y="352" font-size="12" fill="#64748b">8 decisions recorded · every record states the cost, not only the benefit</text>
+                                <text x="16" y="372" font-size="12" fill="#64748b">A record with an empty consequences section has not recorded a decision.</text>
+                            </g>
+                        </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reading key: Tactic / Pattern / Trade-off -->
+                <div class="mb-16">
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                        <h4 class="text-2xl font-semibold mb-3">Reading Key — Tactic vs Pattern vs Trade-off</h4>
+                        <p data-i18n="projects.erp-architecture.lens.desc" class="text-slate-400 text-sm leading-relaxed mb-6 max-w-4xl"></p>
+
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-xs text-slate-500 mb-2 font-mono-custom">TACTIC</div>
+                                <div class="text-accent font-semibold mb-1">Cache the result</div>
+                                <div class="text-xs text-slate-500 mb-3">what to do</div>
+                                <p data-i18n="projects.erp-architecture.lens.tactic" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-xs text-slate-500 mb-2 font-mono-custom">PATTERN</div>
+                                <div class="text-accent font-semibold mb-1">Precomputed read model</div>
+                                <div class="text-xs text-slate-500 mb-3">in what shape</div>
+                                <p data-i18n="projects.erp-architecture.lens.pattern" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+                            <div class="rounded-2xl border border-rose-500/30 bg-primary/30 p-5">
+                                <div class="text-xs text-slate-500 mb-2 font-mono-custom">TRADE-OFF</div>
+                                <div class="text-rose-400 font-semibold mb-1">Freshness follows the batch</div>
+                                <div class="text-xs text-slate-500 mb-3">at what cost</div>
+                                <p data-i18n="projects.erp-architecture.lens.tradeoff" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 01 · Architecture Drivers -->
+                <div class="mb-16">
+                    <div class="flex items-baseline gap-3 mb-6">
+                        <span class="text-xs text-slate-500 font-mono-custom">01</span>
+                        <h4 class="text-2xl font-semibold">Architecture Drivers</h4>
+                    </div>
+
+                    <!-- Core function -->
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                        <div class="section-glow rounded-2xl border border-accent/40 bg-secondary/35 p-5">
+                            <div class="text-slate-200 font-semibold mb-2">File Ingest</div>
+                            <p data-i18n="projects.erp-architecture.func.ingest" class="text-sm text-slate-400 leading-relaxed"></p>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-accent/40 bg-secondary/35 p-5">
+                            <div class="text-slate-200 font-semibold mb-2">Nightly Judgement</div>
+                            <p data-i18n="projects.erp-architecture.func.judge" class="text-sm text-slate-400 leading-relaxed"></p>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-accent/40 bg-secondary/35 p-5">
+                            <div class="text-slate-200 font-semibold mb-2">Order Sheet (.xls)</div>
+                            <p data-i18n="projects.erp-architecture.func.order" class="text-sm text-slate-400 leading-relaxed"></p>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-accent/40 bg-secondary/35 p-5">
+                            <div class="text-slate-200 font-semibold mb-2">Operations Console</div>
+                            <p data-i18n="projects.erp-architecture.func.console" class="text-sm text-slate-400 leading-relaxed"></p>
+                        </div>
+                    </div>
+
+                    <!-- Quality attributes -->
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8 mb-6">
+                        <h5 class="text-xl font-semibold mb-3">Quality Attributes — ranked, and the ranking is the tie-breaker</h5>
+                        <p data-i18n="projects.erp-architecture.qa.desc" class="text-slate-400 text-sm leading-relaxed mb-6 max-w-4xl"></p>
+
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm text-left min-w-[760px]">
+                                <thead class="text-xs uppercase text-slate-500 border-b border-slate-700/70">
+                                    <tr>
+                                        <th class="py-2 pr-4 font-medium">#</th>
+                                        <th class="py-2 pr-4 font-medium">Quality</th>
+                                        <th class="py-2 pr-4 font-medium">Measurable scenario</th>
+                                        <th class="py-2 font-medium">Structural response</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-slate-400">
+                                    <tr class="border-b border-slate-800">
+                                        <td class="py-3 pr-4 font-mono-custom text-slate-600">1</td>
+                                        <td class="py-3 pr-4 text-accent font-semibold whitespace-nowrap">Accuracy</td>
+                                        <td class="py-3 pr-4" data-i18n="projects.erp-architecture.qa.accuracy.s"></td>
+                                        <td class="py-3" data-i18n="projects.erp-architecture.qa.accuracy.r"></td>
+                                    </tr>
+                                    <tr class="border-b border-slate-800">
+                                        <td class="py-3 pr-4 font-mono-custom text-slate-600">2</td>
+                                        <td class="py-3 pr-4 text-accent font-semibold whitespace-nowrap">Freshness</td>
+                                        <td class="py-3 pr-4" data-i18n="projects.erp-architecture.qa.freshness.s"></td>
+                                        <td class="py-3" data-i18n="projects.erp-architecture.qa.freshness.r"></td>
+                                    </tr>
+                                    <tr class="border-b border-slate-800">
+                                        <td class="py-3 pr-4 font-mono-custom text-slate-600">3</td>
+                                        <td class="py-3 pr-4 text-accent font-semibold whitespace-nowrap">Change velocity</td>
+                                        <td class="py-3 pr-4" data-i18n="projects.erp-architecture.qa.velocity.s"></td>
+                                        <td class="py-3" data-i18n="projects.erp-architecture.qa.velocity.r"></td>
+                                    </tr>
+                                    <tr class="border-b border-slate-800">
+                                        <td class="py-3 pr-4 font-mono-custom text-slate-600">4</td>
+                                        <td class="py-3 pr-4 text-accent font-semibold whitespace-nowrap">Read performance</td>
+                                        <td class="py-3 pr-4" data-i18n="projects.erp-architecture.qa.readperf.s"></td>
+                                        <td class="py-3" data-i18n="projects.erp-architecture.qa.readperf.r"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 pr-4 font-mono-custom text-slate-600">5</td>
+                                        <td class="py-3 pr-4 text-accent font-semibold whitespace-nowrap">Operability</td>
+                                        <td class="py-3 pr-4" data-i18n="projects.erp-architecture.qa.ops.s"></td>
+                                        <td class="py-3" data-i18n="projects.erp-architecture.qa.ops.r"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="mt-6 rounded-2xl border border-amber-500/30 bg-primary/30 p-5">
+                            <div class="text-amber-400 font-semibold mb-2 text-sm">Scalability is deliberately absent</div>
+                            <p data-i18n="projects.erp-architecture.qa.noscale" class="text-sm text-slate-400 leading-relaxed"></p>
+                        </div>
+                    </div>
+
+                    <!-- Constraints -->
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                        <h5 class="text-xl font-semibold mb-3">Constraints — what could not be changed</h5>
+                        <p data-i18n="projects.erp-architecture.const.desc" class="text-slate-400 text-sm leading-relaxed mb-6 max-w-4xl"></p>
+
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm text-left min-w-[720px]">
+                                <thead class="text-xs uppercase text-slate-500 border-b border-slate-700/70">
+                                    <tr>
+                                        <th class="py-2 pr-4 font-medium">Area</th>
+                                        <th class="py-2 pr-4 font-medium">Constraint</th>
+                                        <th class="py-2 font-medium">Effect on architecture</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-slate-400">
+                                    <tr class="border-b border-slate-800">
+                                        <td class="py-3 pr-4 font-mono-custom text-accent whitespace-nowrap">Data source</td>
+                                        <td class="py-3 pr-4" data-i18n="projects.erp-architecture.const.source.c"></td>
+                                        <td class="py-3" data-i18n="projects.erp-architecture.const.source.e"></td>
+                                    </tr>
+                                    <tr class="border-b border-slate-800">
+                                        <td class="py-3 pr-4 font-mono-custom text-accent whitespace-nowrap">Output</td>
+                                        <td class="py-3 pr-4" data-i18n="projects.erp-architecture.const.output.c"></td>
+                                        <td class="py-3" data-i18n="projects.erp-architecture.const.output.e"></td>
+                                    </tr>
+                                    <tr class="border-b border-slate-800">
+                                        <td class="py-3 pr-4 font-mono-custom text-accent whitespace-nowrap">Hardware</td>
+                                        <td class="py-3 pr-4" data-i18n="projects.erp-architecture.const.hw.c"></td>
+                                        <td class="py-3" data-i18n="projects.erp-architecture.const.hw.e"></td>
+                                    </tr>
+                                    <tr class="border-b border-slate-800">
+                                        <td class="py-3 pr-4 font-mono-custom text-accent whitespace-nowrap">Network</td>
+                                        <td class="py-3 pr-4" data-i18n="projects.erp-architecture.const.net.c"></td>
+                                        <td class="py-3" data-i18n="projects.erp-architecture.const.net.e"></td>
+                                    </tr>
+                                    <tr class="border-b border-slate-800">
+                                        <td class="py-3 pr-4 font-mono-custom text-accent whitespace-nowrap">Business rules</td>
+                                        <td class="py-3 pr-4" data-i18n="projects.erp-architecture.const.biz.c"></td>
+                                        <td class="py-3" data-i18n="projects.erp-architecture.const.biz.e"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 pr-4 font-mono-custom text-accent whitespace-nowrap">Verification</td>
+                                        <td class="py-3 pr-4" data-i18n="projects.erp-architecture.const.verify.c"></td>
+                                        <td class="py-3" data-i18n="projects.erp-architecture.const.verify.e"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 02 · Design alternatives -->
+                <div class="mb-16">
+                    <div class="flex items-baseline gap-3 mb-6">
+                        <span class="text-xs text-slate-500 font-mono-custom">02</span>
+                        <h4 class="text-2xl font-semibold">Exploring Design Alternatives</h4>
+                    </div>
+                    <p data-i18n="projects.erp-architecture.alt.desc" class="text-slate-400 mb-6 max-w-4xl leading-relaxed"></p>
+
+                    <div class="grid lg:grid-cols-3 gap-6">
+                        <!-- Tactic -->
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
+                            <div class="text-xs text-slate-500 mb-2 font-mono-custom">TACTIC</div>
+                            <div class="text-xl font-semibold mb-2">Moves that buy a quality</div>
+                            <p data-i18n="projects.erp-architecture.tactic.desc" class="text-slate-400 text-sm leading-relaxed mb-5"></p>
+
+                            <div class="space-y-3 text-sm">
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-accent font-semibold mb-1">Time-axis split</div>
+                                    <p data-i18n="projects.erp-architecture.tactic.time" class="text-slate-400 text-xs leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-accent font-semibold mb-1">Single source of truth</div>
+                                    <p data-i18n="projects.erp-architecture.tactic.ssot" class="text-slate-400 text-xs leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-accent font-semibold mb-1">Idempotent re-ingest</div>
+                                    <p data-i18n="projects.erp-architecture.tactic.idem" class="text-slate-400 text-xs leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-accent font-semibold mb-1">On-demand observability</div>
+                                    <p data-i18n="projects.erp-architecture.tactic.obs" class="text-slate-400 text-xs leading-relaxed"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Style -->
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
+                            <div class="text-xs text-slate-500 mb-2 font-mono-custom">STYLE</div>
+                            <div class="text-xl font-semibold mb-2">The skeleton — hard to undo</div>
+                            <p data-i18n="projects.erp-architecture.style.desc" class="text-slate-400 text-sm leading-relaxed mb-5"></p>
+
+                            <div class="space-y-3 text-sm">
+                                <div class="rounded-xl border border-emerald-500/30 bg-primary/30 p-4">
+                                    <div class="flex items-center gap-2 mb-1">
+                                        <span class="text-emerald-400 text-xs">ADOPTED</span>
+                                    </div>
+                                    <div class="text-slate-200 font-semibold mb-1">Layered — service / router / view</div>
+                                    <p data-i18n="projects.erp-architecture.style.layered" class="text-slate-400 text-xs leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-emerald-500/30 bg-primary/30 p-4">
+                                    <div class="flex items-center gap-2 mb-1">
+                                        <span class="text-emerald-400 text-xs">ADOPTED</span>
+                                    </div>
+                                    <div class="text-slate-200 font-semibold mb-1">Client-Server — SPA over JSON</div>
+                                    <p data-i18n="projects.erp-architecture.style.cs" class="text-slate-400 text-xs leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-emerald-500/30 bg-primary/30 p-4">
+                                    <div class="flex items-center gap-2 mb-1">
+                                        <span class="text-emerald-400 text-xs">ADOPTED</span>
+                                    </div>
+                                    <div class="text-slate-200 font-semibold mb-1">Batch pipeline + shared store</div>
+                                    <p data-i18n="projects.erp-architecture.style.pipeline" class="text-slate-400 text-xs leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-rose-500/30 bg-primary/30 p-4">
+                                    <div class="flex items-center gap-2 mb-1">
+                                        <span class="text-rose-400 text-xs">REJECTED</span>
+                                    </div>
+                                    <div class="text-slate-200 font-semibold mb-1">Microservices · Event-Driven</div>
+                                    <p data-i18n="projects.erp-architecture.style.rejected" class="text-slate-400 text-xs leading-relaxed"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pattern -->
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
+                            <div class="text-xs text-slate-500 mb-2 font-mono-custom">PATTERN</div>
+                            <div class="text-xl font-semibold mb-2">Proven shapes, narrow scope</div>
+                            <p data-i18n="projects.erp-architecture.pattern.desc" class="text-slate-400 text-sm leading-relaxed mb-5"></p>
+
+                            <div class="space-y-3 text-sm">
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-accent font-semibold mb-1">Materialized read model</div>
+                                    <p data-i18n="projects.erp-architecture.pattern.read" class="text-slate-400 text-xs leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-accent font-semibold mb-1">Upsert / window replace / snapshot</div>
+                                    <p data-i18n="projects.erp-architecture.pattern.upsert" class="text-slate-400 text-xs leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-accent font-semibold mb-1">Revalidation + version stamp</div>
+                                    <p data-i18n="projects.erp-architecture.pattern.cache" class="text-slate-400 text-xs leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-accent font-semibold mb-1">Outbound tunnel (reverse connect)</div>
+                                    <p data-i18n="projects.erp-architecture.pattern.tunnel" class="text-slate-400 text-xs leading-relaxed"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Runtime: two flows, one integration point -->
+                <div class="mb-16">
+                    <div class="mb-6">
+                        <h4 class="text-2xl font-semibold mb-2">The Shape That Came Out — Two Flows, One Integration Point</h4>
+                        <p data-i18n="projects.erp-architecture.runtime.desc" class="text-slate-400 max-w-4xl leading-relaxed"></p>
+                    </div>
+
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/30 p-6 overflow-hidden">
+                        <div class="overflow-x-auto">
+                        <svg viewBox="0 0 1200 360" class="w-full min-w-[960px] h-auto">
+                            <defs>
+                                <marker id="arw2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+                                </marker>
+                            </defs>
+
+                            <g font-family="ui-sans-serif, system-ui" fill="#e2e8f0">
+                                <!-- night lane -->
+                                <rect x="16" y="20" width="1168" height="130" rx="18" fill="rgba(99,102,241,.06)" stroke="rgba(129,140,248,.28)" stroke-dasharray="8 6"/>
+                                <text x="36" y="46" font-size="12" fill="#a5b4fc">NIGHT — 26 batch jobs · psycopg2 · writes</text>
+
+                                <rect x="44" y="62" width="150" height="66" rx="16" fill="rgba(17,24,39,.85)" stroke="rgba(148,163,184,.3)"/>
+                                <text x="119" y="90" text-anchor="middle" font-size="13" font-weight="600">Vendor · POS</text>
+                                <text x="119" y="110" text-anchor="middle" font-size="11" fill="#94a3b8">CSV · XLS · XLSX</text>
+
+                                <rect x="248" y="62" width="150" height="66" rx="16" fill="rgba(17,24,39,.92)" stroke="#818cf8"/>
+                                <text x="323" y="90" text-anchor="middle" font-size="13" font-weight="600">Ingest</text>
+                                <text x="323" y="110" text-anchor="middle" font-size="11" fill="#94a3b8">format guard · idempotent</text>
+
+                                <rect x="452" y="62" width="150" height="66" rx="16" fill="rgba(17,24,39,.92)" stroke="#818cf8"/>
+                                <text x="527" y="90" text-anchor="middle" font-size="13" font-weight="600">Judge · Aggregate</text>
+                                <text x="527" y="110" text-anchor="middle" font-size="11" fill="#94a3b8">regression · percentile</text>
+
+                                <rect x="656" y="62" width="150" height="66" rx="16" fill="rgba(17,24,39,.92)" stroke="#818cf8"/>
+                                <text x="731" y="90" text-anchor="middle" font-size="13" font-weight="600">Read models</text>
+                                <text x="731" y="110" text-anchor="middle" font-size="11" fill="#94a3b8">~30 · snapshot_date</text>
+
+                                <rect x="860" y="62" width="150" height="66" rx="16" fill="rgba(17,24,39,.85)" stroke="rgba(148,163,184,.3)"/>
+                                <text x="935" y="90" text-anchor="middle" font-size="13" font-weight="600">Order sheet</text>
+                                <text x="935" y="110" text-anchor="middle" font-size="11" fill="#94a3b8">.xls (BIFF) · xlwt</text>
+
+                                <!-- DB -->
+                                <rect x="452" y="168" width="296" height="72" rx="18" fill="rgba(59,130,246,.16)" stroke="#3b82f6" stroke-width="1.8"/>
+                                <text x="600" y="198" text-anchor="middle" font-size="16" font-weight="700" fill="#93c5fd">PostgreSQL 16</text>
+                                <text x="600" y="220" text-anchor="middle" font-size="11" fill="#94a3b8">single source of truth · 150 tables · the only integration point</text>
+
+                                <!-- day lane -->
+                                <rect x="16" y="258" width="1168" height="86" rx="18" fill="rgba(52,211,153,.06)" stroke="rgba(52,211,153,.28)" stroke-dasharray="8 6"/>
+                                <text x="36" y="282" text-anchor="start" font-size="12" fill="#6ee7b7">DAY — FastAPI · asyncpg · reads only</text>
+
+                                <rect x="248" y="292" width="180" height="40" rx="13" fill="rgba(17,24,39,.9)" stroke="rgba(52,211,153,.45)"/>
+                                <text x="338" y="317" text-anchor="middle" font-size="12">service · 413 routes</text>
+
+                                <rect x="512" y="292" width="176" height="40" rx="13" fill="rgba(17,24,39,.9)" stroke="rgba(52,211,153,.45)"/>
+                                <text x="600" y="317" text-anchor="middle" font-size="12">JSON API</text>
+
+                                <rect x="772" y="292" width="180" height="40" rx="13" fill="rgba(17,24,39,.9)" stroke="rgba(52,211,153,.45)"/>
+                                <text x="862" y="317" text-anchor="middle" font-size="12">Vue 3 · 60 tabs</text>
+
+                                <!-- connectors -->
+                                <g stroke="#64748b" stroke-width="1.5" fill="none">
+                                    <path d="M194 95 L242 95" marker-end="url(#arw2)"/>
+                                    <path d="M398 95 L446 95" marker-end="url(#arw2)"/>
+                                    <path d="M602 95 L650 95" marker-end="url(#arw2)"/>
+                                    <path d="M806 95 L854 95" marker-end="url(#arw2)"/>
+                                </g>
+                                <g stroke="#818cf8" stroke-width="1.8" fill="none">
+                                    <path d="M731 128 L731 150 L640 150 L640 166" marker-end="url(#arw2)"/>
+                                </g>
+                                <g stroke="#34d399" stroke-width="1.8" fill="none">
+                                    <path d="M500 242 L500 270 L338 270 L338 288" marker-end="url(#arw2)"/>
+                                </g>
+                                <g stroke="#34d399" stroke-width="1.5" fill="none">
+                                    <path d="M428 312 L506 312" marker-end="url(#arw2)"/>
+                                    <path d="M688 312 L766 312" marker-end="url(#arw2)"/>
+                                </g>
+                            </g>
+                        </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 03 · Trade-off -->
+                <div class="mb-16">
+                    <div class="flex items-baseline gap-3 mb-6">
+                        <span class="text-xs text-slate-500 font-mono-custom">03</span>
+                        <h4 class="text-2xl font-semibold">Trade-off Ledger</h4>
+                    </div>
+
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                        <p data-i18n="projects.erp-architecture.tradeoff.desc" class="text-slate-400 text-sm leading-relaxed mb-6 max-w-4xl"></p>
+
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm text-left min-w-[760px]">
+                                <thead class="text-xs uppercase text-slate-500 border-b border-slate-700/70">
+                                    <tr>
+                                        <th class="py-2 pr-4 font-medium">Decision</th>
+                                        <th class="py-2 pr-4 font-medium text-emerald-500">What it buys</th>
+                                        <th class="py-2 font-medium text-rose-400">What it costs</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-slate-400">
+                                    <tr class="border-b border-slate-800">
+                                        <td class="py-3 pr-4 text-slate-200 font-semibold whitespace-nowrap">Precompute at night</td>
+                                        <td class="py-3 pr-4" data-i18n="projects.erp-architecture.tradeoff.pre.gain"></td>
+                                        <td class="py-3" data-i18n="projects.erp-architecture.tradeoff.pre.cost"></td>
+                                    </tr>
+                                    <tr class="border-b border-slate-800">
+                                        <td class="py-3 pr-4 text-slate-200 font-semibold whitespace-nowrap">No build step</td>
+                                        <td class="py-3 pr-4" data-i18n="projects.erp-architecture.tradeoff.build.gain"></td>
+                                        <td class="py-3" data-i18n="projects.erp-architecture.tradeoff.build.cost"></td>
+                                    </tr>
+                                    <tr class="border-b border-slate-800">
+                                        <td class="py-3 pr-4 text-slate-200 font-semibold whitespace-nowrap">Mount source, no image</td>
+                                        <td class="py-3 pr-4" data-i18n="projects.erp-architecture.tradeoff.mount.gain"></td>
+                                        <td class="py-3" data-i18n="projects.erp-architecture.tradeoff.mount.cost"></td>
+                                    </tr>
+                                    <tr class="border-b border-slate-800">
+                                        <td class="py-3 pr-4 text-slate-200 font-semibold whitespace-nowrap">No migration tool</td>
+                                        <td class="py-3 pr-4" data-i18n="projects.erp-architecture.tradeoff.migrate.gain"></td>
+                                        <td class="py-3" data-i18n="projects.erp-architecture.tradeoff.migrate.cost"></td>
+                                    </tr>
+                                    <tr class="border-b border-slate-800">
+                                        <td class="py-3 pr-4 text-slate-200 font-semibold whitespace-nowrap">Single process</td>
+                                        <td class="py-3 pr-4" data-i18n="projects.erp-architecture.tradeoff.proc.gain"></td>
+                                        <td class="py-3" data-i18n="projects.erp-architecture.tradeoff.proc.cost"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 pr-4 text-slate-200 font-semibold whitespace-nowrap">Outbound tunnel</td>
+                                        <td class="py-3 pr-4" data-i18n="projects.erp-architecture.tradeoff.tunnel.gain"></td>
+                                        <td class="py-3" data-i18n="projects.erp-architecture.tradeoff.tunnel.cost"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="mt-6 rounded-2xl border border-accent/40 bg-primary/30 p-5">
+                            <div class="text-accent font-semibold mb-2 text-sm">The one-line summary of this ledger</div>
+                            <p data-i18n="projects.erp-architecture.tradeoff.summary" class="text-sm text-slate-300 leading-relaxed"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 04 · ADR -->
+                <div class="mb-16">
+                    <div class="flex items-baseline gap-3 mb-4">
+                        <span class="text-xs text-slate-500 font-mono-custom">04</span>
+                        <h4 class="text-2xl font-semibold">Architecture Decision Records</h4>
+                    </div>
+                    <p data-i18n="projects.erp-architecture.adr.desc" class="text-slate-400 mb-6 max-w-4xl leading-relaxed"></p>
+
+                    <div class="space-y-5">
+
+                        <!-- ADR-001 -->
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-7">
+                            <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
+                                <div class="flex items-center gap-3">
+                                    <span class="font-mono-custom text-xs text-accent">ADR-001</span>
+                                    <h5 class="text-lg font-semibold">Python for the backend</h5>
+                                </div>
+                                <span class="px-3 py-1 rounded-full border border-emerald-500/40 text-emerald-400 text-xs">Accepted</span>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-4 text-sm">
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Context</div>
+                                    <p data-i18n="projects.erp-architecture.adr.a1.context" class="text-slate-400 leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Alternatives</div>
+                                    <p data-i18n="projects.erp-architecture.adr.a1.alt" class="text-slate-400 leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-accent/40 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Decision</div>
+                                    <p data-i18n="projects.erp-architecture.adr.a1.decision" class="text-slate-300 leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Consequences</div>
+                                    <p class="text-emerald-400/90 leading-relaxed mb-2"><span class="text-xs uppercase mr-1">+</span><span data-i18n="projects.erp-architecture.adr.a1.gain"></span></p>
+                                    <p class="text-rose-400/90 leading-relaxed"><span class="text-xs uppercase mr-1">−</span><span data-i18n="projects.erp-architecture.adr.a1.cost"></span></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ADR-002 -->
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-7">
+                            <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
+                                <div class="flex items-center gap-3">
+                                    <span class="font-mono-custom text-xs text-accent">ADR-002</span>
+                                    <h5 class="text-lg font-semibold">No build tooling on the frontend</h5>
+                                </div>
+                                <span class="px-3 py-1 rounded-full border border-emerald-500/40 text-emerald-400 text-xs">Accepted</span>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-4 text-sm">
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Context</div>
+                                    <p data-i18n="projects.erp-architecture.adr.a2.context" class="text-slate-400 leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Alternatives</div>
+                                    <p data-i18n="projects.erp-architecture.adr.a2.alt" class="text-slate-400 leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-accent/40 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Decision</div>
+                                    <p data-i18n="projects.erp-architecture.adr.a2.decision" class="text-slate-300 leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Consequences</div>
+                                    <p class="text-emerald-400/90 leading-relaxed mb-2"><span class="text-xs uppercase mr-1">+</span><span data-i18n="projects.erp-architecture.adr.a2.gain"></span></p>
+                                    <p class="text-rose-400/90 leading-relaxed"><span class="text-xs uppercase mr-1">−</span><span data-i18n="projects.erp-architecture.adr.a2.cost"></span></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ADR-003 -->
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-7">
+                            <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
+                                <div class="flex items-center gap-3">
+                                    <span class="font-mono-custom text-xs text-accent">ADR-003</span>
+                                    <h5 class="text-lg font-semibold">Vue 3 as the UI framework</h5>
+                                </div>
+                                <span class="px-3 py-1 rounded-full border border-emerald-500/40 text-emerald-400 text-xs">Accepted</span>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-4 text-sm">
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Context</div>
+                                    <p data-i18n="projects.erp-architecture.adr.a3.context" class="text-slate-400 leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Alternatives</div>
+                                    <p data-i18n="projects.erp-architecture.adr.a3.alt" class="text-slate-400 leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-accent/40 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Decision</div>
+                                    <p data-i18n="projects.erp-architecture.adr.a3.decision" class="text-slate-300 leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Consequences</div>
+                                    <p class="text-emerald-400/90 leading-relaxed mb-2"><span class="text-xs uppercase mr-1">+</span><span data-i18n="projects.erp-architecture.adr.a3.gain"></span></p>
+                                    <p class="text-rose-400/90 leading-relaxed"><span class="text-xs uppercase mr-1">−</span><span data-i18n="projects.erp-architecture.adr.a3.cost"></span></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ADR-004 -->
+                        <div class="section-glow rounded-2xl border border-accent/50 bg-secondary/35 p-6 md:p-7">
+                            <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
+                                <div class="flex items-center gap-3">
+                                    <span class="font-mono-custom text-xs text-accent">ADR-004</span>
+                                    <h5 class="text-lg font-semibold">PostgreSQL as the only source of truth, with precomputed read models</h5>
+                                </div>
+                                <span class="px-3 py-1 rounded-full border border-emerald-500/40 text-emerald-400 text-xs">Accepted</span>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-4 text-sm">
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Context</div>
+                                    <p data-i18n="projects.erp-architecture.adr.a4.context" class="text-slate-400 leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Alternatives</div>
+                                    <p data-i18n="projects.erp-architecture.adr.a4.alt" class="text-slate-400 leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-accent/40 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Decision</div>
+                                    <p data-i18n="projects.erp-architecture.adr.a4.decision" class="text-slate-300 leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Consequences</div>
+                                    <p class="text-emerald-400/90 leading-relaxed mb-2"><span class="text-xs uppercase mr-1">+</span><span data-i18n="projects.erp-architecture.adr.a4.gain"></span></p>
+                                    <p class="text-rose-400/90 leading-relaxed"><span class="text-xs uppercase mr-1">−</span><span data-i18n="projects.erp-architecture.adr.a4.cost"></span></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ADR-005 -->
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-7">
+                            <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
+                                <div class="flex items-center gap-3">
+                                    <span class="font-mono-custom text-xs text-accent">ADR-005</span>
+                                    <h5 class="text-lg font-semibold">No schema migration tool</h5>
+                                </div>
+                                <span class="px-3 py-1 rounded-full border border-emerald-500/40 text-emerald-400 text-xs">Accepted</span>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-4 text-sm">
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Context</div>
+                                    <p data-i18n="projects.erp-architecture.adr.a5.context" class="text-slate-400 leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Alternatives</div>
+                                    <p data-i18n="projects.erp-architecture.adr.a5.alt" class="text-slate-400 leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-accent/40 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Decision</div>
+                                    <p data-i18n="projects.erp-architecture.adr.a5.decision" class="text-slate-300 leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Consequences</div>
+                                    <p class="text-emerald-400/90 leading-relaxed mb-2"><span class="text-xs uppercase mr-1">+</span><span data-i18n="projects.erp-architecture.adr.a5.gain"></span></p>
+                                    <p class="text-rose-400/90 leading-relaxed"><span class="text-xs uppercase mr-1">−</span><span data-i18n="projects.erp-architecture.adr.a5.cost"></span></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ADR-006 -->
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-7">
+                            <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
+                                <div class="flex items-center gap-3">
+                                    <span class="font-mono-custom text-xs text-accent">ADR-006</span>
+                                    <h5 class="text-lg font-semibold">Mount the source instead of rebuilding the image</h5>
+                                </div>
+                                <span class="px-3 py-1 rounded-full border border-emerald-500/40 text-emerald-400 text-xs">Accepted</span>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-4 text-sm">
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Context</div>
+                                    <p data-i18n="projects.erp-architecture.adr.a6.context" class="text-slate-400 leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Alternatives</div>
+                                    <p data-i18n="projects.erp-architecture.adr.a6.alt" class="text-slate-400 leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-accent/40 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Decision</div>
+                                    <p data-i18n="projects.erp-architecture.adr.a6.decision" class="text-slate-300 leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Consequences</div>
+                                    <p class="text-emerald-400/90 leading-relaxed mb-2"><span class="text-xs uppercase mr-1">+</span><span data-i18n="projects.erp-architecture.adr.a6.gain"></span></p>
+                                    <p class="text-rose-400/90 leading-relaxed"><span class="text-xs uppercase mr-1">−</span><span data-i18n="projects.erp-architecture.adr.a6.cost"></span></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ADR-007 -->
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-7">
+                            <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
+                                <div class="flex items-center gap-3">
+                                    <span class="font-mono-custom text-xs text-accent">ADR-007</span>
+                                    <h5 class="text-lg font-semibold">One process, no auto-reload</h5>
+                                </div>
+                                <span class="px-3 py-1 rounded-full border border-sky-500/40 text-sky-400 text-xs">Revised 2026-09-11</span>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-4 text-sm">
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Context</div>
+                                    <p data-i18n="projects.erp-architecture.adr.a7.context" class="text-slate-400 leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Alternatives</div>
+                                    <p data-i18n="projects.erp-architecture.adr.a7.alt" class="text-slate-400 leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-accent/40 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Decision</div>
+                                    <p data-i18n="projects.erp-architecture.adr.a7.decision" class="text-slate-300 leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Consequences</div>
+                                    <p class="text-emerald-400/90 leading-relaxed mb-2"><span class="text-xs uppercase mr-1">+</span><span data-i18n="projects.erp-architecture.adr.a7.gain"></span></p>
+                                    <p class="text-rose-400/90 leading-relaxed"><span class="text-xs uppercase mr-1">−</span><span data-i18n="projects.erp-architecture.adr.a7.cost"></span></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ADR-008 -->
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-7">
+                            <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
+                                <div class="flex items-center gap-3">
+                                    <span class="font-mono-custom text-xs text-accent">ADR-008</span>
+                                    <h5 class="text-lg font-semibold">Outbound tunnel instead of a reverse proxy</h5>
+                                </div>
+                                <span class="px-3 py-1 rounded-full border border-emerald-500/40 text-emerald-400 text-xs">Accepted</span>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-4 text-sm">
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Context</div>
+                                    <p data-i18n="projects.erp-architecture.adr.a8.context" class="text-slate-400 leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Alternatives</div>
+                                    <p data-i18n="projects.erp-architecture.adr.a8.alt" class="text-slate-400 leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-accent/40 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Decision</div>
+                                    <p data-i18n="projects.erp-architecture.adr.a8.decision" class="text-slate-300 leading-relaxed"></p>
+                                </div>
+                                <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
+                                    <div class="text-xs uppercase text-slate-500 mb-2">Consequences</div>
+                                    <p class="text-emerald-400/90 leading-relaxed mb-2"><span class="text-xs uppercase mr-1">+</span><span data-i18n="projects.erp-architecture.adr.a8.gain"></span></p>
+                                    <p class="text-rose-400/90 leading-relaxed"><span class="text-xs uppercase mr-1">−</span><span data-i18n="projects.erp-architecture.adr.a8.cost"></span></p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 05 · Debt -->
+                <div class="mb-16">
+                    <div class="flex items-baseline gap-3 mb-4">
+                        <span class="text-xs text-slate-500 font-mono-custom">05</span>
+                        <h4 class="text-2xl font-semibold">Risks &amp; Technical Debt</h4>
+                    </div>
+                    <p data-i18n="projects.erp-architecture.debt.desc" class="text-slate-400 mb-6 max-w-4xl leading-relaxed"></p>
+
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm text-left min-w-[820px]">
+                                <thead class="text-xs uppercase text-slate-500 border-b border-slate-700/70">
+                                    <tr>
+                                        <th class="py-2 pr-4 font-medium">Item</th>
+                                        <th class="py-2 pr-4 font-medium">From</th>
+                                        <th class="py-2 pr-4 font-medium">Impact</th>
+                                        <th class="py-2 pr-4 font-medium">What it is</th>
+                                        <th class="py-2 font-medium">Re-open signal</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-slate-400">
+                                    <tr class="border-b border-slate-800">
+                                        <td class="py-3 pr-4 text-slate-200 font-semibold whitespace-nowrap">Schema truth lag</td>
+                                        <td class="py-3 pr-4 font-mono-custom text-xs text-accent whitespace-nowrap">ADR-005</td>
+                                        <td class="py-3 pr-4"><span class="px-2 py-0.5 rounded-full border border-rose-500/40 text-rose-400 text-xs">High</span></td>
+                                        <td class="py-3 pr-4" data-i18n="projects.erp-architecture.debt.schema.w"></td>
+                                        <td class="py-3" data-i18n="projects.erp-architecture.debt.schema.s"></td>
+                                    </tr>
+                                    <tr class="border-b border-slate-800">
+                                        <td class="py-3 pr-4 text-slate-200 font-semibold whitespace-nowrap">Batch-bound freshness</td>
+                                        <td class="py-3 pr-4 font-mono-custom text-xs text-accent whitespace-nowrap">ADR-004</td>
+                                        <td class="py-3 pr-4"><span class="px-2 py-0.5 rounded-full border border-rose-500/40 text-rose-400 text-xs">High</span></td>
+                                        <td class="py-3 pr-4" data-i18n="projects.erp-architecture.debt.fresh.w"></td>
+                                        <td class="py-3" data-i18n="projects.erp-architecture.debt.fresh.s"></td>
+                                    </tr>
+                                    <tr class="border-b border-slate-800">
+                                        <td class="py-3 pr-4 text-slate-200 font-semibold whitespace-nowrap">Initial load cost</td>
+                                        <td class="py-3 pr-4 font-mono-custom text-xs text-accent whitespace-nowrap">ADR-002</td>
+                                        <td class="py-3 pr-4"><span class="px-2 py-0.5 rounded-full border border-amber-500/40 text-amber-400 text-xs">Medium</span></td>
+                                        <td class="py-3 pr-4" data-i18n="projects.erp-architecture.debt.load.w"></td>
+                                        <td class="py-3" data-i18n="projects.erp-architecture.debt.load.s"></td>
+                                    </tr>
+                                    <tr class="border-b border-slate-800">
+                                        <td class="py-3 pr-4 text-slate-200 font-semibold whitespace-nowrap">Verification outside deploy</td>
+                                        <td class="py-3 pr-4 font-mono-custom text-xs text-accent whitespace-nowrap">ADR-002 · 006</td>
+                                        <td class="py-3 pr-4"><span class="px-2 py-0.5 rounded-full border border-amber-500/40 text-amber-400 text-xs">Medium</span></td>
+                                        <td class="py-3 pr-4" data-i18n="projects.erp-architecture.debt.verify.w"></td>
+                                        <td class="py-3" data-i18n="projects.erp-architecture.debt.verify.s"></td>
+                                    </tr>
+                                    <tr class="border-b border-slate-800">
+                                        <td class="py-3 pr-4 text-slate-200 font-semibold whitespace-nowrap">Layer boundary erosion</td>
+                                        <td class="py-3 pr-4 font-mono-custom text-xs text-accent whitespace-nowrap">Strategy 5</td>
+                                        <td class="py-3 pr-4"><span class="px-2 py-0.5 rounded-full border border-amber-500/40 text-amber-400 text-xs">Medium</span></td>
+                                        <td class="py-3 pr-4" data-i18n="projects.erp-architecture.debt.layer.w"></td>
+                                        <td class="py-3" data-i18n="projects.erp-architecture.debt.layer.s"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 pr-4 text-slate-200 font-semibold whitespace-nowrap">Data divergence across nodes</td>
+                                        <td class="py-3 pr-4 font-mono-custom text-xs text-accent whitespace-nowrap">ADR-008</td>
+                                        <td class="py-3 pr-4"><span class="px-2 py-0.5 rounded-full border border-slate-600 text-slate-400 text-xs">Low</span></td>
+                                        <td class="py-3 pr-4" data-i18n="projects.erp-architecture.debt.node.w"></td>
+                                        <td class="py-3" data-i18n="projects.erp-architecture.debt.node.s"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="mt-6 rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                            <div class="text-slate-200 font-semibold mb-2 text-sm">What the whole list has in common</div>
+                            <p data-i18n="projects.erp-architecture.debt.summary" class="text-sm text-slate-400 leading-relaxed"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tech Stack -->
+                <div class="mb-16">
+                    <h4 class="text-2xl font-semibold mb-6">Technology Stack</h4>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                            <div class="text-slate-200 font-semibold mb-3">Backend</div>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Python 3.11</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">FastAPI 0.115</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">uvicorn</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">SQLModel</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">asyncpg</span>
+                            </div>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                            <div class="text-slate-200 font-semibold mb-3">Data</div>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">PostgreSQL 16</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">pandas</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">psycopg2</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">openpyxl</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">xlrd · xlwt</span>
+                            </div>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                            <div class="text-slate-200 font-semibold mb-3">Frontend</div>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Vue 3 (CDN)</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">vue-router 4</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">ES Modules</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">PWA</span>
+                            </div>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                            <div class="text-slate-200 font-semibold mb-3">Platform</div>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Docker Compose</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">GitHub Actions</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">self-hosted runner</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Cloudflare Tunnel</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">cron</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Impact -->
+                <div>
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                        <h4 class="text-2xl font-semibold mb-5">Impact</h4>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-accent font-semibold mb-2">Consistency</div>
+                                <p data-i18n="projects.erp-architecture.impact.consistency" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-accent font-semibold mb-2">Velocity</div>
+                                <p data-i18n="projects.erp-architecture.impact.velocity" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-accent font-semibold mb-2">Operability</div>
+                                <p data-i18n="projects.erp-architecture.impact.ops" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-accent font-semibold mb-2">Traceability</div>
+                                <p data-i18n="projects.erp-architecture.impact.trace" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <script src="/src/main.js"></script>
+    </body>
+</html>
