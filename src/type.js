@@ -21,13 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .type("I'm Eungchan Kang,")
         .pause(600)
         .break()
-        .type("a Full-Stack Engineer")
-        .pause(900)
-        .delete(21)
-        .type("a Cloud & Data Platform Engineer")
-        .pause(1000)
-        .delete(32)
-        .type("a Full-Stack & AI Platform Engineer.")
+        .type("an AI Platform Engineer.")
         .go();
     }
 

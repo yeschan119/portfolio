@@ -153,37 +153,68 @@ function initChatInput() {
 /* =========================================================
   Send Chat
 ========================================================= */
+function appendChatBubble(chat, className, text = "") {
+  const container = document.createElement("div");
+  container.className = className;
+
+  const bubble = document.createElement("div");
+  bubble.textContent = text;
+  container.appendChild(bubble);
+  chat.appendChild(container);
+
+  return { container, bubble };
+}
+
+function appendGithubSources(bubble, sources) {
+  if (!sources?.length) return;
+
+  const sourceList = document.createElement("div");
+  sourceList.className = "chat-sources";
+
+  const label = document.createElement("span");
+  label.textContent = "GitHub sources: ";
+  sourceList.appendChild(label);
+
+  sources.forEach((source, index) => {
+    const link = document.createElement("a");
+    link.href = source.url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.textContent = source.name;
+    sourceList.appendChild(link);
+
+    if (index < sources.length - 1) {
+      sourceList.appendChild(document.createTextNode(" · "));
+    }
+  });
+
+  bubble.appendChild(sourceList);
+}
+
 async function sendChat() {
   const input = document.getElementById("chatInput");
   const chat = document.getElementById("chatMessages");
+  const sendButton = document.getElementById("sendChat");
 
   const message = input.value.trim();
-  if (!message) return;
+  if (!message || sendButton.disabled) return;
 
   input.value = "";
+  sendButton.disabled = true;
 
-  // USER
-  chat.innerHTML += `
-    <div class="chat-user">
-      <div>${message}</div>
-    </div>
-  `;
+  appendChatBubble(chat, "chat-user", message);
 
   chat.scrollTop = chat.scrollHeight;
 
-  // loading
-  const loadingId = "loading-" + Date.now();
-
-  chat.innerHTML += `
-    <div id="${loadingId}" class="chat-ai">
-      <div class="typing-indicator">
-        <div class="dots">
-          <span></span><span></span><span></span>
-        </div>
-        <div class="typing-text">AI is thinking...</div>
-      </div>
+  const loading = document.createElement("div");
+  loading.className = "chat-ai";
+  loading.innerHTML = `
+    <div class="typing-indicator">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="typing-text">Checking GitHub data...</div>
     </div>
   `;
+  chat.appendChild(loading);
 
   chat.scrollTop = chat.scrollHeight;
 
@@ -198,21 +229,28 @@ async function sendChat() {
 
     const data = await res.json();
 
-    document.getElementById(loadingId)?.remove();
+    if (!res.ok || typeof data.reply !== "string" || !data.reply.trim()) {
+      throw new Error(data.error || `Chat request failed (${res.status})`);
+    }
 
-    const container = document.createElement("div");
-    container.className = "chat-ai";
-
-    const bubble = document.createElement("div");
-    container.appendChild(bubble);
-    chat.appendChild(container);
-
+    loading.remove();
+    const { bubble } = appendChatBubble(chat, "chat-ai");
     await typeWriter(data.reply, bubble);
-
     bubble.innerHTML = formatAIResponse(data.reply);
+    appendGithubSources(bubble, data.sources);
 
   } catch (err) {
-    document.getElementById(loadingId)?.remove();
+    console.error("Grounded chat error:", err);
+    loading.remove();
+
+    const errorMessage = /[가-힣]/.test(message)
+      ? "GitHub 저장소를 확인하지 못해 답변을 생성하지 않았습니다. 잠시 후 다시 시도해 주세요."
+      : "I couldn't verify the GitHub repositories, so no answer was generated. Please try again shortly.";
+
+    appendChatBubble(chat, "chat-ai chat-error", errorMessage);
+  } finally {
+    sendButton.disabled = false;
+    input.focus();
   }
 
   chat.scrollTop = chat.scrollHeight;

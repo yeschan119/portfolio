@@ -8,12 +8,11 @@
     "nav_projects":"프로젝트",
     "nav_contact":"연락처",
 
-    "hero_tag":"풀스택 • 클라우드 • 데이터 플랫폼 • DB 성능",
     "hero_title":"DB 설계부터 Dashboard 구현까지<br class='hidden md:block' />확장 가능한 시스템 구축 경험",
     "hero_desc":"<li>DB & Cloud Architecture 설계부터 Dashboard 구현까지 확장 가능한 시스템 구축</li><li>Software Architect로서 AI Engineering기반으로 ERP시스템 설계 및 구축</li>",
     "ai-button": "강응찬의 AI와 대화하기",
     "ai-main": "Ask me anything 🙏🏻 (ex: Data Engineer 직무 관련 프로젝트 리스트)",
-    "ai-sub": "이 AI는 응찬의 Git history를 학습한 결과를 보여줍니다. 프로젝트 관련 더 자세한 정보는 포트폴리오 프로젝트 탭에서 확인하실 수 있습니다.",
+    "ai-sub": "질문과 관련된 공개 GitHub 저장소의 README를 먼저 읽고, 답변에 사용한 저장소를 출처로 표시합니다.",
 
     "contact_title":"연락처",
 
@@ -22,8 +21,8 @@
 
     "skill-lang": "각 언어에 커서를 올리면 언어 활용 경험을 확인할 수 있습니다.",
     "work": {
-        "koclo1": "• 의류 판매, 재고, 발주, 정산, 매장 운영 흐름을 하나의 의류 유통 관리 시스템으로 설계 및 자동화",
-        "koclo2": "• 의류회사 시스템에 Software Architecture 원칙을 적용하여 도메인, API, 데이터, 배포 계층 설계 및 구현",
+        "koclo1": "• 판매, 재고, 발주, 정산 등 핵심 업무 흐름을 하나의 ERP 시스템으로 설계 및 자동화",
+        "koclo2": "• ERP 시스템에 Software Architecture 원칙을 적용하여 도메인, API, 데이터, 배포 계층 설계 및 구현",
         "koclo3": "• AI Agent 기반으로 시스템 조회, 제어, 자동화 작업을 연결해 운영자가 소프트웨어를 더 직접적으로 컨트롤할 수 있는 환경 구축",
         "aiworkx1": "• GPU가 없는 edge 장치에서 Obj트ect dection을 수행할 수 있는 모델 개발",
         "aiworkx2": "• Image annotation & segmentation model 개발 및 제품화(OpenCV)",

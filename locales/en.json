@@ -6,22 +6,21 @@
     "nav_projects": "Projects",
     "nav_contact": "Contact",
 
-    "hero_tag": "Full-Stack • Cloud • Data Platform • DB Performance",
     "hero_title": "Building Scalable Systems from Database to Dashboard",
     "hero_desc": "<li>Built scalable systems from DB & Cloud Architecture design to dashboard implementation</li><li>As a Software Architect, designed and built ERP systems on an AI Engineering foundation</li>",
     "hero_btn_projects": "View Projects",
     "hero_btn_arch": "Architecture Diagram",
     "ai-button": "Try to talk with Eungchan's AI",
     "ai-main": "Ask anything 🙏🏻 (e.g., Show me Data Engineering projects)",
-    "ai-sub": "This AI is trained on Eungchan’s Git history. For deeper insights into each project, visit the Projects section of the portfolio.",
+    "ai-sub": "This AI reads the relevant public GitHub repository README before answering and shows the repositories used as sources.",
 
     "arc_title": "System Architecture Blueprint",
     "arc_desc": "End-to-end data analytics platform across application,<br class='hidden md:block' />data, performance, cloud, and observability layers.",
 
     "skill-lang": "Hover over a language to see experience.",
     "work": {
-        "koclo1": "• Designed and automated apparel sales, inventory, ordering, settlement, and store operations as a unified apparel distribution management system",
-        "koclo2": "• Applied Software Architecture principles to the apparel company system, designing and implementing the domain, API, data, and deployment layers",
+        "koclo1": "• Designed and automated core business workflows—including sales, inventory, ordering, and settlement—as a unified ERP system",
+        "koclo2": "• Applied Software Architecture principles to the ERP system, designing and implementing the domain, API, data, and deployment layers",
         "koclo3": "• Built an AI Agent-based environment that connects system queries, controls, and automation tasks so operators can control the software more directly",
         "aiworkx1": "• Developed object detection models optimized for edge devices without GPUs",
         "aiworkx2": "• Built and productized image annotation and segmentation models using OpenCV",
