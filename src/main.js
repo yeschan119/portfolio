@@ -307,35 +307,71 @@ if (typeof marked !== "undefined") {
 }
 
 function initArchitecture() {
-  const down = document.getElementById("flowDown");
-  const up = document.getElementById("flowUp");
-  const dotDown = document.getElementById("dotDown");
-  const dotUp = document.getElementById("dotUp");
+  /* 경력 카드를 클릭하면 그 시기의 아키텍처가 아래로 펼쳐진다.
+     hover 가 아니라 click 인 이유: 모바일·데스크톱 동작을 같게 두고,
+     다이어그램이 길어 스크롤 중 포인터가 벗어나도 닫히지 않게 하기 위해서다. */
+  const triggers = document.querySelectorAll(".arch-trigger");
+  if (!triggers.length) return;
 
-  if (!down || !up || !dotDown || !dotUp) {
-    console.warn("flow elements not found");
-    return;
-  }
+  const close = (trigger, panel) => {
+    trigger.setAttribute("aria-expanded", "false");
+    panel.hidden = true;
+  };
 
-  const len1 = down.getTotalLength();
-  const len2 = up.getTotalLength();
+  const open = (trigger, panel) => {
+    trigger.setAttribute("aria-expanded", "true");
+    panel.hidden = false;
+  };
 
-  function animateFlow(time) {
-    const p1 = (time % 4000) / 4000;
-    const p2 = (time % 5000) / 5000;
+  triggers.forEach(trigger => {
+    const panel = document.getElementById(trigger.dataset.arch);
+    if (!panel) return;
 
-    const pt1 = down.getPointAtLength(len1 * p1);
-    const pt2 = up.getPointAtLength(len2 * p2);
+    const toggle = () => {
+      const isOpen = trigger.getAttribute("aria-expanded") === "true";
+      if (isOpen) {
+        close(trigger, panel);
+        return;
+      }
+      // 한 번에 하나만 연다 — 타임라인이 세로로 지나치게 길어지지 않게.
+      triggers.forEach(other => {
+        const otherPanel = document.getElementById(other.dataset.arch);
+        if (otherPanel && other !== trigger) close(other, otherPanel);
+      });
+      open(trigger, panel);
+    };
 
-    dotDown.setAttribute("cx", pt1.x);
-    dotDown.setAttribute("cy", pt1.y);
-    dotUp.setAttribute("cx", pt2.x);
-    dotUp.setAttribute("cy", pt2.y);
+    trigger.addEventListener("click", event => {
+      // 카드 안의 외부 링크는 카드 토글로 삼키지 않는다.
+      if (event.target.closest("a")) return;
+      toggle();
+    });
 
-    requestAnimationFrame(animateFlow);
-  }
+    trigger.addEventListener("keydown", event => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      if (event.target.closest("a")) return;
+      event.preventDefault();
+      toggle();
+    });
+  });
 
-  requestAnimationFrame(animateFlow);
+  /* 서브탭 — Ko&Clo 패널의 Software / AI 전환 */
+  document.querySelectorAll(".arch-tab").forEach(tab => {
+    tab.addEventListener("click", event => {
+      event.stopPropagation();
+      const group = tab.closest("[role='tablist']");
+      const container = tab.closest(".arch-panel");
+      if (!group || !container) return;
+
+      group.querySelectorAll(".arch-tab").forEach(other => {
+        const active = other === tab;
+        other.classList.toggle("is-active", active);
+        other.setAttribute("aria-selected", active ? "true" : "false");
+        const pane = container.querySelector("#" + other.dataset.pane);
+        if (pane) pane.hidden = !active;
+      });
+    });
+  });
 }
 
 /* =========================================================

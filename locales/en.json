@@ -14,8 +14,6 @@
     "ai-main": "Ask anything 🙏🏻 (e.g., Show me Data Engineering projects)",
     "ai-sub": "This AI reads the relevant public GitHub repository README before answering and shows the repositories used as sources.",
 
-    "arc_title": "System Architecture Blueprint",
-    "arc_desc": "End-to-end data analytics platform across application,<br class='hidden md:block' />data, performance, cloud, and observability layers.",
 
     "skill-lang": "Hover over a language to see experience.",
     "work": {

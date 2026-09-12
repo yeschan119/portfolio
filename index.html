@@ -47,7 +47,7 @@
       }
     }
   </script>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=20260912a">
   <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
@@ -79,8 +79,7 @@
             <!-- Desktop Nav -->
             <nav class="hidden md:flex space-x-6 text-sm">
                 <a href="#about" class="hover:text-accent transition">About</a>
-                <a href="#architecture" class="hover:text-accent transition">Architecture</a>
-                <a href="#experience" class="hover:text-accent transition">Experience</a>
+                                <a href="#experience" class="hover:text-accent transition">Experience</a>
                 <a href="#skills" class="hover:text-accent transition">Skills</a>
                 <a href="#projects" class="hover:text-accent transition">Projects</a>
                 <a href="#contact" class="hover:text-accent transition">Contact</a>
@@ -122,8 +121,7 @@
         <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-3 text-sm">
 
             <a href="#about" class="hover:text-accent transition">About</a>
-            <a href="#architecture" class="hover:text-accent transition">Architecture</a>
-            <a href="#experience" class="hover:text-accent transition">Experience</a>
+                        <a href="#experience" class="hover:text-accent transition">Experience</a>
             <a href="#skills" class="hover:text-accent transition">Skills</a>
             <a href="#projects" class="hover:text-accent transition">Projects</a>
             <a href="#contact" class="hover:text-accent transition">Contact</a>
@@ -300,16 +298,521 @@
     </div>
   </div>
 
-  <!-- ARCHITECTURE – PROPER CENTERED VERSION -->
-  <section id="architecture" class="section-glow py-14 border-t border-slate-800">
+  <section id="experience" class="section-glow py-16 border-t border-slate-800">
     <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-7">
-        <h3 data-i18n="arc_title" class="text-3xl font-semibold mb-3"></h3>
-        <p data-i18n="arc_desc" class="text-slate-400 text-lg max-w-3xl mx-auto"></p>
+      <div class="fade-in mb-8">
+        <h3 class="text-3xl font-semibold mb-3">Experience</h3>
+        <p class="text-slate-400 text-lg">
+          Career progression across AI, database engineering, and full-stack cloud systems.
+        </p>
       </div>
 
-      <div class="rounded-2xl p-4">
-      <div class="hidden lg:block overflow-x-auto pb-2">
+      <div class="grid lg:grid-cols-[1fr,340px] gap-6 items-start exp-grid">
+        <!-- Timeline -->
+        <div class="fade-in min-w-0">
+          <div class="timeline pl-12">
+            <div id="timelineProgress" class="timeline-progress"></div>
+            <!-- Item 1 -->
+            <div class="relative pb-5 t-item">
+              <div class="t-node" style="top: 4px;"></div>
+
+              <div class="bg-secondary/40 border border-slate-700/70 rounded-2xl p-5 card relative arch-trigger group" role="button" tabindex="0" aria-expanded="false" aria-controls="arch-koclo" data-arch="arch-koclo">
+                <!-- live "Present" indicator light (top-left) -->
+                <span class="absolute -top-1.5 -left-1.5 flex h-3.5 w-3.5">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-70"></span>
+                  <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-accent" style="box-shadow:0 0 10px 2px rgba(0,180,216,.85)"></span>
+                </span>
+                <div class="flex justify-between flex-wrap gap-2">
+                  <h4 class="text-xl font-semibold">Senior Software Engineer</h4>
+                  <span class="text-sm text-slate-400">2026.05 – Present</span>
+                </div>
+
+                <div class="text-accent text-sm mt-1 mb-3 flex items-center gap-2">
+                  <span>Ko&amp;Clo</span>
+                </div>
+
+                <ul class="text-slate-400 text-sm space-y-1">
+                  <li data-i18n="work.koclo1"></li>
+                  <li data-i18n="work.koclo2"></li>
+                  <li data-i18n="work.koclo3"></li>
+                </ul>
+
+                <div class="mt-4 pt-3 border-t border-slate-700/60 flex items-center">
+                  <span class="arch-chev ml-auto inline-flex items-center gap-1.5 text-[11px] font-mono-custom tracking-wider text-slate-500 group-hover:text-accent transition"><span class="arch-chev-label">ARCHITECTURE</span><svg class="arch-chev-icon w-3.5 h-3.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+                </div>
+              </div>
+
+              <div id="arch-koclo" class="arch-panel min-w-0" hidden>
+                <div class="mt-3 rounded-2xl border border-accent/30 bg-primary/40 p-4 md:p-5">
+                  <div class="flex flex-wrap gap-2 mb-4" role="tablist" aria-label="Ko&amp;Clo architecture views">
+                    <button type="button" class="arch-tab is-active" role="tab" aria-selected="true" data-pane="koclo-sw">Software Architecture</button>
+                    <button type="button" class="arch-tab" role="tab" aria-selected="false" data-pane="koclo-ai">AI Architecture</button>
+                  </div>
+
+                  <div id="koclo-sw" class="arch-pane">
+                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                      Retail ERP for 10 stores — a <span class="text-slate-200 font-medium">data pipeline with an operations console</span>,
+                      not a CRUD app. Batch scripts outweigh the HTTP layer <span class="text-accent font-medium">7.2 : 1</span> in code mass.
+                    </p>
+                    <div class="hidden lg:block overflow-x-auto pb-2">
+                    <svg viewBox="0 0 1240 316" preserveAspectRatio="xMidYMid meet" class="h-auto mx-auto block" style="min-width:860px;width:100%;max-width:1240px;font-family:'Poppins',ui-sans-serif,sans-serif">
+                      <defs>
+                        <linearGradient id="swCard" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="rgba(0,180,216,0.10)"/>
+                          <stop offset="100%" stop-color="rgba(2,62,138,0.03)"/>
+                        </linearGradient>
+                        <linearGradient id="swCore" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="rgba(0,180,216,0.22)"/>
+                          <stop offset="100%" stop-color="rgba(2,62,138,0.08)"/>
+                        </linearGradient>
+                        <filter id="swGlow" x="-250%" y="-250%" width="600%" height="600%">
+                          <feGaussianBlur stdDeviation="2.4" result="b"/>
+                          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                        <marker id="swArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                          <path d="M0 0 L10 5 L0 10 z" fill="#00b4d8"/>
+                        </marker>
+                      </defs>
+
+                      <rect x="24" y="246" width="1192" height="54" rx="14" fill="rgba(2,62,138,0.10)" stroke="rgba(0,180,216,0.40)" stroke-width="1.2"/>
+                      <text x="620" y="269" text-anchor="middle" fill="#00b4d8" font-size="10" font-weight="700" font-family="'Courier New',monospace" letter-spacing="1.5">CROSS-CUTTING OBSERVABILITY</text>
+                      <text x="620" y="288" text-anchor="middle" fill="#cbd5e1" font-size="13" font-weight="600">Batch Freshness · Four Golden Signals · Latency · Errors · Saturation</text>
+
+                      <line x1="124" y1="190" x2="124" y2="246" stroke="#00b4d8" stroke-width="1" opacity="0.16" stroke-dasharray="2 5"/>
+                      <circle r="2" fill="#00b4d8" opacity="0.85" filter="url(#swGlow)"><animateMotion dur="2.4s" begin="0.00s" repeatCount="indefinite" path="M124 190 L124 246"/></circle>
+
+                      <line x1="372" y1="190" x2="372" y2="246" stroke="#00b4d8" stroke-width="1" opacity="0.16" stroke-dasharray="2 5"/>
+                      <circle r="2" fill="#00b4d8" opacity="0.85" filter="url(#swGlow)"><animateMotion dur="2.4s" begin="0.42s" repeatCount="indefinite" path="M372 190 L372 246"/></circle>
+
+                      <line x1="620" y1="190" x2="620" y2="246" stroke="#00b4d8" stroke-width="1" opacity="0.16" stroke-dasharray="2 5"/>
+                      <circle r="2" fill="#00b4d8" opacity="0.85" filter="url(#swGlow)"><animateMotion dur="2.4s" begin="0.84s" repeatCount="indefinite" path="M620 190 L620 246"/></circle>
+
+                      <line x1="868" y1="190" x2="868" y2="246" stroke="#00b4d8" stroke-width="1" opacity="0.16" stroke-dasharray="2 5"/>
+                      <circle r="2" fill="#00b4d8" opacity="0.85" filter="url(#swGlow)"><animateMotion dur="2.4s" begin="1.26s" repeatCount="indefinite" path="M868 190 L868 246"/></circle>
+
+                      <line x1="1116" y1="190" x2="1116" y2="246" stroke="#00b4d8" stroke-width="1" opacity="0.16" stroke-dasharray="2 5"/>
+                      <circle r="2" fill="#00b4d8" opacity="0.85" filter="url(#swGlow)"><animateMotion dur="2.4s" begin="1.68s" repeatCount="indefinite" path="M1116 190 L1116 246"/></circle>
+
+                      <line x1="2" y1="115" x2="24" y2="115" stroke="#00b4d8" stroke-width="1.6" opacity="0.5" marker-end="url(#swArrow)"/>
+                      <circle r="3" fill="#00b4d8" filter="url(#swGlow)"><animateMotion dur="1.4s" repeatCount="indefinite" path="M2 115 L22 115"/></circle>
+                      <line x1="1216" y1="115" x2="1238" y2="115" stroke="#00b4d8" stroke-width="1.6" opacity="0.5" marker-end="url(#swArrow)"/>
+                      <circle r="3" fill="#00b4d8" filter="url(#swGlow)"><animateMotion dur="1.4s" repeatCount="indefinite" path="M1216 115 L1236 115"/></circle>
+
+                      <g>
+                        <line x1="224" y1="115" x2="272" y2="115" stroke="#00b4d8" stroke-width="1.4" opacity="0.28" stroke-dasharray="2 5">
+                          <animate attributeName="stroke-dashoffset" from="14" to="0" dur="0.7s" repeatCount="indefinite"/>
+                        </line>
+                        <path d="M244.0 109 L252.0 115 L244.0 121" fill="none" stroke="#00b4d8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.6">
+                          <animate attributeName="opacity" values="0.15;0.9;0.15" dur="1.7s" repeatCount="indefinite"/>
+                        </path>
+                        <circle r="3.2" fill="#00b4d8" filter="url(#swGlow)"><animateMotion dur="1.7s" begin="0s" repeatCount="indefinite" path="M224 115 L272 115"/></circle>
+                        <circle r="3.0" fill="#48cae4" filter="url(#swGlow)"><animateMotion dur="1.7s" begin="0.57s" repeatCount="indefinite" path="M224 115 L272 115"/></circle>
+                        <circle r="2.2" fill="#90e0ef" filter="url(#swGlow)"><animateMotion dur="1.7s" begin="1.14s" repeatCount="indefinite" path="M224 115 L272 115"/></circle>
+                      </g>
+
+                      <g>
+                        <line x1="472" y1="115" x2="520" y2="115" stroke="#00b4d8" stroke-width="1.4" opacity="0.28" stroke-dasharray="2 5">
+                          <animate attributeName="stroke-dashoffset" from="14" to="0" dur="0.7s" repeatCount="indefinite"/>
+                        </line>
+                        <path d="M492.0 109 L500.0 115 L492.0 121" fill="none" stroke="#00b4d8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.6">
+                          <animate attributeName="opacity" values="0.15;0.9;0.15" dur="1.7s" repeatCount="indefinite"/>
+                        </path>
+                        <circle r="3.2" fill="#00b4d8" filter="url(#swGlow)"><animateMotion dur="1.7s" begin="0s" repeatCount="indefinite" path="M472 115 L520 115"/></circle>
+                        <circle r="3.0" fill="#48cae4" filter="url(#swGlow)"><animateMotion dur="1.7s" begin="0.57s" repeatCount="indefinite" path="M472 115 L520 115"/></circle>
+                        <circle r="2.2" fill="#90e0ef" filter="url(#swGlow)"><animateMotion dur="1.7s" begin="1.14s" repeatCount="indefinite" path="M472 115 L520 115"/></circle>
+                      </g>
+
+                      <g>
+                        <line x1="720" y1="115" x2="768" y2="115" stroke="#00b4d8" stroke-width="1.4" opacity="0.28" stroke-dasharray="2 5">
+                          <animate attributeName="stroke-dashoffset" from="14" to="0" dur="0.7s" repeatCount="indefinite"/>
+                        </line>
+                        <path d="M740.0 109 L748.0 115 L740.0 121" fill="none" stroke="#00b4d8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.6">
+                          <animate attributeName="opacity" values="0.15;0.9;0.15" dur="1.7s" repeatCount="indefinite"/>
+                        </path>
+                        <circle r="3.2" fill="#00b4d8" filter="url(#swGlow)"><animateMotion dur="1.7s" begin="0s" repeatCount="indefinite" path="M720 115 L768 115"/></circle>
+                        <circle r="3.0" fill="#48cae4" filter="url(#swGlow)"><animateMotion dur="1.7s" begin="0.57s" repeatCount="indefinite" path="M720 115 L768 115"/></circle>
+                        <circle r="2.2" fill="#90e0ef" filter="url(#swGlow)"><animateMotion dur="1.7s" begin="1.14s" repeatCount="indefinite" path="M720 115 L768 115"/></circle>
+                      </g>
+
+                      <g>
+                        <line x1="968" y1="115" x2="1016" y2="115" stroke="#00b4d8" stroke-width="1.4" opacity="0.28" stroke-dasharray="2 5">
+                          <animate attributeName="stroke-dashoffset" from="14" to="0" dur="0.7s" repeatCount="indefinite"/>
+                        </line>
+                        <path d="M988.0 109 L996.0 115 L988.0 121" fill="none" stroke="#00b4d8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.6">
+                          <animate attributeName="opacity" values="0.15;0.9;0.15" dur="1.7s" repeatCount="indefinite"/>
+                        </path>
+                        <circle r="3.2" fill="#00b4d8" filter="url(#swGlow)"><animateMotion dur="1.7s" begin="0s" repeatCount="indefinite" path="M968 115 L1016 115"/></circle>
+                        <circle r="3.0" fill="#48cae4" filter="url(#swGlow)"><animateMotion dur="1.7s" begin="0.57s" repeatCount="indefinite" path="M968 115 L1016 115"/></circle>
+                        <circle r="2.2" fill="#90e0ef" filter="url(#swGlow)"><animateMotion dur="1.7s" begin="1.14s" repeatCount="indefinite" path="M968 115 L1016 115"/></circle>
+                      </g>
+
+                      <rect x="516" y="36" width="208" height="158" rx="18" fill="none" stroke="#00b4d8" stroke-width="1.5">
+                        <animate attributeName="opacity" values="0.12;0.55;0.12" dur="2.6s" repeatCount="indefinite"/>
+                      </rect>
+
+                      <g>
+                        <rect x="24" y="40" width="200" height="150" rx="16" fill="url(#swCard)" stroke="rgba(0,180,216,0.25)" stroke-width="1.2"/>
+                        <text x="124" y="70" text-anchor="middle" fill="#00b4d8" font-size="10" font-weight="700" font-family="'Courier New',monospace" letter-spacing="1">01 · SOURCES</text>
+                        <text x="124" y="110" text-anchor="middle" fill="#e6edf5" font-size="15" font-weight="700">Vendor &amp; POS</text>
+                        <text x="124" y="142" text-anchor="middle" fill="#94a3b8" font-size="11">File feeds only</text>
+                        <text x="124" y="159" text-anchor="middle" fill="#94a3b8" font-size="11">CSV · XLS · XLSX</text>
+                      </g>
+
+                      <g>
+                        <rect x="272" y="40" width="200" height="150" rx="16" fill="url(#swCard)" stroke="rgba(0,180,216,0.25)" stroke-width="1.2"/>
+                        <text x="372" y="70" text-anchor="middle" fill="#00b4d8" font-size="10" font-weight="700" font-family="'Courier New',monospace" letter-spacing="1">02 · INGEST</text>
+                        <text x="372" y="110" text-anchor="middle" fill="#e6edf5" font-size="15" font-weight="700">Batch Pipeline</text>
+                        <text x="372" y="142" text-anchor="middle" fill="#94a3b8" font-size="11">26 cron batches</text>
+                        <text x="372" y="159" text-anchor="middle" fill="#94a3b8" font-size="11">Idempotent upsert</text>
+                      </g>
+
+                      <g>
+                        <rect x="520" y="40" width="200" height="150" rx="16" fill="url(#swCore)" stroke="rgba(0,180,216,0.7)" stroke-width="1.6"/>
+                        <text x="620" y="70" text-anchor="middle" fill="#00b4d8" font-size="10" font-weight="700" font-family="'Courier New',monospace" letter-spacing="1">03 · CORE</text>
+                        <text x="620" y="100" text-anchor="middle" fill="#e6edf5" font-size="16" font-weight="700">PostgreSQL</text>
+                        <text x="620" y="120" text-anchor="middle" fill="#e6edf5" font-size="16" font-weight="700">Single Source</text>
+                        <text x="620" y="150" text-anchor="middle" fill="#94a3b8" font-size="11">150 tables · 202 idx</text>
+                        <text x="620" y="167" text-anchor="middle" fill="#94a3b8" font-size="11">Precomputed read models</text>
+                      </g>
+
+                      <g>
+                        <rect x="768" y="40" width="200" height="150" rx="16" fill="url(#swCard)" stroke="rgba(0,180,216,0.25)" stroke-width="1.2"/>
+                        <text x="868" y="70" text-anchor="middle" fill="#00b4d8" font-size="10" font-weight="700" font-family="'Courier New',monospace" letter-spacing="1">04 · SERVE</text>
+                        <text x="868" y="110" text-anchor="middle" fill="#e6edf5" font-size="15" font-weight="700">FastAPI</text>
+                        <text x="868" y="142" text-anchor="middle" fill="#94a3b8" font-size="11">413 routes · 3-layer</text>
+                        <text x="868" y="159" text-anchor="middle" fill="#94a3b8" font-size="11">Router · Service · DB</text>
+                      </g>
+
+                      <g>
+                        <rect x="1016" y="40" width="200" height="150" rx="16" fill="url(#swCard)" stroke="rgba(0,180,216,0.25)" stroke-width="1.2"/>
+                        <text x="1116" y="70" text-anchor="middle" fill="#00b4d8" font-size="10" font-weight="700" font-family="'Courier New',monospace" letter-spacing="1">05 · UI</text>
+                        <text x="1116" y="110" text-anchor="middle" fill="#e6edf5" font-size="15" font-weight="700">Buildless Vue 3</text>
+                        <text x="1116" y="142" text-anchor="middle" fill="#94a3b8" font-size="11">60 tabs · CDN · PWA</text>
+                        <text x="1116" y="159" text-anchor="middle" fill="#94a3b8" font-size="11">No bundler</text>
+                      </g>
+
+                    </svg>
+                    </div>
+                            <div class="lg:hidden">
+                              <div class="relative pl-1">
+                                <div class="absolute left-[17px] top-4 bottom-28 w-px bg-accent/35"></div>
+
+                                <div class="relative flex gap-4">
+                                  <div class="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-accent/60 bg-primary text-[11px] font-bold text-accent font-mono-custom">01</div>
+                                  <div class="flex-1 rounded-lg border border-accent/25 bg-accent/[0.06] p-4">
+                                    <div class="text-[11px] font-bold tracking-[0.18em] text-accent font-mono-custom">SOURCES</div>
+                                    <div class="mt-2 text-base font-semibold text-slate-100">Vendor &amp; POS</div>
+                                    <div class="mt-1 text-sm text-slate-400">File feeds only · CSV · XLS · XLSX</div>
+                                  </div>
+                                </div>
+                                <div class="ml-[13px] flex h-8 items-center text-accent/80">↓</div>
+                                <div class="relative flex gap-4">
+                                  <div class="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-accent/60 bg-primary text-[11px] font-bold text-accent font-mono-custom">02</div>
+                                  <div class="flex-1 rounded-lg border border-accent/25 bg-accent/[0.06] p-4">
+                                    <div class="text-[11px] font-bold tracking-[0.18em] text-accent font-mono-custom">INGEST</div>
+                                    <div class="mt-2 text-base font-semibold text-slate-100">Batch Pipeline</div>
+                                    <div class="mt-1 text-sm text-slate-400">26 cron batches · Idempotent upsert</div>
+                                  </div>
+                                </div>
+                                <div class="ml-[13px] flex h-8 items-center text-accent/80">↓</div>
+                                <div class="relative flex gap-4">
+                                  <div class="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-accent bg-primary text-[11px] font-bold text-accent font-mono-custom">03</div>
+                                  <div class="flex-1 rounded-lg border border-accent/60 bg-accent/[0.12] p-4 shadow-[0_0_24px_rgba(0,180,216,0.12)]">
+                                    <div class="text-[11px] font-bold tracking-[0.18em] text-accent font-mono-custom">CORE</div>
+                                    <div class="mt-2 text-base font-semibold text-slate-100">PostgreSQL Single Source</div>
+                                    <div class="mt-1 text-sm text-slate-400">150 tables · 202 idx · Precomputed read models</div>
+                                  </div>
+                                </div>
+                                <div class="ml-[13px] flex h-8 items-center text-accent/80">↓</div>
+                                <div class="relative flex gap-4">
+                                  <div class="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-accent/60 bg-primary text-[11px] font-bold text-accent font-mono-custom">04</div>
+                                  <div class="flex-1 rounded-lg border border-accent/25 bg-accent/[0.06] p-4">
+                                    <div class="text-[11px] font-bold tracking-[0.18em] text-accent font-mono-custom">SERVE</div>
+                                    <div class="mt-2 text-base font-semibold text-slate-100">FastAPI</div>
+                                    <div class="mt-1 text-sm text-slate-400">413 routes · 3-layer · Router · Service · DB</div>
+                                  </div>
+                                </div>
+                                <div class="ml-[13px] flex h-8 items-center text-accent/80">↓</div>
+                                <div class="relative flex gap-4">
+                                  <div class="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-accent/60 bg-primary text-[11px] font-bold text-accent font-mono-custom">05</div>
+                                  <div class="flex-1 rounded-lg border border-accent/25 bg-accent/[0.06] p-4">
+                                    <div class="text-[11px] font-bold tracking-[0.18em] text-accent font-mono-custom">UI</div>
+                                    <div class="mt-2 text-base font-semibold text-slate-100">Buildless Vue 3</div>
+                                    <div class="mt-1 text-sm text-slate-400">60 tabs · CDN · PWA · No bundler</div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="mt-5 rounded-lg border border-accent/35 bg-accent/[0.08] p-4 text-center">
+                                <div class="text-[11px] font-bold tracking-[0.16em] text-accent font-mono-custom">CROSS-CUTTING OBSERVABILITY</div>
+                                <div class="mt-2 text-sm font-semibold text-slate-200">Batch Freshness · Four Golden Signals</div>
+                              </div>
+                            </div>
+                    <div class="mt-4 flex flex-wrap gap-2 text-[11px]">
+                      <span class="arch-chip">150 tables</span>
+                      <span class="arch-chip">413 API routes</span>
+                      <span class="arch-chip">26 cron batches</span>
+                      <span class="arch-chip">60 tabs</span>
+                      <span class="arch-chip">214K LOC</span>
+                    </div>
+                    <p class="mt-3 text-slate-500 text-xs leading-relaxed">
+                      Documented with <span class="text-slate-300">arc42</span> structure, <span class="text-slate-300">C4</span> diagrams
+                      and <span class="text-slate-300">8 ADRs</span> — each recording the cost accepted, not only the benefit gained.
+                    </p>
+                  </div>
+
+                  <div id="koclo-ai" class="arch-pane" hidden>
+                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                      The development harness the ERP is built with — an execution structure that makes
+                      <span class="text-slate-200 font-medium">unsafe actions impossible rather than discouraged</span>.
+                      Guidance is not enforcement.
+                    </p>
+                    <div class="hidden lg:block overflow-x-auto pb-2">
+                    <svg viewBox="0 0 1240 316" preserveAspectRatio="xMidYMid meet" class="h-auto mx-auto block" style="min-width:860px;width:100%;max-width:1240px;font-family:'Poppins',ui-sans-serif,sans-serif">
+                      <defs>
+                        <linearGradient id="aiCard" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="rgba(0,180,216,0.10)"/>
+                          <stop offset="100%" stop-color="rgba(2,62,138,0.03)"/>
+                        </linearGradient>
+                        <linearGradient id="aiCore" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="rgba(0,180,216,0.22)"/>
+                          <stop offset="100%" stop-color="rgba(2,62,138,0.08)"/>
+                        </linearGradient>
+                        <filter id="aiGlow" x="-250%" y="-250%" width="600%" height="600%">
+                          <feGaussianBlur stdDeviation="2.4" result="b"/>
+                          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                        <marker id="aiArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                          <path d="M0 0 L10 5 L0 10 z" fill="#00b4d8"/>
+                        </marker>
+                      </defs>
+
+                      <rect x="24" y="246" width="1192" height="54" rx="14" fill="rgba(2,62,138,0.10)" stroke="rgba(0,180,216,0.40)" stroke-width="1.2"/>
+                      <text x="620" y="269" text-anchor="middle" fill="#00b4d8" font-size="10" font-weight="700" font-family="'Courier New',monospace" letter-spacing="1.5">CROSS-CUTTING ENFORCEMENT</text>
+                      <text x="620" y="288" text-anchor="middle" fill="#cbd5e1" font-size="13" font-weight="600">Guard Hooks — 21 scripts · 24 registrations · fail-open</text>
+
+                      <line x1="124" y1="190" x2="124" y2="246" stroke="#00b4d8" stroke-width="1" opacity="0.16" stroke-dasharray="2 5"/>
+                      <circle r="2" fill="#00b4d8" opacity="0.85" filter="url(#aiGlow)"><animateMotion dur="2.4s" begin="0.00s" repeatCount="indefinite" path="M124 190 L124 246"/></circle>
+
+                      <line x1="372" y1="190" x2="372" y2="246" stroke="#00b4d8" stroke-width="1" opacity="0.16" stroke-dasharray="2 5"/>
+                      <circle r="2" fill="#00b4d8" opacity="0.85" filter="url(#aiGlow)"><animateMotion dur="2.4s" begin="0.42s" repeatCount="indefinite" path="M372 190 L372 246"/></circle>
+
+                      <line x1="620" y1="190" x2="620" y2="246" stroke="#00b4d8" stroke-width="1" opacity="0.16" stroke-dasharray="2 5"/>
+                      <circle r="2" fill="#00b4d8" opacity="0.85" filter="url(#aiGlow)"><animateMotion dur="2.4s" begin="0.84s" repeatCount="indefinite" path="M620 190 L620 246"/></circle>
+
+                      <line x1="868" y1="190" x2="868" y2="246" stroke="#00b4d8" stroke-width="1" opacity="0.16" stroke-dasharray="2 5"/>
+                      <circle r="2" fill="#00b4d8" opacity="0.85" filter="url(#aiGlow)"><animateMotion dur="2.4s" begin="1.26s" repeatCount="indefinite" path="M868 190 L868 246"/></circle>
+
+                      <line x1="1116" y1="190" x2="1116" y2="246" stroke="#00b4d8" stroke-width="1" opacity="0.16" stroke-dasharray="2 5"/>
+                      <circle r="2" fill="#00b4d8" opacity="0.85" filter="url(#aiGlow)"><animateMotion dur="2.4s" begin="1.68s" repeatCount="indefinite" path="M1116 190 L1116 246"/></circle>
+
+                      <line x1="2" y1="115" x2="24" y2="115" stroke="#00b4d8" stroke-width="1.6" opacity="0.5" marker-end="url(#aiArrow)"/>
+                      <circle r="3" fill="#00b4d8" filter="url(#aiGlow)"><animateMotion dur="1.4s" repeatCount="indefinite" path="M2 115 L22 115"/></circle>
+                      <line x1="1216" y1="115" x2="1238" y2="115" stroke="#00b4d8" stroke-width="1.6" opacity="0.5" marker-end="url(#aiArrow)"/>
+                      <circle r="3" fill="#00b4d8" filter="url(#aiGlow)"><animateMotion dur="1.4s" repeatCount="indefinite" path="M1216 115 L1236 115"/></circle>
+
+                      <g>
+                        <line x1="224" y1="115" x2="272" y2="115" stroke="#00b4d8" stroke-width="1.4" opacity="0.28" stroke-dasharray="2 5">
+                          <animate attributeName="stroke-dashoffset" from="14" to="0" dur="0.7s" repeatCount="indefinite"/>
+                        </line>
+                        <path d="M244.0 109 L252.0 115 L244.0 121" fill="none" stroke="#00b4d8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.6">
+                          <animate attributeName="opacity" values="0.15;0.9;0.15" dur="1.7s" repeatCount="indefinite"/>
+                        </path>
+                        <circle r="3.2" fill="#00b4d8" filter="url(#aiGlow)"><animateMotion dur="1.7s" begin="0s" repeatCount="indefinite" path="M224 115 L272 115"/></circle>
+                        <circle r="3.0" fill="#48cae4" filter="url(#aiGlow)"><animateMotion dur="1.7s" begin="0.57s" repeatCount="indefinite" path="M224 115 L272 115"/></circle>
+                        <circle r="2.2" fill="#90e0ef" filter="url(#aiGlow)"><animateMotion dur="1.7s" begin="1.14s" repeatCount="indefinite" path="M224 115 L272 115"/></circle>
+                      </g>
+
+                      <g>
+                        <line x1="472" y1="115" x2="520" y2="115" stroke="#00b4d8" stroke-width="1.4" opacity="0.28" stroke-dasharray="2 5">
+                          <animate attributeName="stroke-dashoffset" from="14" to="0" dur="0.7s" repeatCount="indefinite"/>
+                        </line>
+                        <path d="M492.0 109 L500.0 115 L492.0 121" fill="none" stroke="#00b4d8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.6">
+                          <animate attributeName="opacity" values="0.15;0.9;0.15" dur="1.7s" repeatCount="indefinite"/>
+                        </path>
+                        <circle r="3.2" fill="#00b4d8" filter="url(#aiGlow)"><animateMotion dur="1.7s" begin="0s" repeatCount="indefinite" path="M472 115 L520 115"/></circle>
+                        <circle r="3.0" fill="#48cae4" filter="url(#aiGlow)"><animateMotion dur="1.7s" begin="0.57s" repeatCount="indefinite" path="M472 115 L520 115"/></circle>
+                        <circle r="2.2" fill="#90e0ef" filter="url(#aiGlow)"><animateMotion dur="1.7s" begin="1.14s" repeatCount="indefinite" path="M472 115 L520 115"/></circle>
+                      </g>
+
+                      <g>
+                        <line x1="720" y1="115" x2="768" y2="115" stroke="#00b4d8" stroke-width="1.4" opacity="0.28" stroke-dasharray="2 5">
+                          <animate attributeName="stroke-dashoffset" from="14" to="0" dur="0.7s" repeatCount="indefinite"/>
+                        </line>
+                        <path d="M740.0 109 L748.0 115 L740.0 121" fill="none" stroke="#00b4d8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.6">
+                          <animate attributeName="opacity" values="0.15;0.9;0.15" dur="1.7s" repeatCount="indefinite"/>
+                        </path>
+                        <circle r="3.2" fill="#00b4d8" filter="url(#aiGlow)"><animateMotion dur="1.7s" begin="0s" repeatCount="indefinite" path="M720 115 L768 115"/></circle>
+                        <circle r="3.0" fill="#48cae4" filter="url(#aiGlow)"><animateMotion dur="1.7s" begin="0.57s" repeatCount="indefinite" path="M720 115 L768 115"/></circle>
+                        <circle r="2.2" fill="#90e0ef" filter="url(#aiGlow)"><animateMotion dur="1.7s" begin="1.14s" repeatCount="indefinite" path="M720 115 L768 115"/></circle>
+                      </g>
+
+                      <g>
+                        <line x1="968" y1="115" x2="1016" y2="115" stroke="#00b4d8" stroke-width="1.4" opacity="0.28" stroke-dasharray="2 5">
+                          <animate attributeName="stroke-dashoffset" from="14" to="0" dur="0.7s" repeatCount="indefinite"/>
+                        </line>
+                        <path d="M988.0 109 L996.0 115 L988.0 121" fill="none" stroke="#00b4d8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.6">
+                          <animate attributeName="opacity" values="0.15;0.9;0.15" dur="1.7s" repeatCount="indefinite"/>
+                        </path>
+                        <circle r="3.2" fill="#00b4d8" filter="url(#aiGlow)"><animateMotion dur="1.7s" begin="0s" repeatCount="indefinite" path="M968 115 L1016 115"/></circle>
+                        <circle r="3.0" fill="#48cae4" filter="url(#aiGlow)"><animateMotion dur="1.7s" begin="0.57s" repeatCount="indefinite" path="M968 115 L1016 115"/></circle>
+                        <circle r="2.2" fill="#90e0ef" filter="url(#aiGlow)"><animateMotion dur="1.7s" begin="1.14s" repeatCount="indefinite" path="M968 115 L1016 115"/></circle>
+                      </g>
+
+                      <rect x="516" y="36" width="208" height="158" rx="18" fill="none" stroke="#00b4d8" stroke-width="1.5">
+                        <animate attributeName="opacity" values="0.12;0.55;0.12" dur="2.6s" repeatCount="indefinite"/>
+                      </rect>
+
+                      <g>
+                        <rect x="24" y="40" width="200" height="150" rx="16" fill="url(#aiCard)" stroke="rgba(0,180,216,0.25)" stroke-width="1.2"/>
+                        <text x="124" y="70" text-anchor="middle" fill="#00b4d8" font-size="10" font-weight="700" font-family="'Courier New',monospace" letter-spacing="1">01 · CONTEXT</text>
+                        <text x="124" y="110" text-anchor="middle" fill="#e6edf5" font-size="15" font-weight="700">Rules &amp; Memory</text>
+                        <text x="124" y="142" text-anchor="middle" fill="#94a3b8" font-size="11">CLAUDE.md · 72 nodes</text>
+                        <text x="124" y="159" text-anchor="middle" fill="#94a3b8" font-size="11">Keyword injection</text>
+                      </g>
+
+                      <g>
+                        <rect x="272" y="40" width="200" height="150" rx="16" fill="url(#aiCard)" stroke="rgba(0,180,216,0.25)" stroke-width="1.2"/>
+                        <text x="372" y="70" text-anchor="middle" fill="#00b4d8" font-size="10" font-weight="700" font-family="'Courier New',monospace" letter-spacing="1">02 · PERMISSION</text>
+                        <text x="372" y="110" text-anchor="middle" fill="#e6edf5" font-size="15" font-weight="700">Action Radius</text>
+                        <text x="372" y="142" text-anchor="middle" fill="#94a3b8" font-size="11">54 rules · 3 tiers</text>
+                        <text x="372" y="159" text-anchor="middle" fill="#94a3b8" font-size="11">6 time-boxed gates</text>
+                      </g>
+
+                      <g>
+                        <rect x="520" y="40" width="200" height="150" rx="16" fill="url(#aiCore)" stroke="rgba(0,180,216,0.7)" stroke-width="1.6"/>
+                        <text x="620" y="70" text-anchor="middle" fill="#00b4d8" font-size="10" font-weight="700" font-family="'Courier New',monospace" letter-spacing="1">03 · ORCHESTRATION</text>
+                        <text x="620" y="100" text-anchor="middle" fill="#e6edf5" font-size="16" font-weight="700">Agent</text>
+                        <text x="620" y="120" text-anchor="middle" fill="#e6edf5" font-size="16" font-weight="700">Execution</text>
+                        <text x="620" y="150" text-anchor="middle" fill="#94a3b8" font-size="11">58 sub-agents</text>
+                        <text x="620" y="167" text-anchor="middle" fill="#94a3b8" font-size="11">4 delegation lanes</text>
+                      </g>
+
+                      <g>
+                        <rect x="768" y="40" width="200" height="150" rx="16" fill="url(#aiCard)" stroke="rgba(0,180,216,0.25)" stroke-width="1.2"/>
+                        <text x="868" y="70" text-anchor="middle" fill="#00b4d8" font-size="10" font-weight="700" font-family="'Courier New',monospace" letter-spacing="1">04 · VERIFICATION</text>
+                        <text x="868" y="110" text-anchor="middle" fill="#e6edf5" font-size="15" font-weight="700">Separate Lane</text>
+                        <text x="868" y="142" text-anchor="middle" fill="#94a3b8" font-size="11">No self-approval</text>
+                        <text x="868" y="159" text-anchor="middle" fill="#94a3b8" font-size="11">Evidence required</text>
+                      </g>
+
+                      <g>
+                        <rect x="1016" y="40" width="200" height="150" rx="16" fill="url(#aiCard)" stroke="rgba(0,180,216,0.25)" stroke-width="1.2"/>
+                        <text x="1116" y="70" text-anchor="middle" fill="#00b4d8" font-size="10" font-weight="700" font-family="'Courier New',monospace" letter-spacing="1">05 · ISOLATION</text>
+                        <text x="1116" y="100" text-anchor="middle" fill="#e6edf5" font-size="15" font-weight="700">Subagent &amp;</text>
+                        <text x="1116" y="120" text-anchor="middle" fill="#e6edf5" font-size="15" font-weight="700">Worktree</text>
+                        <text x="1116" y="150" text-anchor="middle" fill="#94a3b8" font-size="11">Context · filesystem</text>
+                        <text x="1116" y="167" text-anchor="middle" fill="#94a3b8" font-size="11">5 parallel trees</text>
+                      </g>
+
+                    </svg>
+                    </div>
+                            <div class="lg:hidden">
+                              <div class="relative pl-1">
+                                <div class="absolute left-[17px] top-4 bottom-28 w-px bg-accent/35"></div>
+
+                                <div class="relative flex gap-4">
+                                  <div class="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-accent/60 bg-primary text-[11px] font-bold text-accent font-mono-custom">01</div>
+                                  <div class="flex-1 rounded-lg border border-accent/25 bg-accent/[0.06] p-4">
+                                    <div class="text-[11px] font-bold tracking-[0.18em] text-accent font-mono-custom">CONTEXT</div>
+                                    <div class="mt-2 text-base font-semibold text-slate-100">Rules &amp; Memory</div>
+                                    <div class="mt-1 text-sm text-slate-400">CLAUDE.md · 72 nodes · Keyword injection</div>
+                                  </div>
+                                </div>
+                                <div class="ml-[13px] flex h-8 items-center text-accent/80">↓</div>
+                                <div class="relative flex gap-4">
+                                  <div class="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-accent/60 bg-primary text-[11px] font-bold text-accent font-mono-custom">02</div>
+                                  <div class="flex-1 rounded-lg border border-accent/25 bg-accent/[0.06] p-4">
+                                    <div class="text-[11px] font-bold tracking-[0.18em] text-accent font-mono-custom">PERMISSION</div>
+                                    <div class="mt-2 text-base font-semibold text-slate-100">Action Radius</div>
+                                    <div class="mt-1 text-sm text-slate-400">54 rules · 3 tiers · 6 time-boxed gates</div>
+                                  </div>
+                                </div>
+                                <div class="ml-[13px] flex h-8 items-center text-accent/80">↓</div>
+                                <div class="relative flex gap-4">
+                                  <div class="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-accent bg-primary text-[11px] font-bold text-accent font-mono-custom">03</div>
+                                  <div class="flex-1 rounded-lg border border-accent/60 bg-accent/[0.12] p-4 shadow-[0_0_24px_rgba(0,180,216,0.12)]">
+                                    <div class="text-[11px] font-bold tracking-[0.18em] text-accent font-mono-custom">ORCHESTRATION</div>
+                                    <div class="mt-2 text-base font-semibold text-slate-100">Agent Execution</div>
+                                    <div class="mt-1 text-sm text-slate-400">58 sub-agents · 4 delegation lanes</div>
+                                  </div>
+                                </div>
+                                <div class="ml-[13px] flex h-8 items-center text-accent/80">↓</div>
+                                <div class="relative flex gap-4">
+                                  <div class="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-accent/60 bg-primary text-[11px] font-bold text-accent font-mono-custom">04</div>
+                                  <div class="flex-1 rounded-lg border border-accent/25 bg-accent/[0.06] p-4">
+                                    <div class="text-[11px] font-bold tracking-[0.18em] text-accent font-mono-custom">VERIFICATION</div>
+                                    <div class="mt-2 text-base font-semibold text-slate-100">Separate Lane</div>
+                                    <div class="mt-1 text-sm text-slate-400">No self-approval · Evidence required</div>
+                                  </div>
+                                </div>
+                                <div class="ml-[13px] flex h-8 items-center text-accent/80">↓</div>
+                                <div class="relative flex gap-4">
+                                  <div class="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-accent/60 bg-primary text-[11px] font-bold text-accent font-mono-custom">05</div>
+                                  <div class="flex-1 rounded-lg border border-accent/25 bg-accent/[0.06] p-4">
+                                    <div class="text-[11px] font-bold tracking-[0.18em] text-accent font-mono-custom">ISOLATION</div>
+                                    <div class="mt-2 text-base font-semibold text-slate-100">Subagent &amp; Worktree</div>
+                                    <div class="mt-1 text-sm text-slate-400">Context · filesystem · 5 parallel trees</div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="mt-5 rounded-lg border border-accent/35 bg-accent/[0.08] p-4 text-center">
+                                <div class="text-[11px] font-bold tracking-[0.16em] text-accent font-mono-custom">CROSS-CUTTING ENFORCEMENT</div>
+                                <div class="mt-2 text-sm font-semibold text-slate-200">Guard Hooks — 21 scripts · 24 registrations</div>
+                              </div>
+                            </div>
+                    <div class="mt-4 flex flex-wrap gap-2 text-[11px]">
+                      <span class="arch-chip">58 sub-agents</span>
+                      <span class="arch-chip">21 guard hooks</span>
+                      <span class="arch-chip">72 memory nodes</span>
+                      <span class="arch-chip">6 gates</span>
+                      <span class="arch-chip">22 skills</span>
+                    </div>
+                    <a href="projects/agent-native-platform.html"
+                       class="arch-more mt-4 inline-flex items-center gap-2 text-sm text-accent hover:text-white transition">
+                      Read the full breakdown
+                      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="relative pb-5 t-item">
+              <div class="t-node" style="top: 4px;"></div>
+
+              <div class="bg-secondary/40 border border-slate-700/70 rounded-2xl p-5 card hover:border-accent transition arch-trigger group"
+                   role="button" tabindex="0" aria-expanded="false" aria-controls="arch-kokomo" data-arch="arch-kokomo">
+
+                <div class="flex justify-between flex-wrap gap-2">
+                  <h4 class="text-xl font-semibold">Full-Stack Engineer</h4>
+                  <span class="text-sm text-slate-400">2024.02 ~ 2026.04</span>
+                </div>
+
+                <div class="text-accent text-sm mt-1 mb-3 flex items-center gap-2">
+                  <span>Kokomo Solutions Inc</span>
+                  <a href="https://www.kokomo247.com/" target="_blank" rel="noopener" class="arch-ext inline-flex items-center text-slate-500 hover:text-accent transition" aria-label="Kokomo Solutions website" title="Kokomo Solutions website"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </div>
+
+                <ul class="text-slate-400 text-sm space-y-1">
+                  <li data-i18n="work.kokomo1"></li>
+                  <li data-i18n="work.kokomo2"></li>
+                  <li data-i18n="work.kokomo3"></li>
+                </ul>
+
+                <div class="mt-4 pt-3 border-t border-slate-700/60 flex items-center">
+                  <span class="arch-chev ml-auto inline-flex items-center gap-1.5 text-[11px] font-mono-custom tracking-wider text-slate-500 group-hover:text-accent transition"><span class="arch-chev-label">ARCHITECTURE</span><svg class="arch-chev-icon w-3.5 h-3.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+                </div>
+              </div>
+
+              <div id="arch-kokomo" class="arch-panel min-w-0" hidden>
+                <div class="mt-3 rounded-2xl border border-accent/30 bg-primary/40 p-4 md:p-5">
+                  <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                    End-to-end analytics platform across application, data, performance, cloud and observability layers.
+                  </p>
+<div class="hidden lg:block overflow-x-auto pb-2">
         <svg viewBox="0 0 1240 316" preserveAspectRatio="xMidYMid meet" class="h-auto mx-auto block" style="min-width:860px;width:100%;max-width:1240px;font-family:'Poppins',ui-sans-serif,sans-serif">
   <defs>
     <linearGradient id="acCard" x1="0" y1="0" x2="0" y2="1">
@@ -497,79 +1000,11 @@
             <div class="mt-2 text-sm font-semibold text-slate-200">Observability — Logs · Metrics · Tracing · Monitoring</div>
           </div>
         </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE (premium timeline) -->
-  <section id="experience" class="section-glow py-16 border-t border-slate-800">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="fade-in mb-8">
-        <h3 class="text-3xl font-semibold mb-3">Experience</h3>
-        <p class="text-slate-400 text-lg">
-          Career progression across AI, database engineering, and full-stack cloud systems.
-        </p>
-      </div>
-
-      <div class="grid lg:grid-cols-[1fr,340px] gap-6 items-start">
-        <!-- Timeline -->
-        <div class="fade-in">
-          <div class="timeline pl-12">
-            <div id="timelineProgress" class="timeline-progress"></div>
-            <!-- Item 1 -->
-            <div class="relative pb-5 t-item">
-              <div class="t-node" style="top: 4px;"></div>
-
-              <div class="bg-secondary/40 border border-slate-700/70 rounded-2xl p-5 card relative">
-                <!-- live "Present" indicator light (top-left) -->
-                <span class="absolute -top-1.5 -left-1.5 flex h-3.5 w-3.5">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-70"></span>
-                  <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-accent" style="box-shadow:0 0 10px 2px rgba(0,180,216,.85)"></span>
-                </span>
-                <div class="flex justify-between flex-wrap gap-2">
-                  <h4 class="text-xl font-semibold">Senior Software Engineer</h4>
-                  <span class="text-sm text-slate-400">2026.05 – Present</span>
                 </div>
-
-                <div class="text-accent text-sm mt-1 mb-3">
-                  Ko&amp;Clo
-                </div>
-
-                <ul class="text-slate-400 text-sm space-y-1">
-                  <li data-i18n="work.koclo1"></li>
-                  <li data-i18n="work.koclo2"></li>
-                  <li data-i18n="work.koclo3"></li>
-                </ul>
               </div>
             </div>
 
-            <!-- Item 2 -->
-            <a href="https://www.kokomo247.com/" target="_blank" class="block">
-              <div class="relative pb-5 t-item cursor-pointer">
-                <div class="t-node" style="top: 4px;"></div>
-
-                <div class="bg-secondary/40 border border-slate-700/70 rounded-2xl p-5 card hover:border-accent transition">
-
-                  <div class="flex justify-between flex-wrap gap-2">
-                    <h4 class="text-xl font-semibold">Full-Stack Engineer</h4>
-                    <span class="text-sm text-slate-400">2024.02 ~ 2026.04</span>
-                  </div>
-
-                  <div class="text-accent text-sm mt-1 mb-3">
-                    Kokomo Solutions Inc
-                  </div>
-
-                  <ul class="text-slate-400 text-sm space-y-1">
-                    <li data-i18n="work.kokomo1"></li>
-                    <li data-i18n="work.kokomo2"></li>
-                    <li data-i18n="work.kokomo3"></li>
-                  </ul>
-
-                </div>
-              </div>
-            </a>
-
             <!-- Item 3 -->
-            <a href="https://www.tmaxtibero.com/" target="_blank" class="block">
               <div class="relative pb-5 t-item">
                 <div class="t-node" style="top: 4px;"></div>
                 <div class="bg-secondary/40 border border-slate-700/70 rounded-2xl p-5 card">
@@ -577,7 +1012,7 @@
                     <h4 class="text-xl font-semibold">Database Engineer</h4>
                     <span class="text-sm text-slate-400">2022 – 2024</span>
                   </div>
-                  <div class="text-accent text-sm mt-1 mb-3">TmaxData</div>
+                  <div class="text-accent text-sm mt-1 mb-3 flex items-center gap-2"><span>TmaxData</span><a href="https://www.tmaxtibero.com/" target="_blank" rel="noopener" class="arch-ext inline-flex items-center text-slate-500 hover:text-accent transition" aria-label="TmaxData website" title="TmaxData website"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></div>
                   <ul class="text-slate-400 text-sm space-y-1">
                     <li data-i18n="work.tmax1"></li>
                     <li data-i18n="work.tmax2"></li>
@@ -585,10 +1020,8 @@
                   </ul>
                 </div>
               </div>
-            </a>
 
             <!-- Item 4 -->
-            <a href="https://www.aiworkx.com/" target="_blank" class="block">
               <div class="relative t-item">
                 <div class="t-node" style="top: 4px;"></div>
                 <div class="bg-secondary/40 border border-slate-700/70 rounded-2xl p-5 card">
@@ -596,14 +1029,13 @@
                     <h4 class="text-xl font-semibold">AI Engineer</h4>
                     <span class="text-sm text-slate-400">2021</span>
                   </div>
-                  <div class="text-accent text-sm mt-1 mb-3">AIWORKX</div>
+                  <div class="text-accent text-sm mt-1 mb-3 flex items-center gap-2"><span>AIWORKX</span><a href="https://www.aiworkx.com/" target="_blank" rel="noopener" class="arch-ext inline-flex items-center text-slate-500 hover:text-accent transition" aria-label="AIWORKX website" title="AIWORKX website"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></div>
                   <ul class="text-slate-400 text-sm space-y-1">
                     <li data-i18n="work.aiworkx1"></li>
                     <li data-i18n="work.aiworkx2"></li>
                   </ul>
                 </div>
               </div>
-            </a>
           </div>
         </div>
 

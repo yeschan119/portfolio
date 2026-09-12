@@ -941,3 +941,111 @@ footer.border-t::after {
     pointer-events: none;
     z-index: 2;
 }
+
+/* ============================================================
+   Experience — architecture toggle panels
+   경력 카드를 클릭하면 해당 시기의 아키텍처가 아래로 펼쳐진다.
+   ============================================================ */
+.arch-trigger {
+  cursor: pointer;
+  user-select: none;
+}
+.arch-trigger:focus-visible {
+  outline: 2px solid var(--accent, #00b4d8);
+  outline-offset: 3px;
+}
+.arch-trigger[aria-expanded="true"] {
+  border-color: rgba(0, 180, 216, 0.6);
+}
+.arch-chev-icon {
+  transition: transform 0.25s ease;
+}
+.arch-trigger[aria-expanded="true"] .arch-chev-icon {
+  transform: rotate(180deg);
+}
+.arch-trigger[aria-expanded="true"] .arch-chev {
+  color: #00b4d8;
+}
+
+/* 외부 링크 아이콘은 카드 토글과 분리된 클릭 대상 */
+.arch-ext {
+  padding: 2px;
+  border-radius: 4px;
+}
+.arch-ext:focus-visible {
+  outline: 2px solid #00b4d8;
+  outline-offset: 2px;
+}
+
+/* 펼침 애니메이션 — hidden 속성으로 접근성 상태를 유지한다 */
+.arch-panel[hidden] {
+  display: none !important;
+}
+.arch-panel {
+  overflow: hidden;
+  animation: archOpen 0.32s ease;
+}
+@keyframes archOpen {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 서브탭 */
+.arch-tab {
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  color: #94a3b8;
+  background: rgba(34, 34, 65, 0.35);
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.arch-tab:hover {
+  color: #e2e8f0;
+  border-color: rgba(0, 180, 216, 0.5);
+}
+.arch-tab.is-active {
+  color: #00b4d8;
+  border-color: rgba(0, 180, 216, 0.7);
+  background: rgba(0, 180, 216, 0.1);
+}
+.arch-tab:focus-visible {
+  outline: 2px solid #00b4d8;
+  outline-offset: 2px;
+}
+.arch-pane[hidden] {
+  display: none !important;
+}
+
+/* 지표 칩 */
+.arch-chip {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: rgba(34, 34, 65, 0.3);
+  color: #cbd5e1;
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.02em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arch-panel { animation: none; }
+  .arch-chev-icon { transition: none; }
+}
+
+/* Experience 그리드 — 아키텍처 다이어그램(min-width 860px)이 펼쳐져도
+   좌측 트랙이 내용 최소폭에 밀리지 않게 한다. 밀리면 우측 사이드바가 화면 밖으로 나간다.
+   Tailwind 임의값에 minmax(0,1fr) 를 쓰면 쉼표 파싱이 불확실해 CSS 로 못박는다. */
+/* Tailwind CDN 은 런타임에 <style> 을 주입해 이 파일보다 뒤에 온다.
+   같은 특이도면 Tailwind 가 이기므로 #id 를 붙여 특이도를 올린다. */
+@media (min-width: 1024px) {
+  #experience .exp-grid {
+    grid-template-columns: minmax(0, 1fr) 340px;
+  }
+}
+#experience .exp-grid > * {
+  min-width: 0;
+}

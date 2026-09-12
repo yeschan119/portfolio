@@ -77,19 +77,19 @@
                         <h4 class="text-xl font-semibold mb-5">Key Metrics</h4>
                         <div class="grid grid-cols-2 gap-4">
                             <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
-                                <div class="text-3xl font-bold text-accent mb-2">53</div>
+                                <div class="text-3xl font-bold text-accent mb-2">58</div>
                                 <div class="text-sm text-slate-400">Sub-Agents</div>
                             </div>
                             <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
-                                <div class="text-3xl font-bold text-accent mb-2">69</div>
-                                <div class="text-sm text-slate-400">Memory Files</div>
+                                <div class="text-3xl font-bold text-accent mb-2">72</div>
+                                <div class="text-sm text-slate-400">Memory Nodes</div>
                             </div>
                             <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
-                                <div class="text-3xl font-bold text-accent mb-2">7</div>
+                                <div class="text-3xl font-bold text-accent mb-2">21</div>
                                 <div class="text-sm text-slate-400">Guard Hooks</div>
                             </div>
                             <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
-                                <div class="text-3xl font-bold text-accent mb-2">46</div>
+                                <div class="text-3xl font-bold text-accent mb-2">54</div>
                                 <div class="text-sm text-slate-400">Permission Rules</div>
                             </div>
                         </div>
@@ -155,16 +155,16 @@
                                 <!-- Skill router -->
                                 <rect x="465" y="60" width="175" height="86" rx="18" fill="rgba(17,24,39,.85)" stroke="rgba(148,163,184,.28)"/>
                                 <text x="552" y="94" text-anchor="middle" font-size="18" font-weight="600">Skill Router</text>
-                                <text x="552" y="118" text-anchor="middle" font-size="12" fill="#94a3b8">21 skills · 27 commands</text>
+                                <text x="552" y="118" text-anchor="middle" font-size="12" fill="#94a3b8">22 skills · 33 commands</text>
 
                                 <!-- Memory -->
                                 <rect x="465" y="262" width="175" height="86" rx="18" fill="rgba(17,24,39,.85)" stroke="rgba(148,163,184,.28)"/>
                                 <text x="552" y="296" text-anchor="middle" font-size="18" font-weight="600">File Memory</text>
-                                <text x="552" y="320" text-anchor="middle" font-size="12" fill="#94a3b8">69 files · domain/service/meta</text>
+                                <text x="552" y="320" text-anchor="middle" font-size="12" fill="#94a3b8">72 nodes · domain/service/meta</text>
 
                                 <!-- Agents -->
                                 <rect x="685" y="60" width="175" height="86" rx="18" fill="rgba(17,24,39,.85)" stroke="rgba(148,163,184,.28)"/>
-                                <text x="772" y="94" text-anchor="middle" font-size="18" font-weight="600">53 Sub-Agents</text>
+                                <text x="772" y="94" text-anchor="middle" font-size="18" font-weight="600">58 Sub-Agents</text>
                                 <text x="772" y="118" text-anchor="middle" font-size="12" fill="#94a3b8">1 subtab : 1 agent</text>
 
                                 <!-- Guards -->
@@ -207,11 +207,11 @@
                         <div class="rounded-2xl border border-slate-700/60 bg-primary/40 p-5 overflow-x-auto">
 <pre class="font-mono-custom text-xs md:text-[13px] leading-relaxed text-slate-400 whitespace-pre">.claude/
 ├── <span class="text-slate-200">settings.json</span>          permission tiers + hook wiring
-├── <span class="text-slate-200">agents/</span>       53 files  one per product subtab
+├── <span class="text-slate-200">agents/</span>       58 files  one per product subtab
 ├── <span class="text-slate-200">skills/</span>       21 dirs   identify → delegate → verify
 ├── <span class="text-slate-200">commands/</span>     27 files  /vmd /payrate /danger /learn …
 ├── <span class="text-slate-200">hooks/</span>         7 files  guards + memory lifecycle
-├── <span class="text-slate-200">memory/</span>       69 files
+├── <span class="text-slate-200">memory/</span>       72 files
 │   ├── meta/       agent_kernel.md — shared rules
 │   ├── domain/     business terms + *-feedback.md
 │   ├── service/    file ↔ API ↔ DB architecture maps
@@ -259,14 +259,14 @@
                     <div class="grid lg:grid-cols-4 gap-6">
                         <div class="section-glow rounded-2xl border border-rose-500/30 bg-secondary/35 p-6">
                             <div class="flex items-baseline gap-2 mb-3">
-                                <span class="text-2xl font-bold text-rose-400">14</span>
+                                <span class="text-2xl font-bold text-rose-400">13</span>
                                 <span class="text-slate-200 font-semibold">deny</span>
                             </div>
                             <p data-i18n="projects.agent-platform.permission.deny" class="text-slate-400 text-sm leading-relaxed"></p>
                         </div>
                         <div class="section-glow rounded-2xl border border-amber-500/30 bg-secondary/35 p-6">
                             <div class="flex items-baseline gap-2 mb-3">
-                                <span class="text-2xl font-bold text-amber-400">32</span>
+                                <span class="text-2xl font-bold text-amber-400">35</span>
                                 <span class="text-slate-200 font-semibold">ask</span>
                             </div>
                             <p data-i18n="projects.agent-platform.permission.ask" class="text-slate-400 text-sm leading-relaxed"></p>
@@ -349,7 +349,7 @@
                             <p data-i18n="projects.agent-platform.graph.desc" class="text-slate-400 max-w-4xl leading-relaxed"></p>
                         </div>
                         <div class="flex flex-wrap gap-2 text-xs">
-                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">53 nodes</span>
+                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">58 nodes</span>
                             <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">parallel delegation</span>
                         </div>
                     </div>
