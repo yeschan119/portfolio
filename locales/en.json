@@ -1,845 +1,873 @@
 {
-  "nav_about": "About",
-  "nav_architecture": "Architecture",
-  "nav_experience": "Experience",
-  "nav_skills": "Skills",
-  "nav_projects": "Projects",
-  "nav_contact": "Contact",
-  "hero_title": "Building Scalable Systems from Database to Dashboard",
-  "hero_desc": "<li>Built scalable systems from DB & Cloud Architecture design to dashboard implementation</li><li>As a Software Architect, designed and built ERP systems on an AI Engineering foundation</li>",
-  "hero_btn_projects": "View Projects",
-  "hero_btn_arch": "Architecture Diagram",
-  "ai-button": "Try to talk with Eungchan's AI",
-  "ai-main": "Ask anything 🙏🏻 (e.g., Show me Data Engineering projects)",
-  "ai-sub": "This AI reads the relevant public GitHub repository README before answering and shows the repositories used as sources.",
-  "skill-lang": "Hover over a language to see experience.",
-  "work": {
-    "koclo1": "• Designed and automated core business workflows—including sales, inventory, ordering, and settlement—as a unified ERP system",
-    "koclo2": "• Applied Software Architecture principles to the ERP system, designing and implementing the domain, API, data, and deployment layers",
-    "koclo3": "• Built an AI Agent-based environment that connects system queries, controls, and automation tasks so operators can control the software more directly",
-    "aiworkx1": "• Developed object detection models optimized for edge devices without GPUs",
-    "aiworkx2": "• Built and productized image annotation and segmentation models using OpenCV",
-    "tmax1": "• Owned and enhanced the database statistics collection module",
-    "tmax2": "• Implemented the SQL Tuning Advisor module and developed SPM (SQL Plan Management)",
-    "tmax3": "• Provided SQL tuning and DBA technical support for enterprise and financial sector clients",
-    "kokomo1": "• Designed and implemented large-scale SaaS architectures for multiple clients.",
-    "kokomo2": "• Architected and delivered an end-to-end layered platform across the presentation, application, infrastructure, and data layers.",
-    "kokomo3": "• Achieved ~30% performance improvement through system (DB/Backend) optimization."
-  },
-  "peer-kokomo": "Eungchan is an engineer capable of delivering end-to-end systems, from cloud architecture design to full-stack web development. His deep expertise in databases enables him to make strong contributions to system performance and scalability.",
-  "peer-tmax": "While working on the DB Optimizer team, Eungchan was responsible for the database statistics module and consistently resolved complex issues related to statistics collection and execution plans. He also collaborated closely with the team and proactively addressed database management and SQL tuning issues encountered by enterprise clients.",
-  "skill": {
-    "python": {
-      "years": "5 years",
-      "project": {
-        "title": "Project Experience",
-        "one": "Awarded Excellence Prize in SK Telecom AI Competition",
-        "two": "Developed multiple projects using Flask and Django (banking system, credit scoring model)",
-        "three": "Built mini games and solved algorithmic coding problems"
-      },
-      "product": {
-        "title": "Production Experience",
-        "one": "Developed Python-based desktop applications at Daewoong Pharmaceutical",
-        "two": "Worked as an AI Vision Engineer at AIWORKX",
-        "three": "Built automation systems for reporting workflows at an RDBMS company, improving operational efficiency"
-      }
+    "nav_about": "About",
+    "nav_architecture": "Architecture",
+    "nav_experience": "Experience",
+    "nav_skills": "Skills",
+    "nav_projects": "Projects",
+    "nav_contact": "Contact",
+
+    "hero_title": "Building Scalable Systems from Database to Dashboard",
+    "hero_desc": "<li>Built scalable systems from DB & Cloud Architecture design to dashboard implementation</li><li>As a Software Architect, designed and built ERP systems on an AI Engineering foundation</li>",
+    "hero_btn_projects": "View Projects",
+    "hero_btn_arch": "Architecture Diagram",
+    "ai-button": "Try to talk with Eungchan's AI",
+    "ai-main": "Ask anything 🙏🏻 (e.g., Show me Data Engineering projects)",
+    "ai-sub": "This AI reads the relevant public GitHub repository README before answering and shows the repositories used as sources.",
+
+
+    "skill-lang": "Hover over a language to see experience.",
+    "work": {
+        "koclo1": "• Designed and automated core business workflows—including sales, inventory, ordering, and settlement—as a unified ERP system",
+        "koclo2": "• Applied Software Architecture principles to the ERP system, designing and implementing the domain, API, data, and deployment layers",
+        "koclo3": "• Built an AI Agent-based environment that connects system queries, controls, and automation tasks so operators can control the software more directly",
+        "aiworkx1": "• Developed object detection models optimized for edge devices without GPUs",
+        "aiworkx2": "• Built and productized image annotation and segmentation models using OpenCV",
+        "tmax1": "• Owned and enhanced the database statistics collection module",
+        "tmax2": "• Implemented the SQL Tuning Advisor module and developed SPM (SQL Plan Management)",
+        "tmax3": "• Provided SQL tuning and DBA technical support for enterprise and financial sector clients",
+        "kokomo1": "• Designed and implemented large-scale SaaS architectures for multiple clients.",
+        "kokomo2": "• Architected and delivered an end-to-end layered platform across the presentation, application, infrastructure, and data layers.",
+        "kokomo3": "• Achieved ~30% performance improvement through system (DB/Backend) optimization."
     },
-    "csharp": {
-      "years": "3 years",
-      "product": {
-        "title": "Production Experience",
-        "one": "Backend development using ASP.NET Core",
-        "two": "Developed backend systems for a large-scale web browser used by hundreds of thousands of users"
-      }
-    },
-    "cpp": {
-      "years": "5 years",
-      "project": {
-        "title": "Project Experience",
-        "one": "Designed and implemented data-level components of a database engine",
-        "two": "Built multiple algorithm-focused projects"
-      },
-      "product": {
-        "title": "Production Experience",
-        "one": "Designed logic and implemented features in R&D team at Tmax Tibero (RDBMS)",
-        "two": "Enhanced DB parser and optimizer modules (SQL Tuning Advisor, SQL Plan Management)",
-        "three": "Migrated legacy C codebase to C++",
-        "four": "Led long-term internal C++ study sessions"
-      }
-    },
-    "typescript": {
-      "years": "3 years",
-      "project": {
-        "title": "Project Experience",
-        "one": "Developed multiple mini projects"
-      },
-      "product": {
-        "title": "Production Experience",
-        "one": "Frontend development using Angular for a large-scale web browser platform",
-        "two": "Built production-grade LG Kiosk application using TypeScript"
-      }
-    },
-    "html": {
-      "years": "2 years",
-      "project": {
-        "title": "Project Experience",
-        "one": "Built personal portfolio using HTML/CSS"
-      },
-      "product": {
-        "title": "Production Experience",
-        "one": "Frontend development using Angular for a large-scale web browser platform",
-        "two": "Developed LG Kiosk application UI using HTML/CSS"
-      }
-    },
-    "sql": {
-      "years": "5 years (MySQL, Oracle, SQL Server, PostgreSQL, Tibero)",
-      "project": {
-        "title": "Project Experience",
-        "one": "Integrated databases into multiple projects across Python, Java, and C# (e.g., banking systems)"
-      },
-      "product": {
-        "title": "Production Experience",
-        "one": "Performed SQL tuning for enterprise clients (banks, companies, educational institutions)",
-        "two": "Optimized queries using execution plan analysis, indexing, partitioning, joins, and hints",
-        "three": "Designed and implemented SQL plan generation logic for production systems",
-        "four": "Improved system performance by over 30% in a large-scale web browser service"
-      }
-    },
-    "pl_sql": {
-      "years": "2 years",
-      "product": {
-        "title": "Production Experience",
-        "one": "Owned and enhanced statistics collection module in Tibero RDBMS engine",
-        "two": "Worked extensively with PL/SQL-based internal engine components"
-      }
-    },
-    "java": {
-      "years": "1 year",
-      "project": {
-        "title": "Project Experience",
-        "one": "Developed several small projects",
-        "two": "Completed coursework on object-oriented programming using Java"
-      }
-    },
-    "dart": {
-      "years": "2 years",
-      "product": {
-        "title": "Production Experience (iOS, macOS Apps)",
-        "one": "Developed unit conversion applications",
-        "two": "Built note management applications"
-      }
-    }
-  },
-  "project": {
-    "report": "Embedded QuickSight analytics with snapshot automation and distributed scaling.",
-    "ims": "Multi-Organization real-time reporting platform with OLTP + Analytics separation.",
-    "chat": "SignalR + SQS + DynamoDB architecture for real-time delivery.",
-    "migration": "Azure → AWS distributed analytics architecture migration.",
-    "apm": "Application performance monitoring dashboard and operational insights.",
-    "insurance": "large-scale Insurance Claim Lifecycle Tracking & Monitoring System",
-    "db-stat": "Database statistics module & query optimizer improvement implementation.",
-    "db-tuning": "Automated query optimization and tuning recommendations.",
-    "db-total": "DB engine internals and system-level design experiments.",
-    "ai1": "Edge-based object detection pipeline with real-time inference.",
-    "ai2": "AI-based annotation & segmentation workflow.",
-    "aiagent": "Engineered the .claude/ harness Claude Code runs inside — permission tiers, guard hooks, layered memory, and agent scaffolding.",
-    "erp-db": "Designed a 97-table ERP database, migrated years of Excel/CSV, and automated the daily load with 16 batches."
-  },
-  "projects": {
-    "bi-report": {
-      "main": "Production-grade AWS QuickSight–driven analytics and reporting platform designed for large-scale educational environments, combining embedded BI, multi-tenant access control, database-driven analytics modeling, and aggressive session cost optimization.",
-      "summary": {
-        "a": "Embedded analytics platform fully integrated into the application UI using secure QuickSight embed flows.",
-        "b": "Designed for large-scale reporting workloads across thousands of schools and administrative users.",
-        "c": "Database views, analytics modeling, and query tuning used to support high-frequency operational reporting.",
-        "d": "Snapshot-based rendering strategy reduced projected QuickSight session cost by approximately 90%."
-      },
-      "system-scale": {
-        "data-volume": "Five years of historical incident data with hundreds of thousands of records, including operational metadata, incident classification, timestamps, school and facility information.",
-        "usage-traffic": "Thousands to tens of thousands of daily report views across approximately 30 reports and 10+ visualization types.",
-        "user-scope": "Supports around 2,000 schools and thousands of administrative users operating at school and district levels."
-      },
-      "report-categories": {
-        "attendance": "Student attendance tracking, staff check-in / check-out logs, late arrival monitoring, and tardiness analytics.",
-        "incident-monitoring": "Vaccination reporting, infection tracking, facility exposure logging, and date / district / school-based aggregation.",
-        "summary": "Role-based dashboards providing school-only or district-wide analytical views depending on user scope."
-      },
-      "data-platform": {
-        "analytics-logic": "Complex business rules, aggregations, and reporting transformations were implemented at the RDS layer using database views to reduce BI dataset complexity and stabilize query patterns.",
-        "bi-layer": "Simple report-specific expressions were delegated to QuickSight calculated fields, keeping the visualization layer lightweight and avoiding unnecessary duplication of heavy aggregation logic.",
-        "platform": "Reporting workloads were isolated from the transactional path through view-based models, SPICE usage, and dedicated read-oriented strategies to support operational analytics without destabilizing OLTP behavior."
-      },
-      "performance-opt": {
-        "heavy-report-opt": "Expensive district-wide joins were reduced by isolating school metadata into DynamoDB and synchronizing relational metadata into a read-optimized structure.",
-        "spice": "Daily summary reports were moved to SPICE with scheduled refresh, eliminating unnecessary real-time query load on the source database.",
-        "query-tuning": "Composite indexes, execution plan analysis, join restructuring, and view-based query shaping reduced dashboard latency and improved overall reporting responsiveness.",
-        "design": {
-          "a": "Reports were built in QuickSight and embedded into the application using secure URLs generated through .NET API and Lambda orchestration.",
-          "b": "Access control was enforced through API-level authorization, role-aware filtering, and parameterized tenant scoping for school-level and district-level users.",
-          "c": "This architecture maintained secure multi-tenant isolation while keeping the reporting experience fully embedded."
+
+    "peer-kokomo": "Eungchan is an engineer capable of delivering end-to-end systems, from cloud architecture design to full-stack web development. His deep expertise in databases enables him to make strong contributions to system performance and scalability.",
+    "peer-tmax": "While working on the DB Optimizer team, Eungchan was responsible for the database statistics module and consistently resolved complex issues related to statistics collection and execution plans. He also collaborated closely with the team and proactively addressed database management and SQL tuning issues encountered by enterprise clients.",
+
+    "skill": {
+        "python": {
+            "years": "5 years",
+            "project": {
+                "title": "Project Experience",
+                "one": "Awarded Excellence Prize in SK Telecom AI Competition",
+                "two": "Developed multiple projects using Flask and Django (banking system, credit scoring model)",
+                "three": "Built mini games and solved algorithmic coding problems"
+            },
+            "product": {
+                "title": "Production Experience",
+                "one": "Developed Python-based desktop applications at Daewoong Pharmaceutical",
+                "two": "Worked as an AI Vision Engineer at AIWORKX",
+                "three": "Built automation systems for reporting workflows at an RDBMS company, improving operational efficiency"
+            }
         },
-        "strategy": {
-          "a": "QuickSight session pricing made high-frequency report access operationally expensive at scale.",
-          "b": "A snapshot rendering pipeline was introduced: if a requested report snapshot already existed, the platform served the cached visual output instead of creating a new BI session.",
-          "c": "Headless browser capture + S3 storage dramatically reduced session creation while preserving visual equivalence for non-interactive report scenarios."
-        }
-      },
-      "impact": {
-        "cost": "Reduced projected QuickSight operating cost by approximately 90%.",
-        "performance": "Maintained around 3-second average dashboard response time.",
-        "scale": "Supported 2,000+ schools and thousands of administrative users.",
-        "arc": "Delivered a secure multi-tenant embedded analytics platform on AWS-native services."
-      }
-    },
-    "incident-management": {
-      "main": "Multi-tenant real-time reporting and advanced analytics platform designed for large-scale educational environments, supporting incident lifecycle management, hierarchical issue classification, role-based access control, and operational dashboards.",
-      "summary": {
-        "a": "Cloud-based incident management platform built on AWS RDS, ASP.NET Core MVC, Angular, and AWS infrastructure.",
-        "b": "Designed to support real-time incident reporting, hierarchical issue classification, and role-aware operational workflows.",
-        "c": "Participated in overall system architecture and independently owned the end-to-end analytics dashboard layer.",
-        "d": "Combined multi-tenant data isolation, analytics views, query optimization, and interactive dashboard delivery."
-      },
-      "overview": {
-        "obj1": "• Capture incidents in real time across multiple risk domains.",
-        "obj2": "• Classify incidents using hierarchical IssueType structures.",
-        "obj3": "• Enforce role-based access control and tenant-aware visibility.",
-        "obj4": "• Notify stakeholders immediately and track lifecycle status changes.",
-        "obj5": "• Transform operational data into interactive analytical dashboards.",
-        "lifecycle1": "1. Reported and classified through IssueType hierarchy",
-        "lifecycle2": "2. Managed by role and organization scope",
-        "lifecycle3": "3. Tracked across status transitions and workflows",
-        "lifecycle4": "4. Aggregated into analytics-ready views and dashboards"
-      },
-      "ownership": {
-        "resp1": "• Designed analytics schema and dashboard data flow",
-        "resp2": "• Built DB-level analytic views",
-        "resp3": "• Implemented REST endpoints for dashboard consumption",
-        "resp4": "• Developed Angular dashboard UI",
-        "resp5": "• Implemented filtering, drill-down, and map-based exploration",
-        "resp6": "• Maintained and continuously improved the analytics layer"
-      },
-      "opt": {
-        "index": "Applied composite multi-column indexes, descending index usage on createdAt and query plan stabilization to reduce full table scans and improve reporting latency.",
-        "partition": "Implemented LIST partitioning for categorical workloads and RANGE partitioning for time-series workloads, enabling better pruning behavior for analytical reads.",
-        "parallel": "Used Promise.all() to parallelize dashboard API calls, improving perceived performance and reducing wait time during dashboard initialization."
-      },
-      "view": {
-        "why1": "• Reusable across multiple dashboards",
-        "why2": "• Stabilized heavy aggregation at the DB layer",
-        "why3": "• Reduced repeated API-side computation",
-        "why4": "• Improved optimizer predictability",
-        "why5": "• Avoided lazy-loading and repeated query pitfalls",
-        "principle1": "• GROUP BY pre-aggregation",
-        "principle2": "• Indexed date filtering",
-        "principle3": "• orgId-based tenant isolation",
-        "principle4": "• Execution plan predictability",
-        "capability1": "• Case per Issue Type",
-        "capability2": "• Case per Location",
-        "capability3": "• Reporter-based behavioral analysis",
-        "capability4": "• Risk / Threat segmentation",
-        "capability5": "• Time-series trend analysis",
-        "capability6": "• Spatial clustering and site ranking"
-      },
-      "role": {
-        "a": "Organization isolation is enforced at the query layer, not only the UI layer.",
-        "b": "Role-based access control governs analytics scope, reporter visibility, and sensitive data exposure.",
-        "c": "Filtering logic is applied before dashboard delivery to preserve tenant and user-level access boundaries."
-      },
-      "contribution": {
-        "system1": "• Domain modeling",
-        "system2": "• Incident / IssueType schema design",
-        "system3": "• RBAC collaboration",
-        "ownership1": "• Designed analytics architecture",
-        "ownership2": "• Built optimized DB views",
-        "ownership3": "• Implemented REST endpoints",
-        "ownership4": "• Developed Angular dashboard",
-        "ownership5": "• Implemented drill-down logic",
-        "ownership6": "• Integrated spatial visualization",
-        "ownership7": "• Performed continuous performance tuning"
-      },
-      "impact": {
-        "dashboard": "Built the analytics layer from scratch and delivered dashboard functionality end-to-end.",
-        "latency": "Reduced dashboard latency by approximately 20%.",
-        "aggr": "Improved aggregation performance by approximately 30%.",
-        "operation": "Enabled real-time insights across thousands of schools while stabilizing production workloads.",
-        "project": {
-          "a": "• Rapid reporting of critical incidents",
-          "b": "• Real-time monitoring of risk distribution",
-          "c": "• Tracking of resolution workflows",
-          "d": "• Analysis of historical operational trends",
-          "e": "• Better response efficiency for stakeholders",
-          "f": "• Conversion of operational data into actionable intelligence"
-        }
-      }
-    },
-    "real-time-message": {
-      "summary": {
-        "main": "Designed and implemented a <strong>production-grade real-time messaging platform</strong> with:",
-        "a": "WebSocket-based real-time communication (SignalR)",
-        "b": "Event-driven persistence (SQS → Lambda → DynamoDB)",
-        "c": "1:1 and Group Chat support",
-        "d": "Secure file uploads via S3 Presigned URL",
-        "e": "Edit / Delete / Read Receipt lifecycle",
-        "f": "Fully deployed on AWS Elastic Beanstalk",
-        "g": "Horizontally scalable backend architecture",
-        "h": "Real-time UX combined with resilient cloud-native event processing."
-      },
-      "scale": {
-        "org": "Organizations",
-        "orgValue": "2 Hospitals",
-        "user": "Users",
-        "userValue": "Hundreds",
-        "msg": "Daily Messages",
-        "msgValue": "Hundreds ~ Thousands",
-        "time": "Average Response",
-        "timeValue": "Real-time"
-      },
-      "feature": {
-        "msg-1": "Real-time send/receive",
-        "msg-2": "Edit message",
-        "msg-3": "Delete message",
-        "msg-4": "Read receipts",
-        "msg-5": "Group chat",
-        "msg-6": "history search",
-        "msg-7": "chatting status check(in-progress/closed)",
-        "msg-8": "Online presence updates",
-        "file-1": "Store files in Amazon S3",
-        "file-2": "Persist only Presigned URL in message record",
-        "file-3": "Secure direct upload from client"
-      },
-      "opt": {
-        "a": "WebSocket + SignalR for minimal latency",
-        "b": "DynamoDB key-value model for scalable message storage",
-        "c": "SQS FIFO queue guarantees strict message ordering",
-        "d": "Asynchronous persistence via SQS → Lambda",
-        "e": "RDS Optimization(index, partition, normalization) for Message Archive"
-      },
-      "tech": {
-        "signalR": "<strong>Why SignalR?</strong> Native WebSocket support in .NET and simplified connection management.",
-        "sqs": "<strong>Why SQS FIFO?</strong> Ensures message ordering and prevents duplicate/out-of-order persistence.",
-        "ddb": "strong>Why DynamoDB?</strong> Key-value workload optimized for chat message storage.",
-        "s3": "<strong>Why S3?</strong> Store files externally and keep database lightweight."
-      },
-      "conclusion": "This project demonstrates a real-time WebSocket architecture combined with event-driven cloud infrastructure. The system ensures reliable message ordering, scalable storage, and resilient backend processing."
-    },
-    "cloud-data-platform": {
-      "summary": "Re-architected an enterprise Azure-based ETL and reporting platform into a <strong>scalable, event-driven AWS analytics system</strong>.",
-      "summary-detail": "This was not a lift-and-shift migration — it was a <strong>full redesign</strong> of the entire data platform including pipeline, orchestration, snapshot generation, and reporting architecture.",
-      "outcomes": {
-        "a": "Event-driven distributed architecture",
-        "b": "Distributed snapshot generation engine",
-        "c": "Horizontal scalability",
-        "d": "Infrastructure cost optimization",
-        "e": "Metadata-driven orchestration",
-        "f": "Power BI → Amazon QuickSight migration"
-      },
-      "legacy-components": {
-        "event-hubs": "Azure Event Hubs",
-        "steam-analytics": "Stream Analytics",
-        "data-lake": "Azure Data Lake",
-        "databricks": "Azure Databricks",
-        "data-factory": "Azure Data Factory",
-        "sql-server": "Azure SQL Server",
-        "power-bi": "Power BI"
-      },
-      "new-components": {
-        "api": ".NET API (Trigger Layer)",
-        "lambda": "AWS Lambda",
-        "ddb": "DynamoDB (Metadata Store)",
-        "sqs": "Amazon SQS (Job Queue)",
-        "step-functions": "AWS Step Functions (Orchestration)",
-        "ec2": "EC2 Auto Scaling Workers (Node.js)",
-        "s3": "Amazon S3 (Snapshot Storage)",
-        "quicksight": "Amazon QuickSight (Reporting)",
-        "rds": "Amazon RDS (MySQL)"
-      },
-      "snapshot": {
-        "trigger": ".NET API triggers Lambda",
-        "metadata": "Lambda checks metadata in DynamoDB",
-        "create-meta": "If snapshot not exists → create metadata",
-        "job-push": "Job pushed to SQS",
-        "orchestrate": "Step Functions orchestrate execution",
-        "ec2-worker": "EC2 workers render QuickSight reports",
-        "snapshot": "Snapshot stored in S3",
-        "update-meta": "Metadata updated in DynamoDB"
-      },
-      "strategy": {
-        "data-lake": "Azure Data Lake → Amazon S3",
-        "sql": "Azure SQL → Amazon RDS",
-        "data-factory": "Azure Data Factory → Step Functions + Lambda",
-        "power-bi": "Power BI → Amazon QuickSight",
-        "sqs": "SQS-based distributed worker model"
-      },
-      "conclusion": "This migration demonstrates deep cloud architecture redesign capability, distributed system design, event-driven orchestration, scalable analytics infrastructure, and cost-aware cloud engineering."
-    },
-    "apm-dashboard": {
-      "summary": {
-        "main": "APM-Dashboard is a custom-built internal <strong>Application Performance Monitoring(APM)</strong> system implemented using the <strong>.NET OpenTelemetry SDK.</strong>",
-        "sub1": "The platform instruments ASP.NET Core applications to capture distributed traces across <strong>Controller → API → SQL</strong> layers, exports structured telemetry data via a custom exporter, and persists it in DynamoDB. An Angular-based dashboard provides performance benchmarking, trace inspection, and activity analysis.",
-        "sub2": "This system functions as a lightweight internal alternative to external APM tools."
-      },
-      "overview": {
-        "trace": "Application Performance Traces (Controller → API → SQL)",
-        "tree": "Distributed Trace Trees (Parent / Child Span relationships)",
-        "activity": "User Activity Logs (CRUD operations)",
-        "metric": "Performance Benchmark Metrics (Top10 Slowest / Fastest Endpoints)"
-      },
-      "flow": {
-        "step1": "HTTP Request Instrumentation",
-        "step2": "Distributed Span Generation",
-        "step3": "Telemetry Export",
-        "step4": "Trace Persistence",
-        "http": {
-          "step1": "ASP.NET Core Controller receives request",
-          "step2": "OpenTelemetry automatically creates a Server Span"
+        "csharp": {
+            "years": "3 years",
+            "product": {
+                "title": "Production Experience",
+                "one": "Backend development using ASP.NET Core",
+                "two": "Developed backend systems for a large-scale web browser used by hundreds of thousands of users"
+            }
         },
-        "span": {
-          "step1": "AspNetCore → Server Span",
-          "step2": "HttpClient → Client Span",
-          "step3": "SqlClient → DB Span",
-          "step4": "TraceId / SpanId assigned",
-          "step5": "Parent / Child hierarchy constructed"
+        "cpp": {
+            "years": "5 years",
+            "project": {
+                "title": "Project Experience",
+                "one": "Designed and implemented data-level components of a database engine",
+                "two": "Built multiple algorithm-focused projects"
+            },
+            "product": {
+                "title": "Production Experience",
+                "one": "Designed logic and implemented features in R&D team at Tmax Tibero (RDBMS)",
+                "two": "Enhanced DB parser and optimizer modules (SQL Tuning Advisor, SQL Plan Management)",
+                "three": "Migrated legacy C codebase to C++",
+                "four": "Led long-term internal C++ study sessions"
+            }
         },
-        "export": {
-          "step1": "Custom Exporter converts Span into structured JSON",
-          "step2": "Batched export to DynamoDB"
+        "typescript": {
+            "years": "3 years",
+            "project": {
+                "title": "Project Experience",
+                "one": "Developed multiple mini projects"
+            },
+            "product": {
+                "title": "Production Experience",
+                "one": "Frontend development using Angular for a large-scale web browser platform",
+                "two": "Built production-grade LG Kiosk application using TypeScript"
+            }
         },
-        "trace": {
-          "step1": "PK: TraceId",
-          "step2": "SK: SpanId",
-          "step3": "TTL: 7 Days",
-          "step4": "On-Demand mode for scalable write throughput"
-        }
-      },
-      "db-model": "The TraceId / SpanId schema enables full reconstruction of distributed trace trees.",
-      "features": {
-        "step1": "Performance Benchmarking",
-        "step2": "Distributed Trace Viewer",
-        "step3": "User Activity Monitoring",
-        "step4": "SQL Inspection Panel",
-        "benchmark": {
-          "step1": "Top 10 Slowest Controllers",
-          "step2": "Top 10 Fastest Controllers",
-          "step3": "Top 10 APIs",
-          "step4": "Top 10 SQL Queries",
-          "step5": "Execution time ranking"
-        },
-        "trace": {
-          "step1": "Hierarchical visualization:",
-          "step2": "TraceId-based span reconstruction using ParentSpanId relationships."
-        },
-        "monitoring": {
-          "step1": "CRUD action tracking",
-          "step2": "User-based filtering",
-          "step3": "Timestamp-based inspection"
+        "html": {
+            "years": "2 years",
+            "project": {
+                "title": "Project Experience",
+                "one": "Built personal portfolio using HTML/CSS"
+            },
+            "product": {
+                "title": "Production Experience",
+                "one": "Frontend development using Angular for a large-scale web browser platform",
+                "two": "Developed LG Kiosk application UI using HTML/CSS"
+            }
         },
         "sql": {
-          "step1": "Pretty-formatted SQL",
-          "step2": "Execution time display",
-          "step3": "Copy-to-clipboard support"
+            "years": "5 years (MySQL, Oracle, SQL Server, PostgreSQL, Tibero)",
+            "project": {
+                "title": "Project Experience",
+                "one": "Integrated databases into multiple projects across Python, Java, and C# (e.g., banking systems)"
+            },
+            "product": {
+                "title": "Production Experience",
+                "one": "Performed SQL tuning for enterprise clients (banks, companies, educational institutions)",
+                "two": "Optimized queries using execution plan analysis, indexing, partitioning, joins, and hints",
+                "three": "Designed and implemented SQL plan generation logic for production systems",
+                "four": "Improved system performance by over 30% in a large-scale web browser service"
+            }
+        },
+        "pl_sql": {
+            "years": "2 years",
+            "product": {
+                "title": "Production Experience",
+                "one": "Owned and enhanced statistics collection module in Tibero RDBMS engine",
+                "two": "Worked extensively with PL/SQL-based internal engine components"
+            }
+        },
+        "java": {
+            "years": "1 year",
+            "project": {
+                "title": "Project Experience",
+                "one": "Developed several small projects",
+                "two": "Completed coursework on object-oriented programming using Java"
+            }
+        },
+        "dart": {
+            "years": "2 years",
+            "product": {
+                "title": "Production Experience (iOS, macOS Apps)",
+                "one": "Developed unit conversion applications",
+                "two": "Built note management applications"
+            }
         }
-      },
-      "highlight": {
-        "step1": "OpenTelemetry-Based APM Implementation",
-        "step2": "Custom Telemetry Exporter",
-        "step3": "Distributed Trace Modeling",
-        "step4": "AWS Infrastructure Metrics Integration",
-        "step5": "Optimized Batch Telemetry Persistence",
-        "implementation": {
-          "step1": "Implemented distributed tracing using the .NET OpenTelemetry SDK."
-        },
-        "exporter": {
-          "step1": "Span → Structured JSON transformation",
-          "step2": "Batch writes to DynamoDB",
-          "step3": "TTL-based automatic cleanup"
-        },
-        "trace": {
-          "step1": "TraceId as partition key",
-          "step2": "SpanId as sort key",
-          "step3": "ParentSpanId for hierarchical reconstruction"
-        },
-        "metrics": {
-          "step": "The dashboard collects infrastructure-level performance metrics such as CPU and memory usage using AWS CloudWatch.",
-          "step1": "AWS SDK for .NET",
-          "step2": "Real-time metric polling",
-          "step3": "Integrated with application traces",
-          "step4": "This enables correlation between application latency and infrastructure behavior."
-        },
-        "batch": {
-          "strategy": "Hybrid batch strategy:",
-          "benefits": "Benefits:",
-          "step1": "Batch size: 20 spans",
-          "step2": "Time-based flush: every 30 seconds",
-          "step3": "Async background exporter",
-          "step4": "Reduced write amplification",
-          "step5": "Lower DynamoDB cost",
-          "step6": "Stable ingestion throughput",
-          "step7": "Minimal telemetry loss risk"
-        }
-      },
-      "conclusion": {
-        "step1": "APM-Dashboard is an internal Application Performance Monitoring system that captures, models, stores, and visualizes distributed traces using .NET OpenTelemetry and DynamoDB.",
-        "step2": "The platform integrates performance tracing and user activity monitoring into a unified telemetry model, reconstructs span hierarchies via TraceId/SpanId relationships, and provides analytical dashboards for performance benchmarking and trace inspection.",
-        "step3": "This project demonstrates the practical implementation of distributed tracing, custom telemetry exporting, DynamoDB-based trace persistence, and internal APM architecture design without relying on external monitoring services."
-      }
     },
-    "database-admin": {
-      "header": {
-        "title": "Database Administration & Engine Engineering",
-        "subtitle": "Enterprise RDBMS · DBA · Optimizer · Engine Internals",
-        "description": "Database Engineer with hands-on experience across both <strong>enterprise production issue resolution</strong> and <strong>RDBMS core engine development</strong>. Worked on SQL tuning, query optimizer improvement, execution plan stability, and engine-level performance fixes for enterprise and financial systems."
-      },
-      "overview": {
-        "title": "Overview",
-        "desc": "At an enterprise RDBMS vendor, I worked across two critical areas: resolving high-risk production performance issues for customers and improving the internals of the database engine itself..",
-        "item1": "Implemented internal <strong>SQL Tuning Advisor</strong> and <strong>SQL Plan Management (SPM)</strong> features.",
-        "item2": "Improved <strong>Cost-Based Optimization</strong> and <strong>statistics accuracy</strong> to stabilize query performance.",
-        "item3": "Resolved production DB issues in enterprise and financial environments, including performance degradation, downtime, and unstable plans.",
-        "item4": "Reduced critical query execution time from <strong>seconds to milliseconds</strong>in major performance cases."
-      },
-      "skills": {
-        "title": "Core Skills"
-      },
-      "track1": {
-        "title": "Production DB Performance Engineering",
-        "desc": "Worked directly on real enterprise customer incidents in production environments. Focused on performance degradation, execution plan instability.",
-        "customer": "Enterprise / finance / telecom-scale systems. Planned to include customer case references such as KT, Hyundai Motor, Shinhan Bank, and Woori Bank.",
-        "problem": "Query slowdown, unstable execution plans, stale or missing statistics, schema bottlenecks, partitioning inefficiency, and emergency database incidents.",
-        "solution": "Execution plan analysis, statistics validation, index redesign, query rewriting, schema tuning, and engine-level patch development when SQL tuning alone was insufficient."
-      },
-      "track2": {
-        "title": "RDBMS Engine Design & Implementation",
-        "desc": "Developed and improved internal engine modules used to optimize SQL execution, stabilize plans, and improve the maintainability of core database components.",
-        "optimizer": "Improved SQL plan logic and statistics processing to support better Cost-Based Optimization decisions.",
-        "feature": "Implemented SQL Tuning Advisor, SQL Plan Management, plan evolution, and plan baseline behavior as real product-level capabilities.",
-        "engine": "Participated in refactoring legacy C-based engine modules into C++-structured code to improve maintainability, extensibility, and code safety."
-      },
-      "architecture": {
-        "title": "RDBMS Optimization Architecture",
-        "desc": "High-level view of how SQL flows through parser, optimizer(statistics, tuning advisor, spm), and execution layers."
-      },
-      "customer": {
-        "title": "Enterprise Customer Issue Resolution",
-        "context": {
-          "case1": "• Severe query slowdown under real production workloads",
-          "case2": "• Emergency incidents involving downtime or unstable plans",
-          "case3": "• Optimizer misbehavior due to stale statistics or skewed distributions",
-          "case4": "• Cases where SQL-level tuning alone was not sufficient"
-        },
-        "approach": {
-          "case1": "• Analyzed workloads, execution plans, and statistics from customer environments",
-          "case2": "• Identified root causes at optimizer, statistics, or engine level",
-          "case3": "• Applied schema / index / partition / engine-level fixes with reproducible validation",
-          "case4": "• Cases where SQL-level tuning alone was not sufficient"
-        },
-        "result": "Planned customer-facing references for this section include large-scale enterprise and finance environments such as <strong>KT, Hyundai Motor, Shinhan Bank, and Woori Bank</strong>."
-      },
-      "case1": {
-        "title": "SQL Plan Management (SPM)",
-        "problem": "Execution plans became unstable after statistics changes or upgrades, causing performance regressions.",
-        "implementation": "Implemented plan baseline and evolution mechanism",
-        "outcome": "Improved plan stability and predictability. Released as a real enterprise product feature."
-      },
-      "case2": {
-        "title": "Join Performance Optimization",
-        "problem": "Join cardinality estimation errors caused suboptimal plans in PK-FK joins, OR-condition join filters, and complex predicates, leading to unnecessary full scans.",
-        "implementation": "Redesigned PK-FK join selectivity logic, improved predicate selectivity estimation for OR conditions, and refined cost comparison / branching behavior in the optimizer.",
-        "result1": "PK-FK Join: 5s → 1s",
-        "result2": "OR Join: 3s → 0.8s",
-        "result3": "Partition Pruning: 827ms → 27ms"
-      },
-      "case3": {
-        "title": "Production DB Engineering & Engine Modernization",
-        "prod": {
-          "case1": "• Execution plan and cardinality analysis",
-          "case2": "• Statistics and index strategy redesign",
-          "case3": "• Query rewriting for complex performance bottlenecks",
-          "case4": "• Schema / partition / workload distribution improvements",
-          "case5": "• Engine-level patches for non-SQL-resolvable issues"
-        },
-        "engine": {
-          "case1": "• Refactored legacy C modules into C++-structured components",
-          "case2": "• Improved modularity and maintainability",
-          "case3": "• Applied more extensible design patterns for optimizer features",
-          "case4": "• Increased code readability and long-term engine evolvability"
-        },
-        "outcome": "Improved stability, maintainability, and scalability"
-      },
-      "conclusion": {
-        "title": "Conclusion",
-        "desc1": "This work demonstrates a rare combination of skills: production-grade DBA problem solving, query optimizer development, statistics engineering, and database engine modernization.",
-        "desc2": "This work demonstrates a rare combination of skills: production-grade DBA problem solving, query optimizer development, statistics engineering, and database engine modernization.",
-        "note": "Due to company policy, actual source code cannot be disclosed. This page focuses on architecture, problem-solving approach, and measurable outcomes."
-      }
+    "project": {
+        "report": "Embedded QuickSight analytics with snapshot automation and distributed scaling.",
+        "ims": "Multi-Organization real-time reporting platform with OLTP + Analytics separation.",
+        "chat": "SignalR + SQS + DynamoDB architecture for real-time delivery.",
+        "migration": "Azure → AWS distributed analytics architecture migration.",
+        "apm": "Application performance monitoring dashboard and operational insights.",
+        "insurance": "large-scale Insurance Claim Lifecycle Tracking & Monitoring System",
+        "db-stat": "Database statistics module & query optimizer improvement implementation.",
+        "db-tuning": "Automated query optimization and tuning recommendations.",
+        "db-total": "DB engine internals and system-level design experiments.",
+        "ai1": "Edge-based object detection pipeline with real-time inference.",
+        "ai2": "AI-based annotation & segmentation workflow.",
+        "aiagent": "Engineered the .claude/ harness Claude Code runs inside — permission tiers, guard hooks, layered memory, and agent scaffolding.",
+        "erp-db": "Designed a 97-table ERP database, migrated years of Excel/CSV, and automated the daily load with 16 batches."
     },
-    "sql-tuning-advisor": {
-      "header": {
-        "title": "SQL Tuning Advisor",
-        "desc": "Designed and implemented an automated SQL tuning system by reverse-engineering Oracle SQL Tuning Advisor. The system analyzes slow SQL and generates optimization recommendations including SQL Profile, index suggestions, statistics fixes, and SQL rewrites."
-      },
-      "overview": {
-        "title": "Overview",
-        "desc1": "<strong class=\"text-white\">Oracle SQL Tuning Advisor</strong> is an automated SQL performance analysis and optimization system provided by Oracle Database.",
-        "desc2": "This project reverse-engineered that workflow and implemented an Oracle-style <strong class=\"text-white\">SQL tuning automation framework</strong>, including task lifecycle management, advisor metadata tables, analysis modules, report generation, and SQL Profile acceptance flow.",
-        "desc3": "In practical terms, this can be understood as an advanced internal system that automates <strong class=\"text-white\">EXPLAIN analysis + optimizer tuning + recommendation generation</strong>."
-      },
-      "tech": {
-        "title": "Tech Stack",
-        "cplus": "C++ (engine-level logic)",
-        "plsql": "PL/SQL (advisor packages & procedures)",
-        "sql": "SQL Tuning / Optimizer Analysis"
-      },
-      "purpose": {
-        "title": "Purpose",
-        "items": {
-          "a": "• Analyze bottlenecks in slow SQL",
-          "b": "• Derive optimal execution plans",
-          "c": "• Generate automated tuning recommendations",
-          "d": "• Automate SQL tuning workflows"
+
+    "projects": {
+        "bi-report": {
+            "main": "Production-grade AWS QuickSight–driven analytics and reporting platform designed for large-scale educational environments, combining embedded BI, multi-tenant access control, database-driven analytics modeling, and aggressive session cost optimization.",
+            "summary": {
+                "a": "Embedded analytics platform fully integrated into the application UI using secure QuickSight embed flows.",
+                "b": "Designed for large-scale reporting workloads across thousands of schools and administrative users.",
+                "c": "Database views, analytics modeling, and query tuning used to support high-frequency operational reporting.",
+                "d": "Snapshot-based rendering strategy reduced projected QuickSight session cost by approximately 90%."
+            },
+            "system-scale": {
+                "data-volume": "Five years of historical incident data with hundreds of thousands of records, including operational metadata, incident classification, timestamps, school and facility information.",
+                "usage-traffic": "Thousands to tens of thousands of daily report views across approximately 30 reports and 10+ visualization types.",
+                "user-scope": "Supports around 2,000 schools and thousands of administrative users operating at school and district levels."
+            },
+            "report-categories": {
+                "attendance": "Student attendance tracking, staff check-in / check-out logs, late arrival monitoring, and tardiness analytics.",
+                "incident-monitoring": "Vaccination reporting, infection tracking, facility exposure logging, and date / district / school-based aggregation.",
+                "summary": "Role-based dashboards providing school-only or district-wide analytical views depending on user scope."
+            },
+            "data-platform": {
+                "analytics-logic": "Complex business rules, aggregations, and reporting transformations were implemented at the RDS layer using database views to reduce BI dataset complexity and stabilize query patterns.",
+                "bi-layer": "Simple report-specific expressions were delegated to QuickSight calculated fields, keeping the visualization layer lightweight and avoiding unnecessary duplication of heavy aggregation logic.",
+                "platform": "Reporting workloads were isolated from the transactional path through view-based models, SPICE usage, and dedicated read-oriented strategies to support operational analytics without destabilizing OLTP behavior."
+            },
+            "performance-opt": {
+                "heavy-report-opt": "Expensive district-wide joins were reduced by isolating school metadata into DynamoDB and synchronizing relational metadata into a read-optimized structure.",
+                "spice": "Daily summary reports were moved to SPICE with scheduled refresh, eliminating unnecessary real-time query load on the source database.",
+                "query-tuning": "Composite indexes, execution plan analysis, join restructuring, and view-based query shaping reduced dashboard latency and improved overall reporting responsiveness.",
+                "design": {
+                    "a": "Reports were built in QuickSight and embedded into the application using secure URLs generated through .NET API and Lambda orchestration.",
+                    "b": "Access control was enforced through API-level authorization, role-aware filtering, and parameterized tenant scoping for school-level and district-level users.",
+                    "c": "This architecture maintained secure multi-tenant isolation while keeping the reporting experience fully embedded."
+                },
+                "strategy": {
+                    "a": "QuickSight session pricing made high-frequency report access operationally expensive at scale.",
+                    "b": "A snapshot rendering pipeline was introduced: if a requested report snapshot already existed, the platform served the cached visual output instead of creating a new BI session.",
+                    "c": "Headless browser capture + S3 storage dramatically reduced session creation while preserving visual equivalence for non-interactive report scenarios."
+                }
+            },
+            "impact": {
+                "cost": "Reduced projected QuickSight operating cost by approximately 90%.",
+                "performance": "Maintained around 3-second average dashboard response time.",
+                "scale": "Supported 2,000+ schools and thousands of administrative users.",
+                "arc": "Delivered a secure multi-tenant embedded analytics platform on AWS-native services."
+            }
         },
-        "desc": "The key objective of this project was not just manual SQL tuning, but <strong class=\"text-white\">automation of SQL tuning workflows</strong>: converting optimizer knowledge and performance diagnostics into a repeatable advisor system that can create, execute, analyze, and report tuning tasks."
-      },
-      "analysis": {
-        "title": "⚙️ Analysis Types",
-        "stat": {
-          "title": "1. Statistics Analysis",
-          "desc": "Detects stale or missing statistics that lead to incorrect execution plans."
+        "incident-management": {
+            "main": "Multi-tenant real-time reporting and advanced analytics platform designed for large-scale educational environments, supporting incident lifecycle management, hierarchical issue classification, role-based access control, and operational dashboards.",
+            "summary": {
+                "a": "Cloud-based incident management platform built on AWS RDS, ASP.NET Core MVC, Angular, and AWS infrastructure.",
+                "b": "Designed to support real-time incident reporting, hierarchical issue classification, and role-aware operational workflows.",
+                "c": "Participated in overall system architecture and independently owned the end-to-end analytics dashboard layer.",
+                "d": "Combined multi-tenant data isolation, analytics views, query optimization, and interactive dashboard delivery."
+            },
+            "overview": {
+                "obj1": "• Capture incidents in real time across multiple risk domains.",
+                "obj2": "• Classify incidents using hierarchical IssueType structures.",
+                "obj3": "• Enforce role-based access control and tenant-aware visibility.",
+                "obj4": "• Notify stakeholders immediately and track lifecycle status changes.",
+                "obj5": "• Transform operational data into interactive analytical dashboards.",
+                "lifecycle1": "1. Reported and classified through IssueType hierarchy",
+                "lifecycle2": "2. Managed by role and organization scope",
+                "lifecycle3": "3. Tracked across status transitions and workflows",
+                "lifecycle4": "4. Aggregated into analytics-ready views and dashboards"
+            },
+            "ownership": {
+                "resp1": "• Designed analytics schema and dashboard data flow",
+                "resp2": "• Built DB-level analytic views",
+                "resp3": "• Implemented REST endpoints for dashboard consumption",
+                "resp4": "• Developed Angular dashboard UI",
+                "resp5": "• Implemented filtering, drill-down, and map-based exploration",
+                "resp6": "• Maintained and continuously improved the analytics layer"
+            },
+            "opt": {
+                "index": "Applied composite multi-column indexes, descending index usage on createdAt and query plan stabilization to reduce full table scans and improve reporting latency.",
+                "partition": "Implemented LIST partitioning for categorical workloads and RANGE partitioning for time-series workloads, enabling better pruning behavior for analytical reads.",
+                "parallel": "Used Promise.all() to parallelize dashboard API calls, improving perceived performance and reducing wait time during dashboard initialization."
+            },
+            "view": {
+                "why1": "• Reusable across multiple dashboards",
+                "why2": "• Stabilized heavy aggregation at the DB layer",
+                "why3": "• Reduced repeated API-side computation",
+                "why4": "• Improved optimizer predictability",
+                "why5": "• Avoided lazy-loading and repeated query pitfalls",
+                "principle1": "• GROUP BY pre-aggregation",
+                "principle2": "• Indexed date filtering",
+                "principle3": "• orgId-based tenant isolation",
+                "principle4": "• Execution plan predictability",
+                "capability1": "• Case per Issue Type",
+                "capability2": "• Case per Location",
+                "capability3": "• Reporter-based behavioral analysis",
+                "capability4": "• Risk / Threat segmentation",
+                "capability5": "• Time-series trend analysis",
+                "capability6": "• Spatial clustering and site ranking"
+            },
+            "role": {
+                "a": "Organization isolation is enforced at the query layer, not only the UI layer.",
+                "b": "Role-based access control governs analytics scope, reporter visibility, and sensitive data exposure.",
+                "c": "Filtering logic is applied before dashboard delivery to preserve tenant and user-level access boundaries."
+            },
+            "contribution": {
+                "system1": "• Domain modeling",
+                "system2": "• Incident / IssueType schema design",
+                "system3": "• RBAC collaboration",
+                "ownership1": "• Designed analytics architecture",
+                "ownership2": "• Built optimized DB views",
+                "ownership3": "• Implemented REST endpoints",
+                "ownership4": "• Developed Angular dashboard",
+                "ownership5": "• Implemented drill-down logic",
+                "ownership6": "• Integrated spatial visualization",
+                "ownership7": "• Performed continuous performance tuning"
+            },
+            "impact": {
+                "dashboard": "Built the analytics layer from scratch and delivered dashboard functionality end-to-end.",
+                "latency": "Reduced dashboard latency by approximately 20%.",
+                "aggr": "Improved aggregation performance by approximately 30%.",
+                "operation": "Enabled real-time insights across thousands of schools while stabilizing production workloads.",
+                "project": {
+                    "a": "• Rapid reporting of critical incidents",
+                    "b": "• Real-time monitoring of risk distribution",
+                    "c": "• Tracking of resolution workflows",
+                    "d": "• Analysis of historical operational trends",
+                    "e": "• Better response efficiency for stakeholders",
+                    "f": "• Conversion of operational data into actionable intelligence"
+                }
+            }
         },
-        "profiling": {
-          "title": "2. SQL Profiling",
-          "desc": "Compares estimated vs actual row count patterns and generates profile-based recommendations to improve optimizer decision quality."
+        "real-time-message": {
+            "summary": {
+                "main": "Designed and implemented a <strong>production-grade real-time messaging platform</strong> with:",
+                "a": "WebSocket-based real-time communication (SignalR)",
+                "b": "Event-driven persistence (SQS → Lambda → DynamoDB)",
+                "c": "1:1 and Group Chat support",
+                "d": "Secure file uploads via S3 Presigned URL",
+                "e": "Edit / Delete / Read Receipt lifecycle",
+                "f": "Fully deployed on AWS Elastic Beanstalk",
+                "g": "Horizontally scalable backend architecture",
+                "h": "Real-time UX combined with resilient cloud-native event processing."
+            },
+            "scale": {
+                "org": "Organizations",
+                "orgValue": "2 Hospitals",
+                "user": "Users",
+                "userValue": "Hundreds",
+                "msg": "Daily Messages",
+                "msgValue": "Hundreds ~ Thousands",
+                "time": "Average Response",
+                "timeValue": "Real-time"
+            },
+            "feature": {
+                "msg-1": "Real-time send/receive",
+                "msg-2": "Edit message",
+                "msg-3": "Delete message",
+                "msg-4": "Read receipts",
+                "msg-5": "Group chat",
+                "msg-6": "history search",
+                "msg-7": "chatting status check(in-progress/closed)",
+                "msg-8": "Online presence updates",
+                "file-1": "Store files in Amazon S3",
+                "file-2": "Persist only Presigned URL in message record",
+                "file-3": "Secure direct upload from client"
+            },
+            "opt": {
+                "a": "WebSocket + SignalR for minimal latency",
+                "b": "DynamoDB key-value model for scalable message storage",
+                "c": "SQS FIFO queue guarantees strict message ordering",
+                "d": "Asynchronous persistence via SQS → Lambda",
+                "e": "RDS Optimization(index, partition, normalization) for Message Archive"
+            },
+            "tech": {
+                "signalR": "<strong>Why SignalR?</strong> Native WebSocket support in .NET and simplified connection management.",
+                "sqs": "<strong>Why SQS FIFO?</strong> Ensures message ordering and prevents duplicate/out-of-order persistence.",
+                "ddb": "strong>Why DynamoDB?</strong> Key-value workload optimized for chat message storage.",
+                "s3": "<strong>Why S3?</strong> Store files externally and keep database lightweight."
+            },
+            "conclusion": "This project demonstrates a real-time WebSocket architecture combined with event-driven cloud infrastructure. The system ensures reliable message ordering, scalable storage, and resilient backend processing."
         },
-        "access": {
-          "title": "3. Access Path Analysis",
-          "desc": "Evaluates whether Full Scan or Index Scan is more appropriate and suggests access-path improvements."
+        "cloud-data-platform": {
+            "summary": "Re-architected an enterprise Azure-based ETL and reporting platform into a <strong>scalable, event-driven AWS analytics system</strong>.",
+            "summary-detail": "This was not a lift-and-shift migration — it was a <strong>full redesign</strong> of the entire data platform including pipeline, orchestration, snapshot generation, and reporting architecture.",
+            "outcomes": {
+                "a": "Event-driven distributed architecture",
+                "b": "Distributed snapshot generation engine",
+                "c": "Horizontal scalability",
+                "d": "Infrastructure cost optimization",
+                "e": "Metadata-driven orchestration",
+                "f": "Power BI → Amazon QuickSight migration"
+            },
+            "legacy-components": {
+            "event-hubs": "Azure Event Hubs",
+            "steam-analytics": "Stream Analytics",
+            "data-lake": "Azure Data Lake",
+            "databricks": "Azure Databricks",
+            "data-factory": "Azure Data Factory",
+            "sql-server": "Azure SQL Server",
+            "power-bi": "Power BI"
+            },
+            "new-components": {
+                "api": ".NET API (Trigger Layer)",
+                "lambda": "AWS Lambda",
+                "ddb": "DynamoDB (Metadata Store)",
+                "sqs": "Amazon SQS (Job Queue)",
+                "step-functions": "AWS Step Functions (Orchestration)",
+                "ec2": "EC2 Auto Scaling Workers (Node.js)",
+                "s3": "Amazon S3 (Snapshot Storage)",
+                "quicksight": "Amazon QuickSight (Reporting)",
+                "rds": "Amazon RDS (MySQL)"
+            },
+            "snapshot": {
+                "trigger": ".NET API triggers Lambda",
+                "metadata": "Lambda checks metadata in DynamoDB",
+                "create-meta": "If snapshot not exists → create metadata",
+                "job-push": "Job pushed to SQS",
+                "orchestrate": "Step Functions orchestrate execution",
+                "ec2-worker": "EC2 workers render QuickSight reports",
+                "snapshot": "Snapshot stored in S3",
+                "update-meta": "Metadata updated in DynamoDB"
+            },
+            "strategy": {
+                "data-lake": "Azure Data Lake → Amazon S3",
+                "sql": "Azure SQL → Amazon RDS",
+                "data-factory": "Azure Data Factory → Step Functions + Lambda",
+                "power-bi": "Power BI → Amazon QuickSight",
+                "sqs": "SQS-based distributed worker model"
+            },
+                "conclusion": "This migration demonstrates deep cloud architecture redesign capability, distributed system design, event-driven orchestration, scalable analytics infrastructure, and cost-aware cloud engineering."
         },
-        "structure": {
-          "title": "4. SQL Structure Analysis",
-          "desc": "Detects query patterns that degrade performance and provides rewrite recommendations."
+        "apm-dashboard": {
+            "summary": {
+                "main": "APM-Dashboard is a custom-built internal <strong>Application Performance Monitoring(APM)</strong> system implemented using the <strong>.NET OpenTelemetry SDK.</strong>",
+                "sub1": "The platform instruments ASP.NET Core applications to capture distributed traces across <strong>Controller → API → SQL</strong> layers, exports structured telemetry data via a custom exporter, and persists it in DynamoDB. An Angular-based dashboard provides performance benchmarking, trace inspection, and activity analysis.",
+                "sub2": "This system functions as a lightweight internal alternative to external APM tools."
+            },
+            "overview": {
+                "trace": "Application Performance Traces (Controller → API → SQL)",
+                "tree": "Distributed Trace Trees (Parent / Child Span relationships)",
+                "activity": "User Activity Logs (CRUD operations)",
+                "metric": "Performance Benchmark Metrics (Top10 Slowest / Fastest Endpoints)"
+            },
+            "flow": {
+                "step1": "HTTP Request Instrumentation",
+                "step2": "Distributed Span Generation",
+                "step3": "Telemetry Export",
+                "step4": "Trace Persistence",
+                "http": {
+                    "step1": "ASP.NET Core Controller receives request",
+                    "step2": "OpenTelemetry automatically creates a Server Span"
+                },
+                "span": {
+                    "step1": "AspNetCore → Server Span",
+                    "step2": "HttpClient → Client Span",
+                    "step3": "SqlClient → DB Span",
+                    "step4": "TraceId / SpanId assigned",
+                    "step5": "Parent / Child hierarchy constructed"
+                },
+                "export": {
+                    "step1": "Custom Exporter converts Span into structured JSON",
+                    "step2": "Batched export to DynamoDB"
+                },
+                "trace": {
+                    "step1": "PK: TraceId",
+                    "step2": "SK: SpanId",
+                    "step3": "TTL: 7 Days",
+                    "step4": "On-Demand mode for scalable write throughput"
+                }
+            },
+            "db-model": "The TraceId / SpanId schema enables full reconstruction of distributed trace trees.",
+            "features": {
+                "step1": "Performance Benchmarking",
+                "step2": "Distributed Trace Viewer",
+                "step3": "User Activity Monitoring",
+                "step4": "SQL Inspection Panel",
+                "benchmark": {
+                    "step1": "Top 10 Slowest Controllers",
+                    "step2": "Top 10 Fastest Controllers",
+                    "step3": "Top 10 APIs",
+                    "step4": "Top 10 SQL Queries",
+                    "step5": "Execution time ranking"
+                },
+                "trace": {
+                    "step1": "Hierarchical visualization:",
+                    "step2": "TraceId-based span reconstruction using ParentSpanId relationships."
+                },
+                "monitoring": {
+                    "step1": "CRUD action tracking",
+                    "step2": "User-based filtering",
+                    "step3": "Timestamp-based inspection"
+                },
+                "sql": {
+                    "step1": "Pretty-formatted SQL",
+                    "step2": "Execution time display",
+                    "step3": "Copy-to-clipboard support"
+                }
+            },
+            "highlight": {
+                "step1": "OpenTelemetry-Based APM Implementation",
+                "step2": "Custom Telemetry Exporter",
+                "step3": "Distributed Trace Modeling",
+                "step4": "AWS Infrastructure Metrics Integration",
+                "step5": "Optimized Batch Telemetry Persistence",
+                "implementation": {
+                    "step1": "Implemented distributed tracing using the .NET OpenTelemetry SDK."
+                },
+                "exporter": {
+                    "step1": "Span → Structured JSON transformation",
+                    "step2": "Batch writes to DynamoDB",
+                    "step3": "TTL-based automatic cleanup"
+                },
+                "trace": {
+                    "step1": "TraceId as partition key",
+                    "step2": "SpanId as sort key",
+                    "step3": "ParentSpanId for hierarchical reconstruction"
+                },
+                "metrics": {
+                    "step": "The dashboard collects infrastructure-level performance metrics such as CPU and memory usage using AWS CloudWatch.",
+                    "step1": "AWS SDK for .NET",
+                    "step2": "Real-time metric polling",
+                    "step3": "Integrated with application traces",
+                    "step4": "This enables correlation between application latency and infrastructure behavior."
+                },
+                "batch": {
+                    "strategy": "Hybrid batch strategy:",
+                    "benefits": "Benefits:",
+                    "step1": "Batch size: 20 spans",
+                    "step2": "Time-based flush: every 30 seconds",
+                    "step3": "Async background exporter",
+                    "step4": "Reduced write amplification",
+                    "step5": "Lower DynamoDB cost",
+                    "step6": "Stable ingestion throughput",
+                    "step7": "Minimal telemetry loss risk"
+                }
+            },
+            "conclusion": {
+                "step1": "APM-Dashboard is an internal Application Performance Monitoring system that captures, models, stores, and visualizes distributed traces using .NET OpenTelemetry and DynamoDB.",
+                "step2": "The platform integrates performance tracing and user activity monitoring into a unified telemetry model, reconstructs span hierarchies via TraceId/SpanId relationships, and provides analytical dashboards for performance benchmarking and trace inspection.",
+                "step3": "This project demonstrates the practical implementation of distributed tracing, custom telemetry exporting, DynamoDB-based trace persistence, and internal APM architecture design without relying on external monitoring services."
+            }
+        },
+        "database-admin": {
+            "header": {
+                "title": "Database Administration & Engine Engineering",
+                "subtitle": "Enterprise RDBMS · DBA · Optimizer · Engine Internals",
+                "description": "Database Engineer with hands-on experience across both <strong>enterprise production issue resolution</strong> and <strong>RDBMS core engine development</strong>. Worked on SQL tuning, query optimizer improvement, execution plan stability, and engine-level performance fixes for enterprise and financial systems."
+            },
+
+            "overview": {
+                "title": "Overview",
+                "desc": "At an enterprise RDBMS vendor, I worked across two critical areas: resolving high-risk production performance issues for customers and improving the internals of the database engine itself..",
+                "item1": "Implemented internal <strong>SQL Tuning Advisor</strong> and <strong>SQL Plan Management (SPM)</strong> features.",
+                "item2": "Improved <strong>Cost-Based Optimization</strong> and <strong>statistics accuracy</strong> to stabilize query performance.",
+                "item3": "Resolved production DB issues in enterprise and financial environments, including performance degradation, downtime, and unstable plans.",
+                "item4": "Reduced critical query execution time from <strong>seconds to milliseconds</strong>in major performance cases."
+            },
+
+            "skills": {
+                "title": "Core Skills"
+            },
+
+            "track1": {
+                "title": "Production DB Performance Engineering",
+                "desc": "Worked directly on real enterprise customer incidents in production environments. Focused on performance degradation, execution plan instability.",
+                "customer": "Enterprise / finance / telecom-scale systems. Planned to include customer case references such as KT, Hyundai Motor, Shinhan Bank, and Woori Bank.",
+                "problem": "Query slowdown, unstable execution plans, stale or missing statistics, schema bottlenecks, partitioning inefficiency, and emergency database incidents.",
+                "solution": "Execution plan analysis, statistics validation, index redesign, query rewriting, schema tuning, and engine-level patch development when SQL tuning alone was insufficient."
+            },
+
+            "track2": {
+                "title": "RDBMS Engine Design & Implementation",
+                "desc": "Developed and improved internal engine modules used to optimize SQL execution, stabilize plans, and improve the maintainability of core database components.",
+                "optimizer": "Improved SQL plan logic and statistics processing to support better Cost-Based Optimization decisions.",
+                "feature": "Implemented SQL Tuning Advisor, SQL Plan Management, plan evolution, and plan baseline behavior as real product-level capabilities.",
+                "engine": "Participated in refactoring legacy C-based engine modules into C++-structured code to improve maintainability, extensibility, and code safety."
+            },
+
+            "architecture": {
+                "title": "RDBMS Optimization Architecture",
+                "desc": "High-level view of how SQL flows through parser, optimizer(statistics, tuning advisor, spm), and execution layers."
+            },
+
+            "customer": {
+                "title": "Enterprise Customer Issue Resolution",
+                "context": {
+                    "case1": "• Severe query slowdown under real production workloads",
+                    "case2": "• Emergency incidents involving downtime or unstable plans",
+                    "case3": "• Optimizer misbehavior due to stale statistics or skewed distributions",
+                    "case4": "• Cases where SQL-level tuning alone was not sufficient"
+                },
+                "approach": {
+                    "case1": "• Analyzed workloads, execution plans, and statistics from customer environments",
+                    "case2": "• Identified root causes at optimizer, statistics, or engine level",
+                    "case3": "• Applied schema / index / partition / engine-level fixes with reproducible validation",
+                    "case4": "• Cases where SQL-level tuning alone was not sufficient"
+                },
+                "result": "Planned customer-facing references for this section include large-scale enterprise and finance environments such as <strong>KT, Hyundai Motor, Shinhan Bank, and Woori Bank</strong>."
+            },
+
+            "case1": {
+                "title": "SQL Plan Management (SPM)",
+                "problem": "Execution plans became unstable after statistics changes or upgrades, causing performance regressions.",
+                "implementation": "Implemented plan baseline and evolution mechanism",
+                "outcome": "Improved plan stability and predictability. Released as a real enterprise product feature."
+            },
+
+            "case2": {
+                "title": "Join Performance Optimization",
+                "problem": "Join cardinality estimation errors caused suboptimal plans in PK-FK joins, OR-condition join filters, and complex predicates, leading to unnecessary full scans.",
+                "implementation": "Redesigned PK-FK join selectivity logic, improved predicate selectivity estimation for OR conditions, and refined cost comparison / branching behavior in the optimizer.",
+                "result1": "PK-FK Join: 5s → 1s",
+                "result2": "OR Join: 3s → 0.8s",
+                "result3": "Partition Pruning: 827ms → 27ms"
+            },
+
+            "case3": {
+                "title": "Production DB Engineering & Engine Modernization",
+                "prod": {
+                    "case1": "• Execution plan and cardinality analysis",
+                    "case2": "• Statistics and index strategy redesign",
+                    "case3": "• Query rewriting for complex performance bottlenecks",
+                    "case4": "• Schema / partition / workload distribution improvements",
+                    "case5": "• Engine-level patches for non-SQL-resolvable issues"
+                },
+                "engine": {
+                    "case1": "• Refactored legacy C modules into C++-structured components",
+                    "case2": "• Improved modularity and maintainability",
+                    "case3": "• Applied more extensible design patterns for optimizer features",
+                    "case4": "• Increased code readability and long-term engine evolvability"
+                },
+                "outcome": "Improved stability, maintainability, and scalability"
+            },
+
+            "conclusion": {
+                "title": "Conclusion",
+                "desc1": "This work demonstrates a rare combination of skills: production-grade DBA problem solving, query optimizer development, statistics engineering, and database engine modernization.",
+                "desc2": "This work demonstrates a rare combination of skills: production-grade DBA problem solving, query optimizer development, statistics engineering, and database engine modernization.",
+                "note": "Due to company policy, actual source code cannot be disclosed. This page focuses on architecture, problem-solving approach, and measurable outcomes."
+            }
+        },
+        "sql-tuning-advisor": {
+            "header": {
+                "title": "SQL Tuning Advisor",
+                "desc": "Designed and implemented an automated SQL tuning system by reverse-engineering Oracle SQL Tuning Advisor. The system analyzes slow SQL and generates optimization recommendations including SQL Profile, index suggestions, statistics fixes, and SQL rewrites."
+            },
+
+            "overview": {
+                "title": "Overview",
+                "desc1": "<strong class=\"text-white\">Oracle SQL Tuning Advisor</strong> is an automated SQL performance analysis and optimization system provided by Oracle Database.",
+                "desc2": "This project reverse-engineered that workflow and implemented an Oracle-style <strong class=\"text-white\">SQL tuning automation framework</strong>, including task lifecycle management, advisor metadata tables, analysis modules, report generation, and SQL Profile acceptance flow.",
+                "desc3": "In practical terms, this can be understood as an advanced internal system that automates <strong class=\"text-white\">EXPLAIN analysis + optimizer tuning + recommendation generation</strong>."
+            },
+
+            "tech": {
+                "title": "Tech Stack",
+                "cplus": "C++ (engine-level logic)",
+                "plsql": "PL/SQL (advisor packages & procedures)",
+                "sql": "SQL Tuning / Optimizer Analysis"
+            },
+
+            "purpose": {
+                "title": "Purpose",
+                "items": {
+                    "a": "• Analyze bottlenecks in slow SQL",
+                    "b": "• Derive optimal execution plans",
+                    "c": "• Generate automated tuning recommendations",
+                    "d": "• Automate SQL tuning workflows"
+                },
+                "desc": "The key objective of this project was not just manual SQL tuning, but <strong class=\"text-white\">automation of SQL tuning workflows</strong>: converting optimizer knowledge and performance diagnostics into a repeatable advisor system that can create, execute, analyze, and report tuning tasks."
+            },
+
+            "analysis": {
+                "title": "⚙️ Analysis Types",
+                "stat": {
+                    "title": "1. Statistics Analysis",
+                    "desc": "Detects stale or missing statistics that lead to incorrect execution plans."
+                },
+                "profiling": {
+                    "title": "2. SQL Profiling",
+                    "desc": "Compares estimated vs actual row count patterns and generates profile-based recommendations to improve optimizer decision quality."
+                },
+                "access": {
+                    "title": "3. Access Path Analysis",
+                    "desc": "Evaluates whether Full Scan or Index Scan is more appropriate and suggests access-path improvements."
+                },
+                "structure": {
+                    "title": "4. SQL Structure Analysis",
+                    "desc": "Detects query patterns that degrade performance and provides rewrite recommendations."
+                }
+            },
+
+            "execution": {
+                "title": "Execution Flow"
+            },
+
+            "result": {
+                "title": "Result Types",
+                "table": {
+                    "type": "Type",
+                    "desc": "Description",
+                    "profile": "SQL Profile",
+                    "profileDesc": "Execution plan improvement",
+                    "index": "Index Recommendation",
+                    "indexDesc": "Suggests index creation",
+                    "stats": "Statistics Recommendation",
+                    "statsDesc": "Suggests statistics collection",
+                    "rewrite": "SQL Rewrite",
+                    "rewriteDesc": "Query restructuring",
+                    "plan": "Alternative Plan",
+                    "planDesc": "Suggests alternative execution plans"
+                }
+            },
+
+            "implementation": {
+                "title": "SQL Tuning Advisor Implementation",
+                "purpose": {
+                    "title": "Purpose",
+                    "desc": "Implemented an Oracle-style SQL Tuning Advisor by reverse engineering internal architecture, including task lifecycle, analysis modules, recommendation logic, report generation, and SQL Profile acceptance flow."
+                },
+                "milestone": {
+                    "a": "• Research Oracle SQL Tuning Advisor",
+                    "b": "• Reverse engineer DBMS_SQLTUNE",
+                    "c": "• Design advisor packages, system tables, and views",
+                    "d": "• Build tuning task execution and report generation system"
+                },
+                "feature": {
+                    "a": "• Tuning Task lifecycle management",
+                    "b": "• Statistics validation",
+                    "c": "• Virtual index simulation",
+                    "d": "• SQL rewrite recommendation engine",
+                    "e": "• Expensive operation detection (NOT IN, UNION, join issues)",
+                    "f": "• Report generation for tuning outcome",
+                    "g": "• SQL Profile acceptance workflow"
+                }
+            },
+
+            "design": {
+                "title": "Design",
+
+                "package": {
+                    "title": "1. Package Design",
+                    "desc": "The advisor was designed around multiple internal packages, following the Oracle-style separation between public APIs, internal execution logic, and low-level utility subprograms.",
+                    "item1" :{
+                        "a": "• Public package that exposes the main advisor lifecycle APIs",
+                        "b": "• Includes procedures/functions for <strong class=\"text-white\">CREATE, EXECUTE, REPORT, and ACCEPT SQL PROFILE</strong>",
+                        "c": "• Serves as the main user-facing interface for tuning task management"
+                    },
+                    "item2": {
+                        "a": "• Internal execution package responsible for the detailed analysis steps during tuning task execution",
+                        "b": "• Encapsulates advisor workflow logic such as statistics analysis, access path analysis, and structural SQL checks",
+                        "c": "• Separates internal execution behavior from the public package API"
+                    },
+                    "item3": {
+                        "a": "• Utility package for subprograms that need lower-level implementation",
+                        "b": "• Designed to isolate logic better suited for <strong class=\"text-white\">C/C++-level implementation</strong>",
+                        "c": "• Helps keep advisor package logic modular and maintainable"
+                    },
+                    "a": "• DBMS_SQLTUNE package (public API)",
+                    "b": "• DBMS_SQLTUNE_INTERNAL (execution logic)",
+                    "c": "• Utility package (C/C++ modules)"
+                },
+
+                "table": {
+                    "title": "2. System Tables",
+                    "desc": "The advisor required dedicated system metadata tables created during DB booting, along with DBA-style views for visibility into definitions, tasks, objects, executions, and logs.",
+                    "system_tables": {
+                        "definitions": "• <strong class=\"text-white\">ADVISOR_DEFINITIONS</strong>: Stores metadata for advisor categories such as ADDM, SQL Access Advisor, Undo Advisor, SQL Tuning Advisor, and SQL Workload Manager",
+                        "tasks": "• <strong class=\"text-white\">ADVISOR_TASKS</strong>: Stores and manages each advisor execution unit as a task",
+                        "types": "• <strong class=\"text-white\">ADVISOR_OBJECT_TYPES</strong>: Defines supported advisor object types",
+                        "objects": "• <strong class=\"text-white\">ADVISOR_OBJECTS</strong>: Stores task-related objects by object_id and object_name",
+                        "logs": "• <strong class=\"text-white\">ADVISOR_LOGS</strong>: Records step-by-step logging of advisor execution and tuning progress"
+                    },
+                    "footer": "This metadata layer was critical for implementing <strong class=\"text-white\">task lifecycle persistence, execution traceability, and report generation</strong>",
+                    "a": "• ADVISOR_DEFINITIONS",
+                    "b": "• ADVISOR_TASKS",
+                    "c": "• ADVISOR_OBJECTS",
+                    "d": "• ADVISOR_LOGS"
+                },
+
+                "create": {
+                    "title": "3. Create Tuning Task",
+                    "a": "• Accepts user inputs such as <strong class=\"text-white\">sql_id, scope, task_name, time_limit</strong>, and related tuning parameters",
+                    "b": "• Generates default values for missing optional inputs",
+                    "c": "• Performs validation checks on input arguments",
+                    "d": "• Persists validated inputs and generated metadata into advisor system tables",
+                    "e": "• Establishes the initial lifecycle state of the tuning task"
+                },
+
+                "execute": {
+                    "title": "4. Execute Tuning Task",
+                    "desc": "The execution phase was designed as a multi-step analysis pipeline that automatically inspects optimizer-related causes of SQL performance issues.",
+                    "stat": {
+                        "a": "• Detects missing or stale statistics on tables and indexes",
+                        "b": "• Identifies cases where poor optimizer estimates may be caused by statistics quality issues"
+                    },
+                    "access": {
+                        "a": "• Evaluates whether current access paths are cost-optimal with and without indexes",
+                        "b": "• Generates guidance on access path improvement",
+                        "c": "• Can recommend running SQL Access Advisor when index-oriented design changes are needed"
+                    },
+                    "structure": {
+                        "a": "• Detects query patterns known to cause performance degradation at syntax / semantic analysis stage",
+                        "b": "• Recommends replacing <strong class=\"text-white\">NOT IN</strong> with <strong class=\"text-white\">NOT EXISTS</strong>",
+                        "c": "• Recommends replacing <strong class=\"text-white\">UNION</strong> with <strong class=\"text-white\">UNION ALL</strong> where appropriate",
+                        "d": "• Detects datatype mismatch between indexed columns and WHERE clause predicates",
+                        "e": "• Detects missing join conditions that indicate design mistakes or hidden Cartesian effects"
+                    }
+                },
+                "report": {
+                    "a": "• Aggregates advisor findings from execution logs, analysis output, and recommendation records",
+                    "b": "• Produces structured tuning reports for users",
+                    "c": "• Summarizes actionable items such as statistics collection, SQL rewrite, alternative plan, and SQL Profile usage",
+                    "d": "• Designed as the final user-facing output of the tuning task lifecycle"
+                },
+                "profile": {
+                    "a": "• Supports applying approved SQL Profile recommendations to the target SQL",
+                    "b": "• Connects advisor recommendation results to optimizer execution behavior",
+                    "c": "• Bridges analysis output with actual runtime performance improvement"
+                }
+            },
+            "summary": {
+                "a": "• <strong class=\"text-white\">Public API Layer</strong>: DBMS_SQLTUNE package for task creation, execution, reporting, and SQL Profile acceptance",
+                "b": "• <strong class=\"text-white\">Internal Execution Layer</strong>: DBMS_SQLTUNE_INTERNAL package for advisor pipeline and analysis execution",
+                "c": "• <strong class=\"text-white\">Utility Layer</strong>: C/C++-oriented utility package for low-level subprogram support",
+                "d": "• <strong class=\"text-white\">Metadata Layer</strong>: Advisor system tables and DBA views for definitions, tasks, objects, logs, and executions",
+                "e": "• <strong class=\"text-white\">Recommendation Layer</strong>: Statistics, access path, structural rewrite, and SQL Profile recommendation generation<"
+            },
+            "conclusion": {
+                "a": "This project demonstrates more than SQL tuning itself: it demonstrates the <strong class=\"text-white\">design and implementation of an automated SQL tuning system</strong> that models advisor lifecycle, analysis workflow, metadata persistence, recommendation generation, and optimizer-facing profile application.",
+                "b": "It also highlights hands-on experience in <strong class=\"text-white\">C++, PL/SQL, database internals, optimizer behavior, and performance engineering</strong>."
+            }
+        },
+        "erp-database": {
+            "main": "A project to move seven years of data managed in Excel and CSV files into a database — database design, data migration, and a DB monitoring dashboard.",
+            "summary": {
+                "a": "97 tables built out across 5 domains.",
+                "b": "Schema designed in recurring sessions with the operations and merchandising owners.",
+                "c": "Migration code that bulk-inserts every accumulated file into the database.",
+                "d": "16 scheduled batches keep the DB current as new files keep arriving."
+            },
+            "domain": {
+                "desc": "Five domains, each with its own naming convention and lifecycle. The DB console classifies every table by these prefixes."
+            },
+            "migration": {
+                "code": "Master tables loaded first, then their dependent tables grouped and run one stage at a time — each stage isolated so one failure never blocks the rest.",
+                "backfill": "Years of Excel/CSV loaded with idempotent UPSERT — a re-run repairs data instead of duplicating it. The same path became the daily incremental load.",
+                "partition": "Data loaded daily by date (sales, purchases, logs) is list-partitioned by store so no single table grows unbounded."
+            },
+            "batch": {
+                "a": "16 batches spread across the night (02:00–06:30) and an evening polling window, time-separated so heavy loads never overlap.",
+                "b": "Fallback logic for each failure case (missing file, changed format, and so on), plus backfill logic that always re-checks the previous day and fills in what is missing.",
+                "c": "A batch monitoring dashboard that surfaces the state of every job, with issue alerts and manual re-runs where operators need them."
+            },
+            "console": {
+                "usage": "Reads PostgreSQL catalogs directly — row estimates, table and index size, vacuum/analyze times, database growth.",
+                "relation": "Merges live foreign keys with documented logical relations, so the model people reason about matches what the DB enforces.",
+                "trace": "Maps all 32 ERP tabs to the tables they read — the blast radius of a schema change is visible before it ships.",
+                "freshness": "Status and statistics for the file storage (NAS) as well as the database."
+            },
+            "impact": {
+                "ssot": "Seven years of Excel/CSV replaced by one PostgreSQL database — 97 tables across 5 domains as the system of record",
+                "integrity": "Consistency moved from spreadsheet discipline into keys and constraints, with per-store list partitioning keeping the largest tables in check",
+                "automation": "16 batches keep the DB current — fallback and backfill recover the previous day even when a file is missing or its format changes",
+                "ops": "A batch dashboard for alerts and manual re-runs, plus a console covering usage, relations, tab dependencies, and NAS status"
+            }
+        },
+        "agent-platform": {
+            "main": "To move to an AI-native development model, I designed the AI infrastructure with Harness Engineering and built a Graph Engineering system that turns each capability into a node, so they can be managed and improved in parallel.",
+            "summary": {
+                "a": "Harness Engineering — 46 permission rules and 7 hooks decide what the environment allows before any tool runs.",
+                "b": "Loop Engineering — work repeats until every story passes a fresh reviewer, not until it looks done.",
+                "c": "Graph Engineering — 1 subtab = 1 node = 1 agent, across 53 nodes, each with its own domain, architecture, and feedback memory.",
+                "d": "Each node has a single owner, so features are modified and added in parallel without collision."
+            },
+            "pillars": {
+                "harness": "Governs the environment — permission tiers, guard hooks, and budgeted context injection.",
+                "graph": "Decomposes the product into nodes — one subtab, one agent, shared assets as explicit edges.",
+                "loop": "Repeats until verified — story-by-story iteration with reviewer sign-off before completion."
+            },
+            "layout": {
+                "desc": "Everything the agents run on is version-controlled in the repo — no per-developer setup, no hidden state."
+            },
+            "harness": {
+                "desc": "The environment is designed as six harnesses, each built and audited separately.",
+                "context": "CLAUDE.md policy plus 3-layer memory (meta / domain / service) with budgeted auto-injection.",
+                "permission": "deny / ask tiers in settings.json, plus hooks that block below the permission layer.",
+                "tool": "Skills route, agents own, commands expose — trigger-keyword collisions documented as boundaries.",
+                "subagent": "4 git worktrees for filesystem isolation; the memory-sharing gap between them is documented, not hidden.",
+                "verification": "Regression checklists live in the skills. Creating test files is free; committing them is blocked.",
+                "debugging": "An environment scope matrix built without ever reading a secret value."
+            },
+            "permission": {
+                "deny": "Hard denials — git push, DROP / TRUNCATE, rm -rf /, and any read or edit of .env and secrets. Approval cannot override them.",
+                "ask": "Confirmation required — git commit / merge / rebase, docker compose lifecycle, migrations, chmod, sudo.",
+                "gate": "/nas on and /danger on write a gate file holding an expiry epoch — access is granted for a window, not forever.",
+                "secrets": ".env is deny-read at the permission layer. The environment matrix records where each variable is declared, never its value."
+            },
+            "hooks": {
+                "desc": "Seven hooks across four lifecycle events. Guards exit 2 to block; memory hooks fail open so they can never stall a session.",
+                "recall": "Scores memory files against the prompt by IDF and injects the best match under a 4,000-character budget.",
+                "nas": "Blocks any command carrying a production NAS marker unless the gate is open.",
+                "danger": "Blocks irreversible commands — force push, reset --hard, docker prune, SQL drop / truncate.",
+                "testfile": "Creating test files is free; committing them is blocked. Added after 859 lines of unrequested tests shipped inside a feature commit.",
+                "initsql": "Detects DDL/DML run in a session and requires init.sql — the schema source of truth — to mirror it.",
+                "sync": "Keeps plugin definitions in sync after edits to them.",
+                "consolidate": "If the session took a correction but nothing was recorded, it prompts once before exit."
+            },
+            "graph": {
+                "desc": "Development happens per node, not per repository. A node is one subtab with one owning agent, so a change stays inside its boundary.",
+                "node": "53 agents map 1:1 onto subtabs, each carrying its own domain, architecture, and feedback memory.",
+                "parallel": "Independent nodes are delegated in a single message and run at once — several features change without collision.",
+                "edge": "Shared formulas, API response keys, and DB tables are the edges. Touching one requires reporting back to the main session.",
+                "build": "A new node and its edges are generated by agent-blueprint from a reference node — never invented from scratch."
+            },
+            "impact": {
+                "safety": "Destructive and production-reaching commands are blocked below the approval layer, with access granted only through expiring gates",
+                "repeatability": "A new tab's agent system is scaffolded from one reference structure instead of being invented each time",
+                "knowledge": "Corrections become numbered feedback entries that are re-injected into later sessions automatically",
+                "discipline": "Every enforcement claim in the docs was verified against the code, and the gaps were fixed rather than described"
+            }
         }
-      },
-      "execution": {
-        "title": "Execution Flow"
-      },
-      "result": {
-        "title": "Result Types",
-        "table": {
-          "type": "Type",
-          "desc": "Description",
-          "profile": "SQL Profile",
-          "profileDesc": "Execution plan improvement",
-          "index": "Index Recommendation",
-          "indexDesc": "Suggests index creation",
-          "stats": "Statistics Recommendation",
-          "statsDesc": "Suggests statistics collection",
-          "rewrite": "SQL Rewrite",
-          "rewriteDesc": "Query restructuring",
-          "plan": "Alternative Plan",
-          "planDesc": "Suggests alternative execution plans"
-        }
-      },
-      "implementation": {
-        "title": "SQL Tuning Advisor Implementation",
-        "purpose": {
-          "title": "Purpose",
-          "desc": "Implemented an Oracle-style SQL Tuning Advisor by reverse engineering internal architecture, including task lifecycle, analysis modules, recommendation logic, report generation, and SQL Profile acceptance flow."
-        },
-        "milestone": {
-          "a": "• Research Oracle SQL Tuning Advisor",
-          "b": "• Reverse engineer DBMS_SQLTUNE",
-          "c": "• Design advisor packages, system tables, and views",
-          "d": "• Build tuning task execution and report generation system"
-        },
-        "feature": {
-          "a": "• Tuning Task lifecycle management",
-          "b": "• Statistics validation",
-          "c": "• Virtual index simulation",
-          "d": "• SQL rewrite recommendation engine",
-          "e": "• Expensive operation detection (NOT IN, UNION, join issues)",
-          "f": "• Report generation for tuning outcome",
-          "g": "• SQL Profile acceptance workflow"
-        }
-      },
-      "design": {
-        "title": "Design",
-        "package": {
-          "title": "1. Package Design",
-          "desc": "The advisor was designed around multiple internal packages, following the Oracle-style separation between public APIs, internal execution logic, and low-level utility subprograms.",
-          "item1": {
-            "a": "• Public package that exposes the main advisor lifecycle APIs",
-            "b": "• Includes procedures/functions for <strong class=\"text-white\">CREATE, EXECUTE, REPORT, and ACCEPT SQL PROFILE</strong>",
-            "c": "• Serves as the main user-facing interface for tuning task management"
-          },
-          "item2": {
-            "a": "• Internal execution package responsible for the detailed analysis steps during tuning task execution",
-            "b": "• Encapsulates advisor workflow logic such as statistics analysis, access path analysis, and structural SQL checks",
-            "c": "• Separates internal execution behavior from the public package API"
-          },
-          "item3": {
-            "a": "• Utility package for subprograms that need lower-level implementation",
-            "b": "• Designed to isolate logic better suited for <strong class=\"text-white\">C/C++-level implementation</strong>",
-            "c": "• Helps keep advisor package logic modular and maintainable"
-          },
-          "a": "• DBMS_SQLTUNE package (public API)",
-          "b": "• DBMS_SQLTUNE_INTERNAL (execution logic)",
-          "c": "• Utility package (C/C++ modules)"
-        },
-        "table": {
-          "title": "2. System Tables",
-          "desc": "The advisor required dedicated system metadata tables created during DB booting, along with DBA-style views for visibility into definitions, tasks, objects, executions, and logs.",
-          "system_tables": {
-            "definitions": "• <strong class=\"text-white\">ADVISOR_DEFINITIONS</strong>: Stores metadata for advisor categories such as ADDM, SQL Access Advisor, Undo Advisor, SQL Tuning Advisor, and SQL Workload Manager",
-            "tasks": "• <strong class=\"text-white\">ADVISOR_TASKS</strong>: Stores and manages each advisor execution unit as a task",
-            "types": "• <strong class=\"text-white\">ADVISOR_OBJECT_TYPES</strong>: Defines supported advisor object types",
-            "objects": "• <strong class=\"text-white\">ADVISOR_OBJECTS</strong>: Stores task-related objects by object_id and object_name",
-            "logs": "• <strong class=\"text-white\">ADVISOR_LOGS</strong>: Records step-by-step logging of advisor execution and tuning progress"
-          },
-          "footer": "This metadata layer was critical for implementing <strong class=\"text-white\">task lifecycle persistence, execution traceability, and report generation</strong>",
-          "a": "• ADVISOR_DEFINITIONS",
-          "b": "• ADVISOR_TASKS",
-          "c": "• ADVISOR_OBJECTS",
-          "d": "• ADVISOR_LOGS"
-        },
-        "create": {
-          "title": "3. Create Tuning Task",
-          "a": "• Accepts user inputs such as <strong class=\"text-white\">sql_id, scope, task_name, time_limit</strong>, and related tuning parameters",
-          "b": "• Generates default values for missing optional inputs",
-          "c": "• Performs validation checks on input arguments",
-          "d": "• Persists validated inputs and generated metadata into advisor system tables",
-          "e": "• Establishes the initial lifecycle state of the tuning task"
-        },
-        "execute": {
-          "title": "4. Execute Tuning Task",
-          "desc": "The execution phase was designed as a multi-step analysis pipeline that automatically inspects optimizer-related causes of SQL performance issues.",
-          "stat": {
-            "a": "• Detects missing or stale statistics on tables and indexes",
-            "b": "• Identifies cases where poor optimizer estimates may be caused by statistics quality issues"
-          },
-          "access": {
-            "a": "• Evaluates whether current access paths are cost-optimal with and without indexes",
-            "b": "• Generates guidance on access path improvement",
-            "c": "• Can recommend running SQL Access Advisor when index-oriented design changes are needed"
-          },
-          "structure": {
-            "a": "• Detects query patterns known to cause performance degradation at syntax / semantic analysis stage",
-            "b": "• Recommends replacing <strong class=\"text-white\">NOT IN</strong> with <strong class=\"text-white\">NOT EXISTS</strong>",
-            "c": "• Recommends replacing <strong class=\"text-white\">UNION</strong> with <strong class=\"text-white\">UNION ALL</strong> where appropriate",
-            "d": "• Detects datatype mismatch between indexed columns and WHERE clause predicates",
-            "e": "• Detects missing join conditions that indicate design mistakes or hidden Cartesian effects"
-          }
-        },
-        "report": {
-          "a": "• Aggregates advisor findings from execution logs, analysis output, and recommendation records",
-          "b": "• Produces structured tuning reports for users",
-          "c": "• Summarizes actionable items such as statistics collection, SQL rewrite, alternative plan, and SQL Profile usage",
-          "d": "• Designed as the final user-facing output of the tuning task lifecycle"
-        },
-        "profile": {
-          "a": "• Supports applying approved SQL Profile recommendations to the target SQL",
-          "b": "• Connects advisor recommendation results to optimizer execution behavior",
-          "c": "• Bridges analysis output with actual runtime performance improvement"
-        }
-      },
-      "summary": {
-        "a": "• <strong class=\"text-white\">Public API Layer</strong>: DBMS_SQLTUNE package for task creation, execution, reporting, and SQL Profile acceptance",
-        "b": "• <strong class=\"text-white\">Internal Execution Layer</strong>: DBMS_SQLTUNE_INTERNAL package for advisor pipeline and analysis execution",
-        "c": "• <strong class=\"text-white\">Utility Layer</strong>: C/C++-oriented utility package for low-level subprogram support",
-        "d": "• <strong class=\"text-white\">Metadata Layer</strong>: Advisor system tables and DBA views for definitions, tasks, objects, logs, and executions",
-        "e": "• <strong class=\"text-white\">Recommendation Layer</strong>: Statistics, access path, structural rewrite, and SQL Profile recommendation generation<"
-      },
-      "conclusion": {
-        "a": "This project demonstrates more than SQL tuning itself: it demonstrates the <strong class=\"text-white\">design and implementation of an automated SQL tuning system</strong> that models advisor lifecycle, analysis workflow, metadata persistence, recommendation generation, and optimizer-facing profile application.",
-        "b": "It also highlights hands-on experience in <strong class=\"text-white\">C++, PL/SQL, database internals, optimizer behavior, and performance engineering</strong>."
-      }
-    },
-    "erp-database": {
-      "main": "A project to move seven years of data managed in Excel and CSV files into a database — database design, data migration, and a DB monitoring dashboard.",
-      "summary": {
-        "a": "97 tables built out across 5 domains.",
-        "b": "Schema designed in recurring sessions with the operations and merchandising owners.",
-        "c": "Migration code that bulk-inserts every accumulated file into the database.",
-        "d": "16 scheduled batches keep the DB current as new files keep arriving."
-      },
-      "domain": {
-        "desc": "Five domains, each with its own naming convention and lifecycle. The DB console classifies every table by these prefixes."
-      },
-      "migration": {
-        "code": "Master tables loaded first, then their dependent tables grouped and run one stage at a time — each stage isolated so one failure never blocks the rest.",
-        "backfill": "Years of Excel/CSV loaded with idempotent UPSERT — a re-run repairs data instead of duplicating it. The same path became the daily incremental load.",
-        "partition": "Data loaded daily by date (sales, purchases, logs) is list-partitioned by store so no single table grows unbounded."
-      },
-      "batch": {
-        "a": "16 batches spread across the night (02:00–06:30) and an evening polling window, time-separated so heavy loads never overlap.",
-        "b": "Fallback logic for each failure case (missing file, changed format, and so on), plus backfill logic that always re-checks the previous day and fills in what is missing.",
-        "c": "A batch monitoring dashboard that surfaces the state of every job, with issue alerts and manual re-runs where operators need them."
-      },
-      "console": {
-        "usage": "Reads PostgreSQL catalogs directly — row estimates, table and index size, vacuum/analyze times, database growth.",
-        "relation": "Merges live foreign keys with documented logical relations, so the model people reason about matches what the DB enforces.",
-        "trace": "Maps all 32 ERP tabs to the tables they read — the blast radius of a schema change is visible before it ships.",
-        "freshness": "Status and statistics for the file storage (NAS) as well as the database."
-      },
-      "impact": {
-        "ssot": "Seven years of Excel/CSV replaced by one PostgreSQL database — 97 tables across 5 domains as the system of record",
-        "integrity": "Consistency moved from spreadsheet discipline into keys and constraints, with per-store list partitioning keeping the largest tables in check",
-        "automation": "16 batches keep the DB current — fallback and backfill recover the previous day even when a file is missing or its format changes",
-        "ops": "A batch dashboard for alerts and manual re-runs, plus a console covering usage, relations, tab dependencies, and NAS status"
-      }
-    },
-    "agent-platform": {
-      "main": "To move to an AI-native development model, I designed the AI infrastructure with Harness Engineering and built a Graph Engineering system that turns each capability into a node, so they can be managed and improved in parallel.",
-      "summary": {
-        "a": "Harness Engineering — 46 permission rules and 7 hooks decide what the environment allows before any tool runs.",
-        "b": "Loop Engineering — work repeats until every story passes a fresh reviewer, not until it looks done.",
-        "c": "Graph Engineering — 1 subtab = 1 node = 1 agent, across 53 nodes, each with its own domain, architecture, and feedback memory.",
-        "d": "Each node has a single owner, so features are modified and added in parallel without collision."
-      },
-      "pillars": {
-        "harness": "Governs the environment — permission tiers, guard hooks, and budgeted context injection.",
-        "graph": "Decomposes the product into nodes — one subtab, one agent, shared assets as explicit edges.",
-        "loop": "Repeats until verified — story-by-story iteration with reviewer sign-off before completion."
-      },
-      "layout": {
-        "desc": "Everything the agents run on is version-controlled in the repo — no per-developer setup, no hidden state."
-      },
-      "harness": {
-        "desc": "The environment is designed as six harnesses, each built and audited separately.",
-        "context": "CLAUDE.md policy plus 3-layer memory (meta / domain / service) with budgeted auto-injection.",
-        "permission": "deny / ask tiers in settings.json, plus hooks that block below the permission layer.",
-        "tool": "Skills route, agents own, commands expose — trigger-keyword collisions documented as boundaries.",
-        "subagent": "4 git worktrees for filesystem isolation; the memory-sharing gap between them is documented, not hidden.",
-        "verification": "Regression checklists live in the skills. Creating test files is free; committing them is blocked.",
-        "debugging": "An environment scope matrix built without ever reading a secret value."
-      },
-      "permission": {
-        "deny": "Hard denials — git push, DROP / TRUNCATE, rm -rf /, and any read or edit of .env and secrets. Approval cannot override them.",
-        "ask": "Confirmation required — git commit / merge / rebase, docker compose lifecycle, migrations, chmod, sudo.",
-        "gate": "/nas on and /danger on write a gate file holding an expiry epoch — access is granted for a window, not forever.",
-        "secrets": ".env is deny-read at the permission layer. The environment matrix records where each variable is declared, never its value."
-      },
-      "hooks": {
-        "desc": "Seven hooks across four lifecycle events. Guards exit 2 to block; memory hooks fail open so they can never stall a session.",
-        "recall": "Scores memory files against the prompt by IDF and injects the best match under a 4,000-character budget.",
-        "nas": "Blocks any command carrying a production NAS marker unless the gate is open.",
-        "danger": "Blocks irreversible commands — force push, reset --hard, docker prune, SQL drop / truncate.",
-        "testfile": "Creating test files is free; committing them is blocked. Added after 859 lines of unrequested tests shipped inside a feature commit.",
-        "initsql": "Detects DDL/DML run in a session and requires init.sql — the schema source of truth — to mirror it.",
-        "sync": "Keeps plugin definitions in sync after edits to them.",
-        "consolidate": "If the session took a correction but nothing was recorded, it prompts once before exit."
-      },
-      "graph": {
-        "desc": "Development happens per node, not per repository. A node is one subtab with one owning agent, so a change stays inside its boundary.",
-        "node": "53 agents map 1:1 onto subtabs, each carrying its own domain, architecture, and feedback memory.",
-        "parallel": "Independent nodes are delegated in a single message and run at once — several features change without collision.",
-        "edge": "Shared formulas, API response keys, and DB tables are the edges. Touching one requires reporting back to the main session.",
-        "build": "A new node and its edges are generated by agent-blueprint from a reference node — never invented from scratch."
-      },
-      "impact": {
-        "safety": "Destructive and production-reaching commands are blocked below the approval layer, with access granted only through expiring gates",
-        "repeatability": "A new tab's agent system is scaffolded from one reference structure instead of being invented each time",
-        "knowledge": "Corrections become numbered feedback entries that are re-injected into later sessions automatically",
-        "discipline": "Every enforcement claim in the docs was verified against the code, and the gaps were fixed rather than described"
-      }
     }
-  }
 }
