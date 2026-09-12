@@ -235,8 +235,7 @@ async function sendChat() {
 
     loading.remove();
     const { bubble } = appendChatBubble(chat, "chat-ai");
-    await typeWriter(data.reply, bubble);
-    bubble.innerHTML = formatAIResponse(data.reply);
+    await renderMarkdownLineByLine(data.reply, bubble, chat);
     appendGithubSources(bubble, data.sources);
 
   } catch (err) {
@@ -257,24 +256,37 @@ async function sendChat() {
 }
 
 /* =========================================================
-  Type Writer
+  Progressive Markdown
 ========================================================= */
-function typeWriter(text, element, speed = 15) {
-  return new Promise((resolve) => {
-    let i = 0;
+function wait(milliseconds) {
+  return new Promise(resolve => setTimeout(resolve, milliseconds));
+}
 
-    function typing() {
-      if (i < text.length) {
-        element.textContent += text.charAt(i);
-        i++;
-        setTimeout(typing, speed);
-      } else {
-        resolve();
-      }
-    }
+async function renderMarkdownLineByLine(text, element, scrollContainer) {
+  const normalizedText = text.replace(/\r\n/g, "\n");
+  const lines = normalizedText.split("\n");
+  const visibleLineCount = Math.max(lines.filter(line => line.trim()).length, 1);
+  const lineDelay = Math.max(35, Math.min(90, 1800 / visibleLineCount));
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    typing();
-  });
+  if (reduceMotion) {
+    element.innerHTML = formatAIResponse(normalizedText);
+    return;
+  }
+
+  const revealedLines = [];
+
+  for (const line of lines) {
+    revealedLines.push(line);
+
+    if (!line.trim()) continue;
+
+    element.innerHTML = formatAIResponse(revealedLines.join("\n"));
+    scrollContainer.scrollTop = scrollContainer.scrollHeight;
+    await wait(lineDelay);
+  }
+
+  element.innerHTML = formatAIResponse(normalizedText);
 }
 
 /* =========================================================
