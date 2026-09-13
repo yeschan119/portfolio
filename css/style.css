@@ -874,12 +874,19 @@ footer { color: rgba(255,255,255,.35); border-color: rgba(255,255,255,.05); }
     Projects: scrollable viewport (~3 rows), custom scrollbar
 ========================================================= */
 .projects-scroll {
-    max-height: 420px;
+    /* 필터(All/AI/DB…)와 무관하게 같은 높이의 뷰포트를 유지한다 */
+    height: 480px;
     overflow-y: auto;
+    scrollbar-gutter: stable; /* 스크롤바 유무로 카드 폭이 달라지지 않게 한다 */
     padding: 4px 10px 4px 4px;
-    /* soft fade at the bottom to hint more content */
-    -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 40px), transparent 100%);
-    mask-image: linear-gradient(to bottom, #000 calc(100% - 40px), transparent 100%);
+    /* soft fade at the bottom to hint more content (3 full rows stay above it) */
+    -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 20px), transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 calc(100% - 20px), transparent 100%);
+}
+/* 모든 행을 가장 큰 카드 높이로 통일하고, 카드가 적어도 늘어나지 않게 위로 붙인다 */
+.projects-scroll #projectGrid {
+    grid-auto-rows: 1fr;
+    align-content: start;
 }
 .projects-scroll .project-card {
     min-height: 116px;

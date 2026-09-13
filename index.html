@@ -1041,6 +1041,8 @@
 
     <!-- PEER REFERENCES SLIDER (WITH COMPANY LOGO) -->
     <div class="mt-14 max-w-6xl mx-auto px-6">
+    <!-- 좌측 pl-12 로 위 타임라인 카드와 같은 폭·시작점을 맞춘다. -->
+    <div class="pl-12">
 
       <h4 class="text-2xl font-semibold mb-5 text-center">
         Peer References
@@ -1087,7 +1089,7 @@
                   </div>
                 </div>
               </div>
-              <p data-i18n="peer-kokomo" class="text-sm md:text-lg text-slate-200 leading-relaxed"></p>
+              <p data-i18n="peer-kokomo" class="text-sm md:text-base text-slate-200 leading-relaxed"></p>
             </div>
 
             <!-- Slide 2 -->
@@ -1126,7 +1128,7 @@
                 </div>
               </div>
 
-              <p data-i18n="peer-tmax" class="text-sm md:text-lg text-slate-200 leading-relaxed"></p>
+              <p data-i18n="peer-tmax" class="text-sm md:text-base text-slate-200 leading-relaxed"></p>
             </div>
           </div>
         </div>
@@ -1148,6 +1150,7 @@
           </button>
         </div>
       </div>
+    </div>
     </div>
   </section>
 
@@ -1385,27 +1388,6 @@
                     </ul>
                   </div>
                 </div>
-                <div class="relative group inline-block">
-                  <span class="skill-item px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">
-                    Java
-                  </span>
-                  <div class="tooltip-box">
-                    <div class="tooltip-arrow"></div>
-                    <p class="text-sm font-semibold text-blue-400 mb-2">
-                      Java
-                    </p>
-                    <ul class="text-xs text-slate-300 space-y-1">
-                      <p data-i18n="skill.java.years" class="font-medium text-red-400"></p>
-                      <li>
-                        <p data-i18n="skill.java.project.title" class="font-medium text-slate-200"></p>
-                        <ol class="list-decimal list-inside ml-2 space-y-1">
-                          <li data-i18n="skill.java.project.one"></li>
-                          <li data-i18n="skill.java.project.two"></li>
-                        </ol>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -1488,21 +1470,6 @@
                     </ul>
                   </div>
                 </div>
-                <div class="relative group inline-block">
-                  <span class="skill-item px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">
-                    Firebase Database
-                  </span>
-                  <div class="tooltip-box">
-                    <div class="tooltip-arrow"></div>
-                    <p class="text-sm font-semibold text-blue-400 mb-2">
-                      Firebase Database
-                    </p>
-                    <ul class="text-xs text-slate-300 space-y-1">
-                      <!-- <li>AI Modeling</li>
-                      <li>Automation</li> -->
-                    </ul>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -1541,10 +1508,12 @@
           </div>
 
           <div class="section-glow bg-secondary/35 border border-slate-700/70 rounded-2xl p-5 hover:border-slate-500 transition">
-            <h4 class="text-lg font-semibold mb-3">Development Tools</h4>
+            <h4 class="text-lg font-semibold mb-3">AI Engineering</h4>
             <div class="flex flex-wrap gap-2 text-xs">
-              <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">VS Code</span>
-              <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Vim</span>
+              <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">LLM Agents</span>
+              <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">MCP</span>
+              <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Harness Engineering</span>
+              <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Graph Engineering</span>
             </div>
           </div>
         </div>
@@ -1557,7 +1526,6 @@
     <div class="max-w-6xl mx-auto px-6">
       <div class="fade-in mb-8">
         <h3 class="text-3xl font-semibold mb-3">Projects</h3>
-        <p class="text-slate-400 text-lg">Filter by domain. All cards link to GitHub.</p>
       </div>
 
       <!-- Filters -->
@@ -1575,7 +1543,7 @@
 
       <!-- Grid (scrollable · ~3 rows visible) -->
       <div class="projects-scroll">
-      <div id="projectGrid" class="relative grid md:grid-cols-2 lg:grid-cols-4 gap-4 min-h-[240px]">
+      <div id="projectGrid" class="relative grid md:grid-cols-2 lg:grid-cols-4 gap-4">
         <!-- Featured: ERP Database Design -->
         <a class="card project-card fade-in group bg-secondary/40 backdrop-blur-md p-6 rounded-2xl border border-slate-700"
           data-tags="database analytics"
@@ -1993,7 +1961,7 @@
   <!-- Resume viewer: open on the hero "Resume" button, download via the panel's Download button -->
   <script>
     (function () {
-      const RESUME_URL = "docs/Resume.pdf";
+      const RESUME_URL = "docs/Resume.pdf?v=20260913"; // PDF 교체 시 v 값을 바꿔 브라우저 캐시를 무효화한다
       const openBtn = document.getElementById("openResume");
       const overlay = document.getElementById("resumeOverlay");
       const panel = document.getElementById("resumePanel");
@@ -2036,6 +2004,6 @@
 
     <script src="src/constellation.js"></script>
     <script src="src/main.js?v=20260912-3"></script>
-    <script src="src/type.js?v=20260912-2"></script>
+    <script src="src/type.js?v=20260913"></script>
   </body>
 </html>
