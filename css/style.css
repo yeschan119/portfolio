@@ -964,6 +964,26 @@ footer.border-t::after {
 .arch-trigger[aria-expanded="true"] {
   border-color: rgba(0, 180, 216, 0.6);
 }
+/* 호버 없이도 보이도록 아키텍처 토글을 항상 강조된 pill 버튼으로 표시한다 */
+.arch-chev {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 180, 216, 0.55);
+  background: rgba(0, 180, 216, 0.12);
+  color: #48cae4;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  box-shadow: 0 0 14px rgba(0, 180, 216, 0.18);
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+.arch-trigger:hover .arch-chev,
+.arch-trigger:focus-visible .arch-chev {
+  background: rgba(0, 180, 216, 0.22);
+  border-color: rgba(0, 180, 216, 0.9);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(0, 180, 216, 0.35);
+}
 .arch-chev-icon {
   transition: transform 0.25s ease;
 }
@@ -971,7 +991,9 @@ footer.border-t::after {
   transform: rotate(180deg);
 }
 .arch-trigger[aria-expanded="true"] .arch-chev {
-  color: #00b4d8;
+  background: rgba(0, 180, 216, 0.25);
+  border-color: rgba(0, 180, 216, 0.9);
+  color: #fff;
 }
 
 /* 외부 링크 아이콘은 카드 토글과 분리된 클릭 대상 */
