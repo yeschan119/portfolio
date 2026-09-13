@@ -136,20 +136,20 @@
         }
     },
     "project": {
-        "report": "Embedded QuickSight analytics with snapshot automation and distributed scaling.",
-        "ims": "Multi-Organization real-time reporting platform with OLTP + Analytics separation.",
-        "chat": "SignalR + SQS + DynamoDB architecture for real-time delivery.",
-        "migration": "Azure → AWS distributed analytics architecture migration.",
-        "apm": "Application performance monitoring dashboard and operational insights.",
-        "insurance": "large-scale Insurance Claim Lifecycle Tracking & Monitoring System",
-        "db-stat": "Database statistics module & query optimizer improvement implementation.",
-        "db-tuning": "Automated query optimization and tuning recommendations.",
-        "db-total": "DB engine internals and system-level design experiments.",
-        "ai1": "Edge-based object detection pipeline with real-time inference.",
-        "ai2": "AI-based annotation & segmentation workflow.",
-        "aiagent": "Engineered the .claude/ harness Claude Code runs inside — permission tiers, guard hooks, layered memory, and agent scaffolding.",
-        "erp-db": "Designed a 97-table ERP database, migrated years of Excel/CSV, and automated the daily load with 16 batches.",
-        "erp-arch": "The decision record behind a 150-table, 413-route, 60-tab ERP — alternatives weighed against quality attributes and constraints, with the trade-offs written into 8 ADRs."
+        "report": "Embedded QuickSight BI with snapshot automation.",
+        "ims": "Multi-org real-time reporting, OLTP/analytics split.",
+        "chat": "Real-time delivery on SignalR, SQS and DynamoDB.",
+        "migration": "Azure → AWS distributed analytics migration.",
+        "apm": "App performance monitoring and ops insights.",
+        "insurance": "Claim lifecycle tracking and monitoring at scale.",
+        "db-stat": "DB statistics module and optimizer improvements.",
+        "db-tuning": "Automated query tuning recommendations.",
+        "db-total": "DB engine internals and system-level design.",
+        "ai1": "Edge object detection with real-time inference.",
+        "ai2": "AI annotation and segmentation workflow.",
+        "aiagent": "Claude Code harness: permissions, hooks, memory, agents.",
+        "erp-db": "97-table ERP DB, Excel/CSV migration, 16 daily batches.",
+        "erp-arch": "150-table ERP architecture captured in 8 ADRs."
     },
 
     "projects": {
@@ -871,226 +871,226 @@
             }
         },
             "erp-architecture": {
-                "main": "An in-house ERP that automates purchasing, inventory, ordering and settlement for 10 apparel retail stores. This page is not a feature tour — it is the record of how the architecture was decided: start from quality attributes and constraints, compare alternatives, and write down what each choice bought and what it cost, across 8 ADRs.",
+                "main": "An in-house ERP that automates purchasing, inventory, ordering and settlement for 10 apparel retail stores — alternatives compared against quality attributes and constraints, with the key design decisions and trade-offs documented in 8 ADRs.",
                 "summary": {
-                    "a": "Vendors and POS drop files; the system cleans and judges them overnight and produces per-store order sheets (.xls) and 60 operating tabs by morning. Neither the input nor the output is a human — both are files.",
-                    "b": "Scalability was deliberately left off the quality list. The complexity that horizontal scaling would have cost was spent on accuracy and change velocity instead — the single largest directional choice here.",
-                    "c": "8 decisions are recorded as ADRs, and every record states the cost alongside the benefit. A record with an empty consequences section has not recorded a decision.",
-                    "d": "The 9 debt items are side effects of decisions, not mistakes. Each one carries the signal that re-opens its ADR."
+                    "a": "Files from vendors and POS are cleaned and evaluated overnight, then delivered as per-store order sheets (.xls) and 60 operating tabs.",
+                    "b": "Scalability was left out of the quality goals given the system's size; accuracy and change velocity were set as the priorities.",
+                    "c": "8 design decisions recorded as ADRs, each with its benefits and accepted costs.",
+                    "d": "9 technical debt items linked to their ADRs, each with a defined review trigger."
                 },
                 "flow": {
-                    "desc": "Technology was never picked straight off the business goal. Goals were lowered into architecture drivers (core function, quality attributes, constraints); alternatives that could satisfy those drivers were compared at three levels — tactic, style, pattern; the trade-off that the comparison exposed was stated; and only then was the decision made. Only the significant ones become ADRs."
+                    "desc": "Business goals were broken down into architecture drivers (core functions, quality attributes, constraints). Alternatives that met those drivers were compared at three levels — tactic, style and pattern — and the decision was made after reviewing the trade-offs. Key decisions are recorded as ADRs."
                 },
                 "lens": {
-                    "desc": "These three words get used interchangeably. Taking this project's caching decision as the example: a tactic says what to do, a pattern says in what shape, and the trade-off says what you hand over in return.",
-                    "tactic": "Judgement and aggregation are far too heavy to compute inside a single request. Read performance is bought by precomputing rather than by optimising code. At this point it is a direction, not yet a structure.",
-                    "pattern": "That tactic is realised as roughly 30 precomputed tables filled by the nightly batch. Loading is DELETE→INSERT keyed on snapshot_date — a same-day rerun overwrites, and days accumulate. The web layer only reads.",
-                    "tradeoff": "Freshness now depends on the batch succeeding. When a batch fails the screen does not error — it quietly shows yesterday's value. That is exactly why batch observability and an explicit \"data as-of\" stamp stop being optional."
+                    "desc": "The three terms, using the caching decision as an example: a tactic is what to do, a pattern is how it is structured, and a trade-off is the cost that comes with it.",
+                    "tactic": "Evaluation and aggregation are too heavy to compute per request, so results are precomputed to keep reads fast.",
+                    "pattern": "Implemented as about 30 precomputed tables filled by the nightly batch. Loads use DELETE→INSERT per snapshot_date: a same-day rerun overwrites, and each day accumulates. The web layer only reads.",
+                    "tradeoff": "Data freshness depends on batch success. A failed batch leaves the previous day's values on screen, so batch monitoring and a \"data as-of\" date are required."
                 },
                 "func": {
-                    "ingest": "Vendors and POS expose no query API — only CSV, XLS and XLSX files. 13 ingest batches are the only way data enters, which is why the batch layer is the root of the system.",
-                    "judge": "Returns, transfers, samples, payout rate and order scoring are all judged overnight. These are analytical computations — regression, percentile, FIFO lot allocation — and cannot sit on the request path.",
-                    "order": "Order sheets for 8 store types are written as legacy .xls (BIFF). The downstream purchasing system requires that format, so there is no choice to make.",
-                    "console": "60 operating tabs across 13 groups, plus permissions. It is the window for judgement and monitoring, not the origin of the data."
+                    "ingest": "Vendors and POS provide only CSV, XLS and XLSX files, with no query API. 13 ingest batches are the only way data enters the system.",
+                    "judge": "Returns, transfers, samples, payout rate and order scores are calculated overnight. These analytical calculations (regression, percentiles, FIFO lot allocation) are kept off the request path.",
+                    "order": "Order sheets for 8 store types are generated in legacy .xls (BIFF), the format required by the downstream purchasing system.",
+                    "console": "An operations dashboard with 60 tabs in 13 groups, plus permission management."
                 },
                 "qa": {
-                    "desc": "A quality attribute is not what the system does but how well it must do it. The ranking exists for one reason — to decide in advance which quality yields when two of them collide. Every later decision is judged against this order.",
+                    "desc": "Quality attributes are ranked so there is a clear rule for which one wins when two conflict.",
                     "accuracy": {
-                        "s": "The same metric read from two different tabs must return the same number. Purchase amounts and settlement ride on it; once values diverge, trust in the whole system is gone.",
-                        "r": "Single source of truth · one shared module per formula · no duplicated judgement logic"
+                        "s": "The same metric must return the same value in every tab. These values feed directly into purchase amounts and settlement.",
+                        "r": "Single source of truth · shared formula modules · no duplicated evaluation logic"
                     },
                     "freshness": {
-                        "s": "Opening a dashboard at the start of the working day shows values through the previous day's close, with the data as-of date displayed alongside.",
+                        "s": "At the start of the workday, dashboards show data through the previous day's close along with the data as-of date.",
                         "r": "Nightly precompute · batch run-history table · as-of date on screen"
                     },
                     "velocity": {
-                        "s": "When the business asks for a change to a judgement rule, it ships the same day after approval. Frontend changes apply with no restart at all.",
+                        "s": "Approved changes to evaluation rules ship the same day. Frontend changes apply immediately without a restart.",
                         "r": "Buildless · bind-mount deploy · per-tab isolation · three-layer split"
                     },
                     "readperf": {
-                        "s": "Opening a heavy judgement tab renders immediately by reading precomputed rows — no recomputation.",
+                        "s": "Heavy evaluation tabs render immediately from precomputed data, with no recalculation.",
                         "r": "~30 precomputed read models · 202 indexes"
                     },
                     "ops": {
-                        "s": "If the app process dies, the container restarts itself and self-checks the schema. Time spent on infrastructure stays minimal.",
-                        "r": "2 nodes · 3 container types · restart: unless-stopped · unattended deploy"
+                        "s": "If the app fails, the container restarts automatically and checks the schema, keeping infrastructure work to a minimum.",
+                        "r": "2 nodes · 3 container types · restart: unless-stopped · automated deploy"
                     },
-                    "noscale": "There are a few dozen internal users, 10 stores, and a few hundred thousand rows a day. The complexity a scale-out design would have demanded — statelessness, distributed cache, externalised sessions, service decomposition — was spent on accuracy and change velocity instead. Scalability is absent from the list by decision, not by oversight."
+                    "noscale": "A few dozen internal users, 10 stores, and a few hundred thousand rows per day. Scalability was excluded from the quality goals so that effort went into accuracy and change velocity instead of the complexity scale-out requires (stateless services, distributed cache, external sessions, service decomposition)."
                 },
                 "const": {
-                    "desc": "These could not be changed. Most of the decisions that follow are consequences of these constraints, not preferences.",
+                    "desc": "Fixed conditions at the start of the design, and how each one shaped it.",
                     "source": {
-                        "c": "Vendors and POS deliver data only as files (CSV · XLS · XLSX). No query API.",
-                        "e": "Ingest batches are the only entry point → the batch layer becomes the root of the system"
+                        "c": "Vendors and POS provide data only as files (CSV · XLS · XLSX). No query API.",
+                        "e": "Ingest batches are the only entry point → the batch layer is the foundation of the system"
                     },
                     "output": {
                         "c": "The downstream purchasing system requires legacy .xls (BIFF)",
-                        "e": "No choice of format → xlwt is mandatory and the server must generate files"
+                        "e": "xlwt is used and files are generated on the server"
                     },
                     "hw": {
                         "c": "Two self-hosted nodes (koclo-vm · NAS). No cloud budget.",
                         "e": "Vertical scaling only → designed around a single process and one DB per node"
                     },
                     "net": {
-                        "c": "No inbound ports may be opened",
-                        "e": "Cloudflare tunnel dials out · the CI runner is self-hosted and dials out too"
+                        "c": "Inbound ports cannot be opened",
+                        "e": "Outbound Cloudflare tunnel · self-hosted CI runner also dials out"
                     },
                     "biz": {
-                        "c": "Judgement rules (returns · transfers · samples · payout rate) change every season",
-                        "e": "Formulas touch code often → deployment friction must stay near zero"
+                        "c": "Evaluation rules (returns · transfers · samples · payout rate) change every season",
+                        "e": "Frequent formula changes → deployment kept as simple as possible"
                     },
                     "verify": {
-                        "c": "Review and test procedures already exist — changes are filtered before deployment",
-                        "e": "Little left for a build step to catch → no heavy build is introduced"
+                        "c": "Existing review and test procedures validate changes before deployment",
+                        "e": "Little need for build-time checks → no heavy build step"
                     }
                 },
                 "alt": {
-                    "desc": "Once the drivers are fixed, alternatives surface at three levels. A tactic is the means that buys a quality; a style is the skeleton that is hard to undo once chosen; a pattern is a proven solution at a narrower scope. Mixing the levels is what makes \"why was it built this way\" unanswerable."
+                    "desc": "Alternatives were compared at three levels against the drivers: tactics are ways to achieve a quality attribute, styles define the overall system structure, and patterns are proven solutions to specific design problems."
                 },
                 "tactic": {
-                    "desc": "The means chosen per quality attribute. Still a direction, not yet a structure.",
-                    "time": "Read performance — move heavy computation off the request and onto the night. Solved by splitting the time axis, not by optimising code.",
-                    "ssot": "Accuracy — reduce the integration point to a single database. With no queue, no RPC and no shared file between batch and web, there is nowhere for values to diverge.",
-                    "idem": "Data integrity — processing the same file twice must not change the result. Recovery stays simple only when rerunning is safe.",
-                    "obs": "Observability — the four signals are not collected continuously; collection is switched on for a named target when needed, and the session expires on its own."
+                    "desc": "Design tactics chosen for each quality attribute.",
+                    "time": "Read performance — heavy computation moved from request time to the nightly batch.",
+                    "ssot": "Accuracy — a single database as the only integration point. No queue, RPC or shared file between batch and web, so values stay consistent.",
+                    "idem": "Data integrity — processing the same file more than once gives the same result, so recovery is a simple rerun.",
+                    "obs": "Observability — the four signals are collected on demand for a chosen target rather than continuously, and sessions expire automatically."
                 },
                 "style": {
-                    "desc": "The skeleton. What was rejected explains more than what was adopted.",
-                    "layered": "One tab is three files — service (pure computation), router (JSON I/O), Vue (presentation). The server never renders HTML, and the presentation layer never computes.",
-                    "cs": "The SPA consumes JSON only. With no server templates, a screen change is decoupled from a server restart.",
-                    "pipeline": "The batch layer and the web layer differ in process, driver and time of day, and meet only at a table. A failure on one side does not stop the other.",
-                    "rejected": "At a few dozen users and 10 stores, service decomposition and an event bus make accuracy harder to hold, not easier. Boundary consistency, eventual consistency and distributed tracing cost more than they return here."
+                    "desc": "Structural choices, and the alternatives that were ruled out.",
+                    "layered": "Each tab is split into three files: service (computation), router (JSON I/O) and Vue (UI). The server does not render HTML, and the UI layer does not compute.",
+                    "cs": "The SPA uses JSON APIs only. With no server templates, screen changes do not require a server restart.",
+                    "pipeline": "The batch and web layers run in separate processes, drivers and time windows, connected only through tables. A failure in one does not affect the other.",
+                    "rejected": "For a few dozen users and 10 stores, the cost of service decomposition and an event bus (boundary consistency, eventual consistency, distributed tracing) outweighed the benefit."
                 },
                 "pattern": {
-                    "desc": "Proven solutions to specific design problems. Applied narrowly, only where needed.",
-                    "read": "Judgement results land in ~30 precomputed tables and the web only reads them. The write model and the read model are separated — but it stops short of event sourcing.",
-                    "upsert": "Idempotency takes three forms depending on the data — ON CONFLICT upsert for accumulating time series, ranged DELETE+INSERT for sliding windows, TRUNCATE and reload for tables where only the current state matters.",
-                    "cache": "The server forces revalidation on static files, and CSS and entry scripts break versions with a manual ?v= stamp. The service worker deliberately caches nothing, because caching would defeat both of the other two defences at once.",
-                    "tunnel": "The host dials outward and receives domain traffic over that connection. Zero inbound ports, no certificate renewal. The CI runner dials out on the same principle."
+                    "desc": "Patterns applied to specific design problems.",
+                    "read": "Evaluation results are loaded into about 30 precomputed tables and the web layer only reads them. Write and read models are separated without event sourcing.",
+                    "upsert": "Three idempotent load methods, chosen by data type: ON CONFLICT upsert for accumulating time series, ranged DELETE+INSERT for sliding windows, and TRUNCATE and reload for current-state tables.",
+                    "cache": "Static files require server revalidation, and CSS and entry scripts are versioned with a ?v= stamp. Service worker caching is not used, to avoid conflicts with both.",
+                    "tunnel": "The host opens an outbound connection to receive domain traffic. Zero inbound ports and no certificate renewal. The CI runner dials out the same way."
                 },
                 "runtime": {
-                    "desc": "Put the decisions together and this is the shape that results. The write flow at night and the read flow by day differ in process, driver and time of day, and share nothing but tables. One integration point is why values cannot diverge — and also why a failure on one side can stay silent."
+                    "desc": "The nightly write flow and the daytime read flow use separate processes, drivers and time windows, and share only tables. A single integration point keeps values consistent, but a batch failure may not be visible on screen right away."
                 },
                 "tradeoff": {
-                    "desc": "The trade-off is what surfaces once the alternatives are compared. If the right-hand column of a row is empty, that row recorded a preference, not a decision.",
+                    "desc": "Benefits and costs of each decision, identified by comparing alternatives.",
                     "pre": {
-                        "gain": "A tab query becomes a single indexed SELECT. Response characteristics hold as the number of screens grows, and per-date time-series tracking comes along for free.",
-                        "cost": "Freshness now depends on batch success. Changing a judgement rule does not change the screen until the rebuild runs. And because these tables must stay re-creatable, foreign keys are kept shallow (45 FKs across 150 tables)."
+                        "gain": "Each tab query is a single indexed SELECT. Response time holds as screens are added, and per-date time-series tracking is available.",
+                        "cost": "Data freshness depends on batch success. Logic changes require a rebuild, and foreign keys are kept minimal so tables can be regenerated (45 FKs across 150 tables)."
                     },
                     "build": {
-                        "gain": "Frontend edits apply instantly with no rebuild and no restart. The code in the browser is the code in the repository, so debugging works without source maps.",
-                        "cost": "No tree shaking and no bundle splitting, so desktop views are not lazily loaded. Type checking and linting cannot be enforced on the deployment path — the pre-merge procedure carries that instead."
+                        "gain": "Frontend edits apply immediately with no rebuild or restart. Browser code matches the repository, so debugging works without source maps.",
+                        "cost": "No tree shaking or bundle splitting, so desktop views cannot be lazy-loaded. Type checks and linting run in the pre-merge process."
                     },
                     "mount": {
-                        "gain": "Deployment takes seconds and CI has no build or push step. Fewer failure points, and a clear boundary: only what can be undone is automated.",
-                        "cost": "The image is no longer the truth of a deployment. Rollback by reverting to one reproducible artifact does not apply — reverting means a git revert plus a restart."
+                        "gain": "Deploys finish in seconds, with no build or push step in CI. Only reversible steps are automated.",
+                        "cost": "No image-level rollback. Rollback is a git revert followed by a restart."
                     },
                     "migrate": {
-                        "gain": "No tool to learn, no version conflicts, no rollback scripts to maintain. A re-creatable derived table is simply dropped and rebuilt.",
-                        "cost": "The schema source of truth (init.sql) is a mirror that never executes, so it can fall behind reality. With three application paths, how far a change has propagated is not visible at a glance."
+                        "gain": "No migration tool to learn, no version conflicts and no rollback scripts. Derived tables are dropped and regenerated.",
+                        "cost": "The schema source (init.sql) can drift from the live database, and with three apply paths it is hard to tell what has been applied."
                     },
                     "proc": {
-                        "gain": "The cache warmer, task worker and scheduler each run exactly once — no duplicate-suppression machinery needed. The failure mode where a dead reloader keeps serving stale code is structurally impossible.",
-                        "cost": "Vertical scaling only, and a brief downtime on each restart. One heavy synchronous call can block every response, so it relies on the discipline of offloading to a thread."
+                        "gain": "The cache warmer, task worker and scheduler each run once. Prevents a failed reloader from continuing to serve old code.",
+                        "cost": "Vertical scaling only, with brief downtime on restart. Heavy synchronous work has to be moved to a separate thread."
                     },
                     "tunnel": {
-                        "gain": "Zero inbound ports. Firewall rules, port forwarding and certificate renewal disappear entirely, and TLS termination is handled outside.",
-                        "cost": "An external service becomes a single point of failure. With no proxy layer, static caching, rate limiting and IP allowlisting all land in application middleware."
+                        "gain": "Zero inbound ports. No firewall, port forwarding or certificate renewal to manage, and TLS termination is handled externally.",
+                        "cost": "The external service is a single point of failure. Without a proxy layer, static caching, rate limiting and IP allowlisting are handled in app middleware."
                     },
-                    "summary": "This architecture bought speed by converting \"what a tool enforced\" into \"what people must uphold\" — the optimisation a bundler did, the ordering guarantee a migration tool did, the regression detection CI did. That is why development conventions and the harness are not an accessory here; they are part of the architecture."
+                    "summary": "Tool-provided functions — bundler optimization, migration ordering, CI regression checks — were replaced with development rules and procedures to increase development speed. As a result, development standards and the harness are managed as part of the architecture."
                 },
                 "adr": {
-                    "desc": "One decision, one record. Each record has four sections — context, alternatives, decision, consequences — and the consequences state the cost accepted, not only the benefit gained.",
+                    "desc": "One record per decision. Each record covers context, alternatives, decision and consequences, with both benefits and costs listed under consequences.",
                     "a1": {
-                        "context": "Input is vendor-dropped CSV, XLS and XLSX; the final artifact is a legacy .xls order sheet. Everything between them is analytical work — aggregation, weighted regression, percentiles, FIFO lot allocation — not CRUD. The place where code piles up is the data layer, not the web layer.",
-                        "alt": "Pick the web framework first (Node or JVM) and fit data processing around it. That path means building the legacy .xls read/write and analytics ecosystem yourself, or splitting it into a separate process.",
-                        "decision": "Build the whole backend on Python + FastAPI. Data processing uses pandas, openpyxl, xlrd and xlwt, with the web layer laid thinly on top. The data tooling was chosen first and the web was placed on it — not the other way round.",
-                        "gain": "The mature legacy .xls read/write ecosystem is used as-is. API and batch share one language and one module, so a formula like backorder merging lives in a single file and cannot diverge.",
-                        "cost": "The runtime is at a disadvantage for CPU-bound work. Synchronous libraries (pandas, psycopg2) block the event loop inside an async app unless they are handed to a separate thread."
+                        "context": "Input is vendor CSV, XLS and XLSX files, and the final output is a legacy .xls order sheet. Most of the processing in between is analytical (aggregation, weighted regression, percentiles, FIFO lot allocation) rather than CRUD, so most of the code sits in the data processing layer.",
+                        "alt": "Choose a web framework first (Node or JVM) and fit data processing around it. This would mean building legacy .xls handling and analytics in-house or running them as a separate process.",
+                        "decision": "The entire backend runs on Python + FastAPI. Data processing uses pandas, openpyxl, xlrd and xlwt, with a thin web layer on top.",
+                        "gain": "Existing libraries for legacy .xls files are used as-is. API and batch share the same modules, so formulas such as backorder merging are maintained in one place.",
+                        "cost": "The runtime is slower for CPU-bound work. Synchronous libraries (pandas, psycopg2) block the event loop unless moved to a separate thread."
                     },
                     "a2": {
-                        "context": "This is a UI newly introduced to the shop floor, so real usage feedback keeps arriving and judgement rules change each season — screens are edited constantly. Meanwhile change quality is already assured by review and test procedures, leaving little for a build step to catch.",
-                        "alt": "Adopt a bundler (Vite, webpack). It buys optimisation and type checking, but the deployed artifact then differs from the source, forcing a redesign of the whole chain — cache invalidation, restart decisions, emergency fixes.",
-                        "decision": "No bundler, no node_modules, no build step. Libraries load as CDN scripts and application code as native ES modules. The rule is written into the development standard as a non-negotiable item.",
-                        "gain": "Frontend edits apply immediately with no restart and no rebuild — deployment friction is effectively zero. The version, vulnerability and supply-chain burden of a Node toolchain disappears entirely.",
-                        "cost": "No tree shaking, bundle splitting or minification. Type checking and linting cannot be enforced on the deployment path, and module cache invalidation rests on a single layer of server revalidation."
+                        "context": "The UI is new to store staff, so feedback keeps coming in, and evaluation rules change each season — screens are updated often. Change quality is already covered by existing review and test procedures.",
+                        "alt": "Adopt a bundler (Vite, webpack). This adds optimization and type checking, but the deployed output would differ from the source, requiring cache invalidation, deploy decisions and hotfix flow to be redesigned.",
+                        "decision": "No bundler, node_modules or build step. Libraries load from CDN scripts and app code loads as native ES modules. This is a required rule in the development standard.",
+                        "gain": "Frontend edits apply immediately without restart or rebuild. No Node toolchain versions, vulnerabilities or supply-chain risk to manage.",
+                        "cost": "No tree shaking, bundle splitting or minification. Type checks and linting cannot be enforced in the deploy path, and module cache invalidation relies on server revalidation."
                     },
                     "a3": {
-                        "context": "ADR-002 fixed the buildless constraint first. But the screens are not simple documents — 60 tabs, nested sub-tabs, and large tables and charts carrying sort, filter, modal and selection state. The earlier approach of embedding generated HTML in iframes had already hit its limit.",
-                        "alt": "React (assumes JSX) · Angular (assumes AOT compilation) · server templates with partial updates. The first two are incompatible with the buildless constraint; the last cannot carry this much client state.",
-                        "decision": "Load Vue 3 as the CDN global build and write components as string templates in .js files. One argument settled it — the global build ships the runtime template compiler, giving a complete component model with no build step.",
-                        "gain": "A full SPA-grade UI without giving up ADR-002. iframe tabs could be migrated one at a time, so the transition was incremental rather than a rewrite.",
-                        "cost": "Shipping the runtime compiler makes the runtime larger and moves template compilation into the browser. String templates give up editor support and compile-time error detection — typos surface at runtime."
+                        "context": "ADR-002 had already fixed the buildless constraint. The screens include 60 tabs, nested sub-tabs, and large tables and charts with sort, filter, modal and selection state, and the earlier iframe approach had reached its limit.",
+                        "alt": "React (requires JSX) · Angular (requires AOT compilation) · server templates with partial updates. The first two conflict with the buildless constraint, and the third struggles with this much UI state.",
+                        "decision": "Vue 3 is loaded as the CDN global build, with components written as string templates in .js files. The global build includes the runtime template compiler, so components work without a build step.",
+                        "gain": "SPA-level UI while keeping ADR-002. iframe tabs were migrated one at a time instead of a full rewrite.",
+                        "cost": "Including the runtime compiler increases bundle size, and templates compile in the browser. String templates have no editor support or compile-time error checking."
                     },
                     "a4": {
-                        "context": "When the same number lives in both a file cache and the database, there is no way to say which is right — and the moment only one side updates, screens start disagreeing quietly. At the same time, returns, transfers, scoring and payout-rate judgement are far too heavy for one request. Consistency and responsiveness had to hold at once.",
-                        "alt": "Keep the file cache alongside the source of truth (leaves room for values to diverge) · compute on request (gives up response time) · introduce a separate OLAP engine (complexity out of proportion to the operations headcount).",
-                        "decision": "Route all data through one PostgreSQL instance and remove the file cache from the set of truths. Heavy judgement is computed by the nightly batch into ~30 precomputed tables that the web layer only reads. Loading is DELETE→INSERT per snapshot_date, satisfying same-day idempotency and per-date accumulation at once.",
-                        "gain": "There is nowhere left for values to diverge — batch and web read the same rows. A tab query is one indexed SELECT, and because days accumulate, time-series tracking and after-the-fact verification come for free.",
-                        "cost": "Freshness depends on batch success, so a failure shows a stale value rather than an error. Changing judgement logic does nothing until a rebuild runs, and foreign keys stay shallow to keep the tables re-creatable."
+                        "context": "When the same number exists in both a file cache and the database, there is no clear source of truth, and screens show different values when only one side updates. Evaluation of returns, transfers, scores and payout rate is too heavy to compute per request, so both consistency and response time had to be met.",
+                        "alt": "Keep the file cache alongside the DB (values can diverge) · compute on request (slow responses) · add a separate OLAP engine (too complex for the operations team size).",
+                        "decision": "All data is consolidated into one PostgreSQL database, and the file cache is no longer a source of truth. The nightly batch loads heavy evaluation results into about 30 precomputed tables, and the web layer only reads them. DELETE→INSERT per snapshot_date provides same-day idempotency and per-date history.",
+                        "gain": "Batch and web read the same data, so values no longer diverge. Tab queries are a single indexed SELECT, and daily history supports time-series tracking and later verification.",
+                        "cost": "Freshness depends on batch success, so a failure shows previous values. Logic changes require a rebuild, and foreign keys are kept minimal for regeneration."
                     },
                     "a5": {
-                        "context": "A large share of the 150 tables are derived, re-creatable precomputed tables. A conventional migration tool assumes a version chain, but for tables that can be dropped and rebuilt at any time that chain buys little. The operations headcount is also small.",
-                        "alt": "Adopt a migration tool such as Alembic. It buys ordering guarantees and rollback scripts, but binds even derived tables into the version chain and adds learning and operating cost.",
-                        "decision": "No migration tool. The schema source of truth is init.sql at the repository root, and it reaches databases along three paths — init.sql once for a new database; hand-written SQL files or ensure_schema() at app startup for existing ones; and self-creation inside some ingest batches.",
-                        "gain": "No tool to learn, no version conflicts, no rollback scripts to maintain. Thanks to ensure_schema(), a good share of changes apply themselves on the next startup after deployment.",
-                        "cost": "The source of truth is a mirror that never executes, so it can fall behind reality, and with three application paths the current state is not visible at a glance. The ordering convention — apply the migration before the code — rests on people; a hook that detects DDL execution mitigates it."
+                        "context": "Many of the 150 tables are derived or precomputed tables that can be regenerated, so a version-based migration tool offers little benefit. The operations team is also small.",
+                        "alt": "Adopt a migration tool such as Alembic. This provides ordering and rollback scripts, but puts derived tables under version control and adds learning and operating cost.",
+                        "decision": "No migration tool. The schema source is init.sql at the repository root, applied through three paths: init.sql on first run for a new DB; manual SQL files or ensure_schema() at app startup for existing DBs; and table creation inside some ingest batches.",
+                        "gain": "No tool to learn, no version conflicts and no rollback scripts. With ensure_schema(), many changes apply automatically at startup after deploy.",
+                        "cost": "The schema source can drift from the live DB, and three apply paths make status hard to check. Applying migrations before code is a manual step, supported by a hook that detects DDL execution."
                     },
                     "a6": {
-                        "context": "Deployment is frequent (2,054 commits), there is no container registry, and there are two target hosts whose build capacity is not generous. Meanwhile almost every change is Python source or frontend files, and dependencies barely move.",
-                        "alt": "Rebuild the image and push to a registry on every deploy. It buys a reproducible artifact and a clean rollback, but drags registry operations and build time straight into the deployment cycle.",
-                        "decision": "Use the image as a dependency shell only and bind-mount application code read-only from a host path. Whether to restart is decided automatically from the changed path — only backend/app/** triggers a restart, while dependency, image, compose and schema changes only warn and are handed to a person.",
-                        "gain": "Deployment takes seconds and frontend changes need no restart at all. With no build or push step, the pipeline is simple, and the boundary is explicit: only what can be undone is automated.",
-                        "cost": "The image is not the truth of a deployment, so artifact-level rollback does not apply. A library present in the image but not pinned in the dependency list stays invisible, and a dirty host working tree halts the deploy."
+                        "context": "Deploys are frequent (2,054 commits), there is no container registry, and there are two target hosts with limited build capacity. Most changes are Python source or frontend files, and dependencies rarely change.",
+                        "alt": "Rebuild the image and push to a registry on every deploy. This gives reproducible artifacts and rollback, but adds registry operations and build time to every deploy.",
+                        "decision": "The image holds only dependencies, and app code is bind-mounted read-only from the host. Restarts are decided automatically by changed path: only backend/app/** triggers a restart, while dependency, image, compose and schema changes raise a warning for manual handling.",
+                        "gain": "Deploys finish in seconds, and frontend changes need no restart. No build or push step keeps the CI pipeline simple.",
+                        "cost": "No image-level rollback. Libraries present in the image but missing from the dependency list are hard to spot, and uncommitted changes on the host stop the deploy."
                     },
                     "a7": {
-                        "context": "With a few dozen internal users there is little need for multiple workers, while the app runs a cache warmer, a task worker and a scheduler inside the process — adding workers would run each of them more than once. The container also has large NAS shares mounted.",
-                        "alt": "Multiple workers (gunicorn) with auto-reload. It buys throughput and developer convenience, but requires duplicate-suppression for background tasks, and a file watcher that dies while watching large mounts leaves stale code being served.",
-                        "decision": "Run uvicorn as a single foreground process with auto-reload disabled. Code changes take effect only through an explicit restart. On 2026-09-11 the second HTTPS process was removed, consolidating to one process.",
-                        "gain": "Background tasks run exactly once. The failure mode where a dead reloader keeps serving old code becomes structurally impossible.",
-                        "cost": "Vertical scaling only, so throughput is capped by a single core, and each restart carries a brief downtime. One heavy synchronous call can block every response."
+                        "context": "With a few dozen internal users, multiple workers are not needed. The app process runs a cache warmer, task worker and scheduler, which would run multiple times with more workers, and the container mounts many NAS shares.",
+                        "alt": "Multiple workers (gunicorn) with auto-reload. This adds throughput and convenience, but requires duplicate-run protection for background tasks, and a stopped file watcher can leave old code running.",
+                        "decision": "uvicorn runs as a single process with auto-reload off. Code changes apply only through an explicit restart. On 2026-09-11 the second HTTPS process was removed, consolidating to one process.",
+                        "gain": "Background tasks run exactly once. Prevents a failed reloader from continuing to serve old code.",
+                        "cost": "Vertical scaling only, so throughput is limited to one core, with brief downtime on restart. One heavy synchronous task can slow all responses."
                     },
                     "a8": {
-                        "context": "No inbound port can be opened on the production host, and there is neither a static IP nor anyone to operate certificates. Yet store staff need mobile access from outside the office.",
-                        "alt": "An nginx or caddy reverse proxy with opened ports, port forwarding and automated certificate renewal. It buys layered routing and static caching, but collides head-on with the no-inbound constraint.",
-                        "decision": "No reverse proxy. A Cloudflare tunnel establishes the connection outward from the host and forwards domain traffic to localhost:9000. The CI runner dials out to GitHub from inside the host on the same principle.",
-                        "gain": "Zero inbound ports. Firewall rules, port forwarding and certificate renewal disappear entirely, and TLS termination and DDoS mitigation are handled externally.",
-                        "cost": "An external service becomes a single point of failure. With no proxy layer the app absorbs static caching, rate limiting and layered routing itself — which is why static serving and IP allowlisting live in application middleware."
+                        "context": "Inbound ports cannot be opened on the production host, and there is no static IP or staff to manage certificates. Store staff still need mobile access from outside the office.",
+                        "alt": "An nginx or caddy reverse proxy with open ports, port forwarding and automatic certificate renewal. This adds layered routing and static caching, but conflicts with the no-inbound constraint.",
+                        "decision": "No reverse proxy. A Cloudflare tunnel connects outbound from the host and forwards domain traffic to localhost:9000. The CI runner connects out to GitHub from the host the same way.",
+                        "gain": "Zero inbound ports. No firewall, port forwarding or certificate renewal to manage; TLS termination and DDoS mitigation are handled externally.",
+                        "cost": "The external service is a single point of failure. Without a proxy layer, the app handles static caching, rate limiting and routing itself, including static file serving and IP allowlisting in middleware."
                     }
                 },
                 "debt": {
-                    "desc": "The debt accumulated by the decisions above. Each item is a side effect of a decision rather than a mistake, and when its re-open signal fires, the corresponding ADR is reconsidered.",
+                    "desc": "Technical debt resulting from the ADR decisions. When a review trigger occurs, the related ADR is revisited.",
                     "schema": {
-                        "w": "Writing production DDL back into the source of truth is a human task, so the source of truth can fall behind reality. With three application paths, propagation state is hard to see at a glance.",
-                        "s": "When a fresh environment will not start from the source of truth alone — re-evaluate adopting a migration tool"
+                        "w": "Production DDL is copied back to the schema source manually, so the source can drift from the live DB. Three apply paths make status hard to check.",
+                        "s": "When a new environment cannot be built from the schema source alone — reconsider a migration tool"
                     },
                     "fresh": {
-                        "w": "When a batch fails, the screen shows a stale value rather than an error. That failures can be silent is an intrinsic property of this structure.",
-                        "s": "When a case surfaces where the as-of stamp or failure notification did not reach anyone"
+                        "w": "A failed batch shows previous values instead of an error, so failures can go unnoticed.",
+                        "s": "When the as-of date or a failure alert does not reach users"
                     },
                     "load": {
-                        "w": "Desktop views are not lazily loaded, so a first visit downloads code for tabs that will never be opened. The only code splitting today is the mobile views.",
-                        "s": "When initial load is reported as a problem over a store's connection"
+                        "w": "Desktop views have no lazy loading, so the first visit downloads code for unused tabs. Code splitting is currently applied only to mobile views.",
+                        "s": "When slow initial loading is reported on store networks"
                     },
                     "verify": {
-                        "w": "Verification happens before merge — four-dimension code review, a post-verification skill, and verification scripts. The deployment pipeline does not check any of it again.",
-                        "s": "When a change that bypassed the procedure causes an incident — re-evaluate adding a gate to the pipeline"
+                        "w": "Verification happens before merge through four-dimension code review, a post-verification skill and verification scripts. The deploy pipeline does not re-check.",
+                        "s": "When a change that skipped the process causes an incident — consider adding a verification step to the pipeline"
                     },
                     "layer": {
-                        "w": "Most routers are thin, but a few older ones still hold SQL directly, blurring the boundary between computation and I/O.",
-                        "s": "Push it down into the service layer the next time that router is opened"
+                        "w": "Most routers are thin, but some older ones contain SQL directly, blurring the line between computation and I/O.",
+                        "s": "Move the logic to the service layer when that router is next modified"
                     },
                     "node": {
-                        "w": "Both nodes receive the same commit but each keeps its own database. Both respond, so the fact that something responded does not tell you which node you were looking at.",
-                        "s": "When a value check goes wrong through node confusion — pin the target at the pipeline level"
+                        "w": "Both nodes run the same code but have separate databases. Both respond, so it can be unclear which node was queried.",
+                        "s": "When node confusion causes a wrong value check — fix the target node in the pipeline"
                     },
-                    "summary": "The whole list reduces to one sentence — speed was bought by converting what a tool enforced into what people must uphold. That is why development conventions and the harness are not an accessory here; they are part of the architecture."
+                    "summary": "Checks and ordering once handled by tools were replaced with development rules and procedures to increase speed, so development standards and the harness are managed as part of the architecture."
                 },
                 "impact": {
-                    "consistency": "Reducing the integration point to a single database structurally removes the class of bug where one metric disagrees between tabs",
-                    "velocity": "Buildless plus bind-mount deployment means frontend changes need no restart and backend changes ship in seconds",
-                    "ops": "Two nodes and three container types keep the operating surface small, with deploy, restart decisions and health checks unattended",
-                    "trace": "8 decisions and 9 debt items recorded with their ADRs and re-open signals, so \"why this structure\" survives as evidence rather than as prose"
+                    "consistency": "A single database as the only integration point eliminated metric mismatches between tabs",
+                    "velocity": "Buildless and bind-mount deploys apply frontend changes without restart and backend changes within seconds",
+                    "ops": "Operations kept small with 2 nodes and 3 container types, with automated deploys, restart decisions and health checks",
+                    "trace": "8 decisions and 9 technical debt items recorded with ADRs and review triggers, keeping the design rationale traceable"
                 }
             }
     }

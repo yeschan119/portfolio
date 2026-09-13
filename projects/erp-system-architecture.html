@@ -102,7 +102,7 @@
                 <div class="mb-16">
                     <div class="flex items-center justify-between flex-wrap gap-4 mb-6">
                         <div>
-                            <h4 class="text-2xl font-semibold mb-2">How Each Decision Was Made</h4>
+                            <h4 class="text-2xl font-semibold mb-2">Decision Process</h4>
                             <p data-i18n="projects.erp-architecture.flow.desc" class="text-slate-400 max-w-4xl leading-relaxed"></p>
                         </div>
 
@@ -175,8 +175,8 @@
                                 </g>
 
                                 <!-- footnote -->
-                                <text x="16" y="352" font-size="12" fill="#64748b">8 decisions recorded · every record states the cost, not only the benefit</text>
-                                <text x="16" y="372" font-size="12" fill="#64748b">A record with an empty consequences section has not recorded a decision.</text>
+                                <text x="16" y="352" font-size="12" fill="#64748b">8 decisions recorded · benefits and costs listed for each</text>
+                                <text x="16" y="372" font-size="12" fill="#64748b">Each ADR includes context, alternatives, decision and consequences.</text>
                             </g>
                         </svg>
                         </div>
@@ -204,7 +204,7 @@
                             </div>
                             <div class="rounded-2xl border border-rose-500/30 bg-primary/30 p-5">
                                 <div class="text-xs text-slate-500 mb-2 font-mono-custom">TRADE-OFF</div>
-                                <div class="text-rose-400 font-semibold mb-1">Freshness follows the batch</div>
+                                <div class="text-rose-400 font-semibold mb-1">Freshness depends on batch success</div>
                                 <div class="text-xs text-slate-500 mb-3">at what cost</div>
                                 <p data-i18n="projects.erp-architecture.lens.tradeoff" class="text-sm text-slate-400 leading-relaxed"></p>
                             </div>
@@ -241,7 +241,7 @@
 
                     <!-- Quality attributes -->
                     <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8 mb-6">
-                        <h5 class="text-xl font-semibold mb-3">Quality Attributes — ranked, and the ranking is the tie-breaker</h5>
+                        <h5 class="text-xl font-semibold mb-3">Quality Attributes — Priority Order</h5>
                         <p data-i18n="projects.erp-architecture.qa.desc" class="text-slate-400 text-sm leading-relaxed mb-6 max-w-4xl"></p>
 
                         <div class="overflow-x-auto">
@@ -290,14 +290,14 @@
                         </div>
 
                         <div class="mt-6 rounded-2xl border border-amber-500/30 bg-primary/30 p-5">
-                            <div class="text-amber-400 font-semibold mb-2 text-sm">Scalability is deliberately absent</div>
+                            <div class="text-amber-400 font-semibold mb-2 text-sm">Scalability excluded</div>
                             <p data-i18n="projects.erp-architecture.qa.noscale" class="text-sm text-slate-400 leading-relaxed"></p>
                         </div>
                     </div>
 
                     <!-- Constraints -->
                     <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
-                        <h5 class="text-xl font-semibold mb-3">Constraints — what could not be changed</h5>
+                        <h5 class="text-xl font-semibold mb-3">Constraints</h5>
                         <p data-i18n="projects.erp-architecture.const.desc" class="text-slate-400 text-sm leading-relaxed mb-6 max-w-4xl"></p>
 
                         <div class="overflow-x-auto">
@@ -384,7 +384,7 @@
                         <!-- Style -->
                         <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
                             <div class="text-xs text-slate-500 mb-2 font-mono-custom">STYLE</div>
-                            <div class="text-xl font-semibold mb-2">The skeleton — hard to undo</div>
+                            <div class="text-xl font-semibold mb-2">Architecture Styles</div>
                             <p data-i18n="projects.erp-architecture.style.desc" class="text-slate-400 text-sm leading-relaxed mb-5"></p>
 
                             <div class="space-y-3 text-sm">
@@ -422,7 +422,7 @@
                         <!-- Pattern -->
                         <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
                             <div class="text-xs text-slate-500 mb-2 font-mono-custom">PATTERN</div>
-                            <div class="text-xl font-semibold mb-2">Proven shapes, narrow scope</div>
+                            <div class="text-xl font-semibold mb-2">Design Patterns</div>
                             <p data-i18n="projects.erp-architecture.pattern.desc" class="text-slate-400 text-sm leading-relaxed mb-5"></p>
 
                             <div class="space-y-3 text-sm">
@@ -450,7 +450,7 @@
                 <!-- Runtime: two flows, one integration point -->
                 <div class="mb-16">
                     <div class="mb-6">
-                        <h4 class="text-2xl font-semibold mb-2">The Shape That Came Out — Two Flows, One Integration Point</h4>
+                        <h4 class="text-2xl font-semibold mb-2">Runtime Structure — Two Flows, One Integration Point</h4>
                         <p data-i18n="projects.erp-architecture.runtime.desc" class="text-slate-400 max-w-4xl leading-relaxed"></p>
                     </div>
 
@@ -584,7 +584,7 @@
                         </div>
 
                         <div class="mt-6 rounded-2xl border border-accent/40 bg-primary/30 p-5">
-                            <div class="text-accent font-semibold mb-2 text-sm">The one-line summary of this ledger</div>
+                            <div class="text-accent font-semibold mb-2 text-sm">Summary</div>
                             <p data-i18n="projects.erp-architecture.tradeoff.summary" class="text-sm text-slate-300 leading-relaxed"></p>
                         </div>
                     </div>
@@ -911,7 +911,7 @@
                         </div>
 
                         <div class="mt-6 rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
-                            <div class="text-slate-200 font-semibold mb-2 text-sm">What the whole list has in common</div>
+                            <div class="text-slate-200 font-semibold mb-2 text-sm">Summary</div>
                             <p data-i18n="projects.erp-architecture.debt.summary" class="text-sm text-slate-400 leading-relaxed"></p>
                         </div>
                     </div>
