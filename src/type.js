@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .type("I'm Eungchan Kang,")
         .pause(600)
         .break()
-        .type("an AI Platform Engineer.")
+        .type("a Full-Stack & AI Platform Engineer.")
         .go();
     }
 

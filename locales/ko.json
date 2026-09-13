@@ -9,7 +9,7 @@
     "nav_contact":"연락처",
 
     "hero_title":"DB 설계부터 Dashboard 구현까지<br class='hidden md:block' />확장 가능한 시스템 구축 경험",
-    "hero_desc":"<li>DB & Cloud Architecture 설계부터 Dashboard 구현까지 확장 가능한 시스템 구축</li><li>Software Architect로서 AI Engineering기반으로 ERP시스템 설계 및 구축</li>",
+    "hero_desc":"<li>DB & Cloud Architecture 설계부터 Dashboard 구현까지 확장 가능한 시스템 구축</li><li>Software Architect로서 AI Engineering기반으로 시스템 설계 및 구축</li>",
     "ai-button": "강응찬의 AI와 대화하기",
     "ai-main": "Ask me anything 🙏🏻 (ex: Data Engineer 직무 관련 프로젝트 리스트)",
     "ai-sub": "질문과 관련된 공개 GitHub 저장소의 README를 먼저 읽고, 답변에 사용한 저장소를 출처로 표시합니다.",
