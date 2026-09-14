@@ -154,10 +154,10 @@
       <div class="pointer-events-none absolute -bottom-40 right-1/4 h-[400px] w-[400px] rounded-full bg-accent-deep/10 blur-[120px] animate-pulse-glow" style="animation-delay:2s"></div>
 
       <div class="relative mx-auto max-w-6xl w-full z-10">
-        <div class="grid gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-start fade-in">
+        <div class="grid gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-stretch fade-in">
 
           <!-- LEFT COLUMN -->
-          <div class="space-y-4 text-center lg:text-left flex flex-col items-center lg:items-start">
+          <div class="gap-4 text-center lg:text-left flex flex-col items-center lg:items-start">
               <h2 class="home__title--name text-base sm:text-[1.2rem] md:text-2xl lg:text-[1.8rem] font-extrabold leading-snug min-h-[3.5rem]"></h2>
               <ul data-i18n="hero_desc" class="list-disc list-outside pl-5 text-left text-sm md:text-base text-slate-300 max-w-xl leading-relaxed font-mono-custom mx-auto lg:mx-0 marker:text-accent"></ul>
 
@@ -178,7 +178,7 @@
               </div>
 
               <!-- CTA buttons -->
-              <div class="flex flex-col items-center lg:items-start gap-3 pt-1 w-full sm:w-auto font-mono-custom">
+              <div class="flex flex-col items-center lg:items-start gap-3 pt-1 lg:mt-auto w-full sm:w-auto font-mono-custom">
                   <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-4 w-full sm:w-auto">
                       <a href="#projects" class="btn-primary-neu group flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-bold w-full sm:w-auto min-h-[44px]">
                           <span>View Projects</span>
@@ -194,19 +194,6 @@
                           <span>GitHub</span>
                       </a>
                   </div>
-
-                  <!-- AI chat CTA: below View Projects, clearly clickable -->
-                  <button type="button" id="openChat"
-                      class="group inline-flex items-center justify-center gap-2 rounded-full border border-accent/40 bg-accent/[0.07] px-5 py-2.5 text-sm font-semibold text-accent hover:bg-accent/15 hover:border-accent hover:-translate-y-0.5 transition-all cursor-pointer w-full sm:w-auto min-h-[44px]"
-                      style="box-shadow: var(--neu-sm)">
-                      <span class="relative flex h-2 w-2">
-                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-70"></span>
-                          <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
-                      </span>
-                      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                      <span data-i18n="ai-button"></span>
-                      <span class="transition-transform group-hover:translate-x-1">›</span>
-                  </button>
               </div>
           </div>
 
@@ -240,16 +227,19 @@
                   </div>
               </div>
 
-              <!-- Current focus banner -->
-              <div class="w-full text-center mt-1">
-                  <div class="inline-flex items-center gap-2 px-4 py-2 rounded-2xl focus-banner">
+              <div class="w-full text-center mt-1 font-mono-custom">
+                  <!-- AI chat CTA: below the avatar -->
+                  <button type="button" id="openChat"
+                      class="group inline-flex items-center justify-center gap-2 rounded-full border border-accent/40 bg-accent/[0.07] px-5 py-2.5 text-sm font-semibold text-accent hover:bg-accent/15 hover:border-accent hover:-translate-y-0.5 transition-all cursor-pointer w-full sm:w-auto min-h-[44px]"
+                      style="box-shadow: var(--neu-sm)">
                       <span class="relative flex h-2 w-2">
-                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-70"></span>
                           <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
                       </span>
-                      <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400 font-mono-custom">Current Focus:</span>
-                      <span class="text-xs text-white font-bold font-mono-custom">Software Architecture</span>
-                  </div>
+                      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                      <span data-i18n="ai-button"></span>
+                      <span class="transition-transform group-hover:translate-x-1">›</span>
+                  </button>
               </div>
           </div>
 
