@@ -186,7 +186,7 @@
                       </a>
                       <button type="button" id="openResume" class="btn-secondary-neu flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold w-full sm:w-auto min-h-[44px] cursor-pointer">
                           <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h6"/></svg>
-                          <span>Resume</span>
+                          <span data-i18n="resume.button">Resume</span>
                       </button>
                       <a href="https://github.com/yeschan119" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"
                           class="btn-secondary-neu group flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold w-full sm:w-auto min-h-[44px]">
@@ -1751,13 +1751,13 @@
         <div class="flex items-center justify-between gap-3 px-4 py-3 border-b border-white/5">
           <div class="flex items-center gap-2">
             <svg class="h-4 w-4 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
-            <span class="text-sm font-bold text-white font-mono-custom">Resume</span>
+            <span class="text-sm font-bold text-white font-mono-custom" data-i18n="resume.title">Resume</span>
           </div>
           <div class="flex items-center gap-2">
-            <a href="docs/Resume.pdf" download="Eungchan_Kang_Resume.pdf"
+            <a id="downloadResume" href="docs/Resume.pdf" download="Eungchan_Kang_Resume.pdf"
                class="btn-primary-neu flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-bold font-mono-custom">
               <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
-              <span>Download</span>
+              <span data-i18n="resume.download">Download</span>
             </a>
             <button type="button" id="closeResume" aria-label="Close"
               class="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-slate-950/40 text-slate-300 hover:text-white hover:border-accent/40 transition cursor-pointer">✕</button>
@@ -1772,17 +1772,48 @@
   <!-- Resume viewer: open on the hero "Resume" button, download via the panel's Download button -->
   <script>
     (function () {
-      const RESUME_URL = "docs/Resume.pdf?v=20260913"; // PDF 교체 시 v 값을 바꿔 브라우저 캐시를 무효화한다
+      const RESUMES = {
+        en: {
+          url: "docs/Resume.pdf?v=20260913",
+          downloadUrl: "docs/Resume.pdf",
+          filename: "Eungchan_Kang_Resume.pdf",
+          title: "Resume"
+        },
+        ko: {
+          url: "docs/Resume-ko.pdf?v=20260914-5",
+          downloadUrl: "docs/Resume-ko.pdf",
+          filename: "Eungchan_Kang_Resume_KO.pdf",
+          title: "이력서"
+        }
+      };
       const openBtn = document.getElementById("openResume");
       const overlay = document.getElementById("resumeOverlay");
       const panel = document.getElementById("resumePanel");
       const frame = document.getElementById("resumeFrame");
       const closeBtn = document.getElementById("closeResume");
-      if (!openBtn || !overlay) return;
+      const downloadBtn = document.getElementById("downloadResume");
+      if (!openBtn || !overlay || !panel || !frame || !closeBtn || !downloadBtn) return;
+
+      function currentLanguage() {
+        return document.documentElement.lang === "ko" ? "ko" : "en";
+      }
+
+      function applyResumeLanguage(lang) {
+        const resume = RESUMES[lang] || RESUMES.en;
+        downloadBtn.href = resume.downloadUrl;
+        downloadBtn.download = resume.filename;
+        frame.title = resume.title;
+
+        if (!overlay.classList.contains("hidden")) {
+          frame.src = resume.url + "#view=FitH&toolbar=1";
+        }
+      }
 
       function open() {
         // load the PDF only when opened
-        frame.src = RESUME_URL + "#view=FitH&toolbar=1";
+        const resume = RESUMES[currentLanguage()];
+        applyResumeLanguage(currentLanguage());
+        frame.src = resume.url + "#view=FitH&toolbar=1";
         overlay.classList.remove("hidden");
         document.body.style.overflow = "hidden";
         requestAnimationFrame(() => {
@@ -1802,10 +1833,14 @@
 
       openBtn.addEventListener("click", open);
       closeBtn.addEventListener("click", close);
+      window.addEventListener("portfolio:language-changed", (event) => {
+        applyResumeLanguage(event.detail?.lang);
+      });
       overlay.addEventListener("click", (e) => { if (e.target === overlay || e.target === overlay.firstElementChild) close(); });
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape" && !overlay.classList.contains("hidden")) close();
       });
+      applyResumeLanguage(currentLanguage());
     })();
   </script>
 
@@ -1814,7 +1849,7 @@
   </footer>
 
     <script src="src/constellation.js"></script>
-    <script src="src/main.js?v=20260914a"></script>
+    <script src="src/main.js?v=20260914b"></script>
     <script src="src/type.js?v=20260913"></script>
   </body>
 </html>

@@ -42,6 +42,10 @@ function initLanguage() {
       applyTranslations();
       localStorage.setItem("preferredLang", lang);
       setActiveLang(lang);
+      document.documentElement.lang = lang;
+      window.dispatchEvent(new CustomEvent("portfolio:language-changed", {
+        detail: { lang }
+      }));
     } catch (error) {
       console.error("Language load error:", error);
     }

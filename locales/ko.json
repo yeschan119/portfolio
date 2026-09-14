@@ -14,6 +14,12 @@
     "ai-main": "Ask me anything 🙏🏻 (ex: Data Engineer 직무 관련 프로젝트 리스트)",
     "ai-sub": "질문과 관련된 공개 GitHub 저장소의 README를 먼저 읽고, 답변에 사용한 저장소를 출처로 표시합니다.",
 
+    "resume": {
+        "button": "이력서",
+        "title": "이력서",
+        "download": "다운로드"
+    },
+
     "contact_title":"연락처",
 
 
