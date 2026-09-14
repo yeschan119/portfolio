@@ -953,6 +953,11 @@ footer.border-t::after {
    Experience — architecture toggle panels
    경력 카드를 클릭하면 해당 시기의 아키텍처가 아래로 펼쳐진다.
    ============================================================ */
+body.architecture-hidden .arch-entry,
+body.architecture-hidden .arch-panel {
+  display: none !important;
+}
+
 .arch-trigger {
   cursor: pointer;
   user-select: none;

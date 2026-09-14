@@ -313,6 +313,18 @@ function initArchitecture() {
   const triggers = document.querySelectorAll(".arch-trigger");
   if (!triggers.length) return;
 
+  if (document.body.classList.contains("architecture-hidden")) {
+    triggers.forEach(trigger => {
+      trigger.classList.remove("arch-trigger", "group");
+      trigger.removeAttribute("role");
+      trigger.removeAttribute("tabindex");
+      trigger.removeAttribute("aria-expanded");
+      trigger.removeAttribute("aria-controls");
+      trigger.removeAttribute("data-arch");
+    });
+    return;
+  }
+
   const close = (trigger, panel) => {
     trigger.setAttribute("aria-expanded", "false");
     panel.hidden = true;
