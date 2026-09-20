@@ -427,10 +427,10 @@ function initCounter() {
         const tick = () => {
           current += step;
           if (current >= target) {
-            counter.innerText = target + suffix;
+            counter.innerText = target.toLocaleString("en-US") + suffix;
             return;
           }
-          counter.innerText = current + suffix;
+          counter.innerText = current.toLocaleString("en-US") + suffix;
           requestAnimationFrame(tick);
         };
 
