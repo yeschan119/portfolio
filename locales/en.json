@@ -31,7 +31,7 @@
         "tmax1": "• Owned and enhanced the database statistics collection module",
         "tmax2": "• Implemented the SQL Tuning Advisor module and developed SPM (SQL Plan Management)",
         "tmax3": "• Provided SQL tuning and DBA technical support for enterprise and financial sector clients",
-        "kokomo1": "• Designed and implemented large-scale SaaS architectures for multiple clients.",
+        "kokomo1": "• Designed and implemented a large-scale SaaS architecture used every morning by ~50,000 staff across 2,000 schools.",
         "kokomo2": "• Architected and delivered an end-to-end layered platform across the presentation, application, infrastructure, and data layers.",
         "kokomo3": "• Achieved ~30% performance improvement through system (DB/Backend) optimization."
     },
@@ -169,8 +169,8 @@
             },
             "system-scale": {
                 "data-volume": "Five years of historical incident data with hundreds of thousands of records, including operational metadata, incident classification, timestamps, school and facility information.",
-                "usage-traffic": "Thousands to tens of thousands of daily report views across approximately 30 reports and 10+ visualization types.",
-                "user-scope": "Supports around 2,000 schools and thousands of administrative users operating at school and district levels."
+                "usage-traffic": "Thousands to tens of thousands of daily report views across approximately 30 reports and 10+ visualization types. Source data comes from ~50,000 staff checking in within a 15-minute morning window — peak ~180 RPS / 45 TPS and ~2,000 concurrent users (estimated from usage patterns, ~20x the daily average).",
+                "user-scope": "~50,000 staff across around 2,000 schools generate the data, and thousands of administrative users view reports at school and district levels."
             },
             "report-categories": {
                 "attendance": "Student attendance tracking, staff check-in / check-out logs, late arrival monitoring, and tardiness analytics.",
