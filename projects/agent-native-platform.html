@@ -77,341 +77,323 @@
                         <h4 class="text-xl font-semibold mb-5">Key Metrics</h4>
                         <div class="grid grid-cols-2 gap-4">
                             <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
+                                <div class="text-3xl font-bold text-accent mb-2">167K</div>
+                                <div class="text-sm text-slate-400">Lines Governed</div>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
                                 <div class="text-3xl font-bold text-accent mb-2">58</div>
-                                <div class="text-sm text-slate-400">Sub-Agents</div>
+                                <div class="text-sm text-slate-400">Domain Agents</div>
                             </div>
                             <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
-                                <div class="text-3xl font-bold text-accent mb-2">72</div>
-                                <div class="text-sm text-slate-400">Memory Nodes</div>
+                                <div class="text-3xl font-bold text-accent mb-2">2</div>
+                                <div class="text-sm text-slate-400">Runtimes Unified</div>
                             </div>
                             <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
-                                <div class="text-3xl font-bold text-accent mb-2">21</div>
-                                <div class="text-sm text-slate-400">Guard Hooks</div>
-                            </div>
-                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
-                                <div class="text-3xl font-bold text-accent mb-2">54</div>
-                                <div class="text-sm text-slate-400">Permission Rules</div>
+                                <div class="text-3xl font-bold text-accent mb-2">3</div>
+                                <div class="text-sm text-slate-400">Defect Classes Eliminated</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Three Pillars -->
-                <div class="grid lg:grid-cols-3 gap-6 mb-16">
-                    <div class="section-glow rounded-2xl border border-accent/40 bg-secondary/35 p-6">
-                        <div class="text-xs text-slate-500 mb-2 font-mono-custom">01</div>
-                        <div class="text-xl font-semibold mb-3">Harness Engineering</div>
-                        <p data-i18n="projects.agent-platform.pillars.harness" class="text-slate-400 text-sm leading-relaxed"></p>
-                    </div>
-                    <div class="section-glow rounded-2xl border border-accent/40 bg-secondary/35 p-6">
-                        <div class="text-xs text-slate-500 mb-2 font-mono-custom">02</div>
-                        <div class="text-xl font-semibold mb-3">Loop Engineering</div>
-                        <p data-i18n="projects.agent-platform.pillars.loop" class="text-slate-400 text-sm leading-relaxed"></p>
-                    </div>
-                    <div class="section-glow rounded-2xl border border-accent/40 bg-secondary/35 p-6">
-                        <div class="text-xs text-slate-500 mb-2 font-mono-custom">03</div>
-                        <div class="text-xl font-semibold mb-3">Graph Engineering</div>
-                        <p data-i18n="projects.agent-platform.pillars.graph" class="text-slate-400 text-sm leading-relaxed"></p>
-                    </div>
-                </div>
-
-                <!-- Request Lifecycle -->
+                <!-- Team Distribution -->
                 <div class="mb-16">
-                    <div class="flex items-center justify-between flex-wrap gap-4 mb-6">
-                        <div>
-                            <h4 class="text-2xl font-semibold mb-2">Request Lifecycle</h4>
-                            <p class="text-slate-400">
-                                Every prompt passes the same path: context injected in, guards before each tool call, learning consolidated on exit.
-                            </p>
-                        </div>
-
-                        <div class="flex flex-wrap gap-2 text-xs">
-                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Claude Code</span>
-                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Hooks</span>
-                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Sub-Agents</span>
-                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">File Memory</span>
-                        </div>
+                    <div class="mb-6">
+                        <h4 class="text-2xl font-semibold mb-2">Team Distribution</h4>
+                        <p data-i18n="projects.agent-platform.dist.desc" class="text-slate-400 max-w-4xl leading-relaxed"></p>
                     </div>
 
-                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/30 p-6 overflow-hidden">
-                        <div class="overflow-x-auto">
-                        <svg viewBox="0 0 1200 400" class="w-full min-w-[1000px] h-auto">
-                            <!-- harness frame -->
-                            <rect x="16" y="16" width="1168" height="368" rx="22" fill="none" stroke="rgba(52,211,153,.32)" stroke-dasharray="8 6"/>
-                            <text x="36" y="42" font-size="13" fill="#34d399" font-family="ui-sans-serif, system-ui">Harness — deny 14 · ask 32 · PreToolUse hard block · time-boxed gates</text>
+                    <div class="grid lg:grid-cols-2 gap-6">
+                        <div class="section-glow rounded-2xl border border-accent/40 bg-secondary/35 p-6">
+                            <div class="text-slate-200 font-semibold mb-4">Marketplace Install</div>
+<pre class="text-[11.5px] leading-relaxed font-mono-custom text-slate-400 bg-primary/40 rounded-xl p-4 overflow-x-auto"><span class="text-slate-600"># 1. register the team marketplace</span>
+/plugin marketplace add <span class="text-accent">ko-clo/koNclo-plugins</span>
 
-                            <g font-family="ui-sans-serif, system-ui" fill="#e2e8f0">
-                                <!-- Prompt -->
-                                <rect x="40" y="160" width="150" height="86" rx="18" fill="rgba(17,24,39,.85)" stroke="rgba(148,163,184,.28)"/>
-                                <text x="115" y="194" text-anchor="middle" font-size="18" font-weight="600">Prompt</text>
-                                <text x="115" y="218" text-anchor="middle" font-size="12" fill="#94a3b8">user intent</text>
+<span class="text-slate-600"># 2. install</span>
+/plugin install <span class="text-accent">koclo-erp@koclo-team</span></pre>
+                            <p data-i18n="projects.agent-platform.dist.install" class="text-sm text-slate-400 mt-4 leading-relaxed"></p>
+                            <div class="flex flex-wrap gap-2 text-xs mt-4">
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Claude Code</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Codex</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Claude Desktop (.mcpb)</span>
+                            </div>
+                        </div>
 
-                                <!-- memory-recall -->
-                                <rect x="235" y="160" width="185" height="86" rx="18" fill="rgba(17,24,39,.92)" stroke="#3b82f6"/>
-                                <text x="327" y="188" text-anchor="middle" font-size="16" font-weight="600">memory-recall</text>
-                                <text x="327" y="209" text-anchor="middle" font-size="12" fill="#94a3b8">UserPromptSubmit</text>
-                                <text x="327" y="228" text-anchor="middle" font-size="12" fill="#60a5fa">IDF match · 4K budget</text>
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/30 p-6">
+                            <div class="text-slate-200 font-semibold mb-4">Packaged Plugins</div>
 
-                                <!-- Skill router -->
-                                <rect x="465" y="60" width="175" height="86" rx="18" fill="rgba(17,24,39,.85)" stroke="rgba(148,163,184,.28)"/>
-                                <text x="552" y="94" text-anchor="middle" font-size="18" font-weight="600">Skill Router</text>
-                                <text x="552" y="118" text-anchor="middle" font-size="12" fill="#94a3b8">22 skills · 33 commands</text>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-4 mb-3">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="font-mono-custom text-sm text-accent">koclo-erp</span>
+                                    <span class="text-[11px] text-slate-500 font-mono-custom">58 agents · 37 commands · 27 skills</span>
+                                </div>
+                                <p data-i18n="projects.agent-platform.dist.erp" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
 
-                                <!-- Memory -->
-                                <rect x="465" y="262" width="175" height="86" rx="18" fill="rgba(17,24,39,.85)" stroke="rgba(148,163,184,.28)"/>
-                                <text x="552" y="296" text-anchor="middle" font-size="18" font-weight="600">File Memory</text>
-                                <text x="552" y="320" text-anchor="middle" font-size="12" fill="#94a3b8">72 nodes · domain/service/meta</text>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-4 mb-3">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="font-mono-custom text-sm text-accent">konclo-db</span>
+                                    <span class="text-[11px] text-slate-500 font-mono-custom">read-only · non-developer</span>
+                                </div>
+                                <p data-i18n="projects.agent-platform.dist.db" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
 
-                                <!-- Agents -->
-                                <rect x="685" y="60" width="175" height="86" rx="18" fill="rgba(17,24,39,.85)" stroke="rgba(148,163,184,.28)"/>
-                                <text x="772" y="94" text-anchor="middle" font-size="18" font-weight="600">58 Sub-Agents</text>
-                                <text x="772" y="118" text-anchor="middle" font-size="12" fill="#94a3b8">1 subtab : 1 agent</text>
-
-                                <!-- Guards -->
-                                <rect x="685" y="160" width="175" height="86" rx="18" fill="rgba(17,24,39,.92)" stroke="#34d399"/>
-                                <text x="772" y="188" text-anchor="middle" font-size="16" font-weight="600">PreToolUse</text>
-                                <text x="772" y="209" text-anchor="middle" font-size="12" fill="#94a3b8">nas · danger · testfile</text>
-                                <text x="772" y="228" text-anchor="middle" font-size="12" fill="#34d399">block = exit 2</text>
-
-                                <!-- Codebase -->
-                                <rect x="905" y="110" width="160" height="86" rx="18" fill="rgba(17,24,39,.85)" stroke="rgba(148,163,184,.28)"/>
-                                <text x="985" y="144" text-anchor="middle" font-size="18" font-weight="600">Codebase</text>
-                                <text x="985" y="168" text-anchor="middle" font-size="12" fill="#94a3b8">read · edit · verify</text>
-
-                                <!-- Stop hook -->
-                                <rect x="905" y="262" width="160" height="86" rx="18" fill="rgba(17,24,39,.92)" stroke="#3b82f6"/>
-                                <text x="985" y="290" text-anchor="middle" font-size="16" font-weight="600">Stop hook</text>
-                                <text x="985" y="311" text-anchor="middle" font-size="12" fill="#94a3b8">consolidate</text>
-                                <text x="985" y="330" text-anchor="middle" font-size="12" fill="#60a5fa">/learn → F block</text>
-                            </g>
-
-                            <!-- Wires -->
-                            <path d="M190 203 L235 203" stroke="#3b82f6" stroke-width="3" fill="none"/>
-                            <path d="M420 190 C443 190 443 103 465 103" stroke="#3b82f6" stroke-width="3" fill="none"/>
-                            <path d="M420 216 C443 216 443 305 465 305" stroke="rgba(148,163,184,.5)" stroke-width="2.5" fill="none"/>
-                            <path d="M640 103 L685 103" stroke="#3b82f6" stroke-width="3" fill="none"/>
-                            <path d="M772 146 L772 160" stroke="#3b82f6" stroke-width="3" fill="none"/>
-                            <path d="M860 195 C883 195 883 153 905 153" stroke="#3b82f6" stroke-width="3" fill="none"/>
-                            <path d="M640 305 L905 305" stroke="rgba(148,163,184,.5)" stroke-width="2.5" fill="none"/>
-                            <path d="M985 262 L985 196" stroke="rgba(148,163,184,.5)" stroke-width="2.5" fill="none"/>
-                        </svg>
+                            <p data-i18n="projects.agent-platform.dist.sync" class="text-sm text-slate-400 leading-relaxed"></p>
                         </div>
                     </div>
                 </div>
 
-                <!-- .claude/ layout -->
-                <div class="grid lg:grid-cols-[1fr,1fr] gap-6 mb-16 items-start">
-                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
-                        <h4 class="text-2xl font-semibold mb-3">Repository Layout — <span class="font-mono-custom text-accent">.claude/</span></h4>
-                        <p data-i18n="projects.agent-platform.layout.desc" class="text-slate-400 text-sm leading-relaxed mb-5"></p>
-                        <div class="rounded-2xl border border-slate-700/60 bg-primary/40 p-5 overflow-x-auto">
-<pre class="font-mono-custom text-xs md:text-[13px] leading-relaxed text-slate-400 whitespace-pre">.claude/
-├── <span class="text-slate-200">settings.json</span>          permission tiers + hook wiring
-├── <span class="text-slate-200">agents/</span>       58 files  one per product subtab
-├── <span class="text-slate-200">skills/</span>       21 dirs   identify → delegate → verify
-├── <span class="text-slate-200">commands/</span>     27 files  /vmd /payrate /danger /learn …
-├── <span class="text-slate-200">hooks/</span>         7 files  guards + memory lifecycle
-├── <span class="text-slate-200">memory/</span>       72 files
-│   ├── meta/       agent_kernel.md — shared rules
-│   ├── domain/     business terms + *-feedback.md
-│   ├── service/    file ↔ API ↔ DB architecture maps
-│   └── MEMORY.md   index
-├── <span class="text-slate-200">context-pack.template.md</span>  work-surface pinning
-└── <span class="text-slate-200">.danger-unlock</span>       time-boxed gate (expiry epoch)</pre>
-                        </div>
-                    </div>
-
-                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
-                        <h4 class="text-2xl font-semibold mb-3">Six Harnesses</h4>
-                        <p data-i18n="projects.agent-platform.harness.desc" class="text-slate-400 text-sm leading-relaxed mb-5"></p>
-                        <div class="space-y-3 text-sm">
-                            <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
-                                <div class="text-accent font-semibold mb-1">Context</div>
-                                <p data-i18n="projects.agent-platform.harness.context" class="text-slate-400 text-xs leading-relaxed"></p>
-                            </div>
-                            <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
-                                <div class="text-accent font-semibold mb-1">Permission</div>
-                                <p data-i18n="projects.agent-platform.harness.permission" class="text-slate-400 text-xs leading-relaxed"></p>
-                            </div>
-                            <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
-                                <div class="text-accent font-semibold mb-1">Tool</div>
-                                <p data-i18n="projects.agent-platform.harness.tool" class="text-slate-400 text-xs leading-relaxed"></p>
-                            </div>
-                            <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
-                                <div class="text-accent font-semibold mb-1">Subagent &amp; Worktree</div>
-                                <p data-i18n="projects.agent-platform.harness.subagent" class="text-slate-400 text-xs leading-relaxed"></p>
-                            </div>
-                            <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
-                                <div class="text-accent font-semibold mb-1">Verification</div>
-                                <p data-i18n="projects.agent-platform.harness.verification" class="text-slate-400 text-xs leading-relaxed"></p>
-                            </div>
-                            <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-4">
-                                <div class="text-accent font-semibold mb-1">Debugging</div>
-                                <p data-i18n="projects.agent-platform.harness.debugging" class="text-slate-400 text-xs leading-relaxed"></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Permission model -->
+                <!-- Enforcement Architecture -->
                 <div class="mb-16">
-                    <h4 class="text-2xl font-semibold mb-6">Permission Model — Three Tiers + Time-Boxed Gates</h4>
-                    <div class="grid lg:grid-cols-4 gap-6">
-                        <div class="section-glow rounded-2xl border border-rose-500/30 bg-secondary/35 p-6">
-                            <div class="flex items-baseline gap-2 mb-3">
+                    <div class="mb-6">
+                        <h4 class="text-2xl font-semibold mb-2">Enforcement Architecture</h4>
+                        <p data-i18n="projects.agent-platform.layers.desc" class="text-slate-400 max-w-4xl leading-relaxed"></p>
+                    </div>
+
+                    <div class="grid lg:grid-cols-[1fr,0.85fr] gap-6">
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                                <div class="text-[11px] font-mono-custom text-slate-500 mb-1">LAYER 1 · CONTEXT</div>
+                                <div class="text-sm font-mono-custom text-accent mb-2">CLAUDE.md · memory/**</div>
+                                <p data-i18n="projects.agent-platform.layers.l1" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+                            <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                                <div class="text-[11px] font-mono-custom text-slate-500 mb-1">LAYER 2 · POLICY</div>
+                                <div class="text-sm font-mono-custom text-accent mb-2">settings.json</div>
+                                <p data-i18n="projects.agent-platform.layers.l2" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+                            <div class="section-glow rounded-2xl border border-accent/40 bg-secondary/35 p-5">
+                                <div class="text-[11px] font-mono-custom text-accent mb-1">LAYER 3 · ENFORCEMENT</div>
+                                <div class="text-sm font-mono-custom text-accent mb-2">hooks/**</div>
+                                <p data-i18n="projects.agent-platform.layers.l3" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+                            <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                                <div class="text-[11px] font-mono-custom text-slate-500 mb-1">LAYER 4 · EXECUTION</div>
+                                <div class="text-sm font-mono-custom text-accent mb-2">agents · skills · commands</div>
+                                <p data-i18n="projects.agent-platform.layers.l4" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+                        </div>
+
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/30 p-6">
+                            <div class="text-slate-200 font-semibold mb-4">Repository Layout</div>
+<pre class="text-[11.5px] leading-relaxed font-mono-custom text-slate-400 bg-primary/40 rounded-xl p-4 overflow-x-auto">koclo-erp/
+├── <span class="text-accent">CLAUDE.md</span>          <span class="text-slate-600"># policy, always loaded</span>
+├── .claude/
+│   ├── <span class="text-accent">settings.json</span>  <span class="text-slate-600"># 53 rules · 28 hook regs</span>
+│   ├── <span class="text-accent">agents/</span>   58    <span class="text-slate-600"># one per ERP subtab</span>
+│   ├── <span class="text-accent">skills/</span>   22    <span class="text-slate-600"># repeatable procedures</span>
+│   ├── <span class="text-accent">commands/</span> 34    <span class="text-slate-600"># human entry points</span>
+│   ├── <span class="text-accent">hooks/</span>    25    <span class="text-slate-600"># block · inject · mirror</span>
+│   └── <span class="text-accent">memory/</span>   72    <span class="text-slate-600"># domain · service · meta</span>
+├── backend/   <span class="text-slate-600">372 .py · 167,740 lines</span>
+└── frontend/  <span class="text-slate-600">279 .js / .vue</span></pre>
+                            <p data-i18n="projects.agent-platform.layout.desc" class="text-sm text-slate-400 mt-4 leading-relaxed"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agent Topology -->
+                <div class="mb-16">
+                    <div class="mb-6">
+                        <h4 class="text-2xl font-semibold mb-2">Agent Topology</h4>
+                        <p data-i18n="projects.agent-platform.topology.desc" class="text-slate-400 max-w-4xl leading-relaxed"></p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+                        <div class="section-glow rounded-2xl border border-violet-400/35 bg-secondary/35 p-5">
+                            <div class="flex items-baseline justify-between mb-2">
+                                <span class="text-sm font-semibold text-violet-300">Design Lane</span>
+                                <span class="text-2xl font-bold text-violet-400">5</span>
+                            </div>
+                            <p data-i18n="projects.agent-platform.topology.design" class="text-sm text-slate-400 leading-relaxed"></p>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-accent/40 bg-secondary/35 p-5">
+                            <div class="flex items-baseline justify-between mb-2">
+                                <span class="text-sm font-semibold text-accent">Tab Lane</span>
+                                <span class="text-2xl font-bold text-accent">43</span>
+                            </div>
+                            <p data-i18n="projects.agent-platform.topology.tab" class="text-sm text-slate-400 leading-relaxed"></p>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-amber-400/35 bg-secondary/35 p-5">
+                            <div class="flex items-baseline justify-between mb-2">
+                                <span class="text-sm font-semibold text-amber-300">Business Lane</span>
+                                <span class="text-2xl font-bold text-amber-400">6</span>
+                            </div>
+                            <p data-i18n="projects.agent-platform.topology.business" class="text-sm text-slate-400 leading-relaxed"></p>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-emerald-400/35 bg-secondary/35 p-5">
+                            <div class="flex items-baseline justify-between mb-2">
+                                <span class="text-sm font-semibold text-emerald-300">Review Lane</span>
+                                <span class="text-2xl font-bold text-emerald-400">4</span>
+                            </div>
+                            <p data-i18n="projects.agent-platform.topology.review" class="text-sm text-slate-400 leading-relaxed"></p>
+                        </div>
+                    </div>
+
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/30 p-6">
+                        <div class="text-slate-200 font-semibold mb-4">Tab Lane — 10 ERP Domain Families</div>
+                        <div class="grid grid-cols-2 md:grid-cols-5 gap-3 text-center">
+                            <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-3">
+                                <div class="text-xl font-bold text-accent">8</div>
+                                <div data-i18n="projects.agent-platform.tabs.color" class="text-[11px] text-slate-400"></div>
+                            </div>
+                            <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-3">
+                                <div class="text-xl font-bold text-accent">6</div>
+                                <div data-i18n="projects.agent-platform.tabs.inventory" class="text-[11px] text-slate-400"></div>
+                            </div>
+                            <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-3">
+                                <div class="text-xl font-bold text-accent">5</div>
+                                <div data-i18n="projects.agent-platform.tabs.vmd" class="text-[11px] text-slate-400"></div>
+                            </div>
+                            <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-3">
+                                <div class="text-xl font-bold text-accent">4</div>
+                                <div data-i18n="projects.agent-platform.tabs.sample" class="text-[11px] text-slate-400"></div>
+                            </div>
+                            <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-3">
+                                <div class="text-xl font-bold text-accent">4</div>
+                                <div data-i18n="projects.agent-platform.tabs.post" class="text-[11px] text-slate-400"></div>
+                            </div>
+                            <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-3">
+                                <div class="text-xl font-bold text-accent">4</div>
+                                <div data-i18n="projects.agent-platform.tabs.payrate" class="text-[11px] text-slate-400"></div>
+                            </div>
+                            <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-3">
+                                <div class="text-xl font-bold text-accent">3</div>
+                                <div data-i18n="projects.agent-platform.tabs.best" class="text-[11px] text-slate-400"></div>
+                            </div>
+                            <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-3">
+                                <div class="text-xl font-bold text-accent">3</div>
+                                <div data-i18n="projects.agent-platform.tabs.score" class="text-[11px] text-slate-400"></div>
+                            </div>
+                            <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-3">
+                                <div class="text-xl font-bold text-accent">3</div>
+                                <div data-i18n="projects.agent-platform.tabs.wholesale" class="text-[11px] text-slate-400"></div>
+                            </div>
+                            <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-3">
+                                <div class="text-xl font-bold text-accent">3</div>
+                                <div data-i18n="projects.agent-platform.tabs.retail" class="text-[11px] text-slate-400"></div>
+                            </div>
+                        </div>
+                        <p data-i18n="projects.agent-platform.topology.edge" class="text-sm text-slate-400 mt-4 leading-relaxed"></p>
+                    </div>
+                </div>
+
+                <!-- Guard Enforcement -->
+                <div class="mb-16">
+                    <div class="mb-6">
+                        <h4 class="text-2xl font-semibold mb-2">Guard Enforcement</h4>
+                        <p data-i18n="projects.agent-platform.hooks.desc" class="text-slate-400 max-w-4xl leading-relaxed"></p>
+                    </div>
+
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/30 p-2 md:p-4 overflow-x-auto">
+                        <table class="w-full min-w-[720px] text-sm">
+                            <thead>
+                                <tr class="text-left text-xs text-slate-400 border-b border-slate-700/70">
+                                    <th class="px-3 py-3 font-medium">Guard</th>
+                                    <th class="px-3 py-3 font-medium" data-i18n="projects.agent-platform.hooks.th_block"></th>
+                                    <th class="px-3 py-3 font-medium" data-i18n="projects.agent-platform.hooks.th_origin"></th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-slate-300">
+                                <tr class="border-b border-slate-800/70">
+                                    <td class="px-3 py-3 font-mono-custom text-[12px] text-accent whitespace-nowrap">design-gate</td>
+                                    <td class="px-3 py-3 text-xs" data-i18n="projects.agent-platform.hooks.design"></td>
+                                    <td class="px-3 py-3 text-xs text-slate-400" data-i18n="projects.agent-platform.hooks.design_o"></td>
+                                </tr>
+                                <tr class="border-b border-slate-800/70">
+                                    <td class="px-3 py-3 font-mono-custom text-[12px] text-accent whitespace-nowrap">date-bind-guard</td>
+                                    <td class="px-3 py-3 text-xs" data-i18n="projects.agent-platform.hooks.date"></td>
+                                    <td class="px-3 py-3 text-xs text-slate-400" data-i18n="projects.agent-platform.hooks.date_o"></td>
+                                </tr>
+                                <tr class="border-b border-slate-800/70">
+                                    <td class="px-3 py-3 font-mono-custom text-[12px] text-accent whitespace-nowrap">imported-at-guard</td>
+                                    <td class="px-3 py-3 text-xs" data-i18n="projects.agent-platform.hooks.imported"></td>
+                                    <td class="px-3 py-3 text-xs text-slate-400" data-i18n="projects.agent-platform.hooks.imported_o"></td>
+                                </tr>
+                                <tr class="border-b border-slate-800/70">
+                                    <td class="px-3 py-3 font-mono-custom text-[12px] text-accent whitespace-nowrap">testfile-commit-guard</td>
+                                    <td class="px-3 py-3 text-xs" data-i18n="projects.agent-platform.hooks.testfile"></td>
+                                    <td class="px-3 py-3 text-xs text-slate-400" data-i18n="projects.agent-platform.hooks.testfile_o"></td>
+                                </tr>
+                                <tr class="border-b border-slate-800/70">
+                                    <td class="px-3 py-3 font-mono-custom text-[12px] text-accent whitespace-nowrap">pr-base-guard</td>
+                                    <td class="px-3 py-3 text-xs" data-i18n="projects.agent-platform.hooks.prbase"></td>
+                                    <td class="px-3 py-3 text-xs text-slate-400" data-i18n="projects.agent-platform.hooks.prbase_o"></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-3 py-3 font-mono-custom text-[12px] text-accent whitespace-nowrap">danger-guard · nas-guard</td>
+                                    <td class="px-3 py-3 text-xs" data-i18n="projects.agent-platform.hooks.danger"></td>
+                                    <td class="px-3 py-3 text-xs text-slate-400" data-i18n="projects.agent-platform.hooks.danger_o"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Permission Model -->
+                <div class="mb-16">
+                    <div class="mb-6">
+                        <h4 class="text-2xl font-semibold mb-2">Permission Model</h4>
+                        <p data-i18n="projects.agent-platform.permission.desc" class="text-slate-400 max-w-4xl leading-relaxed"></p>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-4 mb-4">
+                        <div class="section-glow rounded-2xl border border-rose-400/30 bg-secondary/35 p-5">
+                            <div class="flex items-baseline justify-between mb-2">
+                                <span class="font-semibold text-rose-300">deny</span>
                                 <span class="text-2xl font-bold text-rose-400">13</span>
-                                <span class="text-slate-200 font-semibold">deny</span>
                             </div>
-                            <p data-i18n="projects.agent-platform.permission.deny" class="text-slate-400 text-sm leading-relaxed"></p>
+                            <p data-i18n="projects.agent-platform.permission.deny" class="text-sm text-slate-400 leading-relaxed"></p>
                         </div>
-                        <div class="section-glow rounded-2xl border border-amber-500/30 bg-secondary/35 p-6">
-                            <div class="flex items-baseline gap-2 mb-3">
-                                <span class="text-2xl font-bold text-amber-400">35</span>
-                                <span class="text-slate-200 font-semibold">ask</span>
+                        <div class="section-glow rounded-2xl border border-amber-400/30 bg-secondary/35 p-5">
+                            <div class="flex items-baseline justify-between mb-2">
+                                <span class="font-semibold text-amber-300">ask</span>
+                                <span class="text-2xl font-bold text-amber-400">34</span>
                             </div>
-                            <p data-i18n="projects.agent-platform.permission.ask" class="text-slate-400 text-sm leading-relaxed"></p>
+                            <p data-i18n="projects.agent-platform.permission.ask" class="text-sm text-slate-400 leading-relaxed"></p>
                         </div>
-                        <div class="section-glow rounded-2xl border border-emerald-500/30 bg-secondary/35 p-6">
-                            <div class="flex items-baseline gap-2 mb-3">
-                                <span class="text-2xl font-bold text-emerald-400">2</span>
-                                <span class="text-slate-200 font-semibold">gates</span>
+                        <div class="section-glow rounded-2xl border border-emerald-400/30 bg-secondary/35 p-5">
+                            <div class="flex items-baseline justify-between mb-2">
+                                <span class="font-semibold text-emerald-300">allow</span>
+                                <span class="text-2xl font-bold text-emerald-400">6</span>
                             </div>
-                            <p data-i18n="projects.agent-platform.permission.gate" class="text-slate-400 text-sm leading-relaxed"></p>
+                            <p data-i18n="projects.agent-platform.permission.allow" class="text-sm text-slate-400 leading-relaxed"></p>
                         </div>
-                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
-                            <div class="text-slate-200 font-semibold mb-3">Secrets</div>
-                            <p data-i18n="projects.agent-platform.permission.secrets" class="text-slate-400 text-sm leading-relaxed"></p>
+                    </div>
+
+                    <div class="section-glow rounded-2xl border border-accent/40 bg-secondary/35 p-6">
+                        <div class="flex flex-wrap items-center gap-2 mb-3 text-xs font-mono-custom">
+                            <span class="text-accent font-semibold text-sm mr-2">Time-Boxed Gates</span>
+                            <span class="px-3 py-1.5 rounded-full border border-slate-700/70 bg-primary/40 text-slate-300">/design</span>
+                            <span class="px-3 py-1.5 rounded-full border border-slate-700/70 bg-primary/40 text-slate-300">/danger</span>
+                            <span class="px-3 py-1.5 rounded-full border border-slate-700/70 bg-primary/40 text-slate-300">/nas</span>
+                            <span class="px-3 py-1.5 rounded-full border border-slate-700/70 bg-primary/40 text-slate-300">/server</span>
+                            <span class="px-3 py-1.5 rounded-full border border-slate-700/70 bg-primary/40 text-slate-300">/testfile</span>
+                            <span class="px-3 py-1.5 rounded-full border border-slate-700/70 bg-primary/40 text-slate-300">/prbase</span>
                         </div>
+                        <p data-i18n="projects.agent-platform.permission.gate" class="text-sm text-slate-400 leading-relaxed"></p>
                     </div>
                 </div>
 
-                <!-- Hooks table -->
+                <!-- Knowledge Retention -->
                 <div class="mb-16">
-                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
-                        <h4 class="text-2xl font-semibold mb-3">Guard Hooks</h4>
-                        <p data-i18n="projects.agent-platform.hooks.desc" class="text-slate-400 text-sm leading-relaxed mb-6"></p>
-                        <div class="overflow-x-auto">
-                            <table class="w-full text-sm text-left min-w-[640px]">
-                                <thead class="text-xs uppercase text-slate-500 border-b border-slate-700/70">
-                                    <tr>
-                                        <th class="py-2 pr-4 font-medium">Hook</th>
-                                        <th class="py-2 pr-4 font-medium">Event</th>
-                                        <th class="py-2 font-medium">Role</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="text-slate-400">
-                                    <tr class="border-b border-slate-800">
-                                        <td class="py-2 pr-4 font-mono-custom text-accent whitespace-nowrap">memory-recall</td>
-                                        <td class="py-2 pr-4 text-xs whitespace-nowrap">UserPromptSubmit</td>
-                                        <td class="py-2" data-i18n="projects.agent-platform.hooks.recall"></td>
-                                    </tr>
-                                    <tr class="border-b border-slate-800">
-                                        <td class="py-2 pr-4 font-mono-custom text-accent whitespace-nowrap">nas-guard</td>
-                                        <td class="py-2 pr-4 text-xs whitespace-nowrap">PreToolUse</td>
-                                        <td class="py-2" data-i18n="projects.agent-platform.hooks.nas"></td>
-                                    </tr>
-                                    <tr class="border-b border-slate-800">
-                                        <td class="py-2 pr-4 font-mono-custom text-accent whitespace-nowrap">danger-guard</td>
-                                        <td class="py-2 pr-4 text-xs whitespace-nowrap">PreToolUse</td>
-                                        <td class="py-2" data-i18n="projects.agent-platform.hooks.danger"></td>
-                                    </tr>
-                                    <tr class="border-b border-slate-800">
-                                        <td class="py-2 pr-4 font-mono-custom text-accent whitespace-nowrap">testfile-commit-guard</td>
-                                        <td class="py-2 pr-4 text-xs whitespace-nowrap">PreToolUse</td>
-                                        <td class="py-2" data-i18n="projects.agent-platform.hooks.testfile"></td>
-                                    </tr>
-                                    <tr class="border-b border-slate-800">
-                                        <td class="py-2 pr-4 font-mono-custom text-accent whitespace-nowrap">init-sql-mirror</td>
-                                        <td class="py-2 pr-4 text-xs whitespace-nowrap">PostToolUse</td>
-                                        <td class="py-2" data-i18n="projects.agent-platform.hooks.initsql"></td>
-                                    </tr>
-                                    <tr class="border-b border-slate-800">
-                                        <td class="py-2 pr-4 font-mono-custom text-accent whitespace-nowrap">sync-plugins</td>
-                                        <td class="py-2 pr-4 text-xs whitespace-nowrap">PostToolUse</td>
-                                        <td class="py-2" data-i18n="projects.agent-platform.hooks.sync"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-2 pr-4 font-mono-custom text-accent whitespace-nowrap">memory-consolidate</td>
-                                        <td class="py-2 pr-4 text-xs whitespace-nowrap">Stop</td>
-                                        <td class="py-2" data-i18n="projects.agent-platform.hooks.consolidate"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Graph Engineering -->
-                <div class="mb-16">
-                    <div class="flex items-center justify-between flex-wrap gap-4 mb-6">
-                        <div>
-                            <h4 class="text-2xl font-semibold mb-2">Graph Engineering — Node-Level Development</h4>
-                            <p data-i18n="projects.agent-platform.graph.desc" class="text-slate-400 max-w-4xl leading-relaxed"></p>
-                        </div>
-                        <div class="flex flex-wrap gap-2 text-xs">
-                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">58 nodes</span>
-                            <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">parallel delegation</span>
-                        </div>
+                    <div class="mb-6">
+                        <h4 class="text-2xl font-semibold mb-2">Knowledge Retention</h4>
+                        <p data-i18n="projects.agent-platform.graph.desc" class="text-slate-400 max-w-4xl leading-relaxed"></p>
                     </div>
 
-                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/30 p-6 mb-6 overflow-hidden">
-                        <div class="overflow-x-auto">
-                        <svg viewBox="0 0 1200 260" class="w-full min-w-[1000px] h-auto">
-                            <g font-family="ui-sans-serif, system-ui" fill="#e2e8f0">
-                                <rect x="30" y="100" width="150" height="60" rx="14" fill="rgba(17,24,39,.85)" stroke="rgba(148,163,184,.28)"/>
-                                <text x="105" y="125" text-anchor="middle" font-size="15" font-weight="600">Tab</text>
-                                <text x="105" y="144" text-anchor="middle" font-size="11" fill="#94a3b8">skill router</text>
-
-                                <rect x="290" y="16" width="230" height="52" rx="14" fill="rgba(17,24,39,.92)" stroke="#3b82f6"/>
-                                <text x="405" y="38" text-anchor="middle" font-size="14" font-weight="600">node · subtab A</text>
-                                <text x="405" y="56" text-anchor="middle" font-size="11" fill="#60a5fa">agent + memory</text>
-
-                                <rect x="290" y="86" width="230" height="52" rx="14" fill="rgba(17,24,39,.92)" stroke="#3b82f6"/>
-                                <text x="405" y="108" text-anchor="middle" font-size="14" font-weight="600">node · subtab B</text>
-                                <text x="405" y="126" text-anchor="middle" font-size="11" fill="#60a5fa">agent + memory</text>
-
-                                <rect x="290" y="156" width="230" height="52" rx="14" fill="rgba(17,24,39,.92)" stroke="#3b82f6"/>
-                                <text x="405" y="178" text-anchor="middle" font-size="14" font-weight="600">node · subtab C</text>
-                                <text x="405" y="196" text-anchor="middle" font-size="11" fill="#60a5fa">agent + memory</text>
-
-                                <text x="405" y="236" text-anchor="middle" font-size="11" fill="#34d399">delegated in one message → run in parallel</text>
-
-                                <rect x="640" y="86" width="200" height="52" rx="14" fill="rgba(17,24,39,.85)" stroke="rgba(52,211,153,.5)"/>
-                                <text x="740" y="108" text-anchor="middle" font-size="14" font-weight="600">shared asset</text>
-                                <text x="740" y="126" text-anchor="middle" font-size="11" fill="#34d399">edge — report to main</text>
-
-                                <rect x="960" y="86" width="210" height="52" rx="14" fill="rgba(17,24,39,.85)" stroke="rgba(148,163,184,.28)"/>
-                                <text x="1065" y="108" text-anchor="middle" font-size="14" font-weight="600">agent-blueprint</text>
-                                <text x="1065" y="126" text-anchor="middle" font-size="11" fill="#94a3b8">generates node + edges</text>
-                            </g>
-
-                            <path d="M180 118 C235 118 235 42 290 42" stroke="#3b82f6" stroke-width="2.5" fill="none"/>
-                            <path d="M180 130 L290 112" stroke="#3b82f6" stroke-width="2.5" fill="none"/>
-                            <path d="M180 142 C235 142 235 182 290 182" stroke="#3b82f6" stroke-width="2.5" fill="none"/>
-                            <path d="M520 42 C580 42 580 105 640 105" stroke="rgba(52,211,153,.5)" stroke-width="2" stroke-dasharray="5 4" fill="none"/>
-                            <path d="M520 112 L640 112" stroke="rgba(52,211,153,.5)" stroke-width="2" stroke-dasharray="5 4" fill="none"/>
-                            <path d="M520 182 C580 182 580 119 640 119" stroke="rgba(52,211,153,.5)" stroke-width="2" stroke-dasharray="5 4" fill="none"/>
-                            <path d="M960 112 L840 112" stroke="rgba(148,163,184,.45)" stroke-width="2" fill="none"/>
-                        </svg>
-                        </div>
-                    </div>
-
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="grid md:grid-cols-3 gap-4">
                         <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
-                            <div class="text-slate-200 font-semibold mb-2">Node</div>
-                            <p data-i18n="projects.agent-platform.graph.node" class="text-slate-400 text-sm leading-relaxed"></p>
+                            <div class="text-sm font-mono-custom text-accent mb-2">memory-recall</div>
+                            <p data-i18n="projects.agent-platform.graph.recall" class="text-sm text-slate-400 leading-relaxed"></p>
                         </div>
                         <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
-                            <div class="text-slate-200 font-semibold mb-2">Parallelism</div>
-                            <p data-i18n="projects.agent-platform.graph.parallel" class="text-slate-400 text-sm leading-relaxed"></p>
+                            <div class="text-sm font-mono-custom text-accent mb-2">feedback ledger</div>
+                            <p data-i18n="projects.agent-platform.graph.learn" class="text-sm text-slate-400 leading-relaxed"></p>
                         </div>
                         <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
-                            <div class="text-slate-200 font-semibold mb-2">Edge</div>
-                            <p data-i18n="projects.agent-platform.graph.edge" class="text-slate-400 text-sm leading-relaxed"></p>
-                        </div>
-                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
-                            <div class="text-slate-200 font-semibold mb-2">Growth</div>
-                            <p data-i18n="projects.agent-platform.graph.build" class="text-slate-400 text-sm leading-relaxed"></p>
+                            <div class="text-sm font-mono-custom text-accent mb-2">memory-consolidate</div>
+                            <p data-i18n="projects.agent-platform.graph.consolidate" class="text-sm text-slate-400 leading-relaxed"></p>
                         </div>
                     </div>
                 </div>
@@ -419,9 +401,9 @@
                 <!-- Tech Stack -->
                 <div class="mb-16">
                     <h4 class="text-2xl font-semibold mb-6">Technology Stack</h4>
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                         <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
-                            <div class="text-slate-200 font-semibold mb-3">Runtime</div>
+                            <div class="text-slate-200 font-semibold mb-3">Agent Runtime</div>
                             <div class="flex flex-wrap gap-2 text-xs">
                                 <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Claude Code</span>
                                 <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Sub-Agents</span>
@@ -460,20 +442,20 @@
                         <h4 class="text-2xl font-semibold mb-5">Impact</h4>
                         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                             <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-accent font-semibold mb-2">Reliability</div>
+                                <p data-i18n="projects.agent-platform.impact.reliability" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
                                 <div class="text-accent font-semibold mb-2">Safety</div>
                                 <p data-i18n="projects.agent-platform.impact.safety" class="text-sm text-slate-400 leading-relaxed"></p>
                             </div>
                             <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
-                                <div class="text-accent font-semibold mb-2">Repeatability</div>
-                                <p data-i18n="projects.agent-platform.impact.repeatability" class="text-sm text-slate-400 leading-relaxed"></p>
+                                <div class="text-accent font-semibold mb-2">Throughput</div>
+                                <p data-i18n="projects.agent-platform.impact.throughput" class="text-sm text-slate-400 leading-relaxed"></p>
                             </div>
                             <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
-                                <div class="text-accent font-semibold mb-2">Knowledge</div>
-                                <p data-i18n="projects.agent-platform.impact.knowledge" class="text-sm text-slate-400 leading-relaxed"></p>
-                            </div>
-                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
-                                <div class="text-accent font-semibold mb-2">Discipline</div>
-                                <p data-i18n="projects.agent-platform.impact.discipline" class="text-sm text-slate-400 leading-relaxed"></p>
+                                <div class="text-accent font-semibold mb-2">Onboarding</div>
+                                <p data-i18n="projects.agent-platform.impact.onboarding" class="text-sm text-slate-400 leading-relaxed"></p>
                             </div>
                         </div>
                     </div>

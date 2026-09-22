@@ -158,7 +158,7 @@
         "db-total": "DB engine internals and system-level design.",
         "ai1": "Edge object detection with real-time inference.",
         "ai2": "AI annotation and segmentation workflow.",
-        "aiagent": "Claude Code harness: permissions, hooks, memory, agents.",
+        "aiagent": "AI development environment and agent-driven workflow automation system design",
         "erp-db": "97-table ERP DB, Excel/CSV migration, 16 daily batches.",
         "erp-arch": "150-table ERP architecture captured in 8 ADRs."
     },
@@ -827,58 +827,85 @@
             }
         },
         "agent-platform": {
-            "main": "To move to an AI-native development model, I designed the AI infrastructure with Harness Engineering and built a Graph Engineering system that turns each capability into a node, so they can be managed and improved in parallel.",
-            "summary": {
-                "a": "Harness Engineering — 46 permission rules and 7 hooks decide what the environment allows before any tool runs.",
-                "b": "Loop Engineering — work repeats until every story passes a fresh reviewer, not until it looks done.",
-                "c": "Graph Engineering — 1 subtab = 1 node = 1 agent, across 53 nodes, each with its own domain, architecture, and feedback memory.",
-                "d": "Each node has a single owner, so features are modified and added in parallel without collision."
+            "main": "Built an AI development environment spanning harness, skills, hooks, tests and specialized sub-agents, then shipped it as a marketplace plugin, implementing a system that manages development rules and workflows at team level",
+            "dist": {
+                "desc": "Packaged the environment into a GitHub team marketplace rather than leaving it as personal configuration, so two commands apply the same rules, agents and verification procedures",
+                "install": "Marketplace manifests published for both Claude Code and Codex so the same plugin installs regardless of runtime, with a SessionStart hook injecting shared development policy into new sessions",
+                "erp": "For developers. Mirrors the repository assets and adds team entry points — menu, project setup, team verification — plus shared policy skills",
+                "db": "For non-developer roles. A Korean read-only query channel requiring only a database name and account, also built as an .mcpb desktop extension for Claude Desktop users",
+                "sync": "The repository .claude/ directory remains the single source of truth, mirrored to the plugin by hook on edit"
             },
-            "pillars": {
-                "harness": "Governs the environment — permission tiers, guard hooks, and budgeted context injection.",
-                "graph": "Decomposes the product into nodes — one subtab, one agent, shared assets as explicit edges.",
-                "loop": "Repeats until verified — story-by-story iteration with reviewer sign-off before completion."
+            "summary": {
+                "a": "Separated into context, policy, enforcement and execution layers so rule errors and enforcement gaps are fixed at independent points",
+                "b": "25 hooks placed immediately before tool calls to block unapproved edits, irreversible commands and production access at execution time",
+                "c": "One dedicated agent per subtab, each owning its files, API endpoints, DB tables and business rules at path level",
+                "d": "Authoring and verification separated into distinct lanes, with 9 design and review agents kept read-only to structurally prevent self-approval"
+            },
+            "layers": {
+                "desc": "A structure where upper layers cannot function once a lower layer breaks, assigning rule errors to Layer 1 and enforcement gaps to Layer 3",
+                "l1": "Policy loaded at every session start, plus domain knowledge injected by request keyword",
+                "l2": "Denied, confirm-required and allowed tiers declared per command pattern",
+                "l3": "Executables enforcing the declaration, blocking or warning immediately before a tool call",
+                "l4": "Dedicated agents acting within the permitted range by reading a defined procedure"
             },
             "layout": {
-                "desc": "Everything the agents run on is version-controlled in the repo — no per-developer setup, no hidden state."
+                "desc": "Identical rules and agent topology applied by repository clone alone, with no per-developer configuration"
             },
-            "harness": {
-                "desc": "The environment is designed as six harnesses, each built and audited separately.",
-                "context": "CLAUDE.md policy plus 3-layer memory (meta / domain / service) with budgeted auto-injection.",
-                "permission": "deny / ask tiers in settings.json, plus hooks that block below the permission layer.",
-                "tool": "Skills route, agents own, commands expose — trigger-keyword collisions documented as boundaries.",
-                "subagent": "4 git worktrees for filesystem isolation; the memory-sharing gap between them is documented, not hidden.",
-                "verification": "Regression checklists live in the skills. Creating test files is free; committing them is blocked.",
-                "debugging": "An environment scope matrix built without ever reading a secret value."
+            "topology": {
+                "desc": "Ownership partitioned per subtab to remove the context overload and blurred judgment caused by a single agent covering every area",
+                "design": "Investigation, design and post-verification only, read-only with no implementation authority",
+                "tab": "Implementation ownership, with a data agent per family solely owning the backend",
+                "business": "Domain decisions across merchandising, ordering, returns and settlement",
+                "review": "Change sets isolated into a worktree and inspected in parallel across intent, quality, layer and data",
+                "edge": "Shared formulas and API response keys defined as edges between nodes, enabling parallel delegation of independent nodes while enforcing cross-regression checks on edge changes"
             },
-            "permission": {
-                "deny": "Hard denials — git push, DROP / TRUNCATE, rm -rf /, and any read or edit of .env and secrets. Approval cannot override them.",
-                "ask": "Confirmation required — git commit / merge / rebase, docker compose lifecycle, migrations, chmod, sudo.",
-                "gate": "/nas on and /danger on write a gate file holding an expiry epoch — access is granted for a window, not forever.",
-                "secrets": ".env is deny-read at the permission layer. The environment matrix records where each variable is declared, never its value."
+            "tabs": {
+                "color": "Color Trend",
+                "inventory": "Inventory",
+                "vmd": "VMD Hanger",
+                "sample": "Sample Return",
+                "post": "Post-Process",
+                "payrate": "Pay Rate",
+                "best": "Best Products",
+                "score": "Score Ranking",
+                "wholesale": "Wholesale Reorder",
+                "retail": "Retail Reorder"
             },
             "hooks": {
-                "desc": "Seven hooks across four lifecycle events. Guards exit 2 to block; memory hooks fail open so they can never stall a session.",
-                "recall": "Scores memory files against the prompt by IDF and injects the best match under a 4,000-character budget.",
-                "nas": "Blocks any command carrying a production NAS marker unless the gate is open.",
-                "danger": "Blocks irreversible commands — force push, reset --hard, docker prune, SQL drop / truncate.",
-                "testfile": "Creating test files is free; committing them is blocked. Added after 859 lines of unrequested tests shipped inside a feature commit.",
-                "initsql": "Detects DDL/DML run in a session and requires init.sql — the schema source of truth — to mirror it.",
-                "sync": "Keeps plugin definitions in sync after edits to them.",
-                "consolidate": "If the session took a correction but nothing was recorded, it prompts once before exit."
+                "desc": "25 hooks registered 28 times across 4 lifecycle events, converting recurring defect classes from documented rules into execution-time blocks",
+                "th_block": "Blocked action",
+                "th_origin": "Origin",
+                "design": "Editing backend or frontend without an approved design",
+                "design_o": "Implementation entered with the design stage skipped",
+                "date": "String bound to a date cast in asynchronous SQL",
+                "date_o": "Recurring cause of 500 responses on query APIs",
+                "imported": "Type convention violations on the ingestion-date column",
+                "imported_o": "Accumulated type mismatch across 20 tables",
+                "testfile": "Test files outside the requested scope included in commits",
+                "testfile_o": "859 test lines merged into a feature commit",
+                "prbase": "Pull requests opened without a specified base branch",
+                "prbase_o": "Unverified changes reaching production auto-deploy",
+                "danger": "Irreversible commands and production server access",
+                "danger_o": "Pre-emptive block on non-recoverable operations"
+            },
+            "permission": {
+                "desc": "Blast radius divided into three tiers per command pattern, graded by the cost of failure",
+                "deny": "Secret access and irreversible destructive commands, not releasable by approval",
+                "ask": "Commits, merges, container lifecycle and PR creation requiring confirmation before execution",
+                "allow": "Reads and searches with nothing to revert",
+                "gate": "Blocked operations opened temporarily through a gate file holding an expiry timestamp, granting permission as a duration rather than a state and reserving the right to open it to the user"
             },
             "graph": {
-                "desc": "Development happens per node, not per repository. A node is one subtab with one owning agent, so a change stays inside its boundary.",
-                "node": "53 agents map 1:1 onto subtabs, each carrying its own domain, architecture, and feedback memory.",
-                "parallel": "Independent nodes are delegated in a single message and run at once — several features change without collision.",
-                "edge": "Shared formulas, API response keys, and DB tables are the edges. Touching one requires reporting back to the main session.",
-                "build": "A new node and its edges are generated by agent-blueprint from a reference node — never invented from scratch."
+                "desc": "Domain business rules not recoverable from code alone, split across 72 memory nodes and partially injected per request",
+                "recall": "Prompt and memory scored by IDF, injecting the best match within a fixed budget",
+                "learn": "Corrections accumulated as numbered entries in per-domain feedback files and re-injected automatically in later sessions",
+                "consolidate": "Unrecorded corrections and unverified completion claims checked at session exit"
             },
             "impact": {
-                "safety": "Destructive and production-reaching commands are blocked below the approval layer, with access granted only through expiring gates",
-                "repeatability": "A new tab's agent system is scaffolded from one reference structure instead of being invented each time",
-                "knowledge": "Corrections become numbered feedback entries that are re-injected into later sessions automatically",
-                "discipline": "Every enforcement claim in the docs was verified against the code, and the gaps were fixed rather than described"
+                "reliability": "Three recurring defect classes converted into execution-time blocks, removing their recurrence path",
+                "safety": "Irreversible commands and production access blocked beneath the approval layer, with access granted only through expiring gates",
+                "throughput": "Parallel delegation of independently owned nodes supporting concurrent multi-feature development",
+                "onboarding": "Identical environment applied across the team through two marketplace commands, with no per-developer setup"
             }
         },
             "erp-architecture": {
