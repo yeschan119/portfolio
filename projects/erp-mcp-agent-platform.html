@@ -1,0 +1,514 @@
+<!-- ERP MCP AGENT PLATFORM — AGENT · MCP · RAG · GRAPH -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>ERP MCP Agent Platform</title>
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+
+        <!-- Tailwind CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: "#0b1120",
+                            secondary: "#111827",
+                            accent: "#3b82f6"
+                        }
+                    }
+                }
+            }
+        </script>
+
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+    </head>
+    <body class="bg-primary text-white">
+        <section id="erp-mcp-agent-platform" class="section-glow py-24 border-t border-slate-800">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="mb-10">
+                    <button
+                        onclick="history.back()"
+                        class="flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-700
+                            bg-secondary/40 text-sm text-slate-300 hover:bg-secondary/60 hover:text-white transition">
+                        <span class="text-sm">←</span>
+                        Back to Projects
+                    </button>
+                </div>
+
+                <!-- Header -->
+                <div class="mb-14">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20 text-xs text-slate-300 mb-6">
+                        <span class="w-2 h-2 rounded-full bg-accent"></span>
+                        Case Study • Agent Engineering • MCP · Graph · RAG
+                    </div>
+
+                    <h3 class="text-4xl font-semibold mb-4">
+                        ERP MCP Agent Platform
+                    </h3>
+
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-700 bg-secondary/40 text-sm text-slate-400">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                        Ko&amp;Clo • Enterprise • Private Repository
+                    </div>
+
+                    <p data-i18n="projects.mcp-agent.main" class="text-slate-400 mt-4 text-lg max-w-4xl leading-relaxed"></p>
+                </div>
+
+                <!-- Executive Summary -->
+                <div class="grid lg:grid-cols-[1.35fr,0.9fr] gap-6 mb-16">
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                        <h4 class="text-xl font-semibold mb-5">Executive Summary</h4>
+                        <div class="grid sm:grid-cols-2 gap-4 text-sm text-slate-300 leading-relaxed">
+                            <div data-i18n="projects.mcp-agent.summary.a" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                            <div data-i18n="projects.mcp-agent.summary.b" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                            <div data-i18n="projects.mcp-agent.summary.c" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                            <div data-i18n="projects.mcp-agent.summary.d" class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5"></div>
+                        </div>
+                    </div>
+
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                        <h4 class="text-xl font-semibold mb-5">Key Metrics</h4>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
+                                <div class="text-3xl font-bold text-accent mb-2">96</div>
+                                <div class="text-sm text-slate-400">MCP Tools Exposed</div>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
+                                <div class="text-3xl font-bold text-accent mb-2">13</div>
+                                <div class="text-sm text-slate-400">Domain Agent Nodes</div>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
+                                <div class="text-3xl font-bold text-accent mb-2">14</div>
+                                <div class="text-sm text-slate-400">Scoped Endpoints</div>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
+                                <div class="text-3xl font-bold text-accent mb-2">0</div>
+                                <div class="text-sm text-slate-400">LLM Calls from ERP</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Request Flow -->
+                <div class="mb-16">
+                    <div class="mb-6">
+                        <h4 class="text-2xl font-semibold mb-2">Request Flow</h4>
+                        <p data-i18n="projects.mcp-agent.flow.desc" class="text-slate-400 max-w-4xl leading-relaxed"></p>
+                    </div>
+
+                    <div class="grid lg:grid-cols-2 gap-6">
+                        <div class="section-glow rounded-2xl border border-accent/40 bg-secondary/35 p-6 min-w-0">
+                            <div class="text-slate-200 font-semibold mb-4">One-Way Pipeline</div>
+<pre class="text-[11.5px] leading-relaxed font-mono-custom text-slate-400 bg-primary/40 rounded-xl p-4 overflow-x-auto">user ─► ERP agent tab
+          │  POST /api/agent/&lt;domain&gt;/submit
+          ▼
+      <span class="text-accent">agent_jobs</span> queue  <span class="text-slate-600"># 2 workers · SKIP LOCKED</span>
+          │  run_via_hermes(system_prompt, mode=&lt;domain&gt;)
+          ▼
+      <span class="text-accent">Hermes gateway</span>   <span class="text-slate-600"># loopback · api_server</span>
+          │
+          ▼
+      <span class="text-accent">Codex</span> (brain)     <span class="text-slate-600"># tool-use loop decides the calls</span>
+          │  tools/call  ·  Bearer token
+          ▼
+      <span class="text-accent">/mcp/&lt;domain&gt;/</span>   <span class="text-slate-600"># ERP MCP server, scoped</span>
+          │  catalog.dispatch → registry.dispatch
+          ▼
+      ERP services ─► PostgreSQL ─► JSON (≤ 24k chars) ─► back to Codex</pre>
+                            <p data-i18n="projects.mcp-agent.flow.queue" class="text-sm text-slate-400 mt-4 leading-relaxed"></p>
+                        </div>
+
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/30 p-6 min-w-0">
+                            <div class="text-slate-200 font-semibold mb-4">Two-Axis Isolation</div>
+
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-4 mb-3">
+                                <div class="flex flex-wrap items-center justify-between gap-x-3 mb-1">
+                                    <span class="font-mono-custom text-sm text-accent">mode · model</span>
+                                    <span class="text-[11px] text-slate-500 font-mono-custom">HERMES_SEND_MODE · HERMES_DOMAIN_MODELS</span>
+                                </div>
+                                <p data-i18n="projects.mcp-agent.flow.scope" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-4 mb-3">
+                                <div class="flex flex-wrap items-center justify-between gap-x-3 mb-1">
+                                    <span class="font-mono-custom text-sm text-accent">channels</span>
+                                    <span class="text-[11px] text-slate-500 font-mono-custom">ERP tab · Telegram · Mattermost</span>
+                                </div>
+                                <p data-i18n="projects.mcp-agent.flow.channels" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+
+                            <div class="flex flex-wrap gap-2 text-xs mt-4">
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Streamable HTTP</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">stateless · JSON</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Bearer auth</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">host-local loopback</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MCP Server -->
+                <div class="mb-16">
+                    <div class="mb-6">
+                        <h4 class="text-2xl font-semibold mb-2">MCP Server</h4>
+                        <p data-i18n="projects.mcp-agent.server.desc" class="text-slate-400 max-w-4xl leading-relaxed"></p>
+                    </div>
+
+                    <div class="grid lg:grid-cols-[1fr,0.85fr] gap-6">
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                                <div class="text-[11px] font-mono-custom text-slate-500 mb-1">LAYER 1 · REGISTRY</div>
+                                <div class="text-sm font-mono-custom text-accent mb-2">registries/&lt;domain&gt;.py</div>
+                                <p data-i18n="projects.mcp-agent.server.l1" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+                            <div class="section-glow rounded-2xl border border-accent/40 bg-secondary/35 p-5">
+                                <div class="text-[11px] font-mono-custom text-accent mb-1">LAYER 2 · CATALOG</div>
+                                <div class="text-sm font-mono-custom text-accent mb-2">catalog.EXPOSED</div>
+                                <p data-i18n="projects.mcp-agent.server.l2" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+                            <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                                <div class="text-[11px] font-mono-custom text-slate-500 mb-1">LAYER 3 · TRANSPORT</div>
+                                <div class="text-sm font-mono-custom text-accent mb-2">mcp_server/server.py</div>
+                                <p data-i18n="projects.mcp-agent.server.l3" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+                            <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                                <div class="text-[11px] font-mono-custom text-slate-500 mb-1">LAYER 4 · MOUNT</div>
+                                <div class="text-sm font-mono-custom text-accent mb-2">/mcp/&lt;domain&gt;/ · /mcp/</div>
+                                <p data-i18n="projects.mcp-agent.server.l4" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+                        </div>
+
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/30 p-6 min-w-0">
+                            <div class="text-slate-200 font-semibold mb-4">Tool Catalog</div>
+<pre class="text-[11.5px] leading-relaxed font-mono-custom text-slate-400 bg-primary/40 rounded-xl p-4 overflow-x-auto">backend/app/
+├── <span class="text-accent">mcp_server/</span>
+│   ├── catalog.py    <span class="text-slate-600"># EXPOSED · 96 tools · 28 mutating</span>
+│   └── server.py     <span class="text-slate-600"># Streamable HTTP · Bearer · lifespan</span>
+└── services/agent/
+    ├── hermes_bridge.py        <span class="text-slate-600"># mode · model routing</span>
+    └── <span class="text-accent">registries/</span>  13      <span class="text-slate-600"># TOOL_DEFINITIONS + dispatch</span>
+
+<span class="text-slate-600"># MCP name = &lt;domain&gt;__&lt;tool&gt;</span>
+retail_reorder__…   14   post_process__…   14
+wholesale_reorder__… 12   sample_return__…   9
+vmd__…               9   color_trend__…     8
+batch_admin__…       6   store_dashboard__… 6
+payrate__…           5   best_products__…   4
+db_admin__…          4   score_ranking__…   3
+mcp_admin__…         2</pre>
+                            <p data-i18n="projects.mcp-agent.server.catalog" class="text-sm text-slate-400 mt-4 leading-relaxed"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Domain Agent Graph -->
+                <div class="mb-16">
+                    <div class="mb-6">
+                        <h4 class="text-2xl font-semibold mb-2">Domain Agent Graph</h4>
+                        <p data-i18n="projects.mcp-agent.graph.desc" class="text-slate-400 max-w-4xl leading-relaxed"></p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+                        <div class="section-glow rounded-2xl border border-violet-400/35 bg-secondary/35 p-5">
+                            <div class="flex items-baseline justify-between mb-2">
+                                <span class="text-sm font-semibold text-violet-300">Omni Hub</span>
+                                <span class="text-2xl font-bold text-violet-400">1</span>
+                            </div>
+                            <p data-i18n="projects.mcp-agent.graph.hub" class="text-sm text-slate-400 leading-relaxed"></p>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-accent/40 bg-secondary/35 p-5">
+                            <div class="flex items-baseline justify-between mb-2">
+                                <span class="text-sm font-semibold text-accent">Domain Nodes</span>
+                                <span class="text-2xl font-bold text-accent">13</span>
+                            </div>
+                            <p data-i18n="projects.mcp-agent.graph.node" class="text-sm text-slate-400 leading-relaxed"></p>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-amber-400/35 bg-secondary/35 p-5">
+                            <div class="flex items-baseline justify-between mb-2">
+                                <span class="text-sm font-semibold text-amber-300">Write Tools</span>
+                                <span class="text-2xl font-bold text-amber-400">28</span>
+                            </div>
+                            <p data-i18n="projects.mcp-agent.graph.write" class="text-sm text-slate-400 leading-relaxed"></p>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-emerald-400/35 bg-secondary/35 p-5">
+                            <div class="flex items-baseline justify-between mb-2">
+                                <span class="text-sm font-semibold text-emerald-300">Job Pipelines</span>
+                                <span class="text-2xl font-bold text-emerald-400">2</span>
+                            </div>
+                            <p data-i18n="projects.mcp-agent.graph.pipeline" class="text-sm text-slate-400 leading-relaxed"></p>
+                        </div>
+                    </div>
+
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/30 p-6">
+                        <div class="text-slate-200 font-semibold mb-4">Nodes — 13 ERP Domains · tools per node</div>
+                        <div class="grid grid-cols-2 md:grid-cols-5 gap-3 text-center">
+                            <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-3">
+                                <div class="text-xl font-bold text-accent">14</div>
+                                <div data-i18n="projects.mcp-agent.domains.retail" class="text-[11px] text-slate-400"></div>
+                            </div>
+                            <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-3">
+                                <div class="text-xl font-bold text-accent">14</div>
+                                <div data-i18n="projects.mcp-agent.domains.post" class="text-[11px] text-slate-400"></div>
+                            </div>
+                            <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-3">
+                                <div class="text-xl font-bold text-accent">12</div>
+                                <div data-i18n="projects.mcp-agent.domains.wholesale" class="text-[11px] text-slate-400"></div>
+                            </div>
+                            <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-3">
+                                <div class="text-xl font-bold text-accent">9</div>
+                                <div data-i18n="projects.mcp-agent.domains.sample" class="text-[11px] text-slate-400"></div>
+                            </div>
+                            <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-3">
+                                <div class="text-xl font-bold text-accent">9</div>
+                                <div data-i18n="projects.mcp-agent.domains.vmd" class="text-[11px] text-slate-400"></div>
+                            </div>
+                            <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-3">
+                                <div class="text-xl font-bold text-accent">8</div>
+                                <div data-i18n="projects.mcp-agent.domains.color" class="text-[11px] text-slate-400"></div>
+                            </div>
+                            <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-3">
+                                <div class="text-xl font-bold text-accent">6</div>
+                                <div data-i18n="projects.mcp-agent.domains.batch" class="text-[11px] text-slate-400"></div>
+                            </div>
+                            <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-3">
+                                <div class="text-xl font-bold text-accent">6</div>
+                                <div data-i18n="projects.mcp-agent.domains.store" class="text-[11px] text-slate-400"></div>
+                            </div>
+                            <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-3">
+                                <div class="text-xl font-bold text-accent">5</div>
+                                <div data-i18n="projects.mcp-agent.domains.payrate" class="text-[11px] text-slate-400"></div>
+                            </div>
+                            <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-3">
+                                <div class="text-xl font-bold text-accent">4</div>
+                                <div data-i18n="projects.mcp-agent.domains.best" class="text-[11px] text-slate-400"></div>
+                            </div>
+                            <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-3">
+                                <div class="text-xl font-bold text-accent">4</div>
+                                <div data-i18n="projects.mcp-agent.domains.db" class="text-[11px] text-slate-400"></div>
+                            </div>
+                            <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-3">
+                                <div class="text-xl font-bold text-accent">3</div>
+                                <div data-i18n="projects.mcp-agent.domains.score" class="text-[11px] text-slate-400"></div>
+                            </div>
+                            <div class="rounded-xl border border-slate-700/60 bg-primary/30 p-3">
+                                <div class="text-xl font-bold text-accent">2</div>
+                                <div data-i18n="projects.mcp-agent.domains.mcp" class="text-[11px] text-slate-400"></div>
+                            </div>
+                        </div>
+                        <p data-i18n="projects.mcp-agent.graph.edge" class="text-sm text-slate-400 mt-4 leading-relaxed"></p>
+                    </div>
+                </div>
+
+                <!-- Cost Architecture -->
+                <div class="mb-16">
+                    <div class="mb-6">
+                        <h4 class="text-2xl font-semibold mb-2">Cost Architecture — Codex + Hermes</h4>
+                        <p data-i18n="projects.mcp-agent.cost.desc" class="text-slate-400 max-w-4xl leading-relaxed"></p>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-4 mb-4">
+                        <div class="section-glow rounded-2xl border border-accent/40 bg-secondary/35 p-5">
+                            <div class="flex items-baseline justify-between mb-2">
+                                <span class="font-semibold text-accent">Hermes gateway</span>
+                                <span class="text-[11px] text-slate-500 font-mono-custom">1 container</span>
+                            </div>
+                            <p data-i18n="projects.mcp-agent.cost.gateway" class="text-sm text-slate-400 leading-relaxed"></p>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-emerald-400/30 bg-secondary/35 p-5">
+                            <div class="flex items-baseline justify-between mb-2">
+                                <span class="font-semibold text-emerald-300">Codex brain</span>
+                                <span class="text-[11px] text-slate-500 font-mono-custom">flat-rate subscription</span>
+                            </div>
+                            <p data-i18n="projects.mcp-agent.cost.brain" class="text-sm text-slate-400 leading-relaxed"></p>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-rose-400/30 bg-secondary/35 p-5">
+                            <div class="flex items-baseline justify-between mb-2">
+                                <span class="font-semibold text-rose-300">direct API path</span>
+                                <span class="text-[11px] text-slate-500 font-mono-custom">pay-per-token · retired</span>
+                            </div>
+                            <p data-i18n="projects.mcp-agent.cost.direct" class="text-sm text-slate-400 leading-relaxed"></p>
+                        </div>
+                    </div>
+
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/30 p-2 md:p-4 overflow-x-auto">
+                        <table class="w-full min-w-[720px] text-sm">
+                            <thead>
+                                <tr class="text-left text-xs text-slate-400 border-b border-slate-700/70">
+                                    <th class="px-3 py-3 font-medium">Invariant</th>
+                                    <th class="px-3 py-3 font-medium" data-i18n="projects.mcp-agent.inv.th_rule"></th>
+                                    <th class="px-3 py-3 font-medium" data-i18n="projects.mcp-agent.inv.th_origin"></th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-slate-300">
+                                <tr class="border-b border-slate-800/70">
+                                    <td class="px-3 py-3 font-mono-custom text-[12px] text-accent whitespace-nowrap">R1 · no-LLM-in-ERP</td>
+                                    <td class="px-3 py-3 text-xs" data-i18n="projects.mcp-agent.inv.r1"></td>
+                                    <td class="px-3 py-3 text-xs text-slate-400" data-i18n="projects.mcp-agent.inv.r1_o"></td>
+                                </tr>
+                                <tr class="border-b border-slate-800/70">
+                                    <td class="px-3 py-3 font-mono-custom text-[12px] text-accent whitespace-nowrap">R2 · path = payer</td>
+                                    <td class="px-3 py-3 text-xs" data-i18n="projects.mcp-agent.inv.r2"></td>
+                                    <td class="px-3 py-3 text-xs text-slate-400" data-i18n="projects.mcp-agent.inv.r2_o"></td>
+                                </tr>
+                                <tr class="border-b border-slate-800/70">
+                                    <td class="px-3 py-3 font-mono-custom text-[12px] text-accent whitespace-nowrap">R3 · two-place add</td>
+                                    <td class="px-3 py-3 text-xs" data-i18n="projects.mcp-agent.inv.r3"></td>
+                                    <td class="px-3 py-3 text-xs text-slate-400" data-i18n="projects.mcp-agent.inv.r3_o"></td>
+                                </tr>
+                                <tr class="border-b border-slate-800/70">
+                                    <td class="px-3 py-3 font-mono-custom text-[12px] text-accent whitespace-nowrap">R6 · restart rule</td>
+                                    <td class="px-3 py-3 text-xs" data-i18n="projects.mcp-agent.inv.r6"></td>
+                                    <td class="px-3 py-3 text-xs text-slate-400" data-i18n="projects.mcp-agent.inv.r6_o"></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-3 py-3 font-mono-custom text-[12px] text-accent whitespace-nowrap">R7 · schema enum</td>
+                                    <td class="px-3 py-3 text-xs" data-i18n="projects.mcp-agent.inv.r7"></td>
+                                    <td class="px-3 py-3 text-xs text-slate-400" data-i18n="projects.mcp-agent.inv.r7_o"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Retrieval Layer -->
+                <div class="mb-16">
+                    <div class="mb-6">
+                        <h4 class="text-2xl font-semibold mb-2">Retrieval Layer — Tool-Grounded RAG</h4>
+                        <p data-i18n="projects.mcp-agent.rag.desc" class="text-slate-400 max-w-4xl leading-relaxed"></p>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                            <div class="text-sm font-mono-custom text-accent mb-2">typed tools · 96</div>
+                            <p data-i18n="projects.mcp-agent.rag.tool" class="text-sm text-slate-400 leading-relaxed"></p>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                            <div class="text-sm font-mono-custom text-accent mb-2">domain system prompt</div>
+                            <p data-i18n="projects.mcp-agent.rag.context" class="text-sm text-slate-400 leading-relaxed"></p>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                            <div class="text-sm font-mono-custom text-accent mb-2">missing-tool intake</div>
+                            <p data-i18n="projects.mcp-agent.rag.intake" class="text-sm text-slate-400 leading-relaxed"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MCP Monitor -->
+                <div class="mb-16">
+                    <div class="mb-6">
+                        <h4 class="text-2xl font-semibold mb-2">MCP Monitor</h4>
+                        <p data-i18n="projects.mcp-agent.monitor.desc" class="text-slate-400 max-w-4xl leading-relaxed"></p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                            <div class="text-[11px] font-mono-custom text-slate-500 mb-1">mcp_tool_status</div>
+                            <div class="text-sm font-semibold text-slate-200 mb-2">Tool Registry</div>
+                            <p data-i18n="projects.mcp-agent.monitor.tools" class="text-sm text-slate-400 leading-relaxed"></p>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                            <div class="text-[11px] font-mono-custom text-slate-500 mb-1">codex_usage_snapshot</div>
+                            <div class="text-sm font-semibold text-slate-200 mb-2">Codex Usage</div>
+                            <p data-i18n="projects.mcp-agent.monitor.usage" class="text-sm text-slate-400 leading-relaxed"></p>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                            <div class="text-[11px] font-mono-custom text-slate-500 mb-1">mcp_missing_tool_requests</div>
+                            <div class="text-sm font-semibold text-slate-200 mb-2">Missing-Tool Intake</div>
+                            <p data-i18n="projects.mcp-agent.monitor.missing" class="text-sm text-slate-400 leading-relaxed"></p>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-accent/40 bg-secondary/35 p-5">
+                            <div class="text-[11px] font-mono-custom text-accent mb-1">mcp_gateway_restart_requests</div>
+                            <div class="text-sm font-semibold text-slate-200 mb-2">Gateway Restart Queue</div>
+                            <p data-i18n="projects.mcp-agent.monitor.restart" class="text-sm text-slate-400 leading-relaxed"></p>
+                        </div>
+                    </div>
+
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
+                        <div class="flex flex-wrap items-center gap-2 mb-3 text-xs font-mono-custom">
+                            <span class="text-accent font-semibold text-sm mr-2">Platform Signals</span>
+                            <span class="px-3 py-1.5 rounded-full border border-slate-700/70 bg-primary/40 text-slate-300">latency p95/p99</span>
+                            <span class="px-3 py-1.5 rounded-full border border-slate-700/70 bg-primary/40 text-slate-300">traffic</span>
+                            <span class="px-3 py-1.5 rounded-full border border-slate-700/70 bg-primary/40 text-slate-300">errors</span>
+                            <span class="px-3 py-1.5 rounded-full border border-slate-700/70 bg-primary/40 text-slate-300">saturation</span>
+                            <span class="px-3 py-1.5 rounded-full border border-slate-700/70 bg-primary/40 text-slate-300">agent queue stats</span>
+                        </div>
+                        <p data-i18n="projects.mcp-agent.monitor.signals" class="text-sm text-slate-400 leading-relaxed"></p>
+                    </div>
+                </div>
+
+                <!-- Tech Stack -->
+                <div class="mb-16">
+                    <h4 class="text-2xl font-semibold mb-6">Technology Stack</h4>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                            <div class="text-slate-200 font-semibold mb-3">Agent Runtime</div>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Hermes Agent</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Codex (gpt-5.6)</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">MCP Python SDK</span>
+                            </div>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                            <div class="text-slate-200 font-semibold mb-3">Tool Provider</div>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">FastAPI</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Streamable HTTP</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">PostgreSQL · asyncpg</span>
+                            </div>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                            <div class="text-slate-200 font-semibold mb-3">Isolation</div>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Domain Scoping</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Bearer Token</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Docker host network</span>
+                            </div>
+                        </div>
+                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
+                            <div class="text-slate-200 font-semibold mb-3">Observability</div>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">MCP Admin Tab</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Golden Signals</span>
+                                <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20">Job Queue</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Impact -->
+                <div>
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6 md:p-8">
+                        <h4 class="text-2xl font-semibold mb-5">Impact</h4>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-accent font-semibold mb-2">Cost</div>
+                                <p data-i18n="projects.mcp-agent.impact.cost" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-accent font-semibold mb-2">Safety</div>
+                                <p data-i18n="projects.mcp-agent.impact.safety" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-accent font-semibold mb-2">Extensibility</div>
+                                <p data-i18n="projects.mcp-agent.impact.extensibility" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
+                                <div class="text-accent font-semibold mb-2">Observability</div>
+                                <p data-i18n="projects.mcp-agent.impact.observability" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <script src="/src/main.js"></script>
+    </body>
+</html>
