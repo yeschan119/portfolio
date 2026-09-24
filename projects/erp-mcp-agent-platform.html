@@ -46,7 +46,7 @@
                 <div class="mb-14">
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-700/70 bg-secondary/20 text-xs text-slate-300 mb-6">
                         <span class="w-2 h-2 rounded-full bg-accent"></span>
-                        Case Study • Agent Engineering • MCP · Graph · RAG
+                        Case Study • Agent Engineering • Agent · MCP · Graph · RAG
                     </div>
 
                     <h3 class="text-4xl font-semibold mb-4">
@@ -58,7 +58,7 @@
                         Ko&amp;Clo • Enterprise • Private Repository
                     </div>
 
-                    <p data-i18n="projects.mcp-agent.main" class="text-slate-400 mt-4 text-lg max-w-4xl leading-relaxed"></p>
+                    <p data-i18n="projects.mcp-agent.main" class="text-slate-400 mt-4 text-lg leading-relaxed"></p>
                 </div>
 
                 <!-- Executive Summary -->
@@ -89,8 +89,8 @@
                                 <div class="text-sm text-slate-400">Scoped Endpoints</div>
                             </div>
                             <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5 text-center">
-                                <div class="text-3xl font-bold text-accent mb-2">0</div>
-                                <div class="text-sm text-slate-400">LLM Calls from ERP</div>
+                                <div class="text-3xl font-bold text-accent mb-2">28</div>
+                                <div class="text-sm text-slate-400">Guarded Write Tools</div>
                             </div>
                         </div>
                     </div>
@@ -100,7 +100,10 @@
                 <div class="mb-16">
                     <div class="mb-6">
                         <h4 class="text-2xl font-semibold mb-2">Request Flow</h4>
-                        <p data-i18n="projects.mcp-agent.flow.desc" class="text-slate-400 max-w-4xl leading-relaxed"></p>
+                        <ul class="text-slate-400 leading-relaxed list-disc pl-5 space-y-1">
+                            <li data-i18n="projects.mcp-agent.flow.desc1"></li>
+                            <li data-i18n="projects.mcp-agent.flow.desc2"></li>
+                        </ul>
                     </div>
 
                     <div class="grid lg:grid-cols-2 gap-6">
@@ -109,39 +112,48 @@
 <pre class="text-[11.5px] leading-relaxed font-mono-custom text-slate-400 bg-primary/40 rounded-xl p-4 overflow-x-auto">user ─► ERP agent tab
           │  POST /api/agent/&lt;domain&gt;/submit
           ▼
-      <span class="text-accent">agent_jobs</span> queue  <span class="text-slate-600"># 2 workers · SKIP LOCKED</span>
-          │  run_via_hermes(system_prompt, mode=&lt;domain&gt;)
+      <span class="text-accent">agent_jobs</span> queue        <span class="text-slate-600"># 2 workers · SKIP LOCKED</span>
+          │  {model, messages:[system prompt, …], mode:&lt;domain&gt;}
           ▼
-      <span class="text-accent">Hermes gateway</span>   <span class="text-slate-600"># loopback · api_server</span>
-          │
+      <span class="text-accent">Hermes gateway</span>         <span class="text-slate-600"># api_server · loopback</span>
+          │  tools/list ◄── /mcp/&lt;domain&gt;/   <span class="text-slate-600"># scoped tool schemas</span>
           ▼
-      <span class="text-accent">Codex</span> (brain)     <span class="text-slate-600"># tool-use loop decides the calls</span>
-          │  tools/call  ·  Bearer token
+      <span class="text-emerald-300">Codex · LLM</span>            <span class="text-slate-600"># reads prompt + schemas → picks tool + args</span>
+          │  tools/call &lt;domain&gt;__&lt;tool&gt;(args)  ·  Bearer
           ▼
-      <span class="text-accent">/mcp/&lt;domain&gt;/</span>   <span class="text-slate-600"># ERP MCP server, scoped</span>
+      <span class="text-accent">/mcp/&lt;domain&gt;/</span>         <span class="text-slate-600"># ERP MCP server</span>
           │  catalog.dispatch → registry.dispatch
           ▼
-      ERP services ─► PostgreSQL ─► JSON (≤ 24k chars) ─► back to Codex</pre>
+      ERP services ─► PostgreSQL ─► JSON (≤ 24k)
+          └──► back into the LLM context ─► loop until the answer is ready</pre>
                             <p data-i18n="projects.mcp-agent.flow.queue" class="text-sm text-slate-400 mt-4 leading-relaxed"></p>
                         </div>
 
                         <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/30 p-6 min-w-0">
-                            <div class="text-slate-200 font-semibold mb-4">Two-Axis Isolation</div>
+                            <div class="text-slate-200 font-semibold mb-4">LLM Tool Selection</div>
 
                             <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-4 mb-3">
                                 <div class="flex flex-wrap items-center justify-between gap-x-3 mb-1">
-                                    <span class="font-mono-custom text-sm text-accent">mode · model</span>
-                                    <span class="text-[11px] text-slate-500 font-mono-custom">HERMES_SEND_MODE · HERMES_DOMAIN_MODELS</span>
+                                    <span class="font-mono-custom text-sm text-accent">tools/list → schemas</span>
+                                    <span class="text-[11px] text-slate-500 font-mono-custom">name · description · JSON Schema</span>
                                 </div>
-                                <p data-i18n="projects.mcp-agent.flow.scope" class="text-sm text-slate-400 leading-relaxed"></p>
+                                <p data-i18n="projects.mcp-agent.flow.tools" class="text-sm text-slate-400 leading-relaxed"></p>
+                            </div>
+
+                            <div class="rounded-2xl border border-emerald-400/30 bg-primary/30 p-4 mb-3">
+                                <div class="flex flex-wrap items-center justify-between gap-x-3 mb-1">
+                                    <span class="font-mono-custom text-sm text-emerald-300">tool-use loop</span>
+                                    <span class="text-[11px] text-slate-500 font-mono-custom">max 60 turns · failure guardrails</span>
+                                </div>
+                                <p data-i18n="projects.mcp-agent.flow.loop" class="text-sm text-slate-400 leading-relaxed"></p>
                             </div>
 
                             <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-4 mb-3">
                                 <div class="flex flex-wrap items-center justify-between gap-x-3 mb-1">
-                                    <span class="font-mono-custom text-sm text-accent">channels</span>
+                                    <span class="font-mono-custom text-sm text-accent">mode · channels</span>
                                     <span class="text-[11px] text-slate-500 font-mono-custom">ERP tab · Telegram · Mattermost</span>
                                 </div>
-                                <p data-i18n="projects.mcp-agent.flow.channels" class="text-sm text-slate-400 leading-relaxed"></p>
+                                <p data-i18n="projects.mcp-agent.flow.scope" class="text-sm text-slate-400 leading-relaxed"></p>
                             </div>
 
                             <div class="flex flex-wrap gap-2 text-xs mt-4">
@@ -158,7 +170,7 @@
                 <div class="mb-16">
                     <div class="mb-6">
                         <h4 class="text-2xl font-semibold mb-2">MCP Server</h4>
-                        <p data-i18n="projects.mcp-agent.server.desc" class="text-slate-400 max-w-4xl leading-relaxed"></p>
+                        <p data-i18n="projects.mcp-agent.server.desc" class="text-slate-400 leading-relaxed"></p>
                     </div>
 
                     <div class="grid lg:grid-cols-[1fr,0.85fr] gap-6">
@@ -212,7 +224,7 @@ mcp_admin__…         2</pre>
                 <div class="mb-16">
                     <div class="mb-6">
                         <h4 class="text-2xl font-semibold mb-2">Domain Agent Graph</h4>
-                        <p data-i18n="projects.mcp-agent.graph.desc" class="text-slate-400 max-w-4xl leading-relaxed"></p>
+                        <p data-i18n="projects.mcp-agent.graph.desc" class="text-slate-400 leading-relaxed"></p>
                     </div>
 
                     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
@@ -306,105 +318,11 @@ mcp_admin__…         2</pre>
                     </div>
                 </div>
 
-                <!-- Cost Architecture -->
-                <div class="mb-16">
-                    <div class="mb-6">
-                        <h4 class="text-2xl font-semibold mb-2">Cost Architecture — Codex + Hermes</h4>
-                        <p data-i18n="projects.mcp-agent.cost.desc" class="text-slate-400 max-w-4xl leading-relaxed"></p>
-                    </div>
-
-                    <div class="grid md:grid-cols-3 gap-4 mb-4">
-                        <div class="section-glow rounded-2xl border border-accent/40 bg-secondary/35 p-5">
-                            <div class="flex items-baseline justify-between mb-2">
-                                <span class="font-semibold text-accent">Hermes gateway</span>
-                                <span class="text-[11px] text-slate-500 font-mono-custom">1 container</span>
-                            </div>
-                            <p data-i18n="projects.mcp-agent.cost.gateway" class="text-sm text-slate-400 leading-relaxed"></p>
-                        </div>
-                        <div class="section-glow rounded-2xl border border-emerald-400/30 bg-secondary/35 p-5">
-                            <div class="flex items-baseline justify-between mb-2">
-                                <span class="font-semibold text-emerald-300">Codex brain</span>
-                                <span class="text-[11px] text-slate-500 font-mono-custom">flat-rate subscription</span>
-                            </div>
-                            <p data-i18n="projects.mcp-agent.cost.brain" class="text-sm text-slate-400 leading-relaxed"></p>
-                        </div>
-                        <div class="section-glow rounded-2xl border border-rose-400/30 bg-secondary/35 p-5">
-                            <div class="flex items-baseline justify-between mb-2">
-                                <span class="font-semibold text-rose-300">direct API path</span>
-                                <span class="text-[11px] text-slate-500 font-mono-custom">pay-per-token · retired</span>
-                            </div>
-                            <p data-i18n="projects.mcp-agent.cost.direct" class="text-sm text-slate-400 leading-relaxed"></p>
-                        </div>
-                    </div>
-
-                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/30 p-2 md:p-4 overflow-x-auto">
-                        <table class="w-full min-w-[720px] text-sm">
-                            <thead>
-                                <tr class="text-left text-xs text-slate-400 border-b border-slate-700/70">
-                                    <th class="px-3 py-3 font-medium">Invariant</th>
-                                    <th class="px-3 py-3 font-medium" data-i18n="projects.mcp-agent.inv.th_rule"></th>
-                                    <th class="px-3 py-3 font-medium" data-i18n="projects.mcp-agent.inv.th_origin"></th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-slate-300">
-                                <tr class="border-b border-slate-800/70">
-                                    <td class="px-3 py-3 font-mono-custom text-[12px] text-accent whitespace-nowrap">R1 · no-LLM-in-ERP</td>
-                                    <td class="px-3 py-3 text-xs" data-i18n="projects.mcp-agent.inv.r1"></td>
-                                    <td class="px-3 py-3 text-xs text-slate-400" data-i18n="projects.mcp-agent.inv.r1_o"></td>
-                                </tr>
-                                <tr class="border-b border-slate-800/70">
-                                    <td class="px-3 py-3 font-mono-custom text-[12px] text-accent whitespace-nowrap">R2 · path = payer</td>
-                                    <td class="px-3 py-3 text-xs" data-i18n="projects.mcp-agent.inv.r2"></td>
-                                    <td class="px-3 py-3 text-xs text-slate-400" data-i18n="projects.mcp-agent.inv.r2_o"></td>
-                                </tr>
-                                <tr class="border-b border-slate-800/70">
-                                    <td class="px-3 py-3 font-mono-custom text-[12px] text-accent whitespace-nowrap">R3 · two-place add</td>
-                                    <td class="px-3 py-3 text-xs" data-i18n="projects.mcp-agent.inv.r3"></td>
-                                    <td class="px-3 py-3 text-xs text-slate-400" data-i18n="projects.mcp-agent.inv.r3_o"></td>
-                                </tr>
-                                <tr class="border-b border-slate-800/70">
-                                    <td class="px-3 py-3 font-mono-custom text-[12px] text-accent whitespace-nowrap">R6 · restart rule</td>
-                                    <td class="px-3 py-3 text-xs" data-i18n="projects.mcp-agent.inv.r6"></td>
-                                    <td class="px-3 py-3 text-xs text-slate-400" data-i18n="projects.mcp-agent.inv.r6_o"></td>
-                                </tr>
-                                <tr>
-                                    <td class="px-3 py-3 font-mono-custom text-[12px] text-accent whitespace-nowrap">R7 · schema enum</td>
-                                    <td class="px-3 py-3 text-xs" data-i18n="projects.mcp-agent.inv.r7"></td>
-                                    <td class="px-3 py-3 text-xs text-slate-400" data-i18n="projects.mcp-agent.inv.r7_o"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <!-- Retrieval Layer -->
-                <div class="mb-16">
-                    <div class="mb-6">
-                        <h4 class="text-2xl font-semibold mb-2">Retrieval Layer — Tool-Grounded RAG</h4>
-                        <p data-i18n="projects.mcp-agent.rag.desc" class="text-slate-400 max-w-4xl leading-relaxed"></p>
-                    </div>
-
-                    <div class="grid md:grid-cols-3 gap-4">
-                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
-                            <div class="text-sm font-mono-custom text-accent mb-2">typed tools · 96</div>
-                            <p data-i18n="projects.mcp-agent.rag.tool" class="text-sm text-slate-400 leading-relaxed"></p>
-                        </div>
-                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
-                            <div class="text-sm font-mono-custom text-accent mb-2">domain system prompt</div>
-                            <p data-i18n="projects.mcp-agent.rag.context" class="text-sm text-slate-400 leading-relaxed"></p>
-                        </div>
-                        <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-5">
-                            <div class="text-sm font-mono-custom text-accent mb-2">missing-tool intake</div>
-                            <p data-i18n="projects.mcp-agent.rag.intake" class="text-sm text-slate-400 leading-relaxed"></p>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- MCP Monitor -->
                 <div class="mb-16">
                     <div class="mb-6">
                         <h4 class="text-2xl font-semibold mb-2">MCP Monitor</h4>
-                        <p data-i18n="projects.mcp-agent.monitor.desc" class="text-slate-400 max-w-4xl leading-relaxed"></p>
+                        <p data-i18n="projects.mcp-agent.monitor.desc" class="text-slate-400 leading-relaxed"></p>
                     </div>
 
                     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
@@ -488,8 +406,8 @@ mcp_admin__…         2</pre>
                         <h4 class="text-2xl font-semibold mb-5">Impact</h4>
                         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                             <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
-                                <div class="text-accent font-semibold mb-2">Cost</div>
-                                <p data-i18n="projects.mcp-agent.impact.cost" class="text-sm text-slate-400 leading-relaxed"></p>
+                                <div class="text-accent font-semibold mb-2">Efficiency</div>
+                                <p data-i18n="projects.mcp-agent.impact.efficiency" class="text-sm text-slate-400 leading-relaxed"></p>
                             </div>
                             <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-5">
                                 <div class="text-accent font-semibold mb-2">Safety</div>

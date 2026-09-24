@@ -159,7 +159,7 @@
         "ai1": "Edge object detection with real-time inference.",
         "ai2": "AI annotation and segmentation workflow.",
         "aiagent": "AI development environment and agent-driven workflow automation system design",
-        "mcpagent":"Codex+Hermes brain · 96 MCP tools · 13-domain agent graph · MCP admin dashboard",
+        "mcpagent":"Per-task ERP assistant agents and a wayfinding MCP tool system — 13 tasks · 96 tools",
         "erp-db": "97-table ERP DB, Excel/CSV migration, 16 daily batches.",
         "erp-arch": "150-table ERP architecture captured in 8 ADRs."
     },
@@ -828,34 +828,36 @@
             }
         },
         "mcp-agent": {
-            "main":"Built an operational agent platform where the ERP is a pure MCP tool provider with no LLM calls, a Hermes gateway runs a flat-rate Codex subscription as the brain, and 13 domain agents are arranged as a graph — including 96 tools, domain isolation and an MCP admin dashboard",
+            "main":"Built one assistant agent per ERP task and an MCP server that guides each agent to exactly its own work inside the whole system. Tool scope keeps an agent from reading unrelated areas and wasting resources, and the tool system itself is managed from an operations screen",
             "summary": {
-                "a":"ERP provides tools, Codex inside Hermes provides the brain — every path where ERP code called an LLM directly was removed, so the system runs on a flat subscription with no metered API credits",
-                "b":"MCP server mounted inside FastAPI over Streamable HTTP, exposing 96 tools from 13 domain registries only through an explicit whitelist opt-in",
-                "c":"One agent node per domain with its own system prompt, tool set and endpoint, plus an omni hub that sees every domain and coordinates cross-node work — a graph rather than a single agent",
-                "d":"An MCP admin dashboard gathering tool on/off, missing-tool intake, Codex usage and the gateway restart queue on one screen for continuous operational visibility"
+                "a":"One agent per ERP task such as pay rate, reorder or sample return — an assistant that performs the lookups and judgements the responsible team member used to do on screen",
+                "b":"Per-task tool bundles served over MCP so an agent never reads the whole system. Tools outside its task appear in neither the list nor the call",
+                "c":"Tools call the same service functions as the screens, so the number a team member sees and the number the agent reports are the same. Data-changing tools carry a separate mark and switch",
+                "d":"An operations screen that shows which tools are on and which requests failed for lack of a tool, so the tool set is adjusted from what agents actually needed"
             },
             "flow": {
-                "desc":"Requests flow one way. ERP only queues the job and hands it to Hermes; Codex decides which tools to call, and the actual reads and writes are performed again by ERP's MCP tools",
-                "queue":"Agent tab requests land in the agent_jobs queue and two workers claim them with SKIP LOCKED. 300 s limit per job, orphaned jobs requeued on restart, finished jobs kept for 7 days",
-                "scope":"A mode field in the request body switches Hermes to that domain's toolset, and a separate mapping assigns a dedicated agent per domain — isolation enforced on both the tool and the model axis",
-                "channels":"Beyond the ERP agent tab, Telegram and Mattermost gateways enter the same Hermes and use the same MCP tools. Adding a channel changes nothing on the ERP side"
+                "desc1":"An agent receives a request from its task tab and connects to the endpoint matched to its task scope.",
+                "desc2":"What to query is decided by the LLM (Codex) — Hermes hands the tool list fetched from that endpoint to the LLM on every request, and the actual reads and writes are executed by ERP tools",
+                "queue":"Requests land in the agent_jobs queue and two workers claim them with SKIP LOCKED. The messages, headed by the task's system prompt, and the task name (mode) go to the Hermes gateway; 300 s limit per job, orphaned jobs requeued on restart, finished jobs kept for 7 days",
+                "tools":"The LLM does not memorize tools. Hermes queries tools/list on the task's /mcp/&lt;domain&gt;/ endpoint, receives name, description and JSON Schema, and attaches them to the LLM request as function-calling tools. A tool switched off in the admin screen drops out of that list, so the LLM cannot call it",
+                "loop":"Codex (the LLM) reads the system prompt, the question and the tool descriptions, then decides which tool to call with which arguments. Hermes forwards the call to ERP via tools/call and puts the JSON result back into the LLM context. If the result is insufficient the LLM calls another tool; if sufficient it writes the answer. Up to 60 turns, with a warning and stop on repeated failures",
+                "scope":"The mode carried in the request makes Hermes show the LLM only that task's tool bundle. Questions from Telegram or Mattermost pass through the same gateway and tools, so wherever a team member asks, the answer rests on the same ERP tools"
             },
             "server": {
-                "desc":"Four stages: registry → catalog → transport → mount. Defining a tool in a registry does not expose it; it must be registered explicitly in the catalog — deliberate friction against tool sprawl",
-                "l1":"Per-domain TOOL_DEFINITIONS (JSON Schema) and a dispatch function that call the existing service functions directly, sharing the same formulas as the screens",
-                "l2":"Opt-in per (domain, tool) through the EXPOSED whitelist. Write tools carry a mutating flag and a warning prefix; responses are clipped at 24,000 characters",
+                "desc":"The MCP server is the map handed to each agent. Tools are defined in a registry, exposure is decided in a catalog, and endpoints are mounted per task. A tool defined but not exposed is not on the map",
+                "l1":"Per-task TOOL_DEFINITIONS (JSON Schema) and a dispatch function that call the service functions the screens already use, sharing the same formulas",
+                "l2":"Only (task, tool) pairs on the EXPOSED list are visible. Write tools carry a mutating flag and warning prefix, and responses are clipped at 24,000 characters so nothing beyond need is read",
                 "l3":"The low-level MCP Server served over Streamable HTTP (stateless, JSON responses) with Bearer token checks, excluded from cookie authentication",
-                "l4":"Domains derived automatically from the catalog, with /mcp/&lt;domain&gt;/ mounted ahead of the omni /mcp/. Without MCP_ENABLED the mount is skipped entirely",
-                "catalog":"All 13 domains follow the same file layout, so a new domain is one registry file and a few catalog lines. The 28 write tools can each be switched off from the database"
+                "l4":"Task list derived automatically from the catalog and /mcp/&lt;domain&gt;/ mounted one per task. The all-task /mcp/ remains only for cross-task work",
+                "catalog":"All 13 tasks share one file layout, so a new task's agent reaches the map with one registry file and a few catalog lines. The 28 write tools can each be switched off from the admin screen"
             },
             "graph": {
-                "desc":"A single agent covering every domain would carry close to 100 tools in one context. Splitting nodes by domain and leaving only cross-domain work to the omni hub reduces context and permissions at once",
-                "hub":"The dashboard agent that sees every domain's tools. Questions spanning two or more domains are handled here, where Codex's tool-use loop decides the order",
-                "node":"Each node has its own system prompt, tool set, dedicated endpoint and tab permission. Tools outside its domain are blocked from both the list and the call",
-                "write":"Tools that change real data or builds. Marked as writes in name and description, and individually switchable per node from the database",
-                "pipeline":"Work that needs a fixed order is registered as a job handler: collect posts → chunk → LLM call per chunk → validate → merge, plus scheduled store summaries",
-                "edge":"Edges between nodes are shared service functions and database tables. Adding a node takes two ERP places (registry, catalog) and one gateway line, and a formula change on an edge is verified on both nodes"
+                "desc":"An agent covering every task would have to read close to 100 tools on every request. Splitting nodes by task and attaching only that task's tools lets each agent find exactly its own work. Only questions spanning two tasks go to the hub",
+                "hub":"The dashboard agent that sees every task's tools. Questions involving two or more tasks are handled here, where the order of tool calls is decided",
+                "node":"Each node has its own system prompt, tool bundle, dedicated endpoint and tab permission. Tools outside its task are blocked from both the list and the call",
+                "write":"Tools that change real data or builds. Marked as writes in name and description, and individually switchable per node from the admin screen",
+                "pipeline":"Work that needs a fixed order is registered as a job handler: collect posts → chunk → call per chunk → validate → merge, plus scheduled store summaries",
+                "edge":"Edges between nodes are shared service functions and database tables. Adding a node takes three registrations (registry, catalog, gateway), and a formula change on an edge is verified on both nodes"
             },
             "domains": {
                 "retail":"Retail Reorder",
@@ -872,45 +874,19 @@
                 "score":"Score Ranking",
                 "mcp":"MCP Admin"
             },
-            "cost": {
-                "desc":"Hermes was set up as the gateway so the agent brain could be a flat-rate Codex subscription instead of a metered API. Because changing the execution path changes who pays, the path is fixed as an invariant",
-                "gateway":"Telegram, Mattermost and api_server front ends, the Codex model provider and a native MCP client in one container, talking to ERP over loopback on the same host",
-                "brain":"Codex (gpt-5.6) decides which tools to call and runs the tool-use loop. ERP only returns tool results, so no token cost is incurred on the ERP side",
-                "direct":"The legacy path where ERP called the Anthropic API directly is pay-per-token. Its default domain set is pinned to empty and a regression test blocks its return"
-            },
-            "inv": {
-                "th_rule":"Rule",
-                "th_origin":"Origin",
-                "r1":"ERP never calls an LLM. Brain = Codex, ERP = tool provider",
-                "r1_o":"Bridge layers where ERP called LLMs (LiteLLM, shim) retired",
-                "r2":"Changing the execution path changes the payer. The default direct-domain set stays empty",
-                "r2_o":"A commit that guessed its way onto the direct path exhausted credits with a 400 and stopped the production agent",
-                "r3":"Adding a tool touches registry and catalog; adding a domain also needs one gateway line",
-                "r3_o":"The gateway list is static, so a missing line yields zero tools — two real incidents",
-                "r6":"Catalog changes need no restart; new code does",
-                "r6_o":"The auto-reloader exhausted inotify watches and kept serving stale code",
-                "r7":"Tool schema enums must be lists",
-                "r7_o":"Tuples pass list queries and fail only on call — pinned by a regression test across all domains"
-            },
-            "rag": {
-                "desc":"ERP truth is relational data that changes daily, so retrieval uses typed tools instead of an embedding index. Codex reads the tool schemas, picks the queries it needs, and results are clipped to a budget before entering the context",
-                "tool":"96 tools, each a retrieval unit with an input schema, description and domain. Overview responses are trimmed to slim payloads and a 24,000-character clip fixes the context budget",
-                "context":"The domain system prompt injects terminology, business rules and prohibitions on every request. The omni hub uses the merged prompt of every domain",
-                "intake":"Calls to unknown tools and requests the agent could not answer are recorded as missing-tool requests, feeding the next round of tool development — retrieval scope widens with usage"
-            },
             "monitor": {
-                "desc":"The gateway is a separate container the ERP cannot see directly. Tool state, usage and restarts are pulled into one ERP admin tab so agent operations are controlled from the screen",
-                "tools":"Per-domain tool_count, enabled_count and mutating counts, with per-tool on/off stored in the database. Disabled tools are excluded from both listing and calls",
-                "usage":"The gateway pushes Codex usage, plan and platform connection state every 10 minutes. A stale warning appears after 25 minutes without an update",
+                "desc":"An agent monitoring dashboard: which tools are active, which requests failed for lack of a tool, the load on the app hosting the MCP server and whether the gateway is alive, all checked from the ERP admin tab where the tool set is adjusted",
+                "tools":"Per-task tool_count, enabled_count and mutating counts, with per-tool on/off stored in the database. Disabled tools are excluded from both listing and calls",
+                "usage":"The gateway pushes model usage, plan and platform connection state every 10 minutes. A stale warning appears after 25 minutes without an update",
                 "missing":"Requests the agent could not handle and calls to unregistered tools are stored with a status that admins move through review and adoption",
                 "restart":"ERP never touches containers directly. A restart request is queued, a host cron claims it every minute, runs it and reports the result back. 5-minute cooldown",
-                "signals":"Underneath, an admin-started Four Golden Signals session (latency, traffic, errors, saturation in 10 s buckets, 14-day retention) and per-domain agent queue stats support platform observation"
+                "signals":"Underneath, an admin-started Four Golden Signals session (latency, traffic, errors, saturation in 10 s buckets, 14-day retention) records in-flight requests, DB pool, event-loop lag and memory of the app process hosting the MCP server, and per-task agent queue stats show queued and running jobs"
             },
             "impact": {
-                "cost":"Agent brain pinned to a flat subscription, so metered token spend is zero. Path invariants and a regression test block any change of payer",
-                "safety":"Double domain-scope checks, write-tool marking, per-tool database switches and Bearer authentication narrow the agent's blast radius",
-                "extensibility":"13 domains share one registry format, so a new domain is one file and a few registrations. New channels change nothing on the ERP side",
-                "observability":"Tool state, Codex usage, missing tools and restarts on one screen, with the fault-isolation order (gateway registration → catalog → billing) fixed as a rule"
+                "efficiency":"Each agent reads only its own task's tools, so per-request context is fixed to one task rather than the whole system. Wandering into unrelated areas is removed structurally",
+                "safety":"Double task-scope checks, write-tool marking, per-tool switches and Bearer authentication narrow the agent's blast radius",
+                "extensibility":"A new task agent is one file and a few registrations. More team members or more channels change nothing in the ERP structure",
+                "observability":"Tool state, usage, missing tools and restarts on one screen, with the fault-isolation order (gateway registration → catalog → execution path) fixed as a rule"
             }
         },
         "agent-platform": {
