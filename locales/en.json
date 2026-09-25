@@ -828,7 +828,8 @@
             }
         },
         "mcp-agent": {
-            "main":"Built one assistant agent per ERP task and an MCP server that guides each agent to exactly its own work inside the whole system. Tool scope keeps an agent from reading unrelated areas and wasting resources, and the tool system itself is managed from an operations screen",
+            "main1":"Built one assistant agent per ERP task and an MCP server that guides each agent to exactly its own work inside the whole system",
+            "main2":"Built a dashboard to monitor and manage the whole system",
             "summary": {
                 "a":"One agent per ERP task such as pay rate, reorder or sample return — an assistant that performs the lookups and judgements the responsible team member used to do on screen",
                 "b":"Per-task tool bundles served over MCP so an agent never reads the whole system. Tools outside its task appear in neither the list nor the call",
