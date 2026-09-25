@@ -87,6 +87,61 @@
                 <p data-i18n="projects.real-time-message.summary.h" class="text-slate-400 mt-6 italic"></p>
             </div>
 
+            <!-- Problem Solving -->
+            <div class="mb-10">
+                <h2 data-i18n="projects.real-time-message.problem.title" class="text-2xl font-semibold mb-2"></h2>
+                <p data-i18n="projects.real-time-message.problem.intro" class="text-slate-400 mb-6"></p>
+
+                <div class="grid lg:grid-cols-2 gap-4 text-sm text-slate-400 leading-relaxed">
+                    <!-- Problem 1 -->
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
+                        <div data-i18n="projects.real-time-message.problem.p1-title" class="text-lg text-slate-100 font-semibold mb-4"></div>
+                        <div class="space-y-3">
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-4">
+                                <div class="text-slate-200 font-semibold mb-1">Symptom</div>
+                                <p data-i18n="projects.real-time-message.problem.p1-symptom"></p>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-4">
+                                <div class="text-slate-200 font-semibold mb-1">Fix</div>
+                                <p data-i18n="projects.real-time-message.problem.p1-fix" class="mb-2"></p>
+                                <pre class="text-xs text-slate-300 bg-primary/60 rounded-lg p-3 overflow-x-auto"><code>UNIQUE (room_id, client_msg_id)
+INSERT ... ON CONFLICT DO NOTHING RETURNING ...</code></pre>
+                                <p data-i18n="projects.real-time-message.problem.p1-principle" class="mt-2 text-slate-300"></p>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-4">
+                                <div class="text-slate-200 font-semibold mb-1">Outcome</div>
+                                <p data-i18n="projects.real-time-message.problem.p1-outcome"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Problem 2 -->
+                    <div class="section-glow rounded-2xl border border-slate-700/70 bg-secondary/35 p-6">
+                        <div data-i18n="projects.real-time-message.problem.p2-title" class="text-lg text-slate-100 font-semibold mb-4"></div>
+                        <div class="space-y-3">
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-4">
+                                <div class="text-slate-200 font-semibold mb-1">Symptom</div>
+                                <ul class="space-y-1">
+                                    <li data-i18n="projects.real-time-message.problem.p2-symptom-a"></li>
+                                    <li data-i18n="projects.real-time-message.problem.p2-symptom-b"></li>
+                                </ul>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-4">
+                                <div class="text-slate-200 font-semibold mb-1">Fix</div>
+                                <p data-i18n="projects.real-time-message.problem.p2-fix" class="mb-2"></p>
+                                <pre class="text-xs text-slate-300 bg-primary/60 rounded-lg p-3 overflow-x-auto"><code>room_seq issued by the server on save
+UNIQUE (room_id, seq)</code></pre>
+                                <p data-i18n="projects.real-time-message.problem.p2-detail" class="mt-2 text-slate-300"></p>
+                            </div>
+                            <div class="rounded-2xl border border-slate-700/60 bg-primary/30 p-4">
+                                <div class="text-slate-200 font-semibold mb-1">Outcome</div>
+                                <p data-i18n="projects.real-time-message.problem.p2-outcome"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- High-Level Architecture -->
             <div class="rounded-2xl border border-slate-700/70 bg-secondary/35 p-5 mt-5 overflow-x-auto">
                 <h2 class="text-2xl font-semibold">
@@ -507,7 +562,7 @@
 
                     <tr class="border-t border-slate-700">
                         <td data-i18n="projects.real-time-message.scale.msg" class="p-3">Daily Messages</td>
-                        <td data-i18n="projects.real-time-message.scale.msgValue" class="p-3">Hundreds ~ Thousands</td>
+                        <td data-i18n="projects.real-time-message.scale.msgValue" class="p-3">Thousands ~ Tens of thousands</td>
                     </tr>
 
                     <tr class="border-t border-slate-700">

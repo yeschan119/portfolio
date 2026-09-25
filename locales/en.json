@@ -26,10 +26,9 @@
     },
 
 
-    "skill-lang": "Hover over a language to see experience.",
     "work": {
         "koclo1": "• Designed and automated core business workflows—including sales, inventory, ordering, and settlement—as a unified ERP system",
-        "koclo2": "• Applied Software Architecture principles to the ERP system, designing and implementing the domain, API, data, and deployment layers",
+        "koclo2": "• Designed the ERP system on a modular monolith architecture, implementing the domain, API, data, and deployment layers",
         "koclo3": "• Built an AI Agent-based environment that connects system queries, controls, and automation tasks so operators can control the software more directly",
         "aiworkx1": "• Developed object detection models optimized for edge devices without GPUs",
         "aiworkx2": "• Built and productized image annotation and segmentation models using OpenCV",
@@ -43,109 +42,6 @@
 
     "peer-kokomo": "Eungchan is an engineer capable of delivering end-to-end systems, from cloud architecture design to full-stack web development. His deep expertise in databases enables him to make strong contributions to system performance and scalability.",
     "peer-tmax": "While working on the DB Optimizer team, Eungchan was responsible for the database statistics module and consistently resolved complex issues related to statistics collection and execution plans. He also collaborated closely with the team and proactively addressed database management and SQL tuning issues encountered by enterprise clients.",
-
-    "skill": {
-        "python": {
-            "years": "5 years",
-            "project": {
-                "title": "Project Experience",
-                "one": "Awarded Excellence Prize in SK Telecom AI Competition",
-                "two": "Developed multiple projects using Flask and Django (banking system, credit scoring model)",
-                "three": "Built mini games and solved algorithmic coding problems"
-            },
-            "product": {
-                "title": "Production Experience",
-                "one": "Developed Python-based desktop applications at Daewoong Pharmaceutical",
-                "two": "Worked as an AI Vision Engineer at AIWORKX",
-                "three": "Built automation systems for reporting workflows at an RDBMS company, improving operational efficiency"
-            }
-        },
-        "csharp": {
-            "years": "3 years",
-            "product": {
-                "title": "Production Experience",
-                "one": "Backend development using ASP.NET Core",
-                "two": "Developed backend systems for a large-scale web browser used by hundreds of thousands of users"
-            }
-        },
-        "cpp": {
-            "years": "5 years",
-            "project": {
-                "title": "Project Experience",
-                "one": "Designed and implemented data-level components of a database engine",
-                "two": "Built multiple algorithm-focused projects"
-            },
-            "product": {
-                "title": "Production Experience",
-                "one": "Designed logic and implemented features in R&D team at Tmax Tibero (RDBMS)",
-                "two": "Enhanced DB parser and optimizer modules (SQL Tuning Advisor, SQL Plan Management)",
-                "three": "Migrated legacy C codebase to C++",
-                "four": "Led long-term internal C++ study sessions"
-            }
-        },
-        "typescript": {
-            "years": "3 years",
-            "project": {
-                "title": "Project Experience",
-                "one": "Developed multiple mini projects"
-            },
-            "product": {
-                "title": "Production Experience",
-                "one": "Frontend development using Angular for a large-scale web browser platform",
-                "two": "Built production-grade LG Kiosk application using TypeScript"
-            }
-        },
-        "html": {
-            "years": "2 years",
-            "project": {
-                "title": "Project Experience",
-                "one": "Built personal portfolio using HTML/CSS"
-            },
-            "product": {
-                "title": "Production Experience",
-                "one": "Frontend development using Angular for a large-scale web browser platform",
-                "two": "Developed LG Kiosk application UI using HTML/CSS"
-            }
-        },
-        "sql": {
-            "years": "5 years (MySQL, Oracle, SQL Server, PostgreSQL, Tibero)",
-            "project": {
-                "title": "Project Experience",
-                "one": "Integrated databases into multiple projects across Python, Java, and C# (e.g., banking systems)"
-            },
-            "product": {
-                "title": "Production Experience",
-                "one": "Performed SQL tuning for enterprise clients (banks, companies, educational institutions)",
-                "two": "Optimized queries using execution plan analysis, indexing, partitioning, joins, and hints",
-                "three": "Designed and implemented SQL plan generation logic for production systems",
-                "four": "Improved system performance by over 30% in a large-scale web browser service"
-            }
-        },
-        "pl_sql": {
-            "years": "2 years",
-            "product": {
-                "title": "Production Experience",
-                "one": "Owned and enhanced statistics collection module in Tibero RDBMS engine",
-                "two": "Worked extensively with PL/SQL-based internal engine components"
-            }
-        },
-        "java": {
-            "years": "1 year",
-            "project": {
-                "title": "Project Experience",
-                "one": "Developed several small projects",
-                "two": "Completed coursework on object-oriented programming using Java"
-            }
-        },
-        "dart": {
-            "years": "2 years",
-            "product": {
-                "title": "Production Experience (iOS, macOS Apps)",
-                "one": "Developed unit conversion applications",
-                "two": "Built note management applications"
-            }
-        }
-    },
     "project": {
         "report": "Embedded QuickSight BI with snapshot automation.",
         "ims": "Multi-org real-time reporting, OLTP/analytics split.",
@@ -166,6 +62,7 @@
 
     "projects": {
         "bi-report": {
+            "loc": "Contribution: 80% (backend, cloud architecture design, initial UI model)",
             "main": "Production-grade AWS QuickSight–driven analytics and reporting platform designed for large-scale educational environments, combining embedded BI, multi-tenant access control, database-driven analytics modeling, and aggressive session cost optimization.",
             "summary": {
                 "a": "Embedded analytics platform fully integrated into the application UI using secure QuickSight embed flows.",
@@ -211,6 +108,7 @@
             }
         },
         "incident-management": {
+            "loc": "Contribution: 30% (front-end, back-end, cloud architecture maintenance and feature work, DB/API performance improvements)",
             "main": "Multi-tenant real-time reporting and advanced analytics platform designed for large-scale educational environments, supporting incident lifecycle management, hierarchical issue classification, role-based access control, and operational dashboards.",
             "summary": {
                 "a": "Cloud-based incident management platform built on AWS RDS, ASP.NET Core MVC, Angular, and AWS infrastructure.",
@@ -292,8 +190,9 @@
             }
         },
         "real-time-message": {
+            "loc": "Contribution: 90% (backend, cloud architecture design and UI implementation; testing and feedback by the QA team)",
             "summary": {
-                "main": "Designed and implemented a <strong>production-grade real-time messaging platform</strong> with:",
+                "main": "Designed and implemented a <strong>real-time messaging service</strong> used by staff at two hospitals. Built the SignalR Hub, the SQS → Lambda → DynamoDB persistence pipeline, the RDS archive, the AWS deployment, and the Angular UI myself; testing and feedback came from the QA team. What I implemented:",
                 "a": "WebSocket-based real-time communication (SignalR)",
                 "b": "Event-driven persistence (SQS → Lambda → DynamoDB)",
                 "c": "1:1 and Group Chat support",
@@ -301,7 +200,22 @@
                 "e": "Edit / Delete / Read Receipt lifecycle",
                 "f": "Fully deployed on AWS Elastic Beanstalk",
                 "g": "Horizontally scalable backend architecture",
-                "h": "Real-time UX combined with resilient cloud-native event processing."
+                "h": "1:1 chat was smooth; the core experience of this project was fixing the duplicate saves and ordering problems that group chat exposed, using a DB constraint and a server-issued sequence."
+            },
+            "problem": {
+                "title": "Problem Solving — two problems exposed by group chat",
+                "intro": "1:1 chat had no issues, but group chat surfaced several. Retries, reconnects, and double-clicks overlapped so the same message was saved more than once, and arrival order no longer matched processing order.",
+                "p1-title": "Problem 1 · Duplicate saves",
+                "p1-symptom": "The same message was saved multiple times because of retries, reconnects, and double-clicks",
+                "p1-fix": "The client attaches a UUID/ULID (client_msg_id) to each message; the server saves with INSERT … ON CONFLICT DO NOTHING RETURNING on top of a UNIQUE (room_id, client_msg_id) constraint",
+                "p1-principle": "Key point: the DB UNIQUE constraint is the last line of defense against duplicates; everything in front of it only exists to reduce traffic",
+                "p1-outcome": "Retries, reconnects, and double-clicks all handled at once. The server stays stateless",
+                "p2-title": "Problem 2 · Out-of-order messages",
+                "p2-symptom-a": "• Clients resending and reconnecting changed the arrival order",
+                "p2-symptom-b": "• Multiple server instances and workers meant processing order was not guaranteed",
+                "p2-fix": "On save the server issues a room_seq, pinned by a UNIQUE (room_id, seq) constraint",
+                "p2-detail": "Sorting, paging, and \"read up to where\" all use seq as the single reference",
+                "p2-outcome": "Deterministic order independent of server clocks. Gaps in seq make missing messages detectable"
             },
             "scale": {
                 "org": "Organizations",
@@ -309,7 +223,7 @@
                 "user": "Users",
                 "userValue": "Hundreds",
                 "msg": "Daily Messages",
-                "msgValue": "Hundreds ~ Thousands",
+                "msgValue": "Thousands ~ Tens of thousands",
                 "time": "Average Response",
                 "timeValue": "Real-time"
             },
@@ -322,6 +236,7 @@
                 "msg-6": "history search",
                 "msg-7": "chatting status check(in-progress/closed)",
                 "msg-8": "Online presence updates",
+                "msg-9": "Message archive stored in RDS with search",
                 "file-1": "Store files in Amazon S3",
                 "file-2": "Persist only Presigned URL in message record",
                 "file-3": "Secure direct upload from client"
@@ -329,28 +244,47 @@
             "opt": {
                 "a": "WebSocket + SignalR for minimal latency",
                 "b": "DynamoDB key-value model for scalable message storage",
-                "c": "SQS FIFO queue guarantees strict message ordering",
+                "c": "SQS FIFO keeps order inside the queue; final order is fixed by the server-issued room_seq",
                 "d": "Asynchronous persistence via SQS → Lambda",
                 "e": "RDS Optimization(index, partition, normalization) for Message Archive"
             },
             "tech": {
                 "signalR": "<strong>Why SignalR?</strong> Native WebSocket support in .NET and simplified connection management.",
-                "sqs": "<strong>Why SQS FIFO?</strong> Ensures message ordering and prevents duplicate/out-of-order persistence.",
+                "sqs": "<strong>Why SQS FIFO?</strong> Reduces reordering and duplicates inside the queue to lower downstream load. The final defense is the DB UNIQUE constraint and room_seq.",
                 "ddb": "strong>Why DynamoDB?</strong> Key-value workload optimized for chat message storage.",
                 "s3": "<strong>Why S3?</strong> Store files externally and keep database lightweight."
             },
-            "conclusion": "This project demonstrates a real-time WebSocket architecture combined with event-driven cloud infrastructure. The system ensures reliable message ordering, scalable storage, and resilient backend processing."
+            "conclusion": "A project in which I built the SignalR real-time layer, the SQS → Lambda → DynamoDB persistence pipeline, the RDS archive, and the Angular UI. The duplicate saves and ordering problems exposed by group chat were solved with a client-side ID plus a DB UNIQUE constraint and a server-issued room_seq, keeping message order deterministic and the server stateless even under retries and reconnects."
         },
         "cloud-data-platform": {
-            "summary": "Re-architected an enterprise Azure-based ETL and reporting platform into a <strong>scalable, event-driven AWS analytics system</strong>.",
-            "summary-detail": "This was not a lift-and-shift migration — it was a <strong>full redesign</strong> of the entire data platform including pipeline, orchestration, snapshot generation, and reporting architecture.",
-            "outcomes": {
-                "a": "Event-driven distributed architecture",
-                "b": "Distributed snapshot generation engine",
-                "c": "Horizontal scalability",
-                "d": "Infrastructure cost optimization",
-                "e": "Metadata-driven orchestration",
-                "f": "Power BI → Amazon QuickSight migration"
+            "loc": "Contribution: 80% (frontend by a teammate; backend, data pipeline, and AWS infrastructure implemented by me)",
+            "summary": "Re-architected an Azure-based ETL and reporting platform into an <strong>event-driven AWS analytics system</strong>. Implemented everything except the frontend: backend API, data pipeline, snapshot engine, and AWS infrastructure.",
+            "summary-detail": "Not a lift-and-shift — a <strong>redesign</strong> of the pipeline, orchestration, snapshot generation, and reporting structure. The overall design was discussed as a team; the execution-condition snapshot cache was my proposal and my implementation.",
+            "scope": {
+                "mine-title": "Implemented by me",
+                "a": ".NET API trigger layer and Lambda trigger",
+                "b": "DynamoDB metadata store — per-user report execution conditions",
+                "c": "SQS job queue and Step Functions orchestration",
+                "d": "EC2 Auto Scaling workers (Node.js) — QuickSight report rendering and S3 snapshot storage",
+                "e": "Migration of Azure Data Lake, SQL, and Data Factory to S3, RDS, and Step Functions",
+                "f": "Power BI → QuickSight report conversion and embed URL issuance",
+                "team-title": "Owned by a teammate",
+                "g": "Frontend (embedded report screens)"
+            },
+            "problem": {
+                "title": "Problem Solving — cost and performance with one design",
+                "p1-title": "Problem 1 · Cost",
+                "p1": "QuickSight embedding is billed per iframe execution, so a careless design can run up a huge bill in a very short time",
+                "p2-title": "Problem 2 · Performance",
+                "p2": "There is unavoidable latency from the Lambda trigger through reading the database to generating the report, and when many users run reports at the same time this becomes a serious performance problem",
+                "sol-title": "Solution · Execution-condition snapshot cache",
+                "sol-a": "On the first run under a given set of conditions, the generated report is stored in S3",
+                "sol-b": "Any user running the report under identical conditions is served the pre-generated report as is — no BI session, no rendering",
+                "sol-c": "To decide whether the conditions match, each user's execution conditions are stored and maintained in DynamoDB whenever they change",
+                "decision-title": "Design decision",
+                "decision": "Chosen from several caching approaches discussed by the team. Managing per-user execution conditions in DynamoDB was my proposal, and I implemented it",
+                "result-title": "Result",
+                "result": "The design that solved Problem 1 (cost) also solved Problem 2 (performance) — repeat runs under the same conditions are answered from the S3 snapshot with no session charge and no rendering latency"
             },
             "legacy-components": {
             "event-hubs": "Azure Event Hubs",
@@ -389,9 +323,10 @@
                 "power-bi": "Power BI → Amazon QuickSight",
                 "sqs": "SQS-based distributed worker model"
             },
-                "conclusion": "This migration demonstrates deep cloud architecture redesign capability, distributed system design, event-driven orchestration, scalable analytics infrastructure, and cost-aware cloud engineering."
+                "conclusion": "A migration in which I implemented every part except the frontend. Two problems — per-execution billing and concurrent-run latency — were solved with a single execution-condition snapshot cache, with DynamoDB as the matching store that I proposed and built."
         },
         "apm-dashboard": {
+            "loc": "Contribution: 100% (idea, design, implementation)",
             "summary": {
                 "main": "APM-Dashboard is a custom-built internal <strong>Application Performance Monitoring(APM)</strong> system implemented using the <strong>.NET OpenTelemetry SDK.</strong>",
                 "sub1": "The platform instruments ASP.NET Core applications to capture distributed traces across <strong>Controller → API → SQL</strong> layers, exports structured telemetry data via a custom exporter, and persists it in DynamoDB. An Angular-based dashboard provides performance benchmarking, trace inspection, and activity analysis.",
@@ -506,6 +441,8 @@
             "header": {
                 "title": "Database Administration & Engine Engineering",
                 "subtitle": "Enterprise RDBMS · DBA · Optimizer · Engine Internals",
+                "desc1": "Hands-on experience across both <strong>enterprise production issue resolution</strong> and <strong>RDBMS core engine development</strong>.",
+                "desc2": "Improved the stability and performance of enterprise and financial systems through SQL tuning, query optimizer improvement, and execution plan stabilization.",
                 "description": "Database Engineer with hands-on experience across both <strong>enterprise production issue resolution</strong> and <strong>RDBMS core engine development</strong>. Worked on SQL tuning, query optimizer improvement, execution plan stability, and engine-level performance fixes for enterprise and financial systems."
             },
 
@@ -525,7 +462,7 @@
             "track1": {
                 "title": "Production DB Performance Engineering",
                 "desc": "Worked directly on real enterprise customer incidents in production environments. Focused on performance degradation, execution plan instability.",
-                "customer": "Enterprise / finance / telecom-scale systems. Planned to include customer case references such as KT, Hyundai Motor, Shinhan Bank, and Woori Bank.",
+                "customer": "Enterprise, finance, and telecom-scale customer systems (customer names withheld).",
                 "problem": "Query slowdown, unstable execution plans, stale or missing statistics, schema bottlenecks, partitioning inefficiency, and emergency database incidents.",
                 "solution": "Execution plan analysis, statistics validation, index redesign, query rewriting, schema tuning, and engine-level patch development when SQL tuning alone was insufficient."
             },
@@ -557,7 +494,35 @@
                     "case3": "• Applied schema / index / partition / engine-level fixes with reproducible validation",
                     "case4": "• Cases where SQL-level tuning alone was not sufficient"
                 },
-                "result": "Planned customer-facing references for this section include large-scale enterprise and finance environments such as <strong>KT, Hyundai Motor, Shinhan Bank, and Woori Bank</strong>."
+                "result": "Based on cases handled directly in large-scale enterprise and finance customer environments (customer names withheld).",
+                "cases": {
+                    "c1": {
+                        "title": "Customer Case 1. Nightly batch slowdown and morning query degradation at a commercial bank",
+                        "badge": "Production Issue · Finance",
+                        "env": "Commercial bank database · several hundred tables",
+                        "symptom1": "• Latency of the nightly batch more than doubled, delaying the batches scheduled after it",
+                        "symptom2": "• Queries run each morning after the batch degraded sharply (p50 from 300ms to over 1s)",
+                        "cause1": "• Too many indexes had been added to speed up reads (6 or more per table), which crippled DML throughput during the batch",
+                        "cause2": "• Statistics were not refreshed right after the batch, so the optimizer built plans on stale data",
+                        "action1": "• Kept only the indexes the read workload actually needed and dropped the rest",
+                        "action2": "• Re-scheduled the batch so that statistics collection runs as part of the same job immediately after it",
+                        "outcome1": "• Batch now completes within its required latency window",
+                        "outcome2": "• Morning query p50 recovered to under 400ms"
+                    },
+                    "c2": {
+                        "title": "Customer Case 2. Unstable execution plans at a major telecom carrier",
+                        "badge": "Production Issue · Telecom → Product Feature",
+                        "env": "Major telecom carrier database · several hundred tables",
+                        "symptom1": "• For a specific business logic, the customer's DBA team tuned the plan through extensive testing, but the plan kept changing and performance issues recurred",
+                        "symptom2": "• The same problem came back on every statistics collection cycle",
+                        "cause1": "• Plans depend heavily on optimizer statistics, so every statistics refresh reset the tuned plan",
+                        "cause2": "• Stopping statistics collection was not an option, since stale statistics would seriously hurt every other plan",
+                        "action1": "• Introduced a patch that stores plans separately and lets a specific logic run with a designated plan when needed",
+                        "action2": "• Implemented this patch as the SPM (SQL Plan Management) feature",
+                        "outcome1": "• Statistics collection continues as before, while the affected logic runs on its pinned plan",
+                        "outcome2": "• Released as an enterprise product feature (SPM) — see Case Study 1 below"
+                    }
+                }
             },
 
             "case1": {
@@ -602,6 +567,7 @@
             }
         },
         "sql-tuning-advisor": {
+            "loc": "Contribution: 50% (developed together with one colleague)",
             "header": {
                 "title": "SQL Tuning Advisor",
                 "desc": "Designed and implemented an automated SQL tuning system by reverse-engineering Oracle SQL Tuning Advisor. The system analyzes slow SQL and generates optimization recommendations including SQL Profile, index suggestions, statistics fixes, and SQL rewrites."
@@ -795,6 +761,7 @@
         },
         "erp-database": {
             "main": "A project to move seven years of data managed in Excel and CSV files into a database — database design, data migration, and a DB monitoring dashboard.",
+            "loc": "Contribution: 100% (schema design, migration, batch implementation)",
             "summary": {
                 "a": "97 tables built out across 5 domains.",
                 "b": "Schema designed in recurring sessions with the operations and merchandising owners.",
@@ -830,6 +797,7 @@
         "mcp-agent": {
             "main1":"Built one assistant agent per ERP task and an MCP server that guides each agent to exactly its own work inside the whole system",
             "main2":"Built a dashboard to monitor and manage the whole system",
+            "loc":"Contribution: 100% (design, implementation, operations)",
             "summary": {
                 "a":"One agent per ERP task such as pay rate, reorder or sample return — an assistant that performs the lookups and judgements the responsible team member used to do on screen",
                 "b":"Per-task tool bundles served over MCP so an agent never reads the whole system. Tools outside its task appear in neither the list nor the call",
@@ -892,6 +860,7 @@
         },
         "agent-platform": {
             "main": "Built an AI development environment spanning harness, skills, hooks, tests and specialized sub-agents, then shipped it as a marketplace plugin, implementing a system that manages development rules and workflows at team level",
+            "loc": "Contribution: 100% (design, implementation, marketplace deployment)",
             "dist": {
                 "desc": "Packaged the environment into a GitHub team marketplace rather than leaving it as personal configuration, so two commands apply the same rules, agents and verification procedures",
                 "install": "Marketplace manifests published for both Claude Code and Codex so the same plugin installs regardless of runtime, with a SessionStart hook injecting shared development policy into new sessions",
@@ -974,6 +943,7 @@
         },
             "erp-architecture": {
                 "main": "An in-house ERP that automates purchasing, inventory, ordering and settlement for 10 apparel retail stores — alternatives compared against quality attributes and constraints, with the key design decisions and trade-offs documented in 8 ADRs.",
+                "loc": "Contribution: 100% (architecture design, ADR authoring, implementation)",
                 "summary": {
                     "a": "Files from vendors and POS are cleaned and evaluated overnight, then delivered as per-store order sheets (.xls) and 60 operating tabs.",
                     "b": "Scalability was left out of the quality goals given the system's size; accuracy and change velocity were set as the priorities.",
@@ -1058,6 +1028,7 @@
                 },
                 "style": {
                     "desc": "Structural choices, and the alternatives that were ruled out.",
+                    "monolith": "Deployed as a single process with a single database, while each of the 60 tabs is an independent service · router · view module. One deployment unit, tab-level change unit.",
                     "layered": "Each tab is split into three files: service (computation), router (JSON I/O) and Vue (UI). The server does not render HTML, and the UI layer does not compute.",
                     "cs": "The SPA uses JSON APIs only. With no server templates, screen changes do not require a server restart.",
                     "pipeline": "The batch and web layers run in separate processes, drivers and time windows, connected only through tables. A failure in one does not affect the other.",

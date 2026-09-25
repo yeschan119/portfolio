@@ -189,50 +189,8 @@ html {
     opacity: .9;
 }
 
-.tooltip-box {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%) translateY(4px) scale(0.95);
-    bottom: 100%;
-    margin-bottom: 12px;
 
-    width: 400px;
-    max-width: 95vw;
 
-    opacity: 0;
-    pointer-events: none;
-
-    transition: all 0.2s ease;
-
-    background: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(12px);
-
-    border: 1px solid #334155;
-    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1);
-
-    border-radius: 12px;
-    padding: 16px;
-    z-index: 50;
-}
-
-.group:hover .tooltip-box {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0) scale(1);
-}
-
-.tooltip-arrow {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%) rotate(45deg);
-
-    width: 10px;
-    height: 10px;
-
-    background: #0f172a;
-    border-right: 1px solid #334155;
-    border-bottom: 1px solid #334155;
-}
 
 /* split animation */
 #chatOverlay.active #splitTop {
@@ -785,16 +743,6 @@ section h3::after {
     border-color: rgba(0,180,216,.55);
     color: #cfeffb;
     box-shadow: var(--neu-glow), var(--neu-sm);
-}
-.tooltip-box {
-    background: rgba(26,26,46,.92);
-    border: 1px solid rgba(255,255,255,.08);
-    box-shadow: var(--neu-raised);
-}
-.tooltip-arrow {
-    background: rgba(26,26,46,.92);
-    border-right: 1px solid rgba(255,255,255,.08);
-    border-bottom: 1px solid rgba(255,255,255,.08);
 }
 
 /* AI chat recolor */
